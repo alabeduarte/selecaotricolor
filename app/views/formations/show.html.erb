@@ -1,0 +1,71 @@
+<!doctype html> 
+<head> 
+<script type="text/javascript"> 
+
+$( load_soccer_field );
+$( load_formation );
+
+function load_formation() {
+	var lines = matrixModel.length;
+	var columns = matrixModel[lines-1].length;
+	
+	var total = lines*columns;
+	
+	$.getJSON(window.location.pathname + '.json', function(data) {
+  		$.each(data, function(i, formation){
+			$.each(formation.players_positions, function(j, player_position){
+				var x = player_position.x;
+				var y = player_position.y;
+				var player = player_position.element.player;
+				var element = player.number;
+				
+				$('<div id="player_' + element + '"><p>' 
+				+ player.number + '</p><span id="playerName_' 
+				+ element + '" class="playerName">' 
+				+ player.name + '</span></div>').appendTo('#player');
+				
+				for(var index = 0; index < total; index++) {
+					if (x == 0) {
+						if (index == y) {
+							add(index, element);
+						}
+					} else {
+						var nextPosition = (columns * x) + y;
+						if (index == nextPosition) {
+							add(index, element);
+						}
+					}
+				}
+				if (x == -1 && y == -1) {
+					var slotId = '#gk';
+					$(slotId).html(element);
+				}
+			
+	        });	
+        });		
+	});
+}
+
+function add(index, element) {
+	var slotId = '#' + (index+1);
+	$(slotId).html(element);
+	$(slotId).addClass("team");
+}
+
+</script> 
+ 
+</head> 
+<body>
+	<div class="ui-body ui-body-c">
+		<h1>Pronto! Você é o técnico!</h1>
+	</div>
+	
+    <div id="soccerField">
+      <div id="player"></div>
+      <div id="emptySlot"></div>
+    </div>
+
+    <div id="matrix"></div>
+	<div id="json"></div>
+</body> 
+</html>

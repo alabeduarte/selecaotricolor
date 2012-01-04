@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pronto! Você é o Técnico!</title>
+  <%= stylesheet_link_tag 'style', 'themes/base/jquery.ui.all' %>
+  <%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'formation'  %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+	<div id="dialog-message" title="Hey!">
+		<p id="custom-alert-message"/>
+	</div>
+	<% if flash[:notice] -%>
+		<div id="notice"><%= flash[:notice] %></div>
+	<% end -%>
+	
+	<%= yield %>
+
+	<script type="text/javascript">
+		<%= yield :js %>
+	</script>
+
+</body>
+</html>

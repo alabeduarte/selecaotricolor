@@ -104,6 +104,12 @@ class PlayerFormationPositionTest < ActiveSupport::TestCase
     assert_equal 11, some_formation.players_positions.length
   end
   
+  test "should obtain all players" do
+    create_players
+    all_players = Player.all
+    puts all_players.to_json
+  end
+  
   def teardown
     PlayerFormationPosition.delete_all
     Formation.delete_all
@@ -114,18 +120,19 @@ class PlayerFormationPositionTest < ActiveSupport::TestCase
   private
   
   def create_players
+    team = Team.new
     players = Array.new
-    players << Player.new(:number => 1, :name => 'Some Player', :team => Team.new)
-    players << Player.new(:number => 2, :name => 'Some Player', :team => Team.new)
-    players << Player.new(:number => 3, :name => 'Some Player', :team => Team.new)
-    players << Player.new(:number => 4, :name => 'Some Player', :team => Team.new)
-    players << Player.new(:number => 5, :name => 'Some Player', :team => Team.new)
-    players << Player.new(:number => 6, :name => 'Some Player', :team => Team.new)
-    players << Player.new(:number => 7, :name => 'Some Player', :team => Team.new)
-    players << Player.new(:number => 8, :name => 'Some Player', :team => Team.new)
-    players << Player.new(:number => 9, :name => 'Some Player', :team => Team.new)
-    players << Player.new(:number => 10, :name => 'Some Player', :team => Team.new)
-    players << Player.new(:number => 11, :name => 'Some Player', :team => Team.new)
+    players << Player.new(:number => 1, :name => 'Some Player', :team => team)
+    players << Player.new(:number => 2, :name => 'Some Player', :team => team)
+    players << Player.new(:number => 3, :name => 'Some Player', :team => team)
+    players << Player.new(:number => 4, :name => 'Some Player', :team => team)
+    players << Player.new(:number => 5, :name => 'Some Player', :team => team)
+    players << Player.new(:number => 6, :name => 'Some Player', :team => team)
+    players << Player.new(:number => 7, :name => 'Some Player', :team => team)
+    players << Player.new(:number => 8, :name => 'Some Player', :team => team)
+    players << Player.new(:number => 9, :name => 'Some Player', :team => team)
+    players << Player.new(:number => 10, :name => 'Some Player', :team => team)
+    players << Player.new(:number => 11, :name => 'Some Player', :team => team)
     players.each do |p|
       p.save!
     end

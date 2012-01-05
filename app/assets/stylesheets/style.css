@@ -7,10 +7,6 @@
 }
 
 #player {
-  /*background-image: url(../../assets/soccer_field.png);
-  background-repeat:no-repeat;
-  background-position:center;
-  */
   background-color: white;
 		
   position:absolute;

@@ -1,5 +1,6 @@
 class Player
   include MongoMapper::Document
+  self.include_root_in_json = true
   
   key :name, String
   key :number, Integer

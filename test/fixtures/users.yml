@@ -1,7 +1,0 @@
-<% SALT = "NaCl" unless defined?(SALT) %>
-
-one:
-    id: 1
-    email: one@xmail.com
-    hashed_password: <%= Authenticator::encrypt_password('secret', SALT) %> 
-    salt: <%= SALT %>

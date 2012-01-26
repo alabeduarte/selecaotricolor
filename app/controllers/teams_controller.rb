@@ -1,7 +1,5 @@
 class TeamsController < ApplicationController
   
-  skip_before_filter :authorize, :only => [:index, :show]
-  
   # GET /teams
   # GET /teams.xml
   def index

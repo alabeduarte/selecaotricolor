@@ -1,7 +1,5 @@
 class FormationsController < ApplicationController
 
-  #skip_before_filter :authorize, :only => [:index]
-
   respond_to :json, :html
 
   def index

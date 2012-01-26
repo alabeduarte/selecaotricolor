@@ -1,5 +1,6 @@
 class Formation
   include MongoMapper::Document
+  self.include_root_in_json = true
   
   many :players_positions, :class_name => 'PlayerFormationPosition'
   
@@ -10,7 +11,8 @@ class Formation
       x_value = item["formation"]["x"]
       y_value = item["formation"]["y"]
       
-      players_positions << PlayerFormationPosition.new(:player => Player.find(element_value.to_i), :x => x_value, :y => y_value)
+      player = Player.find(element_value.to_s)
+      players_positions << PlayerFormationPosition.new(:player => player, :x => x_value, :y => y_value)
     end
     Formation.new :players_positions => players_positions
   end

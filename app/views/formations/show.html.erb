@@ -16,7 +16,7 @@ function load_formation() {
 			$.each(formation.players_positions, function(j, player_position){
 				var x = player_position.x;
 				var y = player_position.y;
-				var player = player_position.element.player;
+				var player = player_position.player;
 				var element = player.number;
 				
 				$('<div id="player_' + element + '"><p>' 

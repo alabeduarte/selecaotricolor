@@ -72,6 +72,8 @@ class PlayerFormationPositionTest < ActiveSupport::TestCase
     formation = Formation.create_from parsed_json
     players_positions = formation.players_positions
     
+    p players_positions
+    
     assert_not_nil players_positions[0]
     assert_not_nil players_positions[0].x
     assert_not_nil players_positions[0].y

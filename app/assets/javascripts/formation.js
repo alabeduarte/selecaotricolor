@@ -220,7 +220,7 @@ function convertMatrixModelToJson() {
 	var element = 0;
     for(var y = 0; y < matrixModel[x].length; y++) {
       element = matrixModel[x][y]? matrixModel[x][y]: 0;
-	  if (element > 0) {
+	  if (element != 0) {
       	json += ' { "formation": { ';
       	json += '         "player": "' + element + '"';
       	json += '         , ';
@@ -234,7 +234,7 @@ function convertMatrixModelToJson() {
       	}
 	  }
     }
-    if (element > 0) {
+    if (element != 0) {
       if ((x+1) < matrixModel.length) {
         json += ' , ';
       }

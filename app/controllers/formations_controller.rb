@@ -1,6 +1,6 @@
 class FormationsController < ApplicationController
 
-  skip_before_filter :authorize, :only => [:index]
+  #skip_before_filter :authorize, :only => [:index]
 
   respond_to :json, :html
 
@@ -32,7 +32,11 @@ class FormationsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       #format.json  { render :json => @formation.players_positions }
-      format.json  { render :json => @formation.to_json(:include => {:players_positions => {:except => [:created_at, :updated_at]}}) }
+      format.json  { 
+        render :json => @formation.as_json(:include => {
+          :players_positions => {:include => :player}
+        }) 
+      }
     end
   end
   

@@ -1,8 +1,20 @@
 UcoachManager::Application.routes.draw do
 
+  devise_for :users, :skip => [:sessions] do
+    get "login", to: "devise/sessions#new", :as => :new_user_session
+    get "login", to: "devise/sessions#new"
+    
+    post 'login', to: 'devise/sessions#create', :as => :user_session
+    get 'logout', to: 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+  
+  devise_for :users, :skip => [:registrations] do
+    get "registration", to: "devise/registrations#new", :as => :new_user_registration
+  end
+
   root :to => "formations#index"
 
-  resources :users, :teams, :formations, :players
+  resources :teams, :formations, :players
   
   controller :formations do
     get 'index' => :index
@@ -13,17 +25,6 @@ UcoachManager::Application.routes.draw do
     delete 'destroy' => :destroy
   end
   
-  controller :login do
-    get  'register' => :new
-    get  'login' => :index
-    post  'register' => :register
-    post 'login' => :logon
-    delete 'logout' => :logout
-  end
-  
-  #get "logon", :controller => :login, :action => :logon
-  #post "logon", :controller => :login, :action => :logon
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

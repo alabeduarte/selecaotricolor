@@ -1,7 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2'
-gem 'mongo_mapper'
+gem 'rails', '3.2.0'
+gem 'mongo', '1.5.2'
+gem 'bson', '1.5.2'
+gem 'bson_ext', '1.5.2'
+gem 'mongo_mapper', '0.10.1'
+gem 'devise', '1.5.3'
+gem 'mm-devise'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -11,8 +16,8 @@ gem 'mongo_mapper'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.0'
-  gem 'coffee-rails', '~> 3.2.0'
+  gem 'sass-rails', "  ~> 3.2.3"
+  gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier', '>= 1.0.3'
 end
 

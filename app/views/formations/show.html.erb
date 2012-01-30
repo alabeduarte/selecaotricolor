@@ -48,7 +48,7 @@ function load_formation() {
 
 function add(index, element) {
 	var slotId = '#' + (index+1);
-	$(slotId).html(element);
+	$(slotId).html('<p>' + element + '</p>');
 	$(slotId).addClass("team");
 }
 
@@ -56,10 +56,6 @@ function add(index, element) {
  
 </head> 
 <body>
-	<div class="ui-body ui-body-c">
-		<h1>Pronto! Você é o técnico!</h1>
-	</div>
-	
     <div id="soccerField">
       <div id="player"></div>
       <div id="emptySlot"></div>

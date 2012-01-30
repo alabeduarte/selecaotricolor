@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.1'
 gem 'mongo', '1.5.2'
 gem 'bson', '1.5.2'
 gem 'bson_ext', '1.5.2'
-gem 'mongo_mapper', '0.10.1'
-gem 'devise', '1.5.3'
+gem 'mongo_mapper', '0.11.0'
+gem 'devise', '2.0.0'
 gem 'mm-devise'
 
 # Bundle edge Rails instead:

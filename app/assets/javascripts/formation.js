@@ -135,7 +135,7 @@ function createPlayers() {
 		$.each(data, function(i, allPlayers) {
 			$.each(allPlayers, function(j, player) {
 				var playerId = i+1;
-			    $('<div id=' + player.id + ' ><p>' 
+			    $('<div id=' + player.id + '><p>' 
 						+ player.number +
 						'</p><span id="playerName_' + playerId + '" class="playerName">' + player.name + '</span></div>')
 						.data('number', i).appendTo('#player').draggable( {

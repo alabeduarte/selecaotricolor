@@ -1,6 +1,6 @@
 <%= form_for(@player) do |f| %>
   <% if @player.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert-message error">
       <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
 
       <ul>
@@ -26,6 +26,6 @@
     <%= f.text_field :number %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn" %>
   </div>
 <% end %>

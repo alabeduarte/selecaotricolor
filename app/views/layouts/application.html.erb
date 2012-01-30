@@ -2,23 +2,33 @@
 <html>
 <head>
   <title>Pronto! Você é o Técnico!</title>
-  <%= stylesheet_link_tag 'style', 'themes/base/jquery.ui.all' %>
+  <%= stylesheet_link_tag 'style', 'bootstrap.min', 'themes/base/jquery.ui.all' %>
   <%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'formation'  %>
   <%= csrf_meta_tag %>
+  <%= favicon_link_tag %>
 </head>
 <body>
-	<div id="dialog-message" title="Hey!">
-		<p id="custom-alert-message"/>
+  	<div class="container">
+		<div id="dialog-message" title="Hey!">
+			<p id="custom-alert-message"/>
+		</div>
+		<h1>Pronto! Você é o técnico!</h1>
+		
+		<ul class="pills">
+		  <li><%= menu_link_to 'Home', :root %></li>		  
+		  <li><%= menu_link_to 'Táticas enviadas', :list %></li>
+		  <li><%= menu_link_to 'Jogadores', :players %></li>
+		  <li><%= menu_link_to 'Times', :teams %></li>
+		</ul>
+		<% if flash[:notice] -%>
+			<div id="notice" class="alert-message"><%= flash[:notice] %></div>
+		<% end -%>
+		
+		<%= yield %>
+
+		<script type="text/javascript">
+			<%= yield :javascript %>
+		</script>
 	</div>
-	<% if flash[:notice] -%>
-		<div id="notice"><%= flash[:notice] %></div>
-	<% end -%>
-	
-	<%= yield %>
-
-	<script type="text/javascript">
-		<%= yield :js %>
-	</script>
-
 </body>
 </html>

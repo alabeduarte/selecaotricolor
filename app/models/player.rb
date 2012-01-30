@@ -2,6 +2,8 @@ class Player
   include MongoMapper::Document
   self.include_root_in_json = true
   
+  many :positions, :class_name => 'PlayerFormationPosition', :dependent => :destroy
+  
   key :name, String
   key :number, Integer
   key :team_id, ObjectId

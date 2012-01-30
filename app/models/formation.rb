@@ -2,7 +2,7 @@ class Formation
   include MongoMapper::Document
   self.include_root_in_json = true
   
-  many :players_positions, :class_name => 'PlayerFormationPosition'
+  many :players_positions, :class_name => 'PlayerFormationPosition', :dependent => :destroy
   
   def self.create_from(data)
     players_positions = Array.new

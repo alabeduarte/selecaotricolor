@@ -50,5 +50,14 @@ class FormationsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def reports
+    @player = Player.find_by_name(params["player_name"])
+    if @player
+      @player
+    else
+      @player = Player.new
+    end
+  end
 
 end

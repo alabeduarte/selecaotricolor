@@ -22,6 +22,8 @@ UcoachManager::Application.routes.draw do
     get 'list' => :list
     get 'edit' => :edit
     get 'show' => :show
+    get 'reports' => :reports
+    post 'reports' => :reports
     delete 'destroy' => :destroy
   end
   

@@ -14,5 +14,5 @@ test:
 production:
   <<: *defaults
   database: ENV['MONGOLAB_URI']
-  username: <%= ENV['MONGO_USERNAME'] %>
-  password: <%= ENV['MONGO_PASSWORD'] %>
+  username: selecaotricolor#<%= ENV['MONGO_USERNAME'] %>
+  password: selecaotricolor#<%= ENV['MONGO_PASSWORD'] %>

@@ -13,6 +13,6 @@ test:
 # set these environment variables on your prod server
 production:
   <<: *defaults
-  database: ucoach_manager
+  database: ENV['MONGOLAB_URI']
   username: <%= ENV['MONGO_USERNAME'] %>
   password: <%= ENV['MONGO_PASSWORD'] %>

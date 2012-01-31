@@ -4,15 +4,15 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: test_with_mongodb_development
+  database: ucoach_manager_development
 
 test:
   <<: *defaults
-  database: test_with_mongodb_test
+  database: ucoach_manager_test
 
 # set these environment variables on your prod server
 production:
   <<: *defaults
-  database: test_with_mongodb
+  database: ucoach_manager
   username: <%= ENV['MONGO_USERNAME'] %>
   password: <%= ENV['MONGO_PASSWORD'] %>

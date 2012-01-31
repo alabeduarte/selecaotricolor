@@ -2,7 +2,11 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.xml
   def index
-    @players = Player.all
+    if params[:team_id]
+      @players = Player.all(:team_id => params[:team_id])
+    else
+      @players = Player.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

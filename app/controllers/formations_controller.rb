@@ -3,6 +3,7 @@ class FormationsController < ApplicationController
   respond_to :json, :html
 
   def index
+    @current_team = Team.first(:name => 'Bahia')
   end
 
   def send_formation

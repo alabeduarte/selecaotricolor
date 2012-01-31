@@ -106,32 +106,9 @@ function isSelected(element) {
 
 
 function createPlayers() {
-   // Create the soccer players
-  /*
-  var players = new Array();
-  for ( var i = 1; i <= 23; i++ ) {
-    players[i-1] = i;
-  }
-                  
-  for ( var i = 1; i <= players.length; i++ ) {
-    var index = i-1;
-	var playerId = players[index];
-    $('<div id=' + playerId + ' ><p>' 
-			+ playerId +
-			'</p><span id="playerName_' + playerId + '" class="playerName">Nome do Jogador</span></div>')
-			.data('number', i).appendTo('#player').draggable( {
-      containment: '#soccerField',
-      stack: '#player div',
-      cursor: 'move',
-      revert: true
-    } );
-  }
-  return players;
-  */
-
 	var players = new Array();
-
-  	$.getJSON('/players.json', function(data) {
+    var uri = '/players.json?team_id=' + $('#team_id').val();
+  	$.getJSON(uri, function(data) {
 		$.each(data, function(i, allPlayers) {
 			$.each(allPlayers, function(j, player) {
 				var playerId = i+1;

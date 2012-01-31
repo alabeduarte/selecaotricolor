@@ -20,6 +20,10 @@ function hiddePlayerNames() {
 <a href="index" class="btn info">Novo</a>
 <button onclick="send();" class="btn success">Enviar</button>
 
+<%= form_for(@current_team) do |f| %>
+	<%= f.hidden_field 'id' %>
+<% end %>
+
 <div id="soccerField">
 	<div class="sidebar">
 		<div id="player"></div>

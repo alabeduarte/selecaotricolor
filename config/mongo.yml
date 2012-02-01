@@ -12,9 +12,6 @@ test:
 
 # set these environment variables on your prod server
 production:
-  <<: *defaults
-  host: ENV['MONGOHQ_HOST']
-  port: ENV['MONGOHQ_PORT']
   database: ENV['MONGOHQ_URL']
   username: <%= ENV['MONGO_USERNAME'] %>
   password: <%= ENV['MONGO_PASSWORD'] %>

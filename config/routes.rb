@@ -17,7 +17,7 @@ UcoachManager::Application.routes.draw do
   # root :to => "formations#index"
   root :to => "welcome#index"
 
-  resources :teams, :formations, :players
+  resources :teams, :formations, :players, :calendars
   
   controller :formations do
     get 'index' => :index

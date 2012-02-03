@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  day: 2012-02-03
+  hour: 2012-02-03 18:02:27
+
+two:
+  day: 2012-02-03
+  hour: 2012-02-03 18:02:27

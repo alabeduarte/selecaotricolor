@@ -1,4 +1,11 @@
-MongoMapper.database = "app-#{Rails.env}"
+# MongoMapper.database = "app-#{Rails.env}"
+if ENV['MONGOHQ_URL'] =~ /\/([^\/]+)$/
+  MongoMapper.database = $1
+else
+  MongoMapper.database = "app-#{Rails.env}"
+end
+
+MongoMapper.connect(Rails.env)
 
 if defined?(PhusionPassenger)
    PhusionPassenger.on_event(:starting_worker_process) do |forked|

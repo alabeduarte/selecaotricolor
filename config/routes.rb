@@ -1,5 +1,7 @@
 UcoachManager::Application.routes.draw do
 
+  get "welcome/index"
+
   devise_for :users, :skip => [:sessions] do
     get "login", to: "devise/sessions#new", :as => :new_user_session
     get "login", to: "devise/sessions#new"
@@ -12,7 +14,8 @@ UcoachManager::Application.routes.draw do
     get "registration", to: "devise/registrations#new", :as => :new_user_registration
   end
 
-  root :to => "formations#index"
+  # root :to => "formations#index"
+  root :to => "welcome#index"
 
   resources :teams, :formations, :players
   

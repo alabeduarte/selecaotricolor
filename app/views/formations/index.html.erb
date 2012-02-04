@@ -24,6 +24,13 @@ function hiddePlayerNames() {
 	<%= f.hidden_field 'id' %>
 <% end %>
 
+<h1>
+	Próxima partida: <%= @next_match.day %>
+</h1>
+<h2>
+	<%= "#{@next_match.home.name} x #{@next_match.away.name}" %>
+</h2>
+
 <div id="soccerField">
 	<div class="sidebar">
 		<div id="player"></div>

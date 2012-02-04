@@ -3,6 +3,7 @@ class Team
   
   key :name, String
   many :players
+  many :calendars
   
   validates :name, :presence => true, :uniqueness => true
   

@@ -3,11 +3,14 @@ class FormationsController < ApplicationController
   respond_to :json, :html
 
   def index
-    @current_team = Team.first(:name => 'Bahia')
+    load_next_match
   end
 
   def send_formation
+    load_next_match
     formation = Formation.create_from params[:_json]
+    formation.team = @current_team
+    formation.calendar = @next_match
     if formation.save
       formation.players_positions.each do |player_position_formation|
         player_position_formation.save
@@ -26,6 +29,7 @@ class FormationsController < ApplicationController
   end
   
   def show
+    load_next_match
     @formation = Formation.find(params[:id])
 
     respond_to do |format|
@@ -59,6 +63,12 @@ class FormationsController < ApplicationController
     else
       @player = Player.new
     end
+  end
+  
+private
+  def load_next_match
+    @current_team = Team.first(name: 'Bahia')
+    @next_match = Calendar.first(:day => {:$gte => Time.now})
   end
 
 end

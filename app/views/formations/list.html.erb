@@ -3,6 +3,9 @@
 <table>
   <tr>
     <th>Id</th>
+	<th><%= t(:day) %></th>
+	<th><%= t(:home) %></th>
+	<th><%= t(:away) %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +14,9 @@
 <% @formations.each do |formation| %>
   <tr>
     <td><%= formation.id %></td>
+	<td><%= formation.calendar.day %></td>
+	<td><%= formation.calendar.home.name %></td>
+	<td><%= formation.calendar.away.name %></td>
     <td><%= link_to 'Show', formation %></td>
     <td><%= link_to 'Edit', edit_formation_path(formation) %></td>
     <td><%= link_to 'Destroy', formation, :confirm => 'Are you sure?', :method => :delete %></td>

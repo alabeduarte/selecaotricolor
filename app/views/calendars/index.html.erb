@@ -2,7 +2,9 @@
 
 <table>
   <tr>
-    <th>Day</th>
+    <th><%= t(:day) %></th>
+	<th><%= t(:home) %></th>
+	<th><%= t(:away) %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +13,8 @@
 <% @calendars.each do |calendar| %>
   <tr>
     <td><%= calendar.day %></td>
+	<td><%= calendar.home.name %></td>
+	<td><%= calendar.away.name %></td>
     <td><%= link_to 'Show', calendar %></td>
     <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
     <td><%= link_to 'Destroy', calendar, confirm: 'Are you sure?', method: :delete %></td>

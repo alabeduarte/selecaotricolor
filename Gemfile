@@ -7,6 +7,7 @@ gem 'bson_ext', '1.5.2'
 gem 'mongo_mapper', '0.11.0'
 gem 'devise', '2.0.0'
 gem 'mm-devise'
+gem 'mm-multi-parameter-attributes'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

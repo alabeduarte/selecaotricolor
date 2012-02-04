@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :day %><br />
-    <%= f.datetime_select :day, :order => [:day, :month, :year] %>
+    <%= f.label :day, t(:day) %><br />
+    <%= f.datetime_select :day, :minute_step => 30 %>
   </div>
   <%= f.hidden_field 'home_id' %>
   <div class="field">
-	<label for="home_id">Mando de campo:</label>
+    <%= f.label :home, t(:home) %>
 	<%= f.collection_select(:home_id, @teams, :id, :name, {:prompt => true}) %>
   </div>
   <%= f.hidden_field 'away_id' %>
   <div class="field">
-	<label for="away_id">Fora de casa:</label>
+	<%= f.label :away, t(:away) %>
 	<%= f.collection_select(:away_id, @teams, :id, :name, {:prompt => true}) %>
   </div>
   <div class="actions">

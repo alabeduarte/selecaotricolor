@@ -24,8 +24,8 @@ class CalendarsController < ApplicationController
   # GET /calendars/new
   # GET /calendars/new.json
   def new
-    @calendar = Calendar.new
     @teams = Team.all
+    @calendar = Calendar.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +35,7 @@ class CalendarsController < ApplicationController
 
   # GET /calendars/1/edit
   def edit
+    @teams = Team.all
     @calendar = Calendar.find(params[:id])
   end
 

@@ -1,7 +1,9 @@
 class Calendar
   include MongoMapper::Document
+  
+  plugin MongoMapper::Plugins::MultiParameterAttributes
 
-  key :day, DateTime
+  key :day, Time
   key :home_id, ObjectId
   key :away_id, ObjectId
   

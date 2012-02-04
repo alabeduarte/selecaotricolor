@@ -17,11 +17,10 @@
 }
 
 #player {
-  background-color: white;
   position:absolute;
   float:left;
   margin: 0px 0 0 365px;
-  margin-top: 60px;
+  margin-top: 10px;
   width: 700px;
   height: 490px;
 }
@@ -176,4 +175,13 @@
 
 #calendar_day_1i {
 	width: 70px;
+}
+
+.alert-message.info h3, .alert-message.info h2, .alert-message.info h1 {
+	color: #FFF;
+	text-shadow: 0 1px 1px #F6F6F6;
+}
+
+.formationActions {
+	float: right;
 }

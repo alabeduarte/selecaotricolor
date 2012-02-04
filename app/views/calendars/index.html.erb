@@ -12,7 +12,7 @@
 
 <% @calendars.each do |calendar| %>
   <tr>
-    <td><%= calendar.day %></td>
+    <td><%= calendar.day.to_s(:day) %></td>
 	<td><%= calendar.home.name %></td>
 	<td><%= calendar.away.name %></td>
     <td><%= link_to 'Show', calendar %></td>

@@ -6,6 +6,6 @@ class PlayerFormationPosition
   key :y, Integer
   key :formation_id, ObjectId
   
-  belongs_to :formation
+  belongs_to :formation, :dependent => :destroy
   belongs_to :player
 end

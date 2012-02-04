@@ -56,9 +56,9 @@ function add(index, element) {
  
 </head> 
 <body>
-	<%= @next_match.day %>
+	<%= @formation.match.day.to_s(:day) %>
 	<h2>
-		<%= "#{@next_match.home.name} x #{@next_match.away.name}" %>
+		<%= "#{@formation.match.home.name} x #{@formation.match.away.name}" %>
 	</h2>
     <div id="soccerField">
       <div id="player"></div>

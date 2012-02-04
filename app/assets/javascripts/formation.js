@@ -107,7 +107,7 @@ function isSelected(element) {
 
 function createPlayers() {
 	var players = new Array();
-    var uri = '/players.json?team_id=' + $('#team_id').val();
+    var uri = '/players.json';
   	$.getJSON(uri, function(data) {
 		$.each(data, function(i, allPlayers) {
 			$.each(allPlayers, function(j, player) {

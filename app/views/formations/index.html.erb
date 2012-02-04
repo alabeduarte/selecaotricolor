@@ -17,19 +17,20 @@ function hiddePlayerNames() {
 }
 
 </script> 
-<a href="index" class="btn info">Novo</a>
-<button onclick="send();" class="btn success">Enviar</button>
+<div class="container">
+<div class="alert-message info">
+	<p>
+		Próxima partida: <strong><%= @next_match.day.to_s(:day) %></strong>
+	</p>
+	<p class="formationActions">
+		<a href="index" class="btn info">Novo</a>
+		<button onclick="send();" class="btn success">Enviar</button>
+	</p>
+	<p>
+		<h2><%= "#{@next_match.home.name} x #{@next_match.away.name}" %></h2>		
+	</p>
+</div>
 
-<%= form_for(@current_team) do |f| %>
-	<%= f.hidden_field 'id' %>
-<% end %>
-
-<h1>
-	Próxima partida: <%= @next_match.day %>
-</h1>
-<h2>
-	<%= "#{@next_match.home.name} x #{@next_match.away.name}" %>
-</h2>
 
 <div id="soccerField">
 	<div class="sidebar">
@@ -40,3 +41,4 @@ function hiddePlayerNames() {
 <input type="checkbox" onclick="hiddePlayerNames()" id="hiddeNamesCheckbox" value="Ocultar nomes dos jogadores">Ocultar nomes dos jogadores</>
 
 <div id="matrix"></div>
+</div>

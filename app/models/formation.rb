@@ -7,7 +7,7 @@ class Formation
   
   belongs_to :team
   belongs_to :match, :class_name => 'Calendar', :dependent => :destroy
-  many :players_positions, :class_name => 'PlayerFormationPosition', :dependent => :destroy
+  many :players_positions, :class_name => 'PlayerFormationPosition'
   
   validates :team, :presence => true
   validates :match, :presence => true

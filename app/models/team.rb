@@ -4,6 +4,6 @@ class Team
   key :name, String
   many :players
   
-  attr_accessible :name
+  validates :name, :presence => true, :uniqueness => true
   
 end

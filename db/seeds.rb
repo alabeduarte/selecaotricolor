@@ -1,7 +1,64 @@
-team = Team.create(id: "4f03b44ae1af8003be000013", name: "Bahia")
-json = '[{"player":{"id":"4f03b5b6e1af8003be000026","name":"Souza","number":9,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f03baa6e1af8003ee00000f","name":"Lulinha","number":77,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f04e683e1af80017c000023","name":"Dod\u00f4","number":27,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f04e68ee1af80017c000034","name":"Morais","number":10,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f04e69be1af80017c000047","name":"Fahel","number":7,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f04e6c3e1af80017c00008c","name":"Marcelo Lomba","number":31,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f04e6d3e1af80017c0000a7","name":"Marcos","number":2,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f04e6dde1af80017c0000c4","name":"Titi","number":22,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25c920e1af800323000879","name":"Omar","number":12,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25ca2de1af800323000896","name":"Madson","number":34,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25ca54e1af8003230008b5","name":"William Matheus","number":50,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25ca68e1af8003230008d6","name":"Danny Morais","number":14,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25ca81e1af8003230008f9","name":"Diego Jussani","number":33,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25cb42e1af80032300091e","name":"Dudu","number":3,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f04e6abe1af80017c00005c","name":"H\u00e9lder","number":8,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25cc85e1af8003230009be","name":"Lenine","number":15,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25cc9ae1af8003230009e7","name":"Diones","number":17,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f04e6b5e1af80017c000073","name":"Fabinho","number":55,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25cd32e1af800323000a51","name":"Filipe","number":16,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25cd6ce1af800323000a7e","name":"F\u00e1bio","number":20,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25cd83e1af800323000aad","name":"Vander","number":18,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25cd94e1af800323000ade","name":"Z\u00e9 Roberto","number":11,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25cdabe1af800323000b11","name":"Reinaldo","number":79,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f25cdcbe1af800323000b46","name":"J\u00fanior","number":99,"team_id":"4f03b44ae1af8003be000013"}},{"player":{"id":"4f26088ce1af8009550001dd","name":"\u00c1vine","number":6,"team_id":"4f03b44ae1af8003be000013"}}]'
+#Creating all 'Campeonato Baiano' teams
+json = '[
+          {"id":"4f2c332ee1af8002b4000001","name":"Bahia"},          
+          {"id":"4f2c4920e1af8004ef000006","name":"Bahia de Feira"},
+          {"id":"4f2c492fe1af8004ef00000b","name":"Juazeirense"},
+          {"id":"4f2c493ee1af8004ef000011","name":"Serrano"},
+          {"id":"4f2c494ce1af8004ef000018","name":"Feirense"},
+          {"id":"4f2c497be1af8004ef000020","name":"Itabuna"},
+          {"id":"4f2c49a2e1af8004ef00002d","name":"Juazeiro"},
+          {"id":"4f2c49b2e1af8004ef000043","name":"Fluminense de Feira"},
+          {"id":"4f2c498ce1af8004ef000029","name":"Vit\u00f3ria da Conquista"},
+          {"id":"4f2c4997e1af8004ef00002b","name":"Vit\u00f3ria"},
+          {"id":"4f2c490fe1af8004ef000002","name":"Atl\u00e9tico de Alagoinhas"},
+          {"id":"4f2c49bde1af8004ef000045","name":"Cama\u00e7ari"}]'
 parsed_json = JSON.load(json)
-parsed_json.each do |player_root| 
-  player_root["player"]["team"] = team
-  Player.create! player_root["player"]
+parsed_json.each do |root|
+  Team.create! root
+end
+
+#Getting all teams by name
+bahia = Team.first(name: 'Bahia')
+bahia_de_feira = Team.first(name: 'Bahia de Feira')
+juazeirense = Team.first(name: 'Juazeirense')
+serrano = Team.first(name: 'Serrano')
+feirense = Team.first(name: 'Feirense')
+itabuna = Team.first(name: 'Itabuna')
+juazeiro = Team.first(name: 'Juazeiro')
+fluminense_de_feira = Team.first(name: 'Fluminense de Feira')
+vitoria_da_conquista = Team.first(name: "Vit\u00f3ria da Conquista".force_encoding("UTF-8"))
+vitoria = Team.first(name: "Vit\u00f3ria".force_encoding("UTF-8"))
+atletico_de_alagoinhas = Team.first(name: "Atl\u00e9tico de Alagoinhas".force_encoding("UTF-8"))
+camacari = Team.first(name: "Cama\u00e7ari".force_encoding("UTF-8"))
+
+#Creating all calendar of 'Campeonato Baiano' in Bahia match
+Calendar.create!(day: Time.utc(2012, 1, 18, 20, 30), home: bahia, away: atletico_de_alagoinhas)
+Calendar.create!(day: Time.utc(2012, 1, 22, 17, 0), home: bahia_de_feira, away: bahia)
+Calendar.create!(day: Time.utc(2012, 1, 25, 20, 30), home: bahia, away: juazeirense)
+Calendar.create!(day: Time.utc(2012, 1, 29, 17, 0), home: serrano, away: bahia)
+Calendar.create!(day: Time.utc(2012, 2, 1, 20, 30), home: bahia, away: feirense)
+Calendar.create!(day: Time.utc(2012, 2, 5, 17, 0), home: itabuna, away: bahia)
+Calendar.create!(day: Time.utc(2012, 2, 8, 20, 30), home: bahia, away: vitoria_da_conquista)
+Calendar.create!(day: Time.utc(2012, 2, 12, 17, 0), home: bahia, away: vitoria)
+Calendar.create!(day: Time.utc(2012, 2, 15, 22, 0), home: juazeiro, away: bahia)
+Calendar.create!(day: Time.utc(2012, 2, 22, 20, 30), home: bahia, away: fluminense_de_feira)
+Calendar.create!(day: Time.utc(2012, 2, 26, 16, 0), home: camacari, away: bahia)
+Calendar.create!(day: Time.utc(2012, 2, 29, 20, 30), home: bahia, away: camacari)
+Calendar.create!(day: Time.utc(2012, 3, 4, 16, 0), home: fluminense_de_feira, away: bahia)
+Calendar.create!(day: Time.utc(2012, 3, 11, 16, 0), home: bahia, away: juazeiro)
+Calendar.create!(day: Time.utc(2012, 3, 18, 16, 0), home: vitoria, away: bahia)
+Calendar.create!(day: Time.utc(2012, 3, 21, 22, 0), home: vitoria_da_conquista, away: bahia)
+Calendar.create!(day: Time.utc(2012, 3, 25, 16, 0), home: bahia, away: itabuna)
+Calendar.create!(day: Time.utc(2012, 3, 28, 22, 0), home: feirense, away: bahia)
+Calendar.create!(day: Time.utc(2012, 4, 1, 16, 0), home: bahia, away: serrano)
+Calendar.create!(day: Time.utc(2012, 4, 8, 16, 0), home: juazeirense, away: bahia)
+Calendar.create!(day: Time.utc(2012, 4, 15, 16, 0), home: bahia, away: bahia_de_feira)
+Calendar.create!(day: Time.utc(2012, 4, 18, 22, 0), home: atletico_de_alagoinhas, away: bahia)
+
+json = '[
+  {"player":{"id":"4f03b5b6e1af8003be000026","name":"Souza","number":9}},{"player":{"id":"4f03baa6e1af8003ee00000f","name":"Lulinha","number":77}},{"player":{"id":"4f04e683e1af80017c000023","name":"Dod\u00f4","number":27}},{"player":{"id":"4f04e68ee1af80017c000034","name":"Morais","number":10}},{"player":{"id":"4f04e69be1af80017c000047","name":"Fahel","number":7}},{"player":{"id":"4f04e6c3e1af80017c00008c","name":"Marcelo Lomba","number":31}},{"player":{"id":"4f04e6d3e1af80017c0000a7","name":"Marcos","number":2}},{"player":{"id":"4f04e6dde1af80017c0000c4","name":"Titi","number":22}},{"player":{"id":"4f25c920e1af800323000879","name":"Omar","number":12}},{"player":{"id":"4f25ca2de1af800323000896","name":"Madson","number":34}},{"player":{"id":"4f25ca54e1af8003230008b5","name":"William Matheus","number":50}},{"player":{"id":"4f25ca68e1af8003230008d6","name":"Danny Morais","number":14}},{"player":{"id":"4f25ca81e1af8003230008f9","name":"Diego Jussani","number":33}},{"player":{"id":"4f25cb42e1af80032300091e","name":"Dudu","number":3}},{"player":{"id":"4f04e6abe1af80017c00005c","name":"H\u00e9lder","number":8}},{"player":{"id":"4f25cc85e1af8003230009be","name":"Lenine","number":15}},{"player":{"id":"4f25cc9ae1af8003230009e7","name":"Diones","number":17}},{"player":{"id":"4f04e6b5e1af80017c000073","name":"Fabinho","number":55}},{"player":{"id":"4f25cd32e1af800323000a51","name":"Filipe","number":16}},{"player":{"id":"4f25cd6ce1af800323000a7e","name":"F\u00e1bio","number":20}},{"player":{"id":"4f25cd83e1af800323000aad","name":"Vander","number":18}},{"player":{"id":"4f25cd94e1af800323000ade","name":"Z\u00e9 Roberto","number":11}},{"player":{"id":"4f25cdabe1af800323000b11","name":"Reinaldo","number":79}},{"player":{"id":"4f25cdcbe1af800323000b46","name":"J\u00fanior","number":99}},{"player":{"id":"4f26088ce1af8009550001dd","name":"\u00c1vine","number":6}}]'
+parsed_json = JSON.load(json)
+parsed_json.each do |root| 
+  root["player"]["team"] = bahia
+  Player.create! root["player"]
 end

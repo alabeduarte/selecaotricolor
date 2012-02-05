@@ -8,6 +8,8 @@ class PositionMapper
   key :description, String
   key :code, String
 
+  many :players
+
   validates :x_min, :presence => true, :numericality => true
   validates :x_max, :presence => true, :numericality => true
   validates :y_min, :presence => true, :numericality => true

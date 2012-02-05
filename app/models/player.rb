@@ -7,8 +7,10 @@ class Player
   key :name, String
   key :number, Integer
   key :team_id, ObjectId
+  key :position_mapper_id, ObjectId
   
   belongs_to :team
+  belongs_to :position_mapper
   
   validates :name, :presence => true
   validates :number, :presence => true, :numericality => true, :length => {:minimum => 1, :maximum => 2}

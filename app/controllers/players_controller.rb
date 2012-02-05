@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
   # GET /players.xml
   def index
     bahia = Team.first(name: 'Bahia')
-    @players = Player.all(:team_id => bahia.id)
+    @players = Player.all(:team_id => bahia.id, :order => :position_mapper_id.desc)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @players }

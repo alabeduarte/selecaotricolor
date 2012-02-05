@@ -5,15 +5,11 @@
 <table id="player_list" class="zebra-striped">
   <tr>
     <th>Posição</th>
-	<th>X</th>
-	<th>Y</th>
   </tr>
 
 <% @player.positions.each do |position| %>
   <tr>
-    <td><%= link_to position.formation.try(:id), :action => :show, :id => position.formation  %></td>
-	<td><%= link_to position.x  %></td>
-	<td><%= link_to position.y  %></td>
+    <td><%= link_to position.try(:position_mapper).description, :action => :show, :id => position.formation  %></td>
   </tr>
 <% end %>
 </table>

@@ -3,7 +3,8 @@
   <tr>
     <th class="header headerSortUp">Name</th>
     <th class="header headerSortUp">Number</th>
-    <th>Team</th>
+    <th>Time</th>
+	<th>Posição</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,6 +15,7 @@
     <td><%= player.name %></td>
     <td><%= player.number %></td>
     <td><%= player.team.name %></td>
+	<td><%= player.try(:position_mapper).try(:code) %></td>
     <td><%= link_to 'Show', player %></td>
     <td><%= link_to 'Edit', edit_player_path(player) %></td>
     <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>

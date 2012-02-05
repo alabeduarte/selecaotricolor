@@ -62,3 +62,81 @@ parsed_json.each do |root|
   root["player"]["team"] = bahia
   Player.create! root["player"]
 end
+
+#Creating all Position Mappers
+json = '[
+          { "description":"Atacante (Centro)",
+            "code": "A",
+            "x_max":0,
+            "x_min":0,
+            "y_max":3,
+            "y_min":1
+          },
+          { "description":"Atacante (Lado Esquerdo)",
+            "code": "AE",
+            "x_max":0,
+            "x_min":0,
+            "y_max":0,
+            "y_min":0
+          },
+          { "description":"Atacante (Lado Direito)",
+            "code": "AD",
+            "x_max":0,
+            "x_min":0,
+            "y_max":4,
+            "y_min":4
+          },
+          { "description":"Meio Campo (Centro)",
+            "code": "MC",
+            "x_max":4,
+            "x_min":1,
+            "y_max":2,
+            "y_min":2
+          },
+          { "description":"Meio Campo (Lado Esquerdo)",
+            "code": "ME",
+            "x_max":4,
+            "x_min":1,
+            "y_max":1,
+            "y_min":0
+          },
+          { "description":"Meio Campo (Lado Direito)",
+            "code": "MD",
+            "x_max":4,
+            "x_min":1,
+            "y_max":4,
+            "y_min":3
+          },
+          { "description":"Defesa (Centro)",
+            "code": "DC",
+            "x_max":6,
+            "x_min":5,
+            "y_max":3,
+            "y_min":1
+          },
+          { "description":"Defesa (Lado Esquerdo)",
+            "code": "DE",
+            "x_max":6,
+            "x_min":5,
+            "y_max":0,
+            "y_min":0
+          },
+          { "description":"Defesa (Lado Direito)",
+            "code": "DD",
+            "x_max":6,
+            "x_min":5,
+            "y_max":4,
+            "y_min":4
+          },
+          { "description":"Goleiro",
+            "code": "G",
+            "x_max":-1,
+            "x_min":-1,
+            "y_max":-1,
+            "y_min":-1
+          }
+]'
+parsed_json = JSON.load(json)
+parsed_json.each do |root|
+  PositionMapper.create! root
+end

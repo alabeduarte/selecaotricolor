@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>X min:</b>
+  <%= @position_mapper.x_min %>
+</p>
+
+<p>
+  <b>X max:</b>
+  <%= @position_mapper.x_max %>
+</p>
+
+<p>
+  <b>Y min:</b>
+  <%= @position_mapper.y_min %>
+</p>
+
+<p>
+  <b>Y max:</b>
+  <%= @position_mapper.y_max %>
+</p>
+
+
+<%= link_to 'Edit', edit_position_mapper_path(@position_mapper) %> |
+<%= link_to 'Back', position_mappers_path %>

@@ -1,5 +1,7 @@
 UcoachManager::Application.routes.draw do
 
+  resources :position_mappers
+
   get "welcome/index"
 
   devise_for :users, :skip => [:sessions] do

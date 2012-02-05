@@ -1,0 +1,33 @@
+<h1>Listing position_mappers</h1>
+
+<table>
+  <tr>
+    <th>X min</th>
+    <th>X max</th>
+    <th>Y min</th>
+    <th>Y max</th>
+	<th>Descrição</th>
+	<th>Sigla</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @position_mappers.each do |position_mapper| %>
+  <tr>
+    <td><%= position_mapper.x_min %></td>
+    <td><%= position_mapper.x_max %></td>
+    <td><%= position_mapper.y_min %></td>
+    <td><%= position_mapper.y_max %></td>
+	<td><%= position_mapper.description %></td>
+	<td><%= position_mapper.code %></td>
+    <td><%= link_to 'Show', position_mapper %></td>
+    <td><%= link_to 'Edit', edit_position_mapper_path(position_mapper) %></td>
+    <td><%= link_to 'Destroy', position_mapper, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Position mapper', new_position_mapper_path %>

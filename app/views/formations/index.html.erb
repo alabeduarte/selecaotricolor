@@ -11,12 +11,12 @@ $( init_soccer_field );
 		</li>
 		<li>
 			<% if user_signed_in? %>
-				<div class="formationActions">
+				<div class="foobar formationActions">
 					<%= link_to "Novo", :index, :class => "btn info" %>
-					<button onclick="send();" name="button" class="btn success">Enviar</button>
+					<button onclick="send();" name="button" class="btn danger send">Enviar</button>
 				</div>
 			<% else %>
-				<div class="logonActions">
+				<div class="foobar formationActions">
 					<%= form_for User.new, :url => login_path, :method => :post, :html => { :class => "pull-right" } do |f| %>
 					  	<%= f.email_field :email, :placeholder => "E-mail", :class => "input-large" %>
 					    <%= f.password_field :password, :placeholder => "Senha", :class => "input-large" %>

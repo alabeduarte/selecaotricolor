@@ -27,18 +27,19 @@ function load_formation() {
 				for(var index = 0; index < total; index++) {
 					if (x == 0) {
 						if (index == y) {
-							add(index, element);
+							add(index, player);
 						}
 					} else {
 						var nextPosition = (columns * x) + y;
 						if (index == nextPosition) {
-							add(index, element);
+							add(index, player);
 						}
 					}
 				}
 				if (x == -1 && y == -1) {
 					var slotId = '#gk';
-					$(slotId).html(element);
+					$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
+					+ player.name + '</span>');
 				}
 			
 	        });	
@@ -46,9 +47,10 @@ function load_formation() {
 	});
 }
 
-function add(index, element) {
+function add(index, player) {
 	var slotId = '#' + (index+1);
-	$(slotId).html('<p>' + element + '</p>');
+	$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
+	+ player.name + '</span>');
 	$(slotId).addClass("team");
 }
 

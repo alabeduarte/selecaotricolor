@@ -7,4 +7,6 @@ class Team
   
   validates :name, :presence => true, :uniqueness => true
   
+  scope :bahia, where(name: 'Bahia')
+  
 end

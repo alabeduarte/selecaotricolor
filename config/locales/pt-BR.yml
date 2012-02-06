@@ -1,4 +1,8 @@
 pt-BR:
+    destroy: "Excluir"
+    show: "Exibir"
+    new_formation: "Nova Tática"
+    created_at: "Criado em"
     day: "Dia"
     home: "Mando de campo"
     away: "Fora de casa"

@@ -238,6 +238,7 @@ function convertMatrixModelToJson() {
 
 function formationSendded() {
 	//$('#notice').html("Pronto! A sua escalação foi enviada!");
+	alert('Pronto! A sua escalação foi enviada!');
 	cSimpleAlert('Pronto! A sua escalação foi enviada!');
 }
 

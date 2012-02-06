@@ -1,4 +1,6 @@
 class PositionMappersController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /position_mappers
   # GET /position_mappers.json
   def index

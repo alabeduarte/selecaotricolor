@@ -14,4 +14,6 @@ class Calendar
   validates :home, :presence => true
   validates :away, :presence => true
 
+  scope :next_match, where(:day => {:$gte => Time.now})
+
 end

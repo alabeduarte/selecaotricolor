@@ -54,12 +54,15 @@ function add(index, element) {
 
 </script> 
  
-</head> 
+</head>
 <body>
-	<%= @formation.match.day.to_s(:day) %>
-	<h2>
-		<%= "#{@formation.match.home.name} x #{@formation.match.away.name}" %>
-	</h2>
+	<div class="topbar formation">
+		<ul>
+			<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>	
+			<li><%= "Tática enviada para o jogo de #{@formation.match.day.to_s(:day)}" %></li>
+			<li><%= "#{@formation.match.home.name} x #{@formation.match.away.name}" %></li>
+		</ul>
+	</div>
     <div id="soccerField">
       <div id="player"></div>
       <div id="emptySlot"></div>

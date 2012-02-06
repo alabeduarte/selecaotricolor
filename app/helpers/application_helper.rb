@@ -11,4 +11,8 @@ module ApplicationHelper
     link_to(title, options, html_options)
   end
   
+  def next_match
+    Calendar.next_match.first
+  end
+  
 end

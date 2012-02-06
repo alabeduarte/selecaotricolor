@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+	<th><%= t(:created_at) %></th>
 	<th><%= t(:day) %></th>
 	<th><%= t(:home) %></th>
 	<th><%= t(:away) %></th>
@@ -12,15 +13,16 @@
 
 <% @formations.each do |formation| %>
   <tr>
+	<td><%= formation.created_at.to_s(:day) %></td>
 	<td><%= formation.match.day.to_s(:day) %></td>
 	<td><%= formation.match.home.name %></td>
 	<td><%= formation.match.away.name %></td>
-    <td><%= link_to 'Show', formation %></td>
-    <td><%= link_to 'Destroy', formation, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to t(:show), formation %></td>
+    <td><%= link_to t(:destroy), formation, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Formation', index_path %>
+<%= link_to t(:new_formation), index_path %>

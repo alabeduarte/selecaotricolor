@@ -1,34 +1,32 @@
 <script type="text/javascript"> 
-
 $( init_soccer_field );
-
-function hiddePlayerNames() {
-	var total = 23;
-	for(var index = 0; index < total; index++) {
-		var playerId = (index+1);
-		if (isSelected(playerId)) {
-			if ($('#hiddeNamesCheckbox').is(':checked')) {
-				$('#playerName_' + playerId).removeClass('playerName').addClass('hiddenPlayerName');
-			} else {
-				$('#playerName_' + playerId).removeClass('hiddenPlayerName').addClass('playerName');
-			}
-		}
-	}
-}
-
 </script> 
-<div class="container">
-<div class="alert-message info">
-	<p>
-		Próxima partida: <strong><%= @next_match.day.to_s(:day) %></strong>
-	</p>
-	<p class="formationActions">
-		<a href="index" class="btn info">Novo</a>
-		<button onclick="send();" class="btn success">Enviar</button>
-	</p>
-	<p>
-		<h2><%= "#{@next_match.home.name} x #{@next_match.away.name}" %></h2>		
-	</p>
+<div class="topbar formation">
+	<ul>
+		<li>
+			Próxima partida: <strong><%= next_match.day.to_s(:day) %></strong>
+		</li>
+		<li>
+			<h3><%= "#{next_match.home.name} x #{next_match.away.name}" %></h3>
+		</li>
+		<li>
+			<% if user_signed_in? %>
+				<div class="formationActions">
+					<%= link_to "Novo", :index, :class => "btn info" %>
+					<button onclick="send();" name="button" class="btn success">Enviar</button>
+				</div>
+			<% else %>
+				<div class="logonActions">
+					<%= form_for User.new, :url => login_path, :method => :post, :html => { :class => "pull-right" } do |f| %>
+					  	<%= f.email_field :email, :placeholder => "E-mail", :class => "input-large" %>
+					    <%= f.password_field :password, :placeholder => "Senha", :class => "input-large" %>
+						<%= button_tag "Login", :class => "btn success" %>
+						<%= link_to "Cadastro Ligeiro!", "registration", :class => "btn error" %>
+					<% end %>
+				</div>
+			<% end %>
+		</li>
+	</ul>	
 </div>
 
 
@@ -38,7 +36,4 @@ function hiddePlayerNames() {
 	</div>
 	<div id="slot"></div>
 </div>
-<input type="checkbox" onclick="hiddePlayerNames()" id="hiddeNamesCheckbox" value="Ocultar nomes dos jogadores">Ocultar nomes dos jogadores</>
-
 <div id="matrix"></div>
-</div>

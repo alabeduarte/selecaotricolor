@@ -9,6 +9,7 @@ gem 'devise', '2.0.0'
 gem 'mm-devise'
 gem 'mm-multi-parameter-attributes'
 gem 'omniauth-facebook'
+gem 'thin'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -40,4 +41,8 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
+end
+
+group :production do
+  gem 'thin'
 end

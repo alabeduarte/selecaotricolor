@@ -239,6 +239,7 @@ function convertMatrixModelToJson() {
 function send() {
 	if (correctPlayers == 11) {
 		var json = convertMatrixModelToJson();
+		makeDisabledSenderButton();
 		var request = $.ajax({
   					  			url:          "/send",
 								dataType:     "json",
@@ -252,9 +253,12 @@ function send() {
 	}
 }
 
-function formationSent() {
-	$('#send_button').removeClass("btn danger send").addClass("btn disabled send")
+function makeDisabledSenderButton() {
 	$('#send_button').attr('disabled', 'disabled');
+	$('#send_button').removeClass("btn danger send").addClass("btn disabled send")
+}
+
+function formationSent() {	
 	$('#send_button').html('Pronto! A sua escalação foi enviada!')
 }
 

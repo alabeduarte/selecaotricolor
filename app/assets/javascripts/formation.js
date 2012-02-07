@@ -82,7 +82,7 @@ function print() {
   $('#matrix').html(output);
 }
 
-function searchElementInSoccerField(element, player) {
+function addElementInSoccerField(element, player) {
   for(var x = 0; x < matrix.length; x++) {
     for(var y = 0; y < matrix[x].length; y++) {
       if (matrix[x][y] == element) {
@@ -181,7 +181,7 @@ function handlePlayerDrop(event, ui) {
     
     if (player != goalKeeper) {
       correctPlayers++;
-      searchElementInSoccerField(element, player);
+      addElementInSoccerField(element, player);
     }
   }
   if (goalKeeper) {
@@ -236,26 +236,26 @@ function convertMatrixModelToJson() {
   return json;
 }
 
-function formationSendded() {
-	//$('#notice').html("Pronto! A sua escalação foi enviada!");
-	alert('Pronto! A sua escalação foi enviada!');
-	cSimpleAlert('Pronto! A sua escalação foi enviada!');
+function send() {
+	if (correctPlayers == 11) {
+		var json = convertMatrixModelToJson();
+		var request = $.ajax({
+  					  			url:          "/send",
+								dataType:     "json",
+								type:         "POST",
+								contentType:  "application/json; charset=UTF-8;",
+								data:         json,
+								complete: formationSent
+							});
+	} else {
+		cSimpleAlert('Selecione os 11 jogadores!');
+	}
 }
 
-function send() {
-  if (correctPlayers == 11) {
-    var json = convertMatrixModelToJson();
-    $.ajax({
-      url:          "/send",
-      dataType:     "json",
-      type:         "POST",
-      contentType:  "application/json",
-      data:         json,
-	  success: formationSendded
-    });
-  } else {
-    cSimpleAlert('Selecione os 11 jogadores!');
-  }
+function formationSent() {
+	$('#send_button').removeClass("btn danger send").addClass("btn disabled send")
+	$('#send_button').attr('disabled', 'disabled');
+	$('#send_button').html('Pronto! A sua escalação foi enviada!')
 }
 
 function cAlert(title, msg) {

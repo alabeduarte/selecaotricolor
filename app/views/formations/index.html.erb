@@ -13,7 +13,7 @@ $( init_soccer_field );
 			<% if user_signed_in? %>
 				<div class="foobar formationActions">
 					<%= link_to "Novo", :index, :class => "btn info" %>
-					<button onclick="send();" name="button" class="btn danger send">Enviar</button>
+					<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
 				</div>
 			<% else %>
 				<div class="foobar formationActions">
@@ -28,7 +28,6 @@ $( init_soccer_field );
 		</li>
 	</ul>	
 </div>
-
 
 <div id="soccerField">
 	<div class="sidebar">

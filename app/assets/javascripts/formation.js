@@ -240,14 +240,14 @@ function send() {
 	if (correctPlayers == 11) {
 		var json = convertMatrixModelToJson();
 		makeDisabledSenderButton();
-		var request = $.ajax({
-  					  			url:          "/send",
-								dataType:     "json",
-								type:         "POST",
-								contentType:  "application/json; charset=UTF-8;",
-								data:         json,
-								complete: formationSent
-							});
+		$.ajax({
+	  			url:          "/send",
+				dataType:     "json",
+				type:         "POST",
+				contentType:  "application/json",
+				data:         json,
+				complete: formationSent
+		});
 	} else {
 		cSimpleAlert('Selecione os 11 jogadores!');
 	}

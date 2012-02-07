@@ -16,8 +16,8 @@ UcoachManager::Application.routes.draw do
     get "registration", to: "devise/registrations#new", :as => :new_user_registration
   end
 
-  # root :to => "formations#index"
-  root :to => "welcome#index"
+  root :to => "formations#index"
+  # root :to => "welcome#index"
 
   resources :teams, :formations, :players, :calendars
   

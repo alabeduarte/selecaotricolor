@@ -26,7 +26,7 @@ class Formation
     end
     Formation.new(players_positions: players_positions, 
                   team: Team.bahia.first,
-                  match: Calendar.next_match.first,
+                  match: Calendar.next_match,
                   created_at: Time.now)
   end
   

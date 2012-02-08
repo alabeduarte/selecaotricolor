@@ -12,7 +12,7 @@ module ApplicationHelper
   end
   
   def next_match
-    Calendar.next_match.first
+    Calendar.next_match
   end
   
 end

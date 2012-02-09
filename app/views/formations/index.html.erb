@@ -15,8 +15,9 @@ $( init_soccer_field );
 					<%= link_to "Novo", :index, :class => "btn info" %>
 					<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
 				</div>
-			<% else %>
+			<% else %>			    
 				<div class="foobar formationActions">
+					<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 					<%= form_for User.new, :url => login_path, :method => :post, :html => { :class => "pull-right" } do |f| %>
 					  	<%= f.email_field :email, :placeholder => "E-mail", :class => "input-large" %>
 					    <%= f.password_field :password, :placeholder => "Senha", :class => "input-large" %>

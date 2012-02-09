@@ -15,6 +15,11 @@ UcoachManager::Application.routes.draw do
   devise_for :users, :skip => [:registrations] do
     get "registration", to: "devise/registrations#new", :as => :new_user_registration
   end
+  
+  devise_scope :user do
+    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+  end
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root :to => "formations#index"
   # root :to => "welcome#index"

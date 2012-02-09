@@ -4,7 +4,7 @@ UcoachManager::Application.routes.draw do
 
   get "welcome/index"
 
-  devise_for :users, :skip => [:sessions] do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
     get "login", to: "devise/sessions#new", :as => :new_user_session
     get "login", to: "devise/sessions#new"
     
@@ -19,7 +19,6 @@ UcoachManager::Application.routes.draw do
   devise_scope :user do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root :to => "formations#index"
   # root :to => "welcome#index"

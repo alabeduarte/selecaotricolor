@@ -6,6 +6,11 @@ $( init_soccer_field );
 		<li>
 			Próxima partida: <strong><%= next_match.day.to_s(:day) %></strong>
 		</li>
+		<li class="userInfo">
+			<% if user_signed_in? %>
+				<%= current_user.email %>
+			<% end %>
+		</li>
 		<li>
 			<h3><%= "#{next_match.home.name} x #{next_match.away.name}" %></h3>
 		</li>
@@ -13,7 +18,9 @@ $( init_soccer_field );
 			<% if user_signed_in? %>
 				<div class="foobar formationActions">
 					<%= link_to "Novo", :index, :class => "btn info" %>
-					<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
+					<section>
+						<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
+					</section>
 				</div>
 			<% else %>			    
 				<div class="foobar formationActions">

@@ -1,5 +1,5 @@
 # MongoMapper.database = "app-#{Rails.env}"
-if ENV['MONGOHQ_URL'] =~ /\/([^\/]+)$/
+if ENV['MONGOLAB_URI'] =~ /\/([^\/]+)$/
   MongoMapper.database = $1
 else
   MongoMapper.database = "app-#{Rails.env}"

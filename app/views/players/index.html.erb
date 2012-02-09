@@ -8,18 +8,22 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @players.each do |player| %>
+  <%= form_for(player) do |f| %>
   <tr>
     <td><%= player.name %></td>
     <td><%= player.number %></td>
     <td><%= player.team.name %></td>
-	<td><%= player.try(:position_mapper).try(:code) %></td>
+	<td><%= f.collection_select(:position_mapper_id, PositionMapper.all, :id, :description, {:prompt => true}) %></td>
+	<td><%= f.submit :class => "btn" %></td>
     <td><%= link_to 'Show', player %></td>
     <td><%= link_to 'Edit', edit_player_path(player) %></td>
     <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
+  <% end %>
 <% end %>
 </table>
 

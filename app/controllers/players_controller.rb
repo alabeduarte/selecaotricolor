@@ -63,7 +63,7 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.update_attributes(params[:player])
-        format.html { redirect_to(@player, :notice => 'Player was successfully updated.') }
+        format.html { redirect_to({:action => :index}, :notice => 'Player was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

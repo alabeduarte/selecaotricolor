@@ -66,20 +66,23 @@ function add(index, player) {
 		</ul>
 	</div>
     <div id="soccerField">
-      <div id="player"></div>
+      <div id="player" class="list"></div>
       <div id="emptySlot"></div>
     </div>
+    <div class="facebook_plugins comment">
+		<iframe src="http://www.facebook.com/plugins/comments.php?href=<%= app_uri %>" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:410px;" allowTransparency="true"></iframe> 
+	</div>
 	<div class="facebook_plugins">
 		<iframe src="https://www.facebook.com/plugins/like.php?href=<%= app_uri %>"
 		        scrolling="no" frameborder="0"
 		        style="border:none; width:450px; height:80px">
 		</iframe>
-		<div class="facebook_plugins share">
-			<button class="btn" onclick='href("http://www.facebook.com/share.php?t=Sele%C3%A7%C3%A3o%20Tricolor!;u=<%= app_uri %>")'>
-				<span class="fb_ico"></span>
-				Compartilhe!
-			</button>
-		</div>
+	</div>
+	<div class="facebook_plugins share">
+		<button class="btn" onclick='href("http://www.facebook.com/share.php?t=Sele%C3%A7%C3%A3o%20Tricolor!;u=<%= app_uri %>")'>
+			<span class="fb_ico"></span>
+			<span class="fb_share">Compartilhe!</span>
+		</button>
 	</div>
     <div id="matrix"></div>
 	<div id="json"></div>

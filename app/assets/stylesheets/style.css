@@ -360,14 +360,26 @@ margin: 77px 0 0 14px;
 }
 
 .facebook_plugins {
-	position: absolute;
-	left: 50%;
+	position: relative;
+	left: 2%;
+	margin-top: 15px;
 }
 
 .facebook_plugins.share {
-	position: absolute;
-	left: 0;
+	position: relative;
+	left: 28%;
 	bottom: 100px;
 	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
     font-size: 11px;
+}
+
+.facebook_plugins.comment {
+	position: fixed;
+	left: 52%;
+	right: 0;
+	bottom: 0;
+}
+
+.fb_share {
+	margin-left: 5px;
 }

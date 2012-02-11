@@ -358,3 +358,16 @@ margin: 77px 0 0 14px;
 	right:5%;
 	cursor: pointer;
 }
+
+.facebook_plugins {
+	position: absolute;
+	left: 50%;
+}
+
+.facebook_plugins.share {
+	position: absolute;
+	left: 0;
+	bottom: 100px;
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: 11px;
+}

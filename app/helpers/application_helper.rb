@@ -11,6 +11,10 @@ module ApplicationHelper
     link_to(title, options, html_options)
   end
   
+  def app_uri
+    "#{request.host}#{request.fullpath}"
+  end
+  
   def next_match
     Calendar.next_match
   end

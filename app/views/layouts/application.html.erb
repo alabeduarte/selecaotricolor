@@ -52,6 +52,9 @@
 		function dispose() {
 			$('#notice').toggle();
 		}
+		function href(uri) {
+			window.open(uri, "_blank");
+		}
 		<%= yield :javascript %>
 	</script>
 </body>

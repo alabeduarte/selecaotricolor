@@ -6,13 +6,26 @@ $( init_soccer_field );
 		<li>
 			Próxima partida: <strong><%= next_match.day.to_s(:day) %></strong>
 		</li>
-		<li class="userInfo">
-			<% if user_signed_in? %>
-				<%= current_user.email %>
-			<% end %>
+		<% if user_signed_in? %>
+		<li class="user_info">
+			<%= current_user.email %>
 		</li>
+		<% else %>
+			<div class="fb_button">
+				<span class="fb_ico"></span>
+				<%= link_to "Login através do seu Facebook", user_omniauth_authorize_path(:facebook) %>
+			</div>
+			<div class="login_info">
+				<%= link_to "Login direto!", "login", :class => "btn success" %>
+			</div>
+			<div class="register_info">
+				<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn error" %>
+			</div>
+		<% end %>
 		<li>
-			<h3><%= "#{next_match.home.name} x #{next_match.away.name}" %></h3>
+			<div class="next_match_info">
+				<h3><%= "#{next_match.home.name} x #{next_match.away.name}" %></h3>
+			</div>
 		</li>
 		<li>
 			<% if user_signed_in? %>
@@ -21,16 +34,6 @@ $( init_soccer_field );
 					<section>
 						<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
 					</section>
-				</div>
-			<% else %>			    
-				<div class="foobar formationActions">
-					<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-					<%= form_for User.new, :url => login_path, :method => :post, :html => { :class => "pull-right" } do |f| %>
-					  	<%= f.email_field :email, :placeholder => "E-mail", :class => "input-large" %>
-					    <%= f.password_field :password, :placeholder => "Senha", :class => "input-large" %>
-						<%= button_tag "Login", :class => "btn success" %>
-						<%= link_to "Cadastro Ligeiro!", "registration", :class => "btn error" %>
-					<% end %>
 				</div>
 			<% end %>
 		</li>

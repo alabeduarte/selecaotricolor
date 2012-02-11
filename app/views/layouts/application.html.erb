@@ -40,12 +40,18 @@
 	</div>
 	<div class="main">
 		<% if flash[:notice] -%>
-			<div id="notice" class="alert-message"><%= flash[:notice] %></div>
+			<div id="notice" class="alert-message notice">
+				<a class="close notice" onclick="dispose();">×</a>
+				<%= flash[:notice] %>
+			</div>
 		<% end -%>
 		<%= yield %>
 	</div>
 
 	<script type="text/javascript">
+		function dispose() {
+			$('#notice').toggle();
+		}
 		<%= yield :javascript %>
 	</script>
 </body>

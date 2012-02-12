@@ -68,8 +68,7 @@ function add(index, player) {
 		</ul>
 	</div>
     <div id="soccerField">
-      <div id="player" class="list"></div>
-      <div id="emptySlot"></div>
+      <div id="emptySlot"/>
     </div>
     <div class="facebook_plugins comment">
 		<iframe 
@@ -79,17 +78,11 @@ function add(index, player) {
 			style="border-width: initial; border-color: initial; overflow-x: hidden; overflow-y: hidden; width: 470px; border-width: initial; border-color: initial; border-width: initial; border-color: initial; height: 568px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; border-image: initial;" 
 			allowTransparency="true"></iframe> 
 	</div>
-	<div class="facebook_plugins">
+	<div class="facebook_plugins like">
 		<iframe src="https://www.facebook.com/plugins/like.php?href=<%= app_uri %>"
 		        scrolling="no" frameborder="0"
 		        style="border:none; width:450px; height:80px">
 		</iframe>
-	</div>
-	<div class="facebook_plugins share">
-		<button class="btn" onclick='href("http://www.facebook.com/share.php?t=Sele%C3%A7%C3%A3o%20Tricolor!;u=<%= app_uri %>")'>
-			<span class="fb_ico"></span>
-			<span class="fb_share">Compartilhe!</span>
-		</button>
 	</div>
     <div id="matrix"></div>
 	<div id="json"></div>

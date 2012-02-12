@@ -374,7 +374,7 @@ margin: 77px 0 0 14px;
 }
 
 .facebook_plugins.comment {
-	position: fixed;
+	position: relative;
 	left: 52%;
 	right: 0;
 	bottom: 0;

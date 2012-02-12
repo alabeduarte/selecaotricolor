@@ -62,7 +62,7 @@ function add(index, player) {
 <body>
 	<div class="topbar formation">
 		<ul>
-			<li><%= "#{t(:sended_to)} #{@formation.owner.email}" %></li>
+			<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
 			<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>	
 			<li><%= "Tática enviada para o jogo de #{@formation.match.day.to_s(:day)}" %></li>
 			<li><h3><%= "#{@formation.match.home.name} x #{@formation.match.away.name}" %></h3></li>

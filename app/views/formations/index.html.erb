@@ -8,7 +8,7 @@ $( init_soccer_field );
 		</li>
 		<% if user_signed_in? %>
 		<li class="user_info">
-			<%= current_user.email %>
+			<%= "#{current_user.nickname}" %>
 		</li>
 		<% else %>
 			<div class="fb_button">

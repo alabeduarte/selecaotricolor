@@ -5,6 +5,8 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
+  key :nickname, String
+
    def self.new_with_session(params, session)
      super.tap do |user|
        if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
@@ -18,7 +20,10 @@ class User
      if user = User.where(:email => data.email).first
        user
      else # Create a user with a stub password. 
-       User.create!(:email => data.email, :password => Devise.friendly_token[0,20]) 
+       User.create!(
+                    nickname: data.name,
+                    email: data.email, 
+                    password: Devise.friendly_token[0,20]) 
      end
    end
 

@@ -6,6 +6,7 @@ pt-BR:
     day: "Dia"
     home: "Mando de campo"
     away: "Fora de casa"
+    sended_to: "Enviada por"
     date:
         abbr_day_names:
         - Dom

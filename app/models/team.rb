@@ -7,6 +7,8 @@ class Team
   
   validates :name, :presence => true, :uniqueness => true
   
-  scope :bahia, where(name: 'Bahia')
+  def self.bahia
+    where(name: 'Bahia').first
+  end
   
 end

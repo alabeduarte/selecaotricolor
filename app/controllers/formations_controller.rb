@@ -7,7 +7,7 @@ class FormationsController < ApplicationController
   end
 
   def send_formation
-    formation = Formation.create_from params[:_json]
+    formation = Formation.create_from(params[:_json], current_user)
     if formation.save
       formation.players_positions.each do |player_position_formation|
         player_position_formation.save

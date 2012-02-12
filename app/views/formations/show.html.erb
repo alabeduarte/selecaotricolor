@@ -19,10 +19,12 @@ function load_formation() {
 				var player = player_position.player;
 				var element = player.number;
 				
+				/*
 				$('<div id="player_' + element + '"><p>' 
 				+ player.number + '</p><span id="playerName_' 
 				+ element + '" class="playerName">' 
 				+ player.name + '</span></div>').appendTo('#player');
+				*/
 				
 				for(var index = 0; index < total; index++) {
 					if (x == 0) {
@@ -70,7 +72,12 @@ function add(index, player) {
       <div id="emptySlot"></div>
     </div>
     <div class="facebook_plugins comment">
-		<iframe src="http://www.facebook.com/plugins/comments.php?href=<%= app_uri %>" scrolling="no" frameborder="0" style="border:none; width:410px; height:410px;" allowTransparency="true"></iframe> 
+		<iframe 
+			src="http://www.facebook.com/plugins/comments.php?href=" 
+			scrolling="no" 
+			frameborder="0" 
+			style="border-width: initial; border-color: initial; overflow-x: hidden; overflow-y: hidden; width: 470px; border-width: initial; border-color: initial; border-width: initial; border-color: initial; height: 568px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; border-image: initial;" 
+			allowTransparency="true"></iframe> 
 	</div>
 	<div class="facebook_plugins">
 		<iframe src="https://www.facebook.com/plugins/like.php?href=<%= app_uri %>"

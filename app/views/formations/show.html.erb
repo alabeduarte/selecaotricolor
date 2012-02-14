@@ -1,92 +1,84 @@
-<!doctype html> 
-<head> 
-<script type="text/javascript"> 
+<div class="topbar formation">
+	<ul>
+		<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
+		<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>	
+		<li><%= "Tática enviada para o jogo de #{@formation.match.day.to_s(:day)}" %></li>
+		<li><h3><%= "#{@formation.match.home.name} x #{@formation.match.away.name}" %></h3></li>
+	</ul>
+</div>
+   <div id="soccerField">
+     <div id="emptySlot"></div>
+   </div>
+   <div class="facebook_plugins comment">
+	<iframe 
+		src="http://www.facebook.com/plugins/comments.php?href=<%= app_uri %>" 
+		scrolling="no" 
+		frameborder="0" 
+		style="border-width: initial; border-color: initial; overflow-x: hidden; overflow-y: hidden; width: 470px; border-width: initial; border-color: initial; border-width: initial; border-color: initial; height: 568px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; border-image: initial;" 
+		allowTransparency="true"></iframe> 
+</div>
+<div class="facebook_plugins like">
+	<iframe src="https://www.facebook.com/plugins/like.php?href=<%= app_uri %>"
+	        scrolling="no" frameborder="0"
+	        style="border:none; width:450px; height:80px">
+	</iframe>
+</div>
+   <div id="matrix"></div>
+<div id="json"></div>
 
-$( load_soccer_field );
-$( load_formation );
+<%=content_for :javascript do%>
+	$( load_soccer_field );
+	$( load_formation );
 
-function load_formation() {
-	var lines = matrixModel.length;
-	var columns = matrixModel[lines-1].length;
-	
-	var total = lines*columns;
-	
-	$.getJSON(window.location.pathname + '.json', function(data) {
-  		$.each(data, function(i, formation){
-			$.each(formation.players_positions, function(j, player_position){
-				var x = player_position.x;
-				var y = player_position.y;
-				var player = player_position.player;
-				var element = player.number;
-				
-				/*
-				$('<div id="player_' + element + '"><p>' 
-				+ player.number + '</p><span id="playerName_' 
-				+ element + '" class="playerName">' 
-				+ player.name + '</span></div>').appendTo('#player');
-				*/
-				
-				for(var index = 0; index < total; index++) {
-					if (x == 0) {
-						if (index == y) {
-							add(index, player);
-						}
-					} else {
-						var nextPosition = (columns * x) + y;
-						if (index == nextPosition) {
-							add(index, player);
+	function load_formation() {
+		var lines = matrixModel.length;
+		var columns = matrixModel[lines-1].length;
+
+		var total = lines*columns;
+
+		$.getJSON(window.location.pathname + '.json', function(data) {
+	  		$.each(data, function(i, formation){
+				$.each(formation.players_positions, function(j, player_position){
+					var x = player_position.x;
+					var y = player_position.y;
+					var player = player_position.player;
+					var element = player.number;
+
+					/*
+					$('<div id="player_' + element + '"><p>' 
+					+ player.number + '</p><span id="playerName_' 
+					+ element + '" class="playerName">' 
+					+ player.name + '</span></div>').appendTo('#player');
+					*/
+
+					for(var index = 0; index < total; index++) {
+						if (x == 0) {
+							if (index == y) {
+								add(index, player);
+							}
+						} else {
+							var nextPosition = (columns * x) + y;
+							if (index == nextPosition) {
+								add(index, player);
+							}
 						}
 					}
-				}
-				if (x == -1 && y == -1) {
-					var slotId = '#gk';
-					$(slotId).addClass("present");
-					$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
-					+ player.name + '</span>');
-				}
-			
-	        });	
-        });		
-	});
-}
+					if (x == -1 && y == -1) {
+						var slotId = '#gk';
+						$(slotId).addClass("present");
+						$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
+						+ player.name + '</span>');
+					}
 
-function add(index, player) {
-	var slotId = '#' + (index+1);
-	$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
-	+ player.name + '</span>');
-	$(slotId).addClass("team");
-}
+		        });	
+	        });		
+		});
+	}
 
-</script> 
- 
-</head>
-<body>
-	<div class="topbar formation">
-		<ul>
-			<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
-			<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>	
-			<li><%= "Tática enviada para o jogo de #{@formation.match.day.to_s(:day)}" %></li>
-			<li><h3><%= "#{@formation.match.home.name} x #{@formation.match.away.name}" %></h3></li>
-		</ul>
-	</div>
-    <div id="soccerField">
-      <div id="emptySlot"></div>
-    </div>
-    <div class="facebook_plugins comment">
-		<iframe 
-			src="http://www.facebook.com/plugins/comments.php?href=<%= app_uri %>" 
-			scrolling="no" 
-			frameborder="0" 
-			style="border-width: initial; border-color: initial; overflow-x: hidden; overflow-y: hidden; width: 470px; border-width: initial; border-color: initial; border-width: initial; border-color: initial; height: 568px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; border-image: initial;" 
-			allowTransparency="true"></iframe> 
-	</div>
-	<div class="facebook_plugins like">
-		<iframe src="https://www.facebook.com/plugins/like.php?href=<%= app_uri %>"
-		        scrolling="no" frameborder="0"
-		        style="border:none; width:450px; height:80px">
-		</iframe>
-	</div>
-    <div id="matrix"></div>
-	<div id="json"></div>
-</body> 
-</html>
+	function add(index, player) {
+		var slotId = '#' + (index+1);
+		$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
+		+ player.name + '</span>');
+		$(slotId).addClass("team");
+	}
+<%end%>

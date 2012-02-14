@@ -3,24 +3,8 @@
 <head>
   <title>Seleção Tricolor!</title>
   <%= stylesheet_link_tag 'style', 'bootstrap.min', 'themes/base/jquery.ui.all' %>
-  <%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'formation'  %>
   <%= csrf_meta_tag %>
   <%= favicon_link_tag %>
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-28967114-1']);
-  _gaq.push(['_setDomainName', 'selecaotricolor.com.br']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 </head>
 <body>
 	<div id="dialog-message" title="Ops...">
@@ -62,14 +46,29 @@
 		<%= yield %>
 	</div>
 
+	<%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'formation'  %>
 	<script type="text/javascript">
+		<%= yield :javascript %>
+	
+		<!-- Analytics -->
+		var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-28967114-1']);
+		  _gaq.push(['_setDomainName', 'selecaotricolor.com.br']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		<!-- -->
+	
 		function dispose() {
 			$('#notice').toggle();
 		}
 		function href(uri) {
 			window.open(uri, "_blank");
-		}
-		<%= yield :javascript %>
+		}		
 	</script>
 </body>
 </html>

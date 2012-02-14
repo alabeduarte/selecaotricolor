@@ -1,5 +1,8 @@
-<%= form_tag @formation do |f| %>
-	<%= text_field_tag :player_name, nil, :placeholder => "Digite o nome do Jogador" %>
+<%= form_tag @formation, :html => {:class => "well form-search"} do |f| %>
+	<div class="actions">
+		<%= text_field_tag :player_name %>
+		<%= button_tag "Pesquisar", :class => "btn" %>
+	</div>
 <% end %>
 
 <table id="player_list" class="zebra-striped">

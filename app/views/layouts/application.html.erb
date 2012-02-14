@@ -13,7 +13,7 @@
 	<div class="topbar menu">
 		<div class="container">
 			<ul class="pills">
-			  <li><%= menu_link_to 'Home', :formations %></li>		  
+			  <li><%= menu_link_to 'Home', :root %></li>		  
 			  <li><%= menu_link_to 'Táticas enviadas', :list %></li>
 			  <li><%= menu_link_to 'Jogadores', :players %></li>
 			  <li><%= menu_link_to 'Times', :teams %></li>
@@ -23,11 +23,11 @@
 		</div>
 	</div>
 	<% if user_signed_in? %>
-		<div class="topbar">
+		<div class="topbar user_info">
 			<ul>
 				<li class="user_info">
 					<div class="btn-group">
-						<a class="btn danger dropdown-toggle" data-toggle="dropdown" href="#">
+						<a class="btn primary dropdown-toggle" data-toggle="dropdown" href="#">
 							<%= "#{current_user.nickname}" %>
 							<span class="caret"></span>
 						</a>

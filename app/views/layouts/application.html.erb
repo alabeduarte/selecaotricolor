@@ -10,7 +10,7 @@
 	<div id="dialog-message" title="Ops...">
 		<p id="custom-alert-message"/>
 	</div>
-	<div class="topbar menu">
+	<div class="topbar menu">		
 		<div class="container">
 			<ul class="pills">
 			  <li><%= menu_link_to 'Home', :root %></li>		  
@@ -22,6 +22,7 @@
 			</ul>
 		</div>
 	</div>
+	
 	<% if user_signed_in? %>
 		<div class="topbar user_info">
 			<ul>
@@ -31,6 +32,13 @@
 							<%= "#{current_user.nickname}" %>
 							<span class="caret"></span>
 						</a>
+						<ul id="menu1" class="dropdown-menu">
+            				<li><a href="#">Action</a></li>
+		                	<li><a href="#">Another action</a></li>
+		                	<li><a href="#">Something else here</a></li>
+		                	<li class="divider"></li>
+		                	<li><a href="#">Separated link</a></li>
+		              	</ul>
 					</div>	
 				</li>
 			</ul>
@@ -46,7 +54,7 @@
 		<%= yield %>
 	</div>
 
-	<%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'formation'  %>
+	<%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'bootstrap.min', 'formation'  %>
 	<script type="text/javascript">
 		<%= yield :javascript %>
 	

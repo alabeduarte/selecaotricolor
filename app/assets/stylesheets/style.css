@@ -1,10 +1,20 @@
+.bahia {
+	height: 45px;
+	width: 45px;
+	background-image: url(../../assets/bahia.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	position: fixed;
+	top: 0;
+}
+
 #soccerField {
-height: 558px;
-width: 513px;
-background-image: url(../../assets/soccer_field.png);
-background-repeat: no-repeat;
-background-position: left;
-margin-top: 130px;
+	height: 558px;
+	width: 513px;
+	background-image: url(../../assets/soccer_field.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	margin-top: 130px;
 }
 
 .soccerFieldBorder {

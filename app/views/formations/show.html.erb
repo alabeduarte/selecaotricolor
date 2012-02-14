@@ -40,6 +40,7 @@ function load_formation() {
 				}
 				if (x == -1 && y == -1) {
 					var slotId = '#gk';
+					$(slotId).addClass("present");
 					$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
 					+ player.name + '</span>');
 				}
@@ -69,7 +70,7 @@ function add(index, player) {
 		</ul>
 	</div>
     <div id="soccerField">
-      <div id="emptySlot"/>
+      <div id="emptySlot"></div>
     </div>
     <div class="facebook_plugins comment">
 		<iframe 

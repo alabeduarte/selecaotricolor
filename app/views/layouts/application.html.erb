@@ -38,6 +38,20 @@
 			</ul>
 		</div>
 	</div>
+	<% if user_signed_in? %>
+		<div class="topbar">
+			<ul>
+				<li class="user_info">
+					<div class="btn-group">
+						<a class="btn danger dropdown-toggle" data-toggle="dropdown" href="#">
+							<%= "#{current_user.nickname}" %>
+							<span class="caret"></span>
+						</a>
+					</div>	
+				</li>
+			</ul>
+		</div>
+	<% end %>
 	<div class="main">
 		<% if flash[:notice] -%>
 			<div id="notice" class="alert-message notice">

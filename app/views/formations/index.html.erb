@@ -6,11 +6,7 @@ $( init_soccer_field );
 		<li>
 			Próxima partida: <strong><%= next_match.day.to_s(:day) %></strong>
 		</li>
-		<% if user_signed_in? %>
-		<li class="user_info">
-			<%= "#{current_user.nickname}" %>
-		</li>
-		<% else %>
+		<% if !user_signed_in? %>
 			<div class="fb_button">
 				<span class="fb_ico"></span>
 				<%= link_to "Login através do seu Facebook", user_omniauth_authorize_path(:facebook) %>
@@ -41,9 +37,7 @@ $( init_soccer_field );
 </div>
 
 <div id="soccerField">
-	<div class="sidebar">
-		<div id="player"></div>
-	</div>
+	<div id="player"></div>
 	<div id="slot"></div>
 </div>
 <div id="matrix"></div>

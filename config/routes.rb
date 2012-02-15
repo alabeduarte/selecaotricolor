@@ -14,6 +14,7 @@ UcoachManager::Application.routes.draw do
   
   devise_for :users, :skip => [:registrations] do
     get "registration", to: "devise/registrations#new", :as => :new_user_registration
+    get "configuration", to: "devise/registrations#edit", :as => :edit_user_registration
   end
   
   devise_scope :user do

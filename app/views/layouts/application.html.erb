@@ -28,16 +28,13 @@
 			<ul>
 				<li class="user_info">
 					<div class="btn-group">
-						<a class="btn primary dropdown-toggle" data-toggle="dropdown" href="#">
+						<a id="user_info_menu" class="btn primary dropdown-toggle" data-toggle="dropdown" href="#">
 							<%= "#{current_user.nickname}" %>
 							<span class="caret"></span>
 						</a>
-						<ul id="menu1" class="dropdown-menu">
-            				<li><a href="#">Action</a></li>
-		                	<li><a href="#">Another action</a></li>
-		                	<li><a href="#">Something else here</a></li>
-		                	<li class="divider"></li>
-		                	<li><a href="#">Separated link</a></li>
+						<ul id="user_config_menu" class="dropdown-menu user_info">            				
+		                	<li><%= link_to 'Configurações da sua conta', "configuration" %></li>
+		                	<li><%= link_to 'Sair', "logout" %></li>
 		              	</ul>
 					</div>	
 				</li>
@@ -54,7 +51,7 @@
 		<%= yield %>
 	</div>
 
-	<%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'bootstrap.min', 'formation'  %>
+	<%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'formation'  %>
 	<script type="text/javascript">
 		<%= yield :javascript %>
 	
@@ -76,7 +73,17 @@
 		}
 		function href(uri) {
 			window.open(uri, "_blank");
-		}		
+		}
+		
+		$('#user_info_menu').click(function() {
+			if ($('#user_config_menu').hasClass('visible')) {				
+				$('#user_config_menu').removeClass('visible');
+			} else {
+				$('#user_config_menu').addClass('visible');			
+			}		  	
+		});
+		
+		
 	</script>
 </body>
 </html>

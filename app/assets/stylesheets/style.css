@@ -276,6 +276,15 @@ opacity: 1;
 	top:6px;
 }
 
+.dropdown-menu.user_info {
+	display: none;
+}
+
+.dropdown-menu.user_info.visible {
+	display: block;
+	top: 0;
+}
+
 .foobar {
 	height: 40px;
 	position: fixed;

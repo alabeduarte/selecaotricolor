@@ -219,7 +219,7 @@ opacity: 1;
 	color: #FFF;
 }
 
-.menu {
+.topbar.menu {
 	background-color: #c43c35;
 	background-repeat: repeat-x;
 	background-image: -khtml-gradient(linear, left top, left bottom, from(#ee5f5b), to(#c43c35));
@@ -233,6 +233,7 @@ opacity: 1;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	border-color: #c43c35 #c43c35 #882a25;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	z-index: 2;
 }
 
 .topbar.formation {
@@ -252,6 +253,7 @@ opacity: 1;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	border-color: #339bb9 #339bb9 #22697d;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	z-index: 1;
 }
 
 .topbar.formation ul {
@@ -264,7 +266,7 @@ opacity: 1;
 
 .topbar.user_info {
 	left: 80%;
-	width: 100%;
+	width: 30px;
 }
 
 .user_info {
@@ -283,6 +285,7 @@ opacity: 1;
 .dropdown-menu.user_info.visible {
 	display: block;
 	top: 0;
+	z-index: 5;
 }
 
 .foobar {
@@ -404,13 +407,17 @@ opacity: 1;
 }
 
 .alert-message.notice {	
-	position: absolute;
+	position: fixed;
 	width: 100%;
+	height: 25px;
+	top: 0;
+	z-index: 5;
 }
 
 .close.notice {
-	position: absolute;
-	right:5%;
+	position: fixed;
+	right:2%;
+	top: 12px;
 	cursor: pointer;
 }
 

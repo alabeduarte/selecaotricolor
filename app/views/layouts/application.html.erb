@@ -76,10 +76,12 @@
 		}
 		
 		$('#user_info_menu').click(function() {
-			if ($('#user_config_menu').hasClass('visible')) {				
+			if ($('#user_config_menu').hasClass('visible')) {
+				$('#user_info_menu').addClass('open');				
 				$('#user_config_menu').removeClass('visible');
 			} else {
 				$('#user_config_menu').addClass('visible');			
+				$('#user_info_menu').removeClass('open');
 			}		  	
 		});
 		

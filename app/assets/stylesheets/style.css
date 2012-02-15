@@ -267,6 +267,7 @@ opacity: 1;
 .topbar.user_info {
 	left: 80%;
 	width: 30px;
+	z-index: 4;
 }
 
 .user_info {
@@ -285,7 +286,6 @@ opacity: 1;
 .dropdown-menu.user_info.visible {
 	display: block;
 	top: 0;
-	z-index: 5;
 }
 
 .foobar {

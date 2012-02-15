@@ -8,8 +8,8 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="user_config_menu" class="dropdown-menu user_info">            				
-	                	<li><%= link_to 'Configurações da sua conta', "configuration" %></li>
-	                	<li><%= link_to 'Sair', "logout" %></li>
+	                	<li><%= link_to t(:account_config), :edit_user_registration %></li>
+	                	<li><%= link_to t(:exit), :destroy_user_session %></li>
 	              	</ul>
 				</div>	
 			</li>

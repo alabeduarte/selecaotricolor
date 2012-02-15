@@ -4,10 +4,7 @@
 			Próxima partida: <strong><%= next_match.day.to_s(:day) %></strong>
 		</li>
 		<% if !user_signed_in? %>
-			<div class="fb_button">
-				<span class="fb_ico"></span>
-				<%= link_to "Login através do seu Facebook", user_omniauth_authorize_path(:facebook) %>
-			</div>
+			<%= render :partial => "users/facebook_authentication" %>
 			<div class="login_info">
 				<%= link_to "Login direto!", "login", :class => "btn success" %>
 			</div>

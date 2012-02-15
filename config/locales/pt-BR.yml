@@ -1,4 +1,21 @@
 pt-BR:
+    back: Voltar
+    are_you_sure: Você esta certo disso?
+    unhappy: Insatisfeito?
+    cancel_account: Cancelar minha conta
+    update: Atualizar
+    send_password_instructions: Solicitar nova senha
+    change_my_password: Alterar a minha senha
+    password: Senha
+    password_hint: Deixe a senha em branco, caso não queira alterá-la
+    current_password_hint: Pedimos que informe a sua senha atual para que as alterações aconteçam
+    current_password: Senha Atual
+    password_confirmation: Confirmação de Senha
+    nickname: Apelido
+    sign_in: Login
+    sign_up: Registrar
+    forgot_your_password: Esqueci minha senha
+    sign_in_with: Login através do seu
     destroy: "Excluir"
     show: "Exibir"
     new_formation: "Nova Tática"

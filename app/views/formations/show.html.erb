@@ -26,7 +26,7 @@
    <div id="matrix"></div>
 <div id="json"></div>
 
-<%=content_for :javascript do%>
+<%= content_for :javascript do %>
 	$( load_soccer_field );
 	$( load_formation );
 
@@ -81,4 +81,4 @@
 		+ player.name + '</span>');
 		$(slotId).addClass("team");
 	}
-<%end%>
+<% end %>

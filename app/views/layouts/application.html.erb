@@ -23,24 +23,7 @@
 		</div>
 	</div>
 	
-	<% if user_signed_in? %>
-		<div class="topbar user_info">
-			<ul>
-				<li class="user_info">
-					<div class="btn-group">
-						<a id="user_info_menu" class="btn primary dropdown-toggle" data-toggle="dropdown" href="#">
-							<%= "#{current_user.nickname}" %>
-							<span class="caret"></span>
-						</a>
-						<ul id="user_config_menu" class="dropdown-menu user_info">            				
-		                	<li><%= link_to 'Configurações da sua conta', "configuration" %></li>
-		                	<li><%= link_to 'Sair', "logout" %></li>
-		              	</ul>
-					</div>	
-				</li>
-			</ul>
-		</div>
-	<% end %>
+	<%= render :partial => "users/info" %>
 	<div class="main">
 		<% if flash[:notice] -%>
 			<div id="notice" class="alert-message notice">
@@ -74,18 +57,6 @@
 		function href(uri) {
 			window.open(uri, "_blank");
 		}
-		
-		$('#user_info_menu').click(function() {
-			if ($('#user_config_menu').hasClass('visible')) {
-				$('#user_info_menu').addClass('open');				
-				$('#user_config_menu').removeClass('visible');
-			} else {
-				$('#user_config_menu').addClass('visible');			
-				$('#user_info_menu').removeClass('open');
-			}		  	
-		});
-		
-		
 	</script>
 </body>
 </html>

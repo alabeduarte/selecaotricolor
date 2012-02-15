@@ -1,0 +1,38 @@
+<% if user_signed_in? %>
+	<div class="topbar user_info">
+		<ul>
+			<li class="user_info">
+				<div class="btn-group">
+					<a id="user_info_menu" class="btn primary dropdown-toggle" data-toggle="dropdown" href="#">
+						<%= "#{current_user.nickname}" %>
+						<span class="caret"></span>
+					</a>
+					<ul id="user_config_menu" class="dropdown-menu user_info">            				
+	                	<li><%= link_to 'Configurações da sua conta', "configuration" %></li>
+	                	<li><%= link_to 'Sair', "logout" %></li>
+	              	</ul>
+				</div>	
+			</li>
+		</ul>
+	</div>
+<% end %>
+<%= content_for :javascript do %>
+		
+	$('#user_info_menu').click(function() {
+		if ($('#user_config_menu').hasClass('visible')) {
+			hideUserMenu();
+		} else {
+			showUserMenu();
+		}		  	
+	});
+	
+	function hideUserMenu() {
+		$('#user_info_menu').removeClass('open');				
+		$('#user_config_menu').removeClass('visible');
+	}
+	
+	function showUserMenu() {
+		$('#user_info_menu').addClass('open');
+		$('#user_config_menu').addClass('visible');
+	}
+<% end %>

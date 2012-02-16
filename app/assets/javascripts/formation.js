@@ -312,7 +312,6 @@ function load_formation() {
 				if (x == -1 && y == -1) {
 					var slotId = '#gk';
 					$(slotId).addClass("present");
-					$(slotId).addClass("gk_center");
 					//$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
 					$(slotId).html('<p>' + '&nbsp' + '</p><span class="playerName">' 
 					+ player.name + '</span>');
@@ -329,5 +328,4 @@ function addPlayer(index, player) {
 	$(slotId).html('<p>' + '&nbsp' + '</p><span class="playerName">' 
 	+ player.name + '</span>');
 	$(slotId).addClass("team");
-	$(slotId).addClass("player_center");
 }

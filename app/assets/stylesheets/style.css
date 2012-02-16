@@ -19,8 +19,9 @@
 
 #soccerField.center {
 	width: 100%;
-	background-position: center;
+	left: 50%;
 	margin-top: -590px;
+	margin-left: 480px;
 }
 
 .soccerFieldBorder {
@@ -76,16 +77,6 @@ text-shadow: 0 1px 1px #F6F6F6;
 padding-bottom: 0px;
 margin-top: -7px;
 margin-left: 2px;
-}
-
-.player_center {
-	width: 100%;
-	left: 135%;
-}
-
-.gk_center {
-	width: 100%;
-	left: 36%;
 }
 
 .team p {
@@ -458,7 +449,7 @@ opacity: 1;
 .facebook_plugins.like {
 	position: relative;
 	margin-top: -30px;
-	left: 38%;
+	margin-left: 480px;
 }
 
 .facebook_plugins.comment {

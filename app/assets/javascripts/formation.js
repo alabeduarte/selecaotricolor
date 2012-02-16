@@ -113,7 +113,8 @@ function createPlayers() {
 			$.each(allPlayers, function(j, player) {
 				var playerId = i+1;
 			    $('<div id=' + player.id + '><p>' 
-						+ player.number +
+						//+ player.number +
+						+ '&nbsp' +
 						'</p><span id="playerName_' + playerId + '" class="playerName">' + player.name + '</span></div>')
 						.data('number', i).appendTo('#player').draggable( {
 			      containment: '#soccerField',
@@ -280,4 +281,53 @@ function cSimpleAlert(msg) {
 			}
 		});
 	});
+}
+
+function load_formation() {
+	var lines = matrixModel.length;
+	var columns = matrixModel[lines-1].length;
+
+	var total = lines*columns;
+
+	$.getJSON(window.location.pathname + '.json', function(data) {
+  		$.each(data, function(i, formation){
+			$.each(formation.players_positions, function(j, player_position){
+				var x = player_position.x;
+				var y = player_position.y;
+				var player = player_position.player;
+				var element = player.number;
+
+				for(var index = 0; index < total; index++) {
+					if (x == 0) {
+						if (index == y) {
+							addPlayer(index, player);
+						}
+					} else {
+						var nextPosition = (columns * x) + y;
+						if (index == nextPosition) {
+							addPlayer(index, player);
+						}
+					}
+				}
+				if (x == -1 && y == -1) {
+					var slotId = '#gk';
+					$(slotId).addClass("present");
+					$(slotId).addClass("gk_center");
+					//$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
+					$(slotId).html('<p>' + '&nbsp' + '</p><span class="playerName">' 
+					+ player.name + '</span>');
+				}
+
+	        });	
+        });		
+	});
+}
+
+function addPlayer(index, player) {
+	var slotId = '#' + (index+1);
+	//$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
+	$(slotId).html('<p>' + '&nbsp' + '</p><span class="playerName">' 
+	+ player.name + '</span>');
+	$(slotId).addClass("team");
+	$(slotId).addClass("player_center");
 }

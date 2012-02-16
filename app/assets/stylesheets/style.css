@@ -1,7 +1,7 @@
 .bahia {
 	height: 45px;
 	width: 45px;
-	background-image: url(../../assets/bahia.png);
+	background-image: url(../../assets/bahia.png);	
 	background-repeat: no-repeat;
 	background-position: left;
 	position: fixed;
@@ -14,7 +14,13 @@
 	background-image: url(../../assets/soccer_field.png);
 	background-repeat: no-repeat;
 	background-position: left;
-	margin-top: 130px;
+	margin-top: 100px;
+}
+
+#soccerField.center {
+	width: 100%;
+	background-position: center;
+	margin-top: -590px;
 }
 
 .soccerFieldBorder {
@@ -70,6 +76,16 @@ text-shadow: 0 1px 1px #F6F6F6;
 padding-bottom: 0px;
 margin-top: -7px;
 margin-left: 2px;
+}
+
+.player_center {
+	width: 100%;
+	left: 135%;
+}
+
+.gk_center {
+	width: 100%;
+	left: 36%;
 }
 
 .team p {
@@ -176,7 +192,7 @@ opacity: 1;
 }
 
 #gk.present {
-	 opacity: 1;
+	opacity: 1;
 }
 
 #soccer_icon {
@@ -237,7 +253,7 @@ opacity: 1;
 }
 
 .topbar.formation {
-	height: 45px;
+	height: 60px;
 	padding-top: 10px;
 	margin-top: 40px;
 	background-color: #339bb9;
@@ -253,7 +269,11 @@ opacity: 1;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	border-color: #339bb9 #339bb9 #22697d;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	z-index: 1;
+	z-index: 3;
+}
+
+.topbar.formation.show {
+	height: 90px;
 }
 
 .topbar.formation ul {
@@ -437,13 +457,14 @@ opacity: 1;
 
 .facebook_plugins.like {
 	position: relative;
-	bottom: 95%;
+	margin-top: -30px;
+	left: 38%;
 }
 
 .facebook_plugins.comment {
 	position: relative;
-	left: 77%;
-	bottom: 78%;
+	left: 0.5%;
+	margin-top: 160px;
 }
 
 .fb_share {

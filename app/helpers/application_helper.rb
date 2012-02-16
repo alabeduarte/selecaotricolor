@@ -11,7 +11,7 @@ module ApplicationHelper
     link_to(title, options, html_options)
   end
   
-  def app_uri
+  def current_uri
     "#{request.host}#{request.fullpath}"
   end
   

@@ -330,14 +330,16 @@ opacity: 1;
 
 .btn.reset {
 	position:absolute;
-	left:1%;
-	top:10%;
+	right:10%;
+	margin-right: 130px;
+	top:50%;
 }
 
 .btn.send {
 	position:absolute;
-	left:50%;
-	top:10%;
+	right:10%;
+	top:50%;
+	width: 120px;
 }
 
 .formationSent {

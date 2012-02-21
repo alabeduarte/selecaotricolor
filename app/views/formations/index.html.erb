@@ -3,7 +3,14 @@
 		<li>
 			Próxima partida: <strong><%= next_match.day.to_s(:day) %></strong>
 		</li>
-		<% if !user_signed_in? %>
+		<% if user_signed_in? %>
+			<div class="formationActions">
+				<%= link_to "Novo", :index, :class => "btn primary reset" %>
+				<section>
+					<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
+				</section>
+			</div>
+		<% else %>
 			<%= render :partial => "users/facebook_authentication" %>
 			<div class="login_info">
 				<%= link_to "Login direto!", "login", :class => "btn success" %>
@@ -16,16 +23,6 @@
 			<div class="next_match_info">
 				<h3><%= "#{next_match.home.name} x #{next_match.away.name}" %></h3>
 			</div>
-		</li>
-		<li>
-			<% if user_signed_in? %>
-				<div class="foobar formationActions">
-					<%= link_to "Novo", :index, :class => "btn primary reset" %>
-					<section>
-						<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
-					</section>
-				</div>
-			<% end %>
 		</li>
 	</ul>	
 </div>

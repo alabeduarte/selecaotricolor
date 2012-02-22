@@ -9,9 +9,7 @@ class FormationsController < ApplicationController
   def send_formation
     formation = Formation.create_from(params[:_json], current_user)
     if formation.save
-      formation.players_positions.each do |player_position_formation|
-        player_position_formation.save
-      end
+      formation.save_all_players
     end
   end
   

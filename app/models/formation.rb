@@ -34,4 +34,8 @@ class Formation
                   owner: user)
   end
   
+  def self.newly_created(user)
+    Formation.first(:owner_id => user.id, :order => :created_at.desc)
+  end
+  
 end

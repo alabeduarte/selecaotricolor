@@ -14,6 +14,11 @@ class FormationsController < ApplicationController
       end
     end
   end
+  
+  def newly_created
+    formation = Formation.newly_created(current_user)
+    redirect_to formation, notice: 'Formation was successfully created.'
+  end
 
   def list
     @formations = Formation.all

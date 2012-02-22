@@ -256,12 +256,13 @@ function send() {
 
 function makeDisabledSenderButton() {
 	$('#send_button').attr('disabled', 'disabled');
-	$('#send_button').removeClass("btn danger send").addClass("btn disabled send")
-	$('#send_button').html('Enviando...')
+	$('#send_button').removeClass("btn danger send").addClass("btn disabled send");
+	$('#send_button').html('Enviando...');
 }
 
 function formationSent() {	
-	$('#send_button').html('Pronto! A sua escalação foi enviada!')
+	$('#send_button').html('Pronto! A sua escalação foi enviada!');
+	window.location.href = "/send";
 }
 
 function cAlert(title, msg) {

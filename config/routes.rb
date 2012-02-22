@@ -29,6 +29,7 @@ UcoachManager::Application.routes.draw do
   controller :formations do
     get 'index' => :index
     post 'send' => :send_formation
+    get 'send' => :newly_created
     get 'list' => :list
     get 'edit' => :edit
     get 'show' => :show

@@ -35,7 +35,7 @@ class Formation
   end
   
   def save_all_players
-    formation.players_positions.each do |position|
+    @players_positions.each do |position|
       position.save
     end
   end

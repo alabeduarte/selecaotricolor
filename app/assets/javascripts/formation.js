@@ -247,7 +247,9 @@ function send() {
 				type:         "POST",
 				contentType:  "application/json",
 				data:         json,
-				complete: formationSent
+				complete: function() {
+					window.location.href = "/send";
+				}
 		});
 	} else {
 		cSimpleAlert('Selecione os 11 jogadores!');
@@ -258,11 +260,6 @@ function makeDisabledSenderButton() {
 	$('#send_button').attr('disabled', 'disabled');
 	$('#send_button').removeClass("btn danger send").addClass("btn disabled send");
 	$('#send_button').html('Enviando...');
-}
-
-function formationSent() {	
-	$('#send_button').html('Pronto! A sua escalação foi enviada!');
-	window.location.href = "/send";
 }
 
 function cAlert(title, msg) {

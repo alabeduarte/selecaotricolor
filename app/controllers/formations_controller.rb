@@ -17,7 +17,7 @@ class FormationsController < ApplicationController
   
   def newly_created
     formation = Formation.newly_created(current_user)
-    redirect_to formation, notice: 'Formation was successfully created.'
+    redirect_to formation, :notice => t(:formation_sent)
   end
 
   def list

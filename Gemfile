@@ -6,9 +6,10 @@ gem 'bson', '1.5.2'
 gem 'bson_ext', '1.5.2'
 gem 'mongo_mapper', '0.11.0'
 gem 'devise', '2.0.0'
-gem 'mm-devise'
-gem 'mm-multi-parameter-attributes'
 gem 'omniauth-facebook'
+gem 'mm-devise'
+gem "cancan"
+gem 'mm-multi-parameter-attributes'
 gem 'thin'
 
 # Bundle edge Rails instead:

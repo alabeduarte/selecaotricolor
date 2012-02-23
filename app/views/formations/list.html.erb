@@ -20,7 +20,11 @@
 	<td><%= formation.match.home.name %></td>
 	<td><%= formation.match.away.name %></td>
     <td><%= link_to t(:show), formation %></td>
-    <td><%= link_to t(:destroy), formation, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+		<% if can? :destroy, formation %>
+			<%= link_to t(:destroy), formation, :confirm => 'Are you sure?', :method => :delete %>
+		<% end %>
+	</td>
   </tr>
 <% end %>
 </table>

@@ -1,4 +1,5 @@
 pt-BR:
+    role: Papel
     formation_sent: Pronto! A sua escalação foi enviada!
     exit: Sair
     account_config: Configurações da sua conta
@@ -19,14 +20,15 @@ pt-BR:
     sign_up: Registrar
     forgot_your_password: Esqueci minha senha
     sign_in_with: Login através do seu
-    destroy: "Excluir"
-    show: "Exibir"
-    new_formation: "Nova Tática"
-    created_at: "Criado em"
-    day: "Dia"
-    home: "Mando de campo"
-    away: "Fora de casa"
-    sended_to: "Enviada por"
+    edit: Editar
+    destroy: Excluir
+    show: Exibir
+    new_formation: Nova Tática
+    created_at: Criado em
+    day: Dia
+    home: Mando de campo
+    away: Fora de casa
+    sended_to: Enviada por
     date:
         abbr_day_names:
         - Dom

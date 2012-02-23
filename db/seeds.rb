@@ -1,3 +1,5 @@
+admin = User.create(nickname: 'admin', email: 'admin@selecaotricolor.com.br', password: '0m0m0m', role: 'admin')
+
 #Creating all 'Campeonato Baiano' teams
 json = '[
           {"id":"4f2c332ee1af8002b4000001","name":"Bahia"},          

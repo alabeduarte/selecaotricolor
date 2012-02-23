@@ -40,6 +40,18 @@
 		</div>
   	</div>
 
+	<% if can? :update, @user %>
+		<div class="clearfix">
+  			<div>
+				<%= f.label :role, t(:role) %>
+				<div class="input">
+  					<%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+				</div>
+			</div>
+  		</div>
+	<% end %>
+	
+
 	<div class="clearfix">
   		<div>
 			<%= f.label :current_password, t(:current_password) %><i>(<%= t(:current_password_hint) %>)</i>

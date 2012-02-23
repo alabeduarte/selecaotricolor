@@ -1,5 +1,5 @@
 class FormationsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:send_formation, :destroy]
+  before_filter :authenticate_user!, :except => [:index, :show, :reports]
 
   respond_to :json, :html
 

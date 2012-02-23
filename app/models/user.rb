@@ -6,6 +6,9 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
+  ROLES = %w[admin plain]
+
+  key :role, String
   key :nickname, String
   validates :nickname, :presence => true
 
@@ -22,9 +25,13 @@ class User
     if user = User.where(:email => data.email).first
       user
     else # Create a user with a stub password. 
-      User.create!(nickname: data.name, email: data.email, 
+      User.create!(role: :plain, nickname: data.name, email: data.email, 
                     password: Devise.friendly_token[0,20]) 
     end
+  end
+  
+  def role?(base_role)
+    @role.include? base_role.to_s
   end
 
 end

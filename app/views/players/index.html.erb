@@ -19,9 +19,13 @@
     <td><%= player.team.name %></td>
 	<td><%= f.collection_select(:position_mapper_id, PositionMapper.all, :id, :description, {:prompt => true}) %></td>
 	<td><%= f.submit :class => "btn" %></td>
-    <td><%= link_to 'Show', player %></td>
-    <td><%= link_to 'Edit', edit_player_path(player) %></td>
-    <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to t(:show), player %></td>
+    <td><%= link_to t(:edit), edit_player_path(player) %></td>
+	<td>
+		<% if can? :destroy, player %>
+			<%= link_to t(:destroy), player, :confirm => 'Are you sure?', :method => :delete %>
+		<% end %>
+	</td>
   </tr>
   <% end %>
 <% end %>

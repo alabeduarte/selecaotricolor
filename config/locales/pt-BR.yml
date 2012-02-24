@@ -1,4 +1,6 @@
 pt-BR:
+    formations_not_sended: Nenhuma escalação foi enviada para esta partida
+    formations_sended: Escalações enviadas
     admin: Administrador
     role: Papel
     formation_sent: Pronto! A sua escalação foi enviada!

@@ -1,7 +1,5 @@
 UcoachManager::Application.routes.draw do
 
-  resources :position_mappers
-
   get "welcome/index"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
@@ -22,8 +20,7 @@ UcoachManager::Application.routes.draw do
   end
 
   root :to => "formations#index"
-
-  resources :teams, :formations, :players, :calendars
+  resources :position_mappers, :teams, :players, :calendars, :formations
   
   controller :formations do
     get 'index' => :index
@@ -36,6 +33,10 @@ UcoachManager::Application.routes.draw do
   
   controller :players do
     get 'bahia_squad' => :bahia_squad
+  end
+  
+  controller :calendars do
+    get 'calendars/matches/:id', to: "calendars#formations_matches", :as => :formations_matches
   end
   
   # The priority is based upon order of creation:

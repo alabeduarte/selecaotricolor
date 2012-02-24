@@ -267,6 +267,10 @@ opacity: 1;
 	height: 90px;
 }
 
+.table_below_topbar {
+	margin-top: 140px;
+}
+
 .topbar.formation ul {
 	list-style: none;	
 }

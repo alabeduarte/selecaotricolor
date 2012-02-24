@@ -1,0 +1,40 @@
+<div class="topbar formation">
+	<ul>
+		<li><%= "Táticas enviadas para o jogo de #{@match.day.to_s(:day)}" %></li>
+		<li><h3><%= "#{@match.home.name} x #{@match.away.name}" %></h3></li>
+	</ul>
+</div>
+
+<table class="table_below_topbar zebra-striped">
+  <tr>
+	<th><%= t(:sended_to) %></th>
+	<th><%= t(:created_at) %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @formations.each do |formation| %>
+  <tr>
+	<td><%= formation.owner.nickname %></td>
+	<td><%= formation.created_at.to_s(:day) %></td>
+    <td><%= link_to t(:show), formation %></td>
+    <td>
+		<% if can? :destroy, formation %>
+			<%= link_to t(:destroy), formation, :confirm => 'Are you sure?', :method => :delete %>
+		<% end %>
+	</td>
+  </tr>
+<% end %>
+<% if @formations.empty? %>
+	<tr class="empty-table">
+		<th colspan="5"> <%= t(:formations_not_sended) %> </th>
+	</tr>
+<% end %>
+</table>
+
+<br />
+
+<% if @match == Calendar.next_match %>
+	<%= link_to t(:new_formation), index_path %>
+<% end %>

@@ -16,6 +16,11 @@
 	<td><%= calendar.home.name %></td>
 	<td><%= calendar.away.name %></td>
 	<td>
+		<% if can? :formations_matches, calendar %>
+			<%= link_to t(:formations_sended), formations_matches_path(calendar) %>
+		<% end %>
+	</td>
+	<td>
 		<% if can? :show, calendar %>
 			<%= link_to t(:show), calendar %>
 		<% end %>

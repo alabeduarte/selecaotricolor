@@ -2,6 +2,15 @@ class CalendarsController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!
   
+  def formations_matches
+    @match = Calendar.find(params[:id])
+    @formations = @match.formations
+    respond_to do |format|
+      format.html
+      format.json { render json: @formations }
+    end
+  end
+  
   # GET /calendars
   # GET /calendars.json
   def index

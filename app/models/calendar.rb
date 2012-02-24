@@ -17,5 +17,9 @@ class Calendar
   def self.next_match
     where(:day => {:$gte => Time.now}).first
   end
+  
+  def formations
+    Formation.all(match_id: id, :order => :created_at.desc)
+  end
 
 end

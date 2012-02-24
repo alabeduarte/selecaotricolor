@@ -6,6 +6,10 @@ class FormationsController < ApplicationController
 
   def index
   end
+  
+  def current_user_formations
+    @formations = current_user.formations
+  end
 
   def create
     formation = Formation.create_from(params[:_json], current_user)

@@ -1,7 +1,6 @@
 <div class="topbar formation">
 	<ul>
-		<li><%= "Táticas enviadas para o jogo de #{@match.day.to_s(:day)}" %></li>
-		<li><h3><%= "#{@match.home.name} x #{@match.away.name}" %></h3></li>
+		<li><h1><%= "Táticas enviadas por #{current_user.nickname}" %></h1></li>
 	</ul>
 </div>
 
@@ -9,6 +8,9 @@
   <tr>
 	<th><%= t(:sended_to) %></th>
 	<th><%= t(:created_at) %></th>
+	<th><%= t(:day) %></th>
+	<th><%= t(:home) %></th>
+	<th><%= t(:away) %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,6 +20,9 @@
   <tr>
 	<td><%= formation.owner.nickname %></td>
 	<td><%= formation.created_at.to_s(:day) %></td>
+	<td><%= formation.match.day.to_s(:day) %></td>
+	<td><%= formation.match.home.name %></td>
+	<td><%= formation.match.away.name %></td>
     <td><%= link_to t(:show), formation, :class => "btn" %></td>
     <td>
 		<% if can? :destroy, formation %>
@@ -28,15 +33,13 @@
 <% end %>
 <% if @formations.empty? %>
 	<tr class="empty-table">
-		<th colspan="5"> <%= t(:formations_not_sended) %> </th>
+		<th colspan="7"> <%= t(:formations_not_sended) %> </th>
 	</tr>
 <% end %>
 </table>
 
 <br />
 
-<% if @match == Calendar.next_match %>
-	<div class="actions">
-		<%= link_to t(:new_formation), index_path, :class => "btn small primary" %>
-	</div>
-<% end %>
+<div class="actions">
+	<%= link_to t(:new_formation), index_path, :class => "btn small primary" %>
+</div>

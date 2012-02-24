@@ -11,21 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :day, t(:day) %><br />
-    <%= f.datetime_select :day, :minute_step => 30 %>
-  </div>
-  <%= f.hidden_field 'home_id' %>
-  <div class="field">
-    <%= f.label :home, t(:home) %>
-	<%= f.collection_select(:home_id, @teams, :id, :name, {:prompt => true}) %>
-  </div>
-  <%= f.hidden_field 'away_id' %>
-  <div class="field">
-	<%= f.label :away, t(:away) %>
-	<%= f.collection_select(:away_id, @teams, :id, :name, {:prompt => true}) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <fieldset>
+	<div class="clearfix">
+  		<div>
+			<%= f.label :day, t(:day) %>
+			<div class="input">
+  				<%= f.datetime_select :day, :minute_step => 30 %>
+			</div>
+		</div>
+  	</div>
+
+	<div class="clearfix">
+  		<div>
+			<%= f.hidden_field 'home_id' %>
+			<%= f.label :home, t(:home) %>
+			<div class="input">
+  				<%= f.collection_select(:home_id, @teams, :id, :name, {:prompt => true}) %>
+			</div>
+		</div>
+  	</div>
+
+	<div class="clearfix">
+  		<div>
+			<%= f.hidden_field 'away_id' %>
+			<%= f.label :away, t(:away) %>
+			<div class="input">
+  				<%= f.collection_select(:away_id, @teams, :id, :name, {:prompt => true}) %>
+			</div>
+		</div>
+  	</div>
+
+	<div class="actions">
+		<%= f.submit t(:save), :class => "btn small primary" %>
+	</div>
+
+  </fieldset>
 <% end %>

@@ -29,6 +29,7 @@ UcoachManager::Application.routes.draw do
     get 'list' => :list
     get 'reports' => :reports
     post 'reports' => :reports
+    get 'my_formations', to: "formations#current_user_formations", :as => :current_user_formations
   end
   
   controller :players do

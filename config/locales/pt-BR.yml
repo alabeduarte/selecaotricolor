@@ -1,4 +1,8 @@
 pt-BR:
+    save: Salvar
+    listing_formations: Formações Enviadas
+    listing_calendars: Calendário dos Jogos
+    my_formations: Minhas Convocações
     formations_not_sended: Nenhuma escalação foi enviada para esta partida
     formations_sended: Escalações enviadas
     admin: Administrador
@@ -26,7 +30,8 @@ pt-BR:
     edit: Editar
     destroy: Excluir
     show: Exibir
-    new_formation: Nova Tática
+    new_formation: Nova Escalação
+    new_calendar: Novo Calendário
     created_at: Criado em
     day: Dia
     home: Mando de campo

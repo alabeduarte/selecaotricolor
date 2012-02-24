@@ -17,13 +17,13 @@
     <td><%= player.name %></td>
     <td><%= player.number %></td>
     <td><%= f.collection_select(:team_id, Team.all, :id, :name, {:prompt => true}) %></td>
-	<td><%= f.collection_select(:position_mapper_id, PositionMapper.all, :id, :description, {:prompt => false}) %></td>
-	<td><%= f.submit :class => "btn" %></td>
-    <td><%= link_to t(:show), player %></td>
-    <td><%= link_to t(:edit), edit_player_path(player) %></td>
+	<td><%= f.collection_select(:position_mapper_id, PositionMapper.all, :id, :description, {:prompt => true}) %></td>
+	<td><%= f.submit :class => "btn success" %></td>
+    <td><%= link_to t(:show), player, :class => "btn" %></td>
+    <td><%= link_to t(:edit), edit_player_path(player), :class => "btn primary" %></td>
 	<td>
 		<% if can? :destroy, player %>
-			<%= link_to t(:destroy), player, :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to t(:destroy), player, :confirm => 'Are you sure?', :method => :delete, :class => "btn danger" %>
 		<% end %>
 	</td>
   </tr>

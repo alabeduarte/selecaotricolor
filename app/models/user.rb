@@ -27,5 +27,9 @@ class User
                     password: Devise.friendly_token[0,20]) 
     end
   end
+  
+  def formations
+    Formation.all(owner_id: id, :order => :created_at.desc)
+  end
 
 end

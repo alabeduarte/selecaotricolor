@@ -1,4 +1,4 @@
-<h1>Listing calendars</h1>
+<h1><%= t(:listing_calendars) %></h1>
 
 <table>
   <tr>
@@ -17,22 +17,27 @@
 	<td><%= calendar.away.name %></td>
 	<td>
 		<% if can? :formations_matches, calendar %>
-			<%= link_to t(:formations_sended), formations_matches_path(calendar) %>
+			<% if calendar.try(:formations).empty? %>
+				<%= button_tag t(:formations_sended), :class => "btn disabled success" %>
+			<% else %>
+				<%= link_to t(:formations_sended), formations_matches_path(calendar), :class => "btn success" %>
+			<% end %>
+			
 		<% end %>
 	</td>
 	<td>
 		<% if can? :show, calendar %>
-			<%= link_to t(:show), calendar %>
+			<%= link_to t(:show), calendar, :class => "btn" %>
 		<% end %>
 	</td>
     <td>
 		<% if can? :edit, calendar %>
-			<%= link_to t(:edit), edit_calendar_path(calendar) %>
+			<%= link_to t(:edit), edit_calendar_path(calendar), :class => "btn primary" %>
 		<% end %>
 	</td>
 	<td>
 		<% if can? :destroy, calendar %>
-			<%= link_to t(:destroy), calendar, :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to t(:destroy), calendar, :confirm => 'Are you sure?', :method => :delete, :class => "btn danger" %>
 		<% end %>
 	</td>
   </tr>
@@ -41,4 +46,8 @@
 
 <br />
 
-<%= link_to 'New Calendar', new_calendar_path %>
+<% if can? :create, Calendar %>
+	<div class="actions">
+		<%= link_to t(:new_calendar), new_calendar_path, :class => "btn primary" %>
+	</div>
+<% end %>

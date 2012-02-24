@@ -1,6 +1,6 @@
 <%= form_tag @formation, :html => {:class => "well form-search"} do |f| %>
 	<div class="actions">
-		<%= text_field_tag :player_name %>
+		<%= text_field_tag :player_name, nil, :placeholder => "Digite o nome de um jogador" %>
 		<%= button_tag "Pesquisar", :class => "btn" %>
 	</div>
 <% end %>

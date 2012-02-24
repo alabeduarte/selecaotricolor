@@ -1,4 +1,4 @@
-<h1>Listing Formations</h1>
+<h1><%= t(:listing_formations) %></h1>
 
 <table>
   <tr>
@@ -19,16 +19,23 @@
 	<td><%= formation.match.day.to_s(:day) %></td>
 	<td><%= formation.match.home.name %></td>
 	<td><%= formation.match.away.name %></td>
-    <td><%= link_to t(:show), formation %></td>
+    <td><%= link_to t(:show), formation, :class => "btn" %></td>
     <td>
 		<% if can? :destroy, formation %>
-			<%= link_to t(:destroy), formation, :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to t(:destroy), formation, :confirm => 'Are you sure?', :method => :delete, :class => "btn error" %>
 		<% end %>
 	</td>
   </tr>
+<% end %>
+<% if @formations.empty? %>
+	<tr class="empty-table">
+		<th colspan="7"> <%= t(:formations_not_sended) %> </th>
+	</tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to t(:new_formation), index_path %>
+<div class="actions">
+	<%= link_to t(:new_formation), index_path, :class => "btn small primary" %>
+</div>

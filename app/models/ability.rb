@@ -8,7 +8,7 @@ class Ability
         can :manage, :all
       else
         can [:index, :create, :list, :show, :reports], Formation
-        can :destroy, Formation, :owner_id => user.id
+        can [:newly_created, :destroy], Formation, :owner_id => user.id
         can [:show, :update, :destroy], User, :id => user.id
         can :bahia_squad, Player
         can :index, Calendar

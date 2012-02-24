@@ -107,7 +107,7 @@ function isSelected(element) {
 
 function createPlayers() {
 	var players = new Array();
-    var uri = '/players.json';
+    var uri = '/bahia_squad.json';
   	$.getJSON(uri, function(data) {
 		$.each(data, function(i, allPlayers) {
 			$.each(allPlayers, function(j, player) {
@@ -242,13 +242,13 @@ function send() {
 		var json = convertMatrixModelToJson();
 		makeDisabledSenderButton();
 		$.ajax({
-	  			url:          "/send",
+	  			url:          "/create",
 				dataType:     "json",
 				type:         "POST",
 				contentType:  "application/json",
 				data:         json,
 				complete: function() {
-					window.location.href = "/send";
+					window.location.href = "/create";
 				}
 		});
 	} else {

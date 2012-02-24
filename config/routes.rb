@@ -22,20 +22,20 @@ UcoachManager::Application.routes.draw do
   end
 
   root :to => "formations#index"
-  # root :to => "welcome#index"
 
   resources :teams, :formations, :players, :calendars
   
   controller :formations do
     get 'index' => :index
-    post 'send' => :send_formation
-    get 'send' => :newly_created
+    post 'create' => :create
+    get 'create' => :newly_created
     get 'list' => :list
-    get 'edit' => :edit
-    get 'show' => :show
     get 'reports' => :reports
     post 'reports' => :reports
-    delete 'destroy' => :destroy
+  end
+  
+  controller :players do
+    get 'bahia_squad' => :bahia_squad
   end
   
   # The priority is based upon order of creation:

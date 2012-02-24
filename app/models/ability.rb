@@ -4,13 +4,14 @@ class Ability
 
   def initialize(user)
       user ||= User.new # guest user (not logged in)
-      if user.role? :admin
+      if user.admin?
         can :manage, :all
       else
-        can [:create, :read], Formation
-        can [:update, :destroy], Formation, :owner_id => user.id
-        can [:read, :update, :destroy], User, :id => user.id
-        can :read, [Player, PlayerFormationPosition, PositionMapper, Team, Calendar]
+        can [:index, :create, :list, :show, :reports], Formation
+        can :destroy, Formation, :owner_id => user.id
+        can [:show, :update, :destroy], User, :id => user.id
+        can :bahia_squad, Player
+        can :index, Calendar
       end    
   end
 end

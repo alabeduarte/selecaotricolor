@@ -6,9 +6,7 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  ROLES = %w[admin plain]
-
-  key :role, String
+  key :admin, Boolean
   key :nickname, String
   validates :nickname, :presence => true
 
@@ -28,10 +26,6 @@ class User
       User.create!(role: :plain, nickname: data.name, email: data.email, 
                     password: Devise.friendly_token[0,20]) 
     end
-  end
-  
-  def role?(base_role)
-    @role.include? base_role.to_s
   end
 
 end

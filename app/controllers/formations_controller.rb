@@ -1,4 +1,5 @@
 class FormationsController < ApplicationController
+  load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:index, :show, :reports]
 
   respond_to :json, :html
@@ -6,7 +7,7 @@ class FormationsController < ApplicationController
   def index
   end
 
-  def send_formation
+  def create
     formation = Formation.create_from(params[:_json], current_user)
     if formation.save
       formation.save_all_players

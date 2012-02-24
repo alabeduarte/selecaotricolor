@@ -16,8 +16,8 @@
   <tr>
     <td><%= player.name %></td>
     <td><%= player.number %></td>
-    <td><%= player.team.name %></td>
-	<td><%= f.collection_select(:position_mapper_id, PositionMapper.all, :id, :description, {:prompt => true}) %></td>
+    <td><%= f.collection_select(:team_id, Team.all, :id, :name, {:prompt => true}) %></td>
+	<td><%= f.collection_select(:position_mapper_id, PositionMapper.all, :id, :description, {:prompt => false}) %></td>
 	<td><%= f.submit :class => "btn" %></td>
     <td><%= link_to t(:show), player %></td>
     <td><%= link_to t(:edit), edit_player_path(player) %></td>

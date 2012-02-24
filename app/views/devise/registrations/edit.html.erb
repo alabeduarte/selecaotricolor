@@ -40,16 +40,14 @@
 		</div>
   	</div>
 
-	<% if can? :update, @user %>
-		<div class="clearfix">
-  			<div>
-				<%= f.label :role, t(:role) %>
-				<div class="input">
-  					<%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
-				</div>
+	<div class="clearfix">
+		<div>
+			<%= f.label t(:admin) %>
+		    <div class="input">
+				<%= f.check_box :admin %>
 			</div>
-  		</div>
-	<% end %>
+		</div>
+	</div>
 	
 
 	<div class="clearfix">

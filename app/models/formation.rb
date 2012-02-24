@@ -25,7 +25,7 @@ class Formation
       y_value = item["formation"]["y"]
       
       player = Player.find(element_value.to_s)
-      players_positions << PlayerFormationPosition.new(:player => player, :x => x_value, :y => y_value)
+      players_positions << PlayerFormationPosition.new(player: player, x: x_value, y: y_value)
     end
     Formation.new(players_positions: players_positions, 
                   team: Team.bahia,

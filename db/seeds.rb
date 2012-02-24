@@ -1,4 +1,4 @@
-admin = User.create(nickname: 'admin', email: 'admin@selecaotricolor.com.br', password: '0m0m0m', role: 'admin')
+admin = User.create(nickname: 'admin', email: 'admin@selecaotricolor.com.br', password: '0m0m0m', admin: true)
 
 #Creating all 'Campeonato Baiano' teams
 json = '[

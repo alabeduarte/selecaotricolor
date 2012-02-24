@@ -13,12 +13,14 @@
 	<div class="topbar menu">		
 		<div class="container">
 			<ul class="pills">
-			  <li><%= menu_link_to 'Home', :root %></li>		  
-			  <li><%= menu_link_to 'Táticas enviadas', :list %></li>
-			  <li><%= menu_link_to 'Jogadores', :players %></li>
-			  <li><%= menu_link_to 'Times', :teams %></li>
+			  <li><%= menu_link_to 'Home', :root %></li>
+			  <% if user_signed_in? && current_user.admin? %>
+				<li><%= menu_link_to 'Táticas enviadas', :list %></li>
+				<li><%= menu_link_to 'Jogadores', :players %></li>
+				<li><%= menu_link_to 'Times', :teams %></li>
+			  <% end %>
 			  <li><%= menu_link_to 'Calendário dos Jogos', :calendars %></li>
-			  <li><%= menu_link_to 'Relatórios', :reports %></li>
+			  <li><%= menu_link_to 'Posições mais votadas', :reports %></li>
 			</ul>
 		</div>
 	</div>

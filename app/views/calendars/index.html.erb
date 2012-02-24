@@ -15,8 +15,16 @@
     <td><%= calendar.day.to_s(:day) %></td>
 	<td><%= calendar.home.name %></td>
 	<td><%= calendar.away.name %></td>
-    <td><%= link_to 'Show', calendar %></td>
-    <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
+	<td>
+		<% if can? :show, calendar %>
+			<%= link_to t(:show), calendar %>
+		<% end %>
+	</td>
+    <td>
+		<% if can? :edit, calendar %>
+			<%= link_to t(:edit), edit_calendar_path(calendar) %>
+		<% end %>
+	</td>
 	<td>
 		<% if can? :destroy, calendar %>
 			<%= link_to t(:destroy), calendar, :confirm => 'Are you sure?', :method => :delete %>

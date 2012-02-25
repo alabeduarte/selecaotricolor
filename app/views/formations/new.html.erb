@@ -5,7 +5,7 @@
 		</li>
 		<% if user_signed_in? %>
 			<div class="formationActions">
-				<%= link_to "Novo", :index, :class => "btn primary reset" %>
+				<%= link_to "Novo", :new, :class => "btn primary reset" %>
 				<section>
 					<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
 				</section>

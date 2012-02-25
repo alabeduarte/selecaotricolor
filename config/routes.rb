@@ -19,11 +19,11 @@ UcoachManager::Application.routes.draw do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
 
-  root :to => "formations#index"
+  root :to => "formations#new"
   resources :position_mappers, :teams, :players, :calendars, :formations
   
   controller :formations do
-    get 'index' => :index
+    get 'new' => :new
     post 'create' => :create
     get 'create' => :newly_created
     get 'list' => :list

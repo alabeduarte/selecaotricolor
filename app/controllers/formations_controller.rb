@@ -4,7 +4,7 @@ class FormationsController < ApplicationController
 
   respond_to :json, :html
 
-  def index
+  def new
   end
   
   def current_user_formations

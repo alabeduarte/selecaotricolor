@@ -12,10 +12,10 @@
 			</div>
 		<% else %>
 			<%= render :partial => "users/facebook_authentication" %>
-			<div class="login_info">
+			<div class="login_button">
 				<%= link_to "Login direto!", "login", :class => "btn success" %>
 			</div>
-			<div class="register_info">
+			<div class="register_button">
 				<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn danger" %>
 			</div>
 		<% end %>
@@ -30,19 +30,28 @@
 <% if !user_signed_in? %>
 <div class="welcome">
 	<h1>Bem vindo ao Seleção Tricolor!</h1>
-	<h3>Mais um site interativo exclusivo para a torcida do Bahia.</h3>
+	<span class="subtitle">Mais um site interativo exclusivo para a torcida do BAHIA.</span>
 	<p>
 	Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> você poderá opinar: <strong>Qual time deverá ir a campo?</strong>
 	</p>
-	Respeitamos o trabalho do nosso técnico e dos jogadores do nosso Bahia, mas também merecemos sermos "ouvidos".
-	<br/>
+	<span>
 	Sinta-se à vontade, escale o seu time, monte o seu esquema tático e comece a torcer!
+	</span>
 	<br/>
-	Se você acertar o esquema tático, possíveis substituições ou até se acertar quem serão os artilheiros do Tricolor de Aço,
+	<span>
+	Se você acertar o esquema tático, possíveis substituições ou até se acertar quem serão os artilheiros do
+	</span>
 	<br/>
-	acumulará pontos e prestígio perante seus amigos, afinal, sempre tem um que se acha o técnico após cada jogo.
+	<span>
+	Tricolor de Aço, acumulará pontos e prestígio perante seus amigos...
+	</span>
 	<br/>
-	<h3>Prove que você entende das coisas e monte o seu esquema tático! BORA BAHÊA!</h3>
+	<span>
+	Afinal, sempre tem um que se acha o técnico após cada jogo.
+	</span>
+	<br/>
+	<h3>Prove que você entende das coisas!</h3>
+	<h2>Monte o seu esquema tático! BORA BAHÊA!</h2>
 </div>
 <% end %>
 

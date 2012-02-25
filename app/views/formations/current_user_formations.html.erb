@@ -6,7 +6,6 @@
 
 <table class="table_below_topbar zebra-striped">
   <tr>
-	<th><%= t(:sended_to) %></th>
 	<th><%= t(:created_at) %></th>
 	<th><%= t(:day) %></th>
 	<th><%= t(:home) %></th>
@@ -18,7 +17,6 @@
 
 <% @formations.each do |formation| %>
   <tr>
-	<td><%= formation.owner.nickname %></td>
 	<td><%= formation.created_at.to_s(:day) %></td>
 	<td><%= formation.match.day.to_s(:day) %></td>
 	<td><%= formation.match.home.name %></td>
@@ -33,7 +31,7 @@
 <% end %>
 <% if @formations.empty? %>
 	<tr class="empty-table">
-		<th colspan="7"> <%= t(:formations_not_sended) %> </th>
+		<th colspan="6"> <%= t(:formations_not_sended) %> </th>
 	</tr>
 <% end %>
 </table>

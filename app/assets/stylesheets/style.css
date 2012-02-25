@@ -19,7 +19,7 @@
 
 #soccerField.center {
 	width: 380px;
-	margin-top: -470px;
+	margin-top: -540px;
 	margin-left: 240px;
 }
 
@@ -454,13 +454,14 @@
 
 .facebook_plugins.like {
 	position: relative;
-	margin-top: 90px;
+	margin-top: 18px;
 	margin-left: 480px;
 }
 
 .facebook_plugins.comment {
 	position: relative;
 	left: 0.5%;
+	margin-top: 500px;
 }
 
 .fb_share {
@@ -563,6 +564,6 @@
 }
 
 .span3.right {
-	margin-top: -580px;
+	margin-top: -570px;
 	margin-left: 690px;
 }

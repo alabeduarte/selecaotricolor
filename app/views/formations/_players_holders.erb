@@ -1,8 +1,14 @@
 <table class="table_holders">
+	<tr>
+	    <th><%= t(:goal) %></th>
+	    <th><%= t(:team) %></th>
+		<th><%= t(:position) %></th>
+	</tr>
 <% @players_positions.each do |position| %>
-  <tr>
-    <td><%= position.player.name %></td>
-	<td><%= position.acronym %></td>
-  </tr>
+  	<tr>
+		<td></td>
+	    <td><%= position.player.name %></td>
+		<td><%= position.acronym %></td>
+	</tr>
 <% end %>
 </table>

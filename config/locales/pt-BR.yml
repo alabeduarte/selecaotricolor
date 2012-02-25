@@ -13,6 +13,9 @@ pt-BR:
                             confirmation: "deve ser igual ao que você digitou na confirmação!"
                         nickname:
                             blank: é obrigatório! Preencha o apelido para poderem identificar você!
+    team: Time
+    goal: Gol
+    position: Posição
     save: Salvar
     listing_formations: Formações Enviadas
     listing_calendars: Calendário dos Jogos

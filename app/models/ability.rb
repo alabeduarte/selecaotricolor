@@ -7,7 +7,7 @@ class Ability
       if user.admin?
         can :manage, :all
       else
-        can [:index, :create, :list, :show, :reports], Formation
+        can [:new, :create, :list, :show, :reports], Formation
         can [:newly_created, :current_user_formations, :destroy], Formation, :owner_id => user.id
         can [:show, :update, :destroy], User, :id => user.id
         can :bahia_squad, Player

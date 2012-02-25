@@ -466,6 +466,22 @@ opacity: 1;
 	margin-left: 5px;
 }
 
+.new_formation_invitation {
+	position: absolute;
+	margin-top: 33px;
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: 12px;
+	color: #0000CD;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.new_formation_invitation h2 {
+	margin-left: 10px;
+	margin-right: 10px;
+	color: #0000CD;	
+}
+
 .welcome {
 	position: absolute;
 	margin-top: 80px;
@@ -514,4 +530,27 @@ opacity: 1;
 .welcome p, .welcome h1, .welcome h2, .welcome h3, .welcome span {
 	margin-left: 10px;
 	margin-right: 10px;
+}
+
+.content-area {
+	color: #0000CD;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.content-area li {
+	color: #0000FF;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.content-area.right {
+	margin-left: 570px;
+}
+
+.content-area.left {
+	margin-right: 390px;
+	margin-top: -380px;
+}
+
+.terms {
+	font-size: 11px;
 }

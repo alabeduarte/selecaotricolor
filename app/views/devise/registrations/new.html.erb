@@ -1,5 +1,8 @@
 <h2><%= t(:sign_up) %></h2>
-
+<div class="content-area right">
+	<%= render :partial => "about/terms_content" %>
+</div>
+<div class="content-area left">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <fieldset>
@@ -40,9 +43,10 @@
   	</div>
 
 	<div class="actions">
-		<%= f.submit t(:sign_up), :class => "btn small primary" %>
+		<%= f.submit t(:sign_up_and_agree_terms), :class => "btn primary" %>
 	</div>
 
   </fieldset>
 <% end %>
 <%= render :partial => "devise/shared/links" %>
+</div>

@@ -1,4 +1,18 @@
 pt-BR:
+    mongo_mapper:
+        errors:
+            models:
+                user:
+                    attributes:
+                        email:
+                            taken: "já está cadastrado."
+                            blank: "é obrigatório! Através do e-mail é que identificamos você!"
+                        password:
+                            blank: "é obrigatório! Você precisa de uma senha!"
+                            too_short: "deve conter, no mínimo, 6 caracteres."
+                            confirmation: "deve ser igual ao que você digitou na confirmação!"
+                        nickname:
+                            blank: é obrigatório! Preencha o apelido para poderem identificar você!
     save: Salvar
     listing_formations: Formações Enviadas
     listing_calendars: Calendário dos Jogos
@@ -25,6 +39,7 @@ pt-BR:
     nickname: Apelido
     sign_in: Login
     sign_up: Registrar
+    sign_up_and_agree_terms: "Li os termos, concordo e quero me cadastrar"
     forgot_your_password: Esqueci minha senha
     sign_in_with: Login através do seu
     edit: Editar

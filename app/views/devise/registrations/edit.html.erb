@@ -56,7 +56,7 @@
   </fieldset>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3><%= t(:cancel_account) %></h3>
 
 <p><%= t(:unhappy) %> <%= link_to t(:cancel_account), registration_path(resource_name), :confirm => t(:are_you_sure), :method => :delete %>.</p>
 

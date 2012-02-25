@@ -40,6 +40,10 @@ UcoachManager::Application.routes.draw do
     get 'calendars/matches/:id', to: "calendars#formations_matches", :as => :formations_matches
   end
   
+  controller :about do
+    get "about/terms", :as => :terms
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

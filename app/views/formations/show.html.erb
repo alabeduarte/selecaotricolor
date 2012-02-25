@@ -6,25 +6,25 @@
 		<li><h3><%= "#{@formation.match.home.name} x #{@formation.match.away.name}" %></h3></li>
 	</ul>
 </div>
-   <div class="facebook_plugins comment">
-	<iframe 
-		src="http://www.facebook.com/plugins/comments.php?href=<%= current_uri %>" 
-		scrolling="no" 
-		frameborder="0" 
-		style="border-width: initial; border-color: initial; overflow-x: hidden; overflow-y: hidden; width: 420px; border-width: initial; border-color: initial; border-width: initial; border-color: initial; height: 568px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; border-image: initial;" 
-		allowTransparency="true"></iframe> 
-</div>
-<div id="soccerField" class="center">
-     <div id="emptySlot"></div>
-   </div>
-<div class="facebook_plugins like">
-	<iframe src="https://www.facebook.com/plugins/like.php?href=<%= current_uri %>"
-	        scrolling="no" frameborder="0"
-	        style="border:none; width:450px; height:80px">
-	</iframe>
-</div>
-   <div id="matrix"></div>
-<div id="json"></div>
+
+	
+	<div class="hero-unit">
+		<div class="span3">          
+			<%= render :partial => "players_holders" %>
+		</div>
+		<div id="soccerField" class="center">
+			<div id="emptySlot"></div>
+		</div>		
+		<div class="span3 right">          
+			<%= render :partial => "players_holders" %>
+		</div>
+		<%= render :partial => "facebook_like" %>		
+		<%= render :partial => "facebook_comments" %>
+		<div id="matrix"></div>
+		<div id="json"></div>
+	</div>
+
+
 
 <%= content_for :javascript do %>
 	$( load_soccer_field );

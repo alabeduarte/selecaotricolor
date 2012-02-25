@@ -34,14 +34,12 @@ class Formation
                   owner: user)
   end
   
-  def save_all_players
-    @players_positions.each do |position|
-      position.save
-    end
-  end
-  
   def self.newly_created(user)
     Formation.first(:owner_id => user.id, :order => :created_at.desc)
+  end
+  
+  def save_all_players
+    @players_positions.each do |position| position.save end
   end
   
 end

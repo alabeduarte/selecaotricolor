@@ -12,7 +12,7 @@
 
 <% @player.positions.each do |position| %>
   <tr>
-    <td><%= link_to position.try(:position_mapper).description, :action => :show, :id => position.formation  %></td>
+    <td><%= link_to position.description, :action => :show, :id => position.formation  %></td>
   </tr>
 <% end %>
 </table>

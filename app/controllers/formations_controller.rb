@@ -35,7 +35,7 @@ class FormationsController < ApplicationController
   
   def show
     @formation = Formation.find(params[:id])
-
+    @players_positions = @formation.players_positions
     respond_to do |format|
       format.html
       format.json  { 

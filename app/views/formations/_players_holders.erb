@@ -1,0 +1,8 @@
+<table class="table_holders">
+<% @players_positions.each do |position| %>
+  <tr>
+    <td><%= position.player.name %></td>
+	<td><%= position.acronym %></td>
+  </tr>
+<% end %>
+</table>

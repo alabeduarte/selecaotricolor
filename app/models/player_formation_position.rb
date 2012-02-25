@@ -9,6 +9,15 @@ class PlayerFormationPosition
   belongs_to :formation, :dependent => :destroy
   belongs_to :player
   
+  def description
+    position_mapper.description
+  end
+  
+  def acronym
+    position_mapper.code
+  end
+  
+  private
   def position_mapper
     PositionMapper.first(:x_min.lte => x, :x_max.gte => x, :y_min.lte => y, :y_max.gte => y)
   end

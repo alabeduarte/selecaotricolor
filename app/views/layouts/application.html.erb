@@ -22,9 +22,6 @@
 			  <li><%= menu_link_to 'Calendário dos Jogos', :calendars %></li>
 			  <li><%= menu_link_to 'Estatísticas', :reports %></li>
 			</ul>
-			<div class="terms">
-			<%= menu_link_to 'Termos de uso', :terms %>
-			</div>
 		</div>
 	</div>
 	
@@ -40,6 +37,12 @@
 			<%= yield %>
 		</div>
 	</div>
+	
+	<footer>
+		<ul class="pills">
+		  <li><%= menu_link_to 'Termos de uso', :terms %></li>
+		</ul>
+	</footer>
 
 	<%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'formation'  %>
 	<script type="text/javascript">

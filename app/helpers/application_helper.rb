@@ -19,4 +19,8 @@ module ApplicationHelper
     Calendar.next_match
   end
   
+  def current_user_owner_of?(formation)
+    current_user.owner_of? formation unless !user_signed_in?
+  end
+  
 end

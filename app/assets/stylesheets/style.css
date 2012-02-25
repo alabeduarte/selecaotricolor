@@ -467,3 +467,9 @@ opacity: 1;
 .fb_share {
 	margin-left: 5px;
 }
+
+.welcome {
+	position: absolute;
+	margin-top: 60px;
+	margin-left: 390px;
+}

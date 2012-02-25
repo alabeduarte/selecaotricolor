@@ -24,6 +24,7 @@ pt-BR:
     formations_sended: Escalações enviadas
     admin: Administrador
     role: Papel
+    formation_updated: Esquema Tático atualizado com sucesso!
     formation_sent: Pronto! A sua escalação foi enviada!
     exit: Sair
     account_config: Configurações da sua conta

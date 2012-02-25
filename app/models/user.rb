@@ -28,6 +28,10 @@ class User
     end
   end
   
+  def owner_of?(formation)
+    formation.owner_id == id
+  end
+  
   def formations
     Formation.all(owner_id: id, :order => :created_at.desc)
   end

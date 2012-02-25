@@ -1,12 +1,33 @@
-<table class="table_holders">
-	<tr>
-	    <th><%= t(:team) %></th>
-		<th><%= t(:position) %></th>
-	</tr>
-<% @players_positions.each do |position| %>
-  	<tr>
-	    <td><%= position.player.name %></td>
-		<td><%= position.acronym %></td>
-	</tr>
+<% if current_user.owner_of? @formation %>
+<%= form_tag @formation, :method => :put do %>
+	<table class="table_holders">
+		<tr>
+			<th><%= t(:goal)%> </td>
+		    <th><%= t(:team) %></th>
+			<th><%= t(:position) %></th>
+		</tr>
+	<% @players_positions.each do |position| %>
+	  	<tr>
+			<%= hidden_field_tag :id, position.id  %>
+			<td><%= check_box_tag :to_score %></td>
+		    <td><%= position.player.name %></td>
+			<td><%= position.acronym %></td>
+		</tr>
+	<% end %>
+	</table>
+	<%= submit_tag 'Arriscar', :class => 'btn primary' %>
+<% end %>	
+<% else %>
+	<table class="table_holders">
+		<tr>
+		    <th><%= t(:team) %></th>
+			<th><%= t(:position) %></th>
+		</tr>
+	<% @players_positions.each do |position| %>
+	  	<tr>
+		    <td><%= position.player.name %></td>
+			<td><%= position.acronym %></td>
+		</tr>
+	<% end %>
+	</table>
 <% end %>
-</table>

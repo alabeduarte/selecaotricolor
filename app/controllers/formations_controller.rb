@@ -4,6 +4,10 @@ class FormationsController < ApplicationController
 
   respond_to :json, :html
 
+  def index
+    redirect_to :new
+  end
+
   def new
   end
   
@@ -16,6 +20,11 @@ class FormationsController < ApplicationController
     if formation.save
       formation.save_all_players
     end
+  end
+  
+  def update
+    @formation = Formation.find(params[:id])
+    redirect_to @formation, :notice => t(:formation_updated)
   end
   
   def newly_created

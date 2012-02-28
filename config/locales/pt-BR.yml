@@ -4,6 +4,8 @@ pt-BR:
             models:
                 user:
                     attributes:
+                        confirmation_token:
+                            invalid: "inválido"
                         email:
                             taken: "já está cadastrado."
                             blank: "é obrigatório! Através do e-mail é que identificamos você!"
@@ -13,6 +15,11 @@ pt-BR:
                             confirmation: "deve ser igual ao que você digitou na confirmação!"
                         nickname:
                             blank: é obrigatório! Preencha o apelido para poderem identificar você!
+    unlock_my_account: Desbloquear minha conta!
+    confirm_my_account: Confirmar minha conta!
+    didint_receive_unlock_instructions: "Não recebeu as instruções para desbloqueio da conta por e-mail?"
+    didnt_receive_confirmation_instructions: "Não recebeu as instruções de confirmação de conta por e-mail?"
+    resend_confirmation_instructions: "Reenviar instruções de confirmação"
     team: Time
     goal: Gol
     position: Posição

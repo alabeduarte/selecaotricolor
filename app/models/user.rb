@@ -3,7 +3,7 @@ class User
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   key :admin, Boolean
@@ -24,7 +24,7 @@ class User
       user
     else # Create a user with a stub password. 
       User.create!(role: :plain, nickname: data.name, email: data.email, 
-                    password: Devise.friendly_token[0,20]) 
+                    password: Devise.friendly_token[0,20], confirmed_at: Time.now.utc) 
     end
   end
   

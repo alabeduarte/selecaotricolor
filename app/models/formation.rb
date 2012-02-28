@@ -42,4 +42,8 @@ class Formation
     @players_positions.each do |position| position.save end
   end
   
+  def players_ordered_by_positions
+    PlayerFormationPosition.all(:formation_id => id, :order => :id.asc)
+  end
+  
 end

@@ -33,6 +33,7 @@ pt-BR:
     registrations:
       signed_up: 'Login efetuado com sucesso. Se não foi autorizado, a confirmação será enviada por email.'
       signed_up_but_inactive: 'A sua conta foi criada com sucesso. No entanto, não foi possível fazer login, pois ela está %{reason}.'
+      signed_up_but_unconfirmed: 'A sua conta foi criada com sucesso. No entanto, você receberá um email com instruções de autorização da sua conta.'
       updated: 'A sua conta foi atualizada com sucesso.'
       destroyed: 'Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
     unlocks:

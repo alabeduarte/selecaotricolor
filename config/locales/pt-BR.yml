@@ -15,7 +15,7 @@ pt-BR:
                             confirmation: "deve ser igual ao que você digitou na confirmação!"
                         nickname:
                             blank: é obrigatório! Preencha o apelido para poderem identificar você!
-    disabled_players_info: "Alguns jogadores como: %{list} não estão disponíveis para serem escalados por estarem lesionados ou suspensos."
+    disabled_players_info: "Atenção: alguns jogadores como: %{list} não estão disponíveis para serem escalados por estarem lesionados ou suspensos."
     unlock_my_account: Desbloquear minha conta!
     confirm_my_account: Confirmar minha conta!
     didint_receive_unlock_instructions: "Não recebeu as instruções para desbloqueio da conta por e-mail?"

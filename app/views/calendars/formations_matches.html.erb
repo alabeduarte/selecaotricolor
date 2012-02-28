@@ -4,7 +4,9 @@
 		<li><h3><%= "#{@match.home.name} x #{@match.away.name}" %></h3></li>
 	</ul>
 </div>
-
+<div class="table_below_topbar">
+	<%= render :partial => 'formations/facebook_like' %>
+</div>
 <table class="table_below_topbar zebra-striped">
   <tr>
 	<th><%= t(:sended_to) %></th>
@@ -40,3 +42,4 @@
 		<%= link_to t(:new_formation), new_path, :class => "btn small primary" %>
 	</div>
 <% end %>
+<%= render :partial => 'formations/facebook_comments' %>

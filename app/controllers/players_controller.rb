@@ -4,7 +4,7 @@ class PlayersController < ApplicationController
   
   def bahia_squad
     bahia = Team.first(name: 'Bahia')
-    @players = Player.all(:team_id => bahia.id, :order => :position_mapper_id.desc)
+    @players = Player.all(:team_id => bahia.id, :enabled => true, :order => :position_mapper_id.desc)
     respond_to do |format|
       format.json  { render :json => @players }
     end

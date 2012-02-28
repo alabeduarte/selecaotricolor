@@ -1,5 +1,5 @@
 <h1><%= t(:listing_calendars) %></h1>
-
+<%= render :partial => 'formations/facebook_like' %>
 <table class="zebra-striped">
   <tr>
     <th><%= t(:day) %></th>
@@ -43,7 +43,6 @@
   </tr>
 <% end %>
 </table>
-
 <br />
 
 <% if can? :create, Calendar %>

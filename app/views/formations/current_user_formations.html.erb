@@ -3,7 +3,9 @@
 		<li><h1><%= "Táticas enviadas por #{current_user.nickname}" %></h1></li>
 	</ul>
 </div>
-
+<div class="table_below_topbar">
+	<%= render :partial => 'formations/facebook_like' %>
+</div>
 <table class="table_below_topbar zebra-striped">
   <tr>
 	<th><%= t(:created_at) %></th>
@@ -41,3 +43,4 @@
 <div class="actions">
 	<%= link_to t(:new_formation), new_path, :class => "btn small primary" %>
 </div>
+<%= render :partial => 'formations/facebook_comments' %>

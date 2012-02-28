@@ -8,6 +8,7 @@ class Player
   key :number, Integer
   key :team_id, ObjectId
   key :position_mapper_id, ObjectId
+  key :enabled, Boolean
   
   belongs_to :team
   belongs_to :position_mapper

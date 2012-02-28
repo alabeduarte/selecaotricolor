@@ -17,4 +17,15 @@ class Player
   validates :number, :presence => true, :numericality => true, :length => {:minimum => 1, :maximum => 2}
   validates :team, :presence => true
   
+  def self.players_of(team)
+    Player.all(:team_id => team.id, :enabled => true, :order => :position_mapper_id.desc)
+  end
+  
+  def self.disabled_players_names_of(team)
+    disabled_players = Player.all(:team_id => team.id, :enabled => false, :order => :position_mapper_id.desc)
+    names = Array.new
+    disabled_players.each do |d| names << d.name end
+    names
+  end
+  
 end

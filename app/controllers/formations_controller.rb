@@ -9,6 +9,8 @@ class FormationsController < ApplicationController
   end
 
   def new
+    names = Player.disabled_players_names_of Team.bahia
+    flash[:notice] = t(:disabled_players_info, :list => names) unless names.empty?
   end
   
   def current_user_formations

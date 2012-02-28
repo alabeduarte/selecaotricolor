@@ -3,8 +3,7 @@ class PlayersController < ApplicationController
   before_filter :authenticate_user!
   
   def bahia_squad
-    bahia = Team.first(name: 'Bahia')
-    @players = Player.all(:team_id => bahia.id, :enabled => true, :order => :position_mapper_id.desc)
+    @players = Player.players_of Team.bahia
     respond_to do |format|
       format.json  { render :json => @players }
     end

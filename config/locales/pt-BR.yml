@@ -23,6 +23,7 @@ pt-BR:
     resend_confirmation_instructions: "Reenviar instruções de confirmação"
     team: Time
     goal: Gol
+    player: Jogador
     position: Posição
     save: Salvar
     listing_formations: Formações Enviadas

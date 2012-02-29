@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
   def bahia_squad
     @players = Player.players_of Team.bahia
     respond_to do |format|
-      format.json  { render :json => @players }
+      format.json  { render :json => @players.to_json(:include => [:position_mapper]) }
     end
   end
   

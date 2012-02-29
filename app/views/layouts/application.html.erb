@@ -17,6 +17,7 @@
 			  <% if user_signed_in? && current_user.admin? %>
 				<li><%= menu_link_to 'Táticas enviadas', :list %></li>
 				<li><%= menu_link_to 'Jogadores', :players %></li>
+				<li><%= menu_link_to 'Mapeamento de posições', :position_mappers %></li>
 				<li><%= menu_link_to 'Times', :teams %></li>
 			  <% end %>
 			  <li><%= menu_link_to 'Calendário dos Jogos', :calendars %></li>

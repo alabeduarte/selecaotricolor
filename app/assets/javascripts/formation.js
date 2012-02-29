@@ -111,17 +111,34 @@ function createPlayers() {
   	$.getJSON(uri, function(data) {
 		$.each(data, function(i, allPlayers) {
 			$.each(allPlayers, function(j, player) {
-				var playerId = i+1;
-			    $('<div id=' + player.id + '><p>' 
-						//+ player.number +
-						+ '&nbsp' +
-						'</p><span id="playerName_' + playerId + '" class="playerName">' + player.name + '</span></div>')
-						.data('number', i).appendTo('#player').draggable( {
-			      containment: '#soccerField',
-			      stack: '#player div',
-			      cursor: 'move',
-			      revert: true
-			    });
+				var playerId = i+1;			
+								
+				var playerDiv = '#' + player.id;
+				$('<div id=' + player.id + '></div>').appendTo('#player');
+				
+				if (player.position_mapper.code == 'G') {										
+					$(playerDiv).addClass('goal_keeper');
+				} else {
+					$(playerDiv).addClass('team');
+				}
+				
+				$('<p>' + '&nbsp' + '</p>').appendTo(playerDiv);
+				$('<span id="playerName_' + playerId + '">' + player.name + '</span>')
+					.addClass('playerName').appendTo(playerDiv);
+				
+				if (player.enabled) {
+					$(playerDiv).addClass('enabled');
+					$(playerDiv).data('number', i).appendTo('#player').draggable( {
+				    	containment: '#soccerField',
+					    stack: '#player div',
+				      	cursor: 'move',
+				      	revert: true
+					});
+				} else {
+					$(playerDiv).addClass('disabled');
+				}
+				
+				
 	  		});
       });		
 	});
@@ -138,14 +155,14 @@ function createSlots() {
   for ( var i = 1; i <= slots.length; i++ ) {
     var index = i-1;
     $('<div id=' + i + '></div>').data('number', i).appendTo('#slot').droppable( {
-      accept: '#player div',
+      accept: '.team',
       hoverClass: 'hovered',
       drop: handlePlayerDrop
     } );
   }
   
   $('<div id="gk">' + '<p>GK</p>' + '</div>').data('number', i).appendTo('#soccerField').droppable( {
-    accept: '#player div',
+    accept: '.goal_keeper',
     hoverClass: 'hovered',
     drop: handlePlayerDrop
   } );
@@ -175,8 +192,9 @@ function handlePlayerDrop(event, ui) {
   }
   if (correctPlayers < 10) {
     ui.draggable.addClass('correct');
-    ui.draggable.draggable('disable');
-    $(this).droppable('disable');
+	ui.draggable.draggable('disable');
+	$(this).droppable('disable');
+
     ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
     ui.draggable.draggable('option', 'revert', false);  
     

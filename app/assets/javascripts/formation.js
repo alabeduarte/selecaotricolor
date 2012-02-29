@@ -6,7 +6,7 @@ function init_soccer_field() {
   
   // Reset the game
   correctPlayers = 0;
-  $('#player').html('');
+  //$('#player').html('');
   $('#slot').html('');
 
   // Create the soccer players
@@ -114,13 +114,34 @@ function createPlayers() {
 				var playerId = i+1;			
 								
 				var playerDiv = '#' + player.id;
-				$('<div id=' + player.id + '></div>').appendTo('#player');
+				var positionDivName = '';
+				var positionDivClass = '';
 				
-				if (player.position_mapper.code == 'G') {										
-					$(playerDiv).addClass('goal_keeper');
-				} else {
-					$(playerDiv).addClass('team');
+				if (player.position_mapper.code == 'G') {					
+					positionDivName = '#goalkeepers';					
+					
+				} else if (player.position_mapper.code == 'DD') {
+					positionDivName = '#right_back';										
+				} else if (player.position_mapper.code == 'DC') {
+					positionDivName = '#defender';
+				} else if (player.position_mapper.code == 'DE') {
+					positionDivName = '#left_back';
+				} else if (player.position_mapper.code == 'MDC') {
+					positionDivName = '#midfield_defense';
+				} else if (player.position_mapper.code.substring(0, 1) == 'M') {
+					positionDivName = '#midfield';
+				} else if (player.position_mapper.code.substring(0, 1) == 'A') {
+					positionDivName = '#forwards';
 				}
+				
+				if (player.position_mapper.code == 'G') {					
+					positionDivClass = 'goal_keeper';
+				} else {
+					positionDivClass = 'team';
+				}
+				
+				$('<div id=' + player.id + '></div>').appendTo(positionDivName);					
+				$(playerDiv).addClass(positionDivClass);
 				
 				$('<p>' + '&nbsp' + '</p>').appendTo(playerDiv);
 				$('<span id="playerName_' + playerId + '">' + player.name + '</span>')
@@ -128,7 +149,7 @@ function createPlayers() {
 				
 				if (player.enabled) {
 					$(playerDiv).addClass('enabled');
-					$(playerDiv).data('number', i).appendTo('#player').draggable( {
+					$(playerDiv).data('number', i).appendTo(positionDivName).draggable( {
 				    	containment: '#soccerField',
 					    stack: '#player div',
 				      	cursor: 'move',
@@ -137,7 +158,7 @@ function createPlayers() {
 				} else {
 					$(playerDiv).addClass('disabled');
 				}
-				
+				$(playerDiv).addClass('player');
 				
 	  		});
       });		

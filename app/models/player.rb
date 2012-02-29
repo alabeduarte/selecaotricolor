@@ -18,7 +18,7 @@ class Player
   validates :team, :presence => true
   
   def self.players_of(team)
-    Player.all(:team_id => team.id, :order => :position_mapper_id.desc)
+    Player.all(:team_id => team.id, :order => :position_mapper_id.asc)
   end
   
   def self.disabled_players_names_of(team)

@@ -460,8 +460,8 @@
         margin: 0 2px;
         padding: 2px 18px;
 		position:absolute;
-		left:40%;
-		top:50%;
+		left:71%;
+		top:90%;
 		width: 18%;
 }
 
@@ -482,14 +482,14 @@
 }
 
 .login_button {
-	position:relative;
-	left:63%;
+	position:absolute;
+	left:67%;
 	top:40%;
 }
 
 .register_button {
-	position:relative;
-	left:74%;
+	position:absolute;
+	left:79%;
 	top:40%;
 }
 

@@ -1,15 +1,21 @@
 <div class="topbar formation">
-	<ul>
-		<li>
-			Próxima partida: <strong><%= next_match.day.to_s(:day) %></strong>
-		</li>
+	<div class="next_match_info">
+		<ul>
+			<li>
+				Próxima partida: <strong><%= next_match.day.to_s(:day) %></strong>
+			</li>
+			<li>
+				<div class="match">
+					<h3><%= "#{next_match.home.name} x #{next_match.away.name}" %></h3>
+				</div>
+			</li>
+		</ul>	
+	</div>
+	<div class="logo"></div>
+	<div class="user_actions">
 		<% if user_signed_in? %>
-			<div class="formationActions">
-				<%= link_to "Novo", :new, :class => "btn primary reset" %>
-				<section>
-					<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
-				</section>
-			</div>
+			<%= link_to "Novo", :new, :class => "btn primary reset" %>		
+			<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
 		<% else %>
 			<%= render :partial => "users/facebook_authentication" %>
 			<div class="login_button">
@@ -19,24 +25,26 @@
 				<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn danger" %>
 			</div>
 		<% end %>
-		<li>
-			<div class="next_match_info">
-				<h3><%= "#{next_match.home.name} x #{next_match.away.name}" %></h3>
-			</div>
-		</li>
-	</ul>	
+	</div>
 </div>
 
 <%= render :partial => "welcome/info" %>
 <div id="soccerField">
 	<div id="player">
-		<div id="forwards"></div>
-		<div id="midfield"></div>
-		<div id="midfield_defense"></div>
-		<div id="left_back"></div>
-		<div id="defender"></div>
-		<div id="right_back"></div>
-		<div id="goalkeepers"></div>
+		<div id="forwards">
+		</div>
+		<div id="midfield">
+		</div>
+		<div id="midfield_defense">
+		</div>
+		<div id="left_back">
+		</div>
+		<div id="defender">
+		</div>
+		<div id="right_back">
+		</div>
+		<div id="goalkeepers">
+		</div>
 	</div>
 	<div id="slot"></div>
 </div>

@@ -9,12 +9,12 @@
 }
 
 #soccerField {
-	height: 558px;
+	height: 700px;
 	width: 1113px;
 	background-image: url(../../assets/soccer_field.png);
 	background-repeat: no-repeat;
 	background-position: left;
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .soccerFieldBorder {
@@ -28,24 +28,12 @@
 }
 
 #player {
-	position: absolute;
+	position: relative;
 	float: left;
 	margin: 0px 0 0 365px;
-	margin-top: 60px;
+	margin-top: 80px;
 	width: 700px;
 	height: 490px;
-}
-
-#slot div {	
-	width: 12px;
-	height: 12px;
-	padding: 5px;
-	padding-top: 10px;
-	padding-bottom: 0;
-	border: 2px solid #333;
-	-moz-border-radius: 30px;
-	-webkit-border-radius: 30px;
-	border-radius: 30px;
 }
 
 .player {
@@ -78,12 +66,16 @@
 	margin-left: 2px;
 }
 
+#player div {
+	/*margin-bottom: 10px;*/
+}
+
 #slot {
 	width: 340px;
 	padding: 0;
-	position: relative;
+	position: absolute;
 	float: left;
-	margin: 78px 0 0 14px;
+	margin: 158px 0 0 14px;
 }
 
 #slot div {
@@ -92,7 +84,14 @@
 	width: 12px;
 	height: 12px;
 	margin: 20px;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
+	padding: 5px;
+	padding-top: 10px;
+	padding-bottom: 0;
+	border: 2px solid #333;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
 	float: left;
 }
 
@@ -110,7 +109,7 @@
 	border-radius: 30px;
 	border: 2px solid #000000;
 	font-size: 9px;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 	opacity: 0;
 	cursor: default;
 }
@@ -188,7 +187,7 @@
 	-webkit-border-radius: 30px;
 	border-radius: 30px;
 	position: absolute;
-	margin: 490px 0 0 166px;
+	margin: 550px 0 0 166px;
 	opacity: 0.5;
 }
 
@@ -283,7 +282,8 @@
 .topbar.formation {
 	position: absolute;
 	height: 60px;
-	padding-top: 10px;
+	width: 100%;
+	padding-top: 12px;
 	margin-top: 40px;
 	background-color: #1E90FF;
 	background-repeat: repeat-x;
@@ -301,8 +301,40 @@
 	z-index: 3;
 }
 
+.formation_info {
+	color: #FFF;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.formation_info li {
+	float: none;
+}
+
+.next_match_info {
+	width: 30%;
+	margin-left: 30px;
+}
+
+.match {
+	position:relative;
+	left:5%;
+	top:50%;
+}
+
+.logo {
+	background-image: url(../../assets/selecaotricolor_logo.png);	
+	height: 60px;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 0 auto;
+}
+
+.user_actions {
+	width: 20%;
+}
+
 .topbar.formation.expand {
-	height: 90px;
+	height: 110px;
 }
 
 .table_below_topbar {
@@ -413,8 +445,8 @@
 	  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
-.main {
-	margin-top: 80px;
+.content {
+	margin-top: 100px;
 }
 
 .fb_button {
@@ -443,20 +475,20 @@
 	left: 2px;
 }
 
-.next_match_info {
-	position:absolute;
-	left:5%;
-	top:50%;
+.actions_buttons {
+	position:relative;
+	left:63%;
+	top:40%;
 }
 
 .login_button {
-	position:absolute;
+	position:relative;
 	left:63%;
 	top:40%;
 }
 
 .register_button {
-	position:absolute;
+	position:relative;
 	left:74%;
 	top:40%;
 }

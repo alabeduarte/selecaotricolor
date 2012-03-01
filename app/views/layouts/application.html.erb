@@ -27,14 +27,15 @@
 	</div>
 	
 	<%= render :partial => "users/info" %>
-	<div class="main">
-		<% if flash[:notice] -%>
-			<div id="notice" class="alert-message notice">
-				<a class="close notice" onclick="dispose();">×</a>
-				<%= flash[:notice] %>
-			</div>
-		<% end -%>
-		<div class="container">
+	
+	<% if flash[:notice] -%>
+		<div id="notice" class="alert-message notice">
+			<a class="close notice" onclick="dispose();">×</a>
+			<%= flash[:notice] %>
+		</div>
+	<% end -%>
+	<div class="container">
+		<div class="content">
 			<%= yield %>
 		</div>
 	</div>

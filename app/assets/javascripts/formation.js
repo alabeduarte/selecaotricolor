@@ -39,7 +39,7 @@ function load_soccer_field() {
 
 function createMatrix(slots) {
   // Matrix
-  matrix = new Array(7);
+  matrix = new Array(8);
   for(var i = 0; i < matrix.length; i++) {
     matrix[i] = new Array(5);  
   }
@@ -56,7 +56,7 @@ function createMatrix(slots) {
 
 function createMatrixModel(slots) {
   // Matrix
-  matrixModel = new Array(7);
+  matrixModel = new Array(8);
   for(var i = 0; i < matrixModel.length; i++) {
     matrixModel[i] = new Array(5);  
   }
@@ -119,7 +119,6 @@ function createPlayers() {
 				
 				if (player.position_mapper.code == 'G') {					
 					positionDivName = '#goalkeepers';					
-					
 				} else if (player.position_mapper.code == 'DD') {
 					positionDivName = '#right_back';										
 				} else if (player.position_mapper.code == 'DC') {
@@ -169,7 +168,7 @@ function createPlayers() {
 
 function createSlots() {
   var slots = new Array();
-  for ( var i = 1; i <= 35; i++ ) {
+  for ( var i = 1; i <= 40; i++ ) {
     slots[i-1] = i;
   }
                 
@@ -192,7 +191,7 @@ function createSlots() {
 
 function createEmptySlots() {
   var slots = new Array();
-  for ( var i = 1; i <= 35; i++ ) {
+  for ( var i = 1; i <= 40; i++ ) {
     slots[i-1] = i;
   }
                 

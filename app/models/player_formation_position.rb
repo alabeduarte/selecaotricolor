@@ -15,7 +15,11 @@ class PlayerFormationPosition
   end
   
   def acronym
-    position_mapper.code
+    if (position_mapper != nil && position_mapper.code != nil)
+      position_mapper.code
+    else
+      ""
+    end
   end
   
   private

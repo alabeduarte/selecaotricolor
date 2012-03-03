@@ -32,7 +32,7 @@
 <% @formations.each do |formation| %>
   <tr>
 	<td><%= formation.owner.nickname %></td>
-	<td><%= formation.try(:tactical) %></td>
+	<td><%= formation.tactical %></td>
 	<td><%= formation.created_at.to_s(:day) %></td>
     <td><%= link_to t(:show), formation, :class => "btn" %></td>
     <td>

@@ -17,7 +17,7 @@
 <% @player.positions.each do |position| %>
   <tr>	
 	<td><%= position.formation.owner.nickname %></td>
-	<td><%= position.formation.try(:tactical) %></td>
+	<td><%= position.formation.tactical %></td>
     <td><%= link_to position.description, :action => :show, :id => position.formation  %></td>	
   </tr>
 <% end %>

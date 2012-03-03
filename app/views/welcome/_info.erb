@@ -12,7 +12,7 @@
 	<a name="fb_share" type="icon_link" share_url="<%= current_uri %>"><%= t(:share) %></a> 
 	<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript">
 	</script>
-	<div class="sign_in">
+	<div class="user_actions">
 		<% if user_signed_in? %>
 			<%= link_to "Monte o seu esquema tático!", :new, :class => "btn danger large" %>
 		<% else %>

@@ -3,41 +3,43 @@
 	<h2>Monte o seu esquema tático!</h2>
 </div>
 <%= render :partial => 'facebook_like' %>
-<div class="main-content">
-	<div class=".droppable-area">
-		<div id="soccerField">
-		</div>
-		<% if user_signed_in? %>	
-		<div id="player">
-			<h5 class="pills"><a href="#">Atacantes</a></h5>		
-			<div id="forwards" >
-			</div>
-			<h5 class="pills"><a href="#">Meias</a></h5>		
-			<div id="midfield" >
-			</div>
-			<h5 class="pills"><a href="#">Volantes</a></h5>		
-			<div id="midfield_defense" >
-			</div>
-			<h5 class="pills"><a href="#">Laterais Esquerdos</a></h5>		
-			<div id="left_back" >
-			</div>
-			<h5 class="pills"><a href="#">Zagueiros</a></h5>		
-			<div id="defender" >
-			</div>
-			<h5 class="pills"><a href="#">Laterais Direitos</a></h5>		
-			<div id="right_back" >
-			</div>
-			<h5 class="pills"><a href="#">Goleiros</a></h5>		
-			<div id="goalkeepers" >
-			</div>
-		</div>
-		<% end %>
-	<div id="slot"></div>
+<div class=".droppable-area">
+	<div id="soccerField">
 	</div>
+	<% if user_signed_in? %>	
+	<div id="player">
+		<h5 class="pills"><a href="#">Atacantes</a></h5>		
+		<div id="forwards" >
+		</div>
+		<h5 class="pills"><a href="#">Meias</a></h5>		
+		<div id="midfield" >
+		</div>
+		<h5 class="pills"><a href="#">Volantes</a></h5>		
+		<div id="midfield_defense" >
+		</div>
+		<h5 class="pills"><a href="#">Laterais Esquerdos</a></h5>		
+		<div id="left_back" >
+		</div>
+		<h5 class="pills"><a href="#">Zagueiros</a></h5>		
+		<div id="defender" >
+		</div>
+		<h5 class="pills"><a href="#">Laterais Direitos</a></h5>		
+		<div id="right_back" >
+		</div>
+		<h5 class="pills"><a href="#">Goleiros</a></h5>		
+		<div id="goalkeepers" >
+		</div>
+	</div>
+	<% end %>
+<div id="slot"></div>
 </div>
 <div id="matrix"></div>
+<div class="user_actions">
+	<%= link_to "Novo", :new, :class => "btn primary reset" %>		
+	<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
+</div>
 
 <%= content_for :javascript do %>
 	$( init_soccer_field );
-	$('.facebook_plugins.like').css('position', 'fixed');
+	$('.facebook_plugins.like').css('position', 'absolute');
 <% end %>

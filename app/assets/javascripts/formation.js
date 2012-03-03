@@ -152,6 +152,8 @@ function createPlayers() {
 				    	containment: '.droppable-area',
 					    stack: '#player div',
 				      	cursor: 'move',
+						appendTo: 'body',
+						helper: 'clone',
 				      	revert: true
 					});
 				} else {
@@ -212,7 +214,7 @@ function handlePlayerDrop(event, ui) {
   	}
 
   	if (correctPlayers < 10) {
-		//ui.draggable.css('position', 'fixed');
+		ui.draggable.appendTo('#soccerField');
     	ui.draggable.addClass('correct');
 		ui.draggable.draggable('disable');
 		$(this).droppable('disable');

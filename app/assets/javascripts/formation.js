@@ -116,7 +116,7 @@ function createPlayers() {
 				var playerDiv = '#' + player.id;
 				var positionDivName = '';
 				var positionDivClass = '';
-				
+
 				if (player.position_mapper.code == 'G') {					
 					positionDivName = '#goalkeepers';					
 				} else if (player.position_mapper.code == 'DD') {
@@ -205,30 +205,31 @@ function createEmptySlots() {
 }
 
 function handlePlayerDrop(event, ui) {
-  var element = $(this).attr('id');
-  var player = ui.draggable.attr('id');
-  if (element == $('#gk').attr('id')) {
-    goalKeeper = player;
-  }
-  if (correctPlayers < 10) {
-	ui.draggable.css('position', 'fixed');
-    ui.draggable.addClass('correct');
-	ui.draggable.draggable('disable');
-	$(this).droppable('disable');
+	var element = $(this).attr('id');
+  	var player = ui.draggable.attr('id');
+  	if (element == $('#gk').attr('id')) {
+    	goalKeeper = player;
+  	}
 
-    ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
-    ui.draggable.draggable('option', 'revert', false);  
+  	if (correctPlayers < 10) {
+		ui.draggable.css('position', 'fixed');
+    	ui.draggable.addClass('correct');
+		ui.draggable.draggable('disable');
+		$(this).droppable('disable');
+
+	    ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+	    ui.draggable.draggable('option', 'revert', false);  
     
-    if (player != goalKeeper) {
-      correctPlayers++;
-      addElementInSoccerField(element, player);
-    }
-  }
-  if (goalKeeper) {
-    if (correctPlayers == 10) {
-      correctPlayers++;      
-    }
-  }
+	    if (player != goalKeeper) {
+	      correctPlayers++;
+	      addElementInSoccerField(element, player);
+	    }
+	}
+	if (goalKeeper) {
+		if (correctPlayers == 10) {
+			correctPlayers++;      
+		}
+	}
 }
 
 function convertMatrixModelToJson() {

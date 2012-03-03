@@ -1,27 +1,21 @@
-<% if !user_signed_in? %>
-<div class="welcome">
-	<h1>Bem vindo ao Seleção Tricolor!</h1>
-	<span class="subtitle">Mais um site interativo exclusivo para a torcida do BAHIA.</span>
-	<p>
-	Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> você poderá opinar: <strong>Qual time deverá ir a campo?</strong>
-	</p>
-	<span>
-	Sinta-se à vontade, escale o seu time, monte o seu esquema tático e comece a torcer!
-	</span>
-	<br/>
-	<span>
-	Se você acertar o esquema tático, possíveis substituições ou até se acertar quem serão os artilheiros do
-	</span>
-	<br/>
-	<span>
-	Tricolor de Aço, acumulará pontos e prestígio perante seus amigos...
-	</span>
-	<br/>
-	<h3>Afinal, sempre tem um que se acha o técnico após cada jogo.</h3>
-	<h2>Monte o seu esquema tático! BORA BAHÊA!</h2>
-</div>
-<% else %>
-	<div class="new_formation_invitation">
-		<h2>Monte o seu esquema tático!</h2>
+<div class="hero-unit">
+	<div class="welcome">
+		<h1>Bem vindo ao Seleção Tricolor!</h1>
+		<span class="subtitle">Um site interativo, não oficial mas exclusivo, para a torcida do BAHIA.</span>
+		<p>
+		Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> você poderá responder de uma form prática e clara: <h2>Qual time você gostaria que fosse a campo?</h2>
+		</p>
+		<h3>
+		Sinta-se à vontade, escale o seu time, monte o seu esquema tático e comece a torcer!
+		</h3>		
 	</div>
-<% end %>
+	<div class="sign_in">
+		<% if user_signed_in? %>
+			<%= link_to "Monte o seu esquema tático!", :new, :class => "btn danger large" %>
+		<% else %>
+			<%= render :partial => "users/facebook_authentication" %>
+			<%= link_to "Login direto!", "login", :class => "btn success" %>
+			<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn danger" %>
+		<% end %>
+	</div>
+</div>

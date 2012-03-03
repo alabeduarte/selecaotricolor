@@ -21,7 +21,7 @@
     <td><%= link_to t(:show), formation, :class => "btn" %></td>
     <td>
 		<% if can? :destroy, formation %>
-			<%= link_to t(:destroy), formation, :confirm => 'Are you sure?', :method => :delete, :class => "btn error" %>
+			<%= link_to t(:destroy), formation, :confirm => t(:are_you_sure), :method => :delete, :class => "btn error" %>
 		<% end %>
 	</td>
   </tr>

@@ -1,6 +1,6 @@
 class FormationsController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate_user!, :except => [:new, :show, :reports]
+  before_filter :authenticate_user!, :except => [:show, :reports]
 
   respond_to :json, :html
 

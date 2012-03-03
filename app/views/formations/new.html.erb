@@ -1,5 +1,7 @@
 <%= render :partial => "main_menu" %>
-<%= render :partial => "welcome/info" %>
+<div class="new_formation_invitation">
+	<h2>Monte o seu esquema tático!</h2>
+</div>
 <%= render :partial => 'facebook_like' %>
 <div class="main-content">
 	<div class=".droppable-area">
@@ -8,25 +10,25 @@
 		<% if user_signed_in? %>	
 		<div id="player">
 			<h5 class="pills"><a href="#">Atacantes</a></h5>		
-			<div id="forwards" class="accordion">
+			<div id="forwards" >
 			</div>
 			<h5 class="pills"><a href="#">Meias</a></h5>		
-			<div id="midfield" class="accordion">
+			<div id="midfield" >
 			</div>
 			<h5 class="pills"><a href="#">Volantes</a></h5>		
-			<div id="midfield_defense" class="accordion">
+			<div id="midfield_defense" >
 			</div>
 			<h5 class="pills"><a href="#">Laterais Esquerdos</a></h5>		
-			<div id="left_back" class="accordion">
+			<div id="left_back" >
 			</div>
 			<h5 class="pills"><a href="#">Zagueiros</a></h5>		
-			<div id="defender" class="accordion">
+			<div id="defender" >
 			</div>
 			<h5 class="pills"><a href="#">Laterais Direitos</a></h5>		
-			<div id="right_back" class="accordion">
+			<div id="right_back" >
 			</div>
 			<h5 class="pills"><a href="#">Goleiros</a></h5>		
-			<div id="goalkeepers" class="accordion">
+			<div id="goalkeepers" >
 			</div>
 		</div>
 		<% end %>

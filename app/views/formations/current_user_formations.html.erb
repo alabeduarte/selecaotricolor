@@ -1,12 +1,5 @@
-<div class="topbar formation">
-	<div class="next_match_info">
-		<ul>
-			<li><h3><%= "Táticas enviadas por #{current_user.nickname}" %></h3></li>
-		</ul>
-	</div>
-	<div class="logo"></div>
-</div>
-<table class="table_below_topbar zebra-striped">
+<%= render :partial => "simple_menu", :locals => {:title => "Minhas táticas"} %>
+<table class="zebra-striped margin-top">
   <tr>
 	<th><%= t(:created_at) %></th>
 	<th><%= t(:day) %></th>

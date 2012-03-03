@@ -1,0 +1,46 @@
+<% if user_signed_in? %>
+	<div class="topbar formation">
+		<div class="main_bar">
+			<div class="next_match_info">
+				<ul>
+					<li>
+						Próxima partida: <strong><%= next_match.day.to_s(:day) %></strong>
+					</li>
+					<li>
+						<div class="match">
+							<h3><%= "#{next_match.home.name} x #{next_match.away.name}" %></h3>
+						</div>
+					</li>
+				</ul>	
+			</div>
+			<div class="logo"></div>
+			<div class="user_actions">
+					<%= link_to "Novo", :new, :class => "btn primary reset" %>		
+					<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
+			</div>		
+		</div>
+	</div>
+<% else %>
+	<div class="topbar formation expand">
+		<div class="main_bar">
+			<div class="next_match_info">
+				<ul>
+					<li>
+						Próxima partida: <strong><%= next_match.day.to_s(:day) %></strong>
+					</li>
+					<li>
+						<div class="match">
+							<h3><%= "#{next_match.home.name} x #{next_match.away.name}" %></h3>
+						</div>
+					</li>
+				</ul>	
+			</div>
+			<div class="logo"></div>
+			<div class="user_actions">
+					<%= render :partial => "users/facebook_authentication" %>
+					<%= link_to "Login direto!", "login", :class => "btn success" %>
+					<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn danger" %>
+			</div>
+		</div>
+	</div>
+<% end %>

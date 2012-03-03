@@ -300,6 +300,10 @@
 	z-index: 1;
 }
 
+.topbar.formation.expand {
+	height: 78px;
+}
+
 .formation_info {
 	color: #FFF;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -335,16 +339,12 @@
 
 .user_actions {
 	position: relative;
-	height: 60px;
+	margin-top: 12px;
 	float: right;
 }
 
-.topbar.formation.expand {
-	height: 110px;
-}
-
-.table_below_topbar {
-	margin-top: 80px;
+.zebra-striped.margin-top {
+	margin-top: 160px;
 }
 
 .topbar.formation ul {

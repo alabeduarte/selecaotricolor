@@ -22,6 +22,7 @@ pt-BR:
     didnt_receive_confirmation_instructions: "Não recebeu as instruções de confirmação de conta por e-mail?"
     resend_confirmation_instructions: "Reenviar instruções de confirmação"
     team: Time
+    teams: Times
     goal: Gol
     player: Jogador
     position: Posição

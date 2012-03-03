@@ -1,30 +1,18 @@
-<div class="topbar formation expand">
-	<div class="next_match_info">
-		<ul>
-			<li><h3><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></h3></li>
-			<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>	
-			<li><%= "Tática enviada para o jogo de #{@formation.match.day.to_s(:day)}" %></li>
-			<li><h3><%= "#{@formation.match.home.name} x #{@formation.match.away.name}" %></h3></li>
-		</ul>	
+<%= render :partial => "show_menu" %>
+<div class="hero-unit">
+	<%= render :partial => 'facebook_like' %>
+	<div id="call_up" class="show">          
+		<%= render :partial => "players_holders" %>
 	</div>
-	<div class="logo"></div>
+	<div id="soccerField" class="show">
+		<div id="emptySlot"></div>
+	</div>		
+	<div class="show">          		
+	</div>
+	<%= render :partial => 'facebook_comments' %>
+	<div id="matrix"></div>
+	<div id="json"></div>
 </div>
-
-	
-	<div class="hero-unit">
-		<%= render :partial => 'facebook_like' %>
-		<div id="call_up" class="show">          
-			<%= render :partial => "players_holders" %>
-		</div>
-		<div id="soccerField" class="show">
-			<div id="emptySlot"></div>
-		</div>		
-		<div class="show">          		
-		</div>
-		<%= render :partial => 'facebook_comments' %>
-		<div id="matrix"></div>
-		<div id="json"></div>
-	</div>
 
 
 

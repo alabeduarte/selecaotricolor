@@ -1,13 +1,6 @@
-<div class="topbar formation">	
-	<div class="match">
-		<ul>
-			<li><%= t(:listing_calendars) %></li>
-		</ul>
-	</div>
-	<div class="logo"></div>
-</div>
+<%= render :partial => "formations/simple_menu", :locals => {:title => t(:listing_calendars)} %>
 <%= render :partial => 'formations/facebook_like' %>
-<table class="zebra-striped">
+<table class="zebra-striped margin-top">
   <tr>
     <th><%= t(:day) %></th>
 	<th><%= t(:home) %></th>

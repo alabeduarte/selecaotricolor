@@ -1,13 +1,22 @@
 <div class="topbar formation">
-	<ul>
-		<li><%= "Táticas enviadas para o jogo de #{@match.day.to_s(:day)}" %></li>
-		<li><h3><%= "#{@match.home.name} x #{@match.away.name}" %></h3></li>
-	</ul>
+	<div class="main_bar">
+		<div class="next_match_info">
+			<ul>					
+				<li><h3><%= "#{@match.home.name} x #{@match.away.name}" %></h3></li>
+			</ul>	
+		</div>
+		<div class="logo"></div>
+		<div class="user_actions">
+			<ul>	
+				<li><%= "Táticas enviadas para o jogo de #{@match.day.to_s(:day)}" %></li>
+			</ul>
+		</div>
+	</div>
 </div>
-<div class="table_below_topbar">
+<div>
 	<%= render :partial => 'formations/facebook_like' %>
 </div>
-<table class="table_below_topbar zebra-striped">
+<table class="zebra-striped margin-top">
   <tr>
 	<th><%= t(:sended_to) %></th>
 	<th><%= t(:created_at) %></th>

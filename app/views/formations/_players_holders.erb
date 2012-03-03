@@ -1,6 +1,6 @@
 <% if current_user_owner_of? @formation %>
 <%= form_tag @formation, :method => :put do %>
-	<table class="table_holders">
+	<table class="zebra-striped">
 		<tr>
 		    <th><%= t(:player) %></th>
 			<th><%= t(:position) %></th>
@@ -14,9 +14,9 @@
 	</table>
 <% end %>	
 <% else %>
-	<table class="table_holders">
+	<table class="zebra-striped">
 		<tr>
-		    <th><%= t(:team) %></th>
+		    <th><%= t(:player) %></th>
 			<th><%= t(:position) %></th>
 		</tr>
 	<% @players_positions.each do |position| %>

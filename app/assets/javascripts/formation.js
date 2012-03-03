@@ -149,7 +149,7 @@ function createPlayers() {
 				if (player.enabled) {
 					$(playerDiv).addClass('enabled');
 					$(playerDiv).data('number', i).appendTo(positionDivName).draggable( {
-				    	containment: '#soccerField',
+				    	containment: '.droppable-area',
 					    stack: '#player div',
 				      	cursor: 'move',
 				      	revert: true
@@ -211,6 +211,7 @@ function handlePlayerDrop(event, ui) {
     goalKeeper = player;
   }
   if (correctPlayers < 10) {
+	ui.draggable.css('position', 'fixed');
     ui.draggable.addClass('correct');
 	ui.draggable.draggable('disable');
 	$(this).droppable('disable');

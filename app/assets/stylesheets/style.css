@@ -11,7 +11,6 @@
 .main-content {
 	background-color: #FFFAFA;
 	width: 900px;
-	padding-bottom: 100%;
 	border-color: #eedc94 #eedc94 #e4c652;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 	border-width: 1px;
@@ -24,24 +23,19 @@
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
+.droppable-area {
+	height: 1200px;
+	width: 1113px;
+}
+
 #soccerField {
-	height: 1100px;
+	position: fixed;
+	height: 550px;
 	width: 1113px;
 	background-image: url(../../assets/soccer_field.png);
 	background-repeat: no-repeat;
-	background-position: left;
-	margin-top: 20px;
 	margin-left: 20px;
-}
-
-.soccerFieldBorder {
-	width: 358px;
-	height: 493px;
-	border: 2px solid #333;
-	-moz-border-radius: 30px;
-	-webkit-border-radius: 30px;
-	border-radius: 30px;
-	margin-top: 20px;	
+	margin-top: 50px;
 }
 
 #player {
@@ -49,7 +43,6 @@
 	position: relative;
 	float: left;
 	margin: 0px 0 0 415px;
-	margin-top: 80px;
 	width: 450px;	
 	border-color: #eedc94 #eedc94 #e4c652;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -96,9 +89,9 @@
 #slot {
 	width: 340px;
 	padding: 0;
-	position: absolute;
+	position: fixed;
 	float: left;
-	margin: 356px 0 0 14px;
+	margin: 99px 0 0 34px;
 }
 
 #slot div {
@@ -210,7 +203,7 @@
 	-webkit-border-radius: 30px;
 	border-radius: 30px;
 	position: absolute;
-	margin: 750px 0 0 166px;
+	margin: 446px 0 0 166px;
 	opacity: 0.5;
 }
 
@@ -409,6 +402,10 @@
 	top: 0;
 }
 
+.visible {
+	display: block;
+}
+
 .foobar {
 	height: 40px;
 	position: fixed;
@@ -544,7 +541,7 @@
 }
 
 .new_formation_invitation {
-	position: absolute;
+	position: relative;
 	margin-top: 33px;
 	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
     font-size: 12px;
@@ -652,8 +649,11 @@
 }
 
 #soccerField.show {
+	position: relative;
 	width: 358px;
 	height: 493px;
+	margin-top: 0px;
+	margin-bottom: 30px;
 }
 
 #emptySlot.show {

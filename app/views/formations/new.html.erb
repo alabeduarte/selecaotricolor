@@ -2,37 +2,40 @@
 <%= render :partial => "welcome/info" %>
 <%= render :partial => 'facebook_like' %>
 <div class="main-content">
-<div id="soccerField">
-	<% if user_signed_in? %>	
+	<div class=".droppable-area">
+		<div id="soccerField">
+		</div>
+		<% if user_signed_in? %>	
 		<div id="player">
 			<h5 class="pills"><a href="#">Atacantes</a></h5>		
-			<div id="forwards">
+			<div id="forwards" class="accordion">
 			</div>
 			<h5 class="pills"><a href="#">Meias</a></h5>		
-			<div id="midfield">
+			<div id="midfield" class="accordion">
 			</div>
 			<h5 class="pills"><a href="#">Volantes</a></h5>		
-			<div id="midfield_defense">
+			<div id="midfield_defense" class="accordion">
 			</div>
 			<h5 class="pills"><a href="#">Laterais Esquerdos</a></h5>		
-			<div id="left_back">
+			<div id="left_back" class="accordion">
 			</div>
 			<h5 class="pills"><a href="#">Zagueiros</a></h5>		
-			<div id="defender">
+			<div id="defender" class="accordion">
 			</div>
 			<h5 class="pills"><a href="#">Laterais Direitos</a></h5>		
-			<div id="right_back">
+			<div id="right_back" class="accordion">
 			</div>
 			<h5 class="pills"><a href="#">Goleiros</a></h5>		
-			<div id="goalkeepers">
+			<div id="goalkeepers" class="accordion">
 			</div>
 		</div>
-	<% end %>
+		<% end %>
 	<div id="slot"></div>
-</div>
+	</div>
 </div>
 <div id="matrix"></div>
 
 <%= content_for :javascript do %>
 	$( init_soccer_field );
+	$('.facebook_plugins.like').css('position', 'fixed');
 <% end %>

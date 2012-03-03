@@ -212,7 +212,7 @@ function handlePlayerDrop(event, ui) {
   	}
 
   	if (correctPlayers < 10) {
-		ui.draggable.css('position', 'fixed');
+		//ui.draggable.css('position', 'fixed');
     	ui.draggable.addClass('correct');
 		ui.draggable.draggable('disable');
 		$(this).droppable('disable');

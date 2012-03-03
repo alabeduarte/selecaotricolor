@@ -29,7 +29,7 @@
 }
 
 #soccerField {
-	position: fixed;
+	position: relative;
 	height: 550px;
 	width: 1113px;
 	background-image: url(../../assets/soccer_field.png);
@@ -42,7 +42,8 @@
 	background-color: #E0FFFF;
 	position: relative;
 	float: left;
-	margin: 0px 0 0 415px;
+	/*margin: 0px 0 0 415px;*/
+	margin: -600px 0 0 415px;
 	width: 450px;	
 	border-color: #eedc94 #eedc94 #e4c652;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -87,11 +88,12 @@
 }
 
 #slot {
+	position: relative;
 	width: 340px;
-	padding: 0;
-	position: fixed;
+	padding: 0;	
 	float: left;
-	margin: 99px 0 0 34px;
+	/*margin: 99px 0 0 34px;*/
+	margin: -1200px 0 0 34px;
 }
 
 #slot div {

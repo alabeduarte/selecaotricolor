@@ -19,6 +19,7 @@
 <table class="zebra-striped margin-top">
   <tr>
 	<th><%= t(:sended_to) %></th>
+	<th><%= t(:tactical) %></th>
 	<th><%= t(:created_at) %></th>
     <th></th>
     <th></th>
@@ -28,6 +29,7 @@
 <% @formations.each do |formation| %>
   <tr>
 	<td><%= formation.owner.nickname %></td>
+	<td><%= formation.tactical %></td>
 	<td><%= formation.created_at.to_s(:day) %></td>
     <td><%= link_to t(:show), formation, :class => "btn" %></td>
     <td>

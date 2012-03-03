@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Seleção Tricolor!</title>
+  <title>Seleção Tricolor! - <%= yield(:title) || "Monte o seu esquema tático!" %></title>
   <%= stylesheet_link_tag 'style', 'bootstrap.min', 'themes/base/jquery.ui.all' %>
   <%= csrf_meta_tag %>
   <%= favicon_link_tag %>
 </head>
-<body>
+<body>	
 	<div id="dialog-message" title="Ops...">
 		<p id="custom-alert-message"/>
 	</div>

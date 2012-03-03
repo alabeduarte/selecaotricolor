@@ -2,6 +2,7 @@
 <table class="zebra-striped margin-top">
   <tr>
 	<th><%= t(:created_at) %></th>
+	<th><%= t(:tactical) %></th>
 	<th><%= t(:day) %></th>
 	<th><%= t(:home) %></th>
 	<th><%= t(:away) %></th>
@@ -13,6 +14,7 @@
 <% @formations.each do |formation| %>
   <tr>
 	<td><%= formation.created_at.to_s(:day) %></td>
+	<td><%= formation.tactical %></td>
 	<td><%= formation.match.day.to_s(:day) %></td>
 	<td><%= formation.match.home.name %></td>
 	<td><%= formation.match.away.name %></td>

@@ -37,7 +37,7 @@
 	</td>
 	<td>
 		<% if can? :destroy, calendar %>
-			<%= link_to t(:destroy), calendar, :confirm => 'Are you sure?', :method => :delete, :class => "btn danger" %>
+			<%= link_to t(:destroy), calendar, :confirm => t(:are_you_sure), :method => :delete, :class => "btn danger" %>
 		<% end %>
 	</td>
   </tr>

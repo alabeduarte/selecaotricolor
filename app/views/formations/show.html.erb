@@ -1,5 +1,7 @@
+<% content_for :title, "para #{@formation.match.home.name} x #{@formation.match.away.name}, o meu #{Team.bahia.name} vai de #{@formation.tactical}" %>
 <%= render :partial => "show_menu" %>
 <div class="hero-unit">
+	<h2 class="subtitle"><%= "Seleção Tricolor: para #{@formation.match.home.name} x #{@formation.match.away.name}, o meu #{Team.bahia.name} vai de #{@formation.tactical}" %></h2>
 	<%= render :partial => 'facebook_like' %>
 	<div id="call_up" class="show">          
 		<%= render :partial => "players_holders" %>

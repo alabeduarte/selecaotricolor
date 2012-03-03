@@ -46,4 +46,26 @@ class Formation
     PlayerFormationPosition.all(:formation_id => id, :order => :id.asc)
   end
   
+  def tactical
+    defenders = 0
+    midfields = 0
+    forwards = 0
+    players_positions.each do |position| 
+      if position.acronym[0] == 'D' 
+        defenders += 1
+      end
+    end
+    players_positions.each do |position| 
+      if position.acronym[0] == 'M' 
+        midfields += 1
+      end
+    end
+    players_positions.each do |position| 
+      if position.acronym[0] == 'A' 
+        forwards += 1
+      end
+    end
+    "#{defenders}-#{midfields}-#{forwards}"
+  end
+  
 end

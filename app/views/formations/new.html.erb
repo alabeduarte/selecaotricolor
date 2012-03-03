@@ -1,26 +1,37 @@
 <%= render :partial => "main_menu" %>
 <%= render :partial => "welcome/info" %>
+<%= render :partial => 'facebook_like' %>
+<div class="main-content">
 <div id="soccerField">
-	<div id="player">
-		<div id="forwards">
+	<% if user_signed_in? %>	
+		<div id="player">
+			<h5 class="pills"><a href="#">Atacantes</a></h5>		
+			<div id="forwards">
+			</div>
+			<h5 class="pills"><a href="#">Meias</a></h5>		
+			<div id="midfield">
+			</div>
+			<h5 class="pills"><a href="#">Volantes</a></h5>		
+			<div id="midfield_defense">
+			</div>
+			<h5 class="pills"><a href="#">Laterais Esquerdos</a></h5>		
+			<div id="left_back">
+			</div>
+			<h5 class="pills"><a href="#">Zagueiros</a></h5>		
+			<div id="defender">
+			</div>
+			<h5 class="pills"><a href="#">Laterais Direitos</a></h5>		
+			<div id="right_back">
+			</div>
+			<h5 class="pills"><a href="#">Goleiros</a></h5>		
+			<div id="goalkeepers">
+			</div>
 		</div>
-		<div id="midfield">
-		</div>
-		<div id="midfield_defense">
-		</div>
-		<div id="left_back">
-		</div>
-		<div id="defender">
-		</div>
-		<div id="right_back">
-		</div>
-		<div id="goalkeepers">
-		</div>
-	</div>
+	<% end %>
 	<div id="slot"></div>
 </div>
+</div>
 <div id="matrix"></div>
-<%= render :partial => 'facebook_like' %>
 
 <%= content_for :javascript do %>
 	$( init_soccer_field );

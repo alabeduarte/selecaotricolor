@@ -14,7 +14,7 @@
 <% @formations.each do |formation| %>
   <tr>
 	<td><%= formation.created_at.to_s(:day) %></td>
-	<td><%= formation.tactical %></td>
+	<td><%= formation.try(:tactical) %></td>
 	<td><%= formation.match.day.to_s(:day) %></td>
 	<td><%= formation.match.home.name %></td>
 	<td><%= formation.match.away.name %></td>

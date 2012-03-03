@@ -9,12 +9,16 @@
 
 <table id="player_list" class="zebra-striped">
   <tr>
-    <th>Posição</th>
+	<th><%= t(:sended_to) %></th>
+    <th><%= t(:tactical) %></th>
+	<th><%= t(:position) %></th>
   </tr>
 
 <% @player.positions.each do |position| %>
-  <tr>
-    <td><%= link_to position.description, :action => :show, :id => position.formation  %></td>
+  <tr>	
+	<td><%= position.formation.owner.nickname %></td>
+	<td><%= position.formation.tactical %></td>
+    <td><%= link_to position.description, :action => :show, :id => position.formation  %></td>	
   </tr>
 <% end %>
 </table>

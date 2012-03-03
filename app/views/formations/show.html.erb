@@ -1,7 +1,7 @@
 <% content_for :title, "para #{@formation.match.home.name} x #{@formation.match.away.name}, o meu #{Team.bahia.name} vai de #{@formation.tactical}" %>
 <%= render :partial => "show_menu" %>
 <div class="hero-unit">
-	<h2 class="subtitle"><%= "Seleção Tricolor: para #{@formation.match.home.name} x #{@formation.match.away.name}, o meu #{Team.bahia.name} vai de #{@formation.tactical}" %></h2>
+	<h2 class="subtitle"><%= "#{t(:tactical)}: #{@formation.tactical}" %></h2>
 	<%= render :partial => 'facebook_like' %>
 	<div id="call_up" class="show">          
 		<%= render :partial => "players_holders" %>
@@ -9,7 +9,10 @@
 	<div id="soccerField" class="show">
 		<div id="emptySlot"></div>
 	</div>		
-	<div class="show">          		
+	<div class="show"> 
+		<a name="fb_share" type="icon_link" share_url="<%= current_uri %>"><%= t(:share) %></a> 
+		<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript">
+		</script>         		
 	</div>
 	<%= render :partial => 'facebook_comments' %>
 	<div id="matrix"></div>

@@ -69,7 +69,8 @@ class FormationsController < ApplicationController
   end
   
   def reports
-    @player = Player.find_by_name(params["player_name"])
+    name = params["player_name"].capitalize if (params["player_name"])
+    @player = Player.find_by_name(name)
     if @player
       @player
     else

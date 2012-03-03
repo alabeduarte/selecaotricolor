@@ -298,7 +298,7 @@
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	border-color: #1E90FF #1E90FF #22697d;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	z-index: 3;
+	z-index: 1;
 }
 
 .formation_info {
@@ -310,27 +310,32 @@
 	float: none;
 }
 
+.main_bar {
+	width: 1160px;
+	height: 80px;
+	float: left;
+}
+
 .next_match_info {
-	width: 30%;
+	width: 270px;
 	margin-left: 30px;
 }
 
 .match {
-	position:relative;
-	left:5%;
-	top:50%;
 }
 
 .logo {
 	background-image: url(../../assets/selecaotricolor_logo.png);	
 	height: 60px;
+	width: 370px;
 	background-repeat: no-repeat;
-	background-position: center;
 	margin: 0 auto;
 }
 
 .user_actions {
-	width: 20%;
+	position: relative;
+	height: 60px;
+	float: right;
 }
 
 .topbar.formation.expand {
@@ -457,12 +462,9 @@
         color: #fff;
         font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
         font-size: 11px;
-        margin: 0 2px;
         padding: 2px 18px;
-		position:absolute;
-		left:71%;
-		top:90%;
-		width: 18%;
+		width: 253px;
+		margin-bottom: 3px;
 }
 
 .fb_ico {
@@ -482,15 +484,17 @@
 }
 
 .login_button {
-	position:absolute;
-	left:67%;
-	top:40%;
+	position:relative;
+	height: 10px;
+	width: 10px;
+	margin: 30px;
 }
 
 .register_button {
-	position:absolute;
-	left:79%;
-	top:40%;
+	position:relative;
+	height: 10px;
+	width: 10px;
+	margin: 30px;
 }
 
 .alert-message.notice {	

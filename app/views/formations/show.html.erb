@@ -4,7 +4,7 @@
 	<h2 class="subtitle"><%= "#{t(:tactical)}: #{@formation.tactical}" %></h2>
 	<%= render :partial => 'facebook_like' %>
 	<div id="call_up" class="show">          
-		<a name="fb_share" type="icon_link" share_url="<%= current_uri %>"><%= t(:share) %></a> 
+		<a name="fb_share" type="button" share_url="<%= current_uri %>"><%= t(:share) %></a> 
 		<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript">
 		</script>
 		<%= render :partial => "players_holders" %>

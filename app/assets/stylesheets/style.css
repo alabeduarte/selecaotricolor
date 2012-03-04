@@ -466,17 +466,17 @@
     background-color: #3b5998;
     border-color: #d8dfea rgb(14, 31, 91) rgb(14, 31, 91) rgb(216, 223, 234);
     border-style: solid;
-    border-width: 1px;
-    color: #fff;
-    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
-    font-size: 11px;
+    border-width: 1px;    
     padding: 2px 18px;
-	width: 253px;
+	width: 273px;
+	height: 25px;
 	margin-bottom: 3px;
 }
 
-.fb_button a, a:hover {
+.fb_button_text {
 	color: #fff;
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: 18px;
 }
 
 .fb_ico {

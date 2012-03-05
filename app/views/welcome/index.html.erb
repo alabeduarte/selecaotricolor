@@ -1,2 +1,31 @@
 <%= render :partial => "main_menu" %>
-<%= render :partial => "info" %>
+<div class="hero-unit">
+	<div class="welcome">
+		<h1>Bem-vindo ao Seleção Tricolor!</h1>
+		<span class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</span>
+		<p>
+		Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> você poderá responder: <h2>Qual time você gostaria que fosse a campo?</h2>
+		</p>
+		<h3>
+		Sinta-se à vontade, escale o seu time, monte o seu esquema tático e comece a torcer!
+		</h3>
+		<center>
+			<%= link_to t(:listing_formations_to_next_match), formations_matches_path(Calendar.next_match), :class => "btn success" %>
+		</center>
+		<br/>
+		<% if user_signed_in? %>
+			<center><%= link_to "Monte o seu esquema tático!", :new, :class => "btn danger large" %></center>
+		<% end %>
+	</div>
+	<%= render :partial => "formations/share" %>
+	<div class="user_actions">		
+		<% if !user_signed_in? %>
+			<p><strong>Atenção!</strong> Se você tem conta no <strong>Facebook</strong>, não precisa se cadastrar! Basta clicar no botão abaixo!</p>
+			<%= render :partial => "users/facebook_authentication" %>
+			<br/>
+			<p>Do contrário, faça o <strong>Login direto</strong> ou se cadastre rapidamente:</p>
+			<%= link_to "Login direto!", "login", :class => "btn success small" %>
+			<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn danger small" %>
+		<% end %>
+	</div>
+</div>

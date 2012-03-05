@@ -15,9 +15,7 @@
 </div>
 <div>
 	<%= render :partial => 'formations/facebook_like' %>
-	<a name="fb_share" type="button" share_url="<%= current_uri %>"><%= t(:share) %></a> 
-	<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript">
-	</script>
+	<%= render :partial => "formations/share" %>
 </div>
 <table class="zebra-striped">
   <tr>

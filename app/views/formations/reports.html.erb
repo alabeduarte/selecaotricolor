@@ -1,5 +1,4 @@
-<%= render :partial => "simple_menu", :locals => {:title => "Estatísticas"} %>
-<br/><br/>
+<h1>Estatísticas</h1>
 <%= form_tag @formation, :html => {:class => "well form-search"} do |f| %>
 	<div class="actions">
 		<%= text_field_tag :player_name, nil, :placeholder => "Digite o nome de um jogador (ex: Souza, Gabriel, etc...)", :class => "xxlarge" %>
@@ -9,15 +8,11 @@
 
 <table id="player_list" class="zebra-striped">
   <tr>
-	<th><%= t(:sended_to) %></th>
-    <th><%= t(:tactical) %></th>
 	<th><%= t(:position) %></th>
   </tr>
 
 <% @player.positions.each do |position| %>
   <tr>	
-	<td><%= position.formation.owner.nickname %></td>
-	<td><%= position.formation.tactical %></td>
     <td><%= link_to position.description, :action => :show, :id => position.formation  %></td>	
   </tr>
 <% end %>

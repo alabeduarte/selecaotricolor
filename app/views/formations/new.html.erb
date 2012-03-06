@@ -1,6 +1,8 @@
-<%= render :partial => "main_menu" %>
+<%= render :partial => "calendars/next_match_info" %>
 <div class="new_formation_invitation">
 	<h2>Monte o seu esquema tático!</h2>
+	<%= link_to "Novo", :new, :class => "btn primary reset" %>		
+	<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
 </div>
 <%= render :partial => 'facebook_like' %>
 <div class=".droppable-area">
@@ -34,10 +36,6 @@
 <div id="slot"></div>
 </div>
 <div id="matrix"></div>
-<div class="user_actions">
-	<%= link_to "Novo", :new, :class => "btn primary reset" %>		
-	<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
-</div>
 
 <%= content_for :javascript do %>
 	$( init_soccer_field );

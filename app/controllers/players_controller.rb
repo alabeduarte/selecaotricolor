@@ -12,7 +12,7 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.xml
   def index
-    @players = Player.all
+    @players = Player.sort(:enabled, :position_mapper_id.desc, :name)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @players }

@@ -17,7 +17,7 @@
   <tr>
     <td><%= player.name %></td>
     <td><%= player.number %></td>
-    <td><%= f.collection_select(:team_id, Team.all, :id, :name, {:prompt => true}) %></td>
+    <td><%= f.collection_select(:team_id, Team.sort(:name), :id, :name, {:prompt => true}) %></td>
 	<td><%= f.check_box :enabled %></td>
 	<td><%= f.collection_select(:position_mapper_id, PositionMapper.all, :id, :description, {:prompt => true}) %></td>
 	<td><%= f.submit :class => "btn success" %></td>

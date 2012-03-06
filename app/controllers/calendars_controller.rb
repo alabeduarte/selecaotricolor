@@ -14,7 +14,7 @@ class CalendarsController < ApplicationController
   # GET /calendars
   # GET /calendars.json
   def index
-    @calendars = Calendar.all_ordered_by_day
+    @calendars = Calendar.sort(:day)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -36,7 +36,7 @@ class CalendarsController < ApplicationController
   # GET /calendars/new
   # GET /calendars/new.json
   def new
-    @teams = Team.all
+    @teams = Team.sort(:name)
     @calendar = Calendar.new
 
     respond_to do |format|
@@ -47,7 +47,7 @@ class CalendarsController < ApplicationController
 
   # GET /calendars/1/edit
   def edit
-    @teams = Team.all
+    @teams = Team.sort(:name)
     @calendar = Calendar.find(params[:id])
   end
 

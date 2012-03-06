@@ -14,7 +14,7 @@
   <%= f.hidden_field 'team_id' %>
   <div class="field">
 	<label for="team_id">Team:</label>
-	<%= f.collection_select(:team_id, Team.all, :id, :name, {:prompt => true}) %>
+	<%= f.collection_select(:team_id, Team.sort(:name), :id, :name, {:prompt => true}) %>
   </div>
 
   <div class="field">

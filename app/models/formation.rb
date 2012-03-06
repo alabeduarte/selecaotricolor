@@ -27,11 +27,14 @@ class Formation
       player = Player.find(element_value.to_s)
       players_positions << PlayerFormationPosition.new(player: player, x: x_value, y: y_value)
     end
+    next_match = Calendar.next_match
+    next_match.contains_formations = true
+    next_match.save
     Formation.new(players_positions: players_positions, 
                   team: Team.bahia,
-                  match: Calendar.next_match,
+                  match: next_match,
                   created_at: Time.now,
-                  owner: user)
+                  owner: user)    
   end
   
   def self.newly_created(user)

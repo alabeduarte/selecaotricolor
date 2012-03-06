@@ -17,10 +17,10 @@
 	<td><%= calendar.away.name %></td>
 	<td>
 		<% if can? :formations_matches, calendar %>
-			<% if calendar.try(:formations).empty? %>
-				<%= button_tag t(:formations_sended), :class => "btn disabled success" %>
+			<% if calendar.contains_formations? %>
+				<%= link_to t(:formations_sended), formations_matches_path(calendar), :class => "btn success" %>				
 			<% else %>
-				<%= link_to t(:formations_sended), formations_matches_path(calendar), :class => "btn success" %>
+				<%= button_tag t(:formations_sended), :class => "btn disabled success" %>
 			<% end %>
 			
 		<% end %>

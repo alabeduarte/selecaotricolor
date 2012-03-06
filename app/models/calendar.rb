@@ -6,6 +6,7 @@ class Calendar
   key :day, Time
   key :home_id, ObjectId
   key :away_id, ObjectId
+  key :contains_formations, Boolean
   
   belongs_to :home, :class_name => 'Team'
   belongs_to :away, :class_name => 'Team'

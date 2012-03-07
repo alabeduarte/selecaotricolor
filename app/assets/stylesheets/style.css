@@ -27,10 +27,11 @@
 	background-color: #E0FFFF;
 	position: relative;
 	float: left;
-	margin: 50px 0 0 415px;
+	margin: 50px 0 0 399px;
 	width: 450px;	
 	height: 490px;
 	overflow: auto;
+	overflow-x: hidden;
 	border-color: #eedc94 #eedc94 #e4c652;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 	border-width: 1px;
@@ -442,17 +443,8 @@
 	margin: 0;
 }
 
-.btn.reset {
-	position:absolute;
-	right:10%;
-	margin-right: 130px;
-	top:50%;
-}
-
 .btn.send {
-	position:absolute;
-	right:10%;
-	top:50%;
+	position:relative;
 	width: 120px;
 }
 
@@ -562,19 +554,25 @@
 }
 
 .new_formation_invitation {
-	position: relative;
-	margin-top: 33px;
-	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
-    font-size: 12px;
-	color: #0000CD;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background: whiteSmoke;
+	margin-top: 18px;
+	padding: 17px 5px 38px 10px;
+	border-top: 1px solid #DDD;
+	-webkit-border-radius: 0 0 3px 3px;
+	-moz-border-radius: 0 0 3px 3px;
+	border-radius: 0 0 3px 3px;
+	height: 8px;
 }
 
 .new_formation_invitation h2 {
 	margin-left: 10px;
 	margin-right: 10px;
 	color: #0000CD;	
+}
+
+.new_formation_actions {
+	position: relative;
+	margin: -33px 0 0 652px;
 }
 
 .welcome {
@@ -661,23 +659,14 @@
 
 .facebook_plugins {
 	position: relative;
-	left: 2%;
 	margin-top: 15px;
 }
 
 .facebook_plugins.share {
 	position: relative;
-	left: 28%;
 	bottom: 100px;
 	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
     font-size: 11px;
-}
-
-.facebook_plugins.like {
-	position: relative;
-	float: right;
-	margin: 20px 0 300 304px;
-	width: 100%;
 }
 
 .facebook_plugins.comment {
@@ -717,4 +706,19 @@
 
 .share.google_plus {
 
+}
+
+.ads {
+}
+
+.ads_left {
+	position: absolute;
+	left: 7px;
+	top: 72px;
+}
+
+.ads_right {
+	position: absolute;
+	right: 7px;
+	top: 72px;
 }

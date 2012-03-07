@@ -1,9 +1,15 @@
-<div class="next_match_info">
-	<ul>					
-		<li><h3><%= "#{@match.home.name} x #{@match.away.name}" %></h3></li>
-		<li><%= "Táticas enviadas para o jogo de #{@match.day.to_s(:day)}" %></li>
-	</ul>	
-</div>
+<center>
+	<div class="next_match_info">
+		<ul>
+			<li>
+				<div class="match">
+					<h3><%= "#{@match.home.name} x #{@match.away.name}" %></h3>
+				</div>
+			</li>
+			<li><%= "#{@match.day.to_s(:day)}" %></li>
+		</ul>	
+	</div>
+</center>
 <div>
 	<%= render :partial => 'formations/facebook_like' %>
 	<%= render :partial => "formations/share" %>

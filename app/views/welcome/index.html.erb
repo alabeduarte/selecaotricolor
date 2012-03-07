@@ -15,17 +15,19 @@
 		<br/>
 		<% if user_signed_in? %>
 			<center><%= link_to "Monte o seu esquema tático!", :new, :class => "btn danger large" %></center>
-		<% end %>
+		<% end %>				
 	</div>
-	<%= render :partial => "formations/share" %>
 	<div class="user_actions">		
 		<% if !user_signed_in? %>
 			<p><strong>Atenção!</strong> Se você tem conta no <strong>Facebook</strong>, não precisa se cadastrar! Basta clicar no botão abaixo!</p>
+			<center>
 			<%= render :partial => "users/facebook_authentication" %>
-			<br/>
+			</center>
+			<br/><br/>
 			<p>Do contrário, faça o <strong>Login direto</strong> ou se cadastre rapidamente:</p>
-			<%= link_to "Login direto!", "login", :class => "btn success small" %>
+			<%= link_to "Login direto!", "login", :class => "btn primary small" %>
 			<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn danger small" %>
 		<% end %>
 	</div>
+	<%= render :partial => "formations/share" %>
 </div>

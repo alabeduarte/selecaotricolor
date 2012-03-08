@@ -723,6 +723,13 @@
 	top: 72px;
 }
 
-.content h1 {
+.title h1 {
 	color: #CD0000;
 }
+
+.facebookLogin div {background-position: right -75px;}
+.facebookLogin:hover div {background-position: right -100px;}
+.facebookLogin:active div {background-position: right -125px;}
+.facebookLogin div span {background-position: 0 -75px; color: #fff !important;}
+.facebookLogin:hover div span {background-position: 0 -100px;}
+.facebookLogin:active div span {background-position: 0 -125px;}

@@ -13,9 +13,11 @@
 		</ul>	
 	</div>
 </center>
-	<h2 class="subtitle"><%= "#{t(:tactical)}: #{@formation.tactical}" %></h2>	
-	<%= render :partial => 'facebook_like' %>	
-	<%= render :partial => "formations/share" %>
+	<div class="formation_header">
+		<h2 class="subtitle"><%= "#{t(:tactical)}: #{@formation.tactical}" %></h2>	
+		<%= render :partial => 'facebook_like' %>	
+		<%= render :partial => "formations/share" %>
+	</div>
 	<div class="hero-unit">
 	<div id="call_up" class="show">          		
 		<%= render :partial => "players_holders" %>

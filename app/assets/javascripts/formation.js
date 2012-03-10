@@ -156,6 +156,12 @@ function createPlayers() {
 						helper: 'clone',
 				      	revert: true
 					});
+					$(playerDiv).mousedown(function () {
+						$('#slot').css('display', 'block');
+					});
+					$(playerDiv).mouseup(function () {
+						$('#slot').css("display","none");
+					});
 				} else {
 					$(playerDiv).addClass('disabled');
 				}
@@ -206,7 +212,7 @@ function createEmptySlots() {
   return slots;
 }
 
-function handlePlayerDrop(event, ui) {
+function handlePlayerDrop(event, ui) {	
 	var element = $(this).attr('id');
   	var player = ui.draggable.attr('id');
   	if (element == $('#gk').attr('id')) {
@@ -232,6 +238,7 @@ function handlePlayerDrop(event, ui) {
 			correctPlayers++;      
 		}
 	}
+	$('#slot').css('display', 'none');
 }
 
 function convertMatrixModelToJson() {

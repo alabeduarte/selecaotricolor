@@ -30,7 +30,7 @@ class Formation
     next_match = Calendar.next_match
     next_match.contains_formations = true
     next_match.save
-    Formation.new(players_positions: players_positions, 
+    Formation.create!(players_positions: players_positions, 
                   team: Team.bahia,
                   match: next_match,
                   created_at: Time.now,

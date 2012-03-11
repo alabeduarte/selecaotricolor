@@ -16,10 +16,7 @@ class FormationsController < ApplicationController
   end
 
   def create
-    formation = Formation.create_from(params[:_json], current_user)
-    if formation.save
-      formation.save_all_players
-    end
+    Formation.create_from(params[:_json], current_user)
   end
   
   def update

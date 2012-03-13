@@ -1,3 +1,11 @@
+Factory.define :user do |f|
+  f.nickname 'T1'
+  f.email 'teste1@t.com'
+  f.password 'mmmmmm'
+  f.admin false
+  f.confirmed_at Time.now.utc
+end
+
 Factory.define :bahia, :class => Team do |f|
   f.name 'Bahia'
 end

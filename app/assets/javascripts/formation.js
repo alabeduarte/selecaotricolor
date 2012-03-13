@@ -1,25 +1,26 @@
+var correctGoalKeeper = 0;
 var correctPlayers = 0;
 var matrix;
 var matrixModel;
 var goalKeeper;
 function init_soccer_field() {
-  
-  // Reset the game
-  correctPlayers = 0;
-  //$('#player').html('');
-  $('#slot').html('');
+  	// Reset the game
+  	correctPlayers = 0;
+  	//$('#player').html('');
+  	$('#slot').html('');
 
-  // Create the soccer players
-  var players = createPlayers();
+  	// Create the soccer players
+  	var players = createPlayers();
 
-  // Create the positions
-  var slots = createSlots();
+  	// Create the positions
+  	var slots = createSlots();
 
-  // Matrix
-  createMatrix(slots);
+  	// Matrix
+  	createMatrix(slots);
 
-  // Matrix Model
-  createMatrixModel(slots);
+  	// Matrix Model
+  	createMatrixModel(slots);
+	desableSenderButton();
 }
 
 function load_soccer_field() {
@@ -71,17 +72,6 @@ function createMatrixModel(slots) {
   }
 }
 
-function print() {
-  var output = '';
-  for(var x = 0; x < matrixModel.length; x++) {
-    for(var y = 0; y < matrixModel[x].length; y++) {
-      output += '[' + x + ', ' + y + '] = ' + matrixModel[x][y] + ' <br/>';
-    }
-  }
-
-  $('#matrix').html(output);
-}
-
 function addElementInSoccerField(element, player) {
   for(var x = 0; x < matrix.length; x++) {
     for(var y = 0; y < matrix[x].length; y++) {
@@ -92,18 +82,6 @@ function addElementInSoccerField(element, player) {
     }
   }
 }
-
-function isSelected(element) {
-  	for(var x = 0; x < matrixModel.length; x++) {
-    	for(var y = 0; y < matrixModel[x].length; y++) {
-      		if (matrixModel[x][y] == element) {
-        		return true;
-      		}
-    	}
-  	}
-	return false;
-}
-
 
 function createPlayers() {
 	var players = new Array();
@@ -220,25 +198,33 @@ function handlePlayerDrop(event, ui) {
   	}
 
   	if (correctPlayers < 10) {
-		ui.draggable.appendTo('#soccerField');
-    	ui.draggable.addClass('correct');
-		ui.draggable.draggable('disable');
-		$(this).droppable('disable');
-
-	    ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
-	    ui.draggable.draggable('option', 'revert', false);  
-    
+		ui = dropPlayer($(this), ui);  
 	    if (player != goalKeeper) {
 	      correctPlayers++;
 	      addElementInSoccerField(element, player);
 	    }
 	}
-	if (goalKeeper) {
-		if (correctPlayers == 10) {
-			correctPlayers++;      
-		}
+	if (goalKeeper != undefined && correctGoalKeeper == 0) {
+		ui = dropPlayer($(this), ui);    
+	    if (player == goalKeeper) {
+	      correctGoalKeeper++;
+	    }
 	}
 	$('#slot').css('display', 'none');
+	if (correctGoalKeeper == 1 && correctPlayers == 10) {
+		enableSenderButton();
+	}
+}
+
+function dropPlayer(player, ui) {
+	ui.draggable.appendTo('#soccerField');
+	ui.draggable.addClass('correct');
+	ui.draggable.draggable('disable');
+	player.droppable('disable');
+
+    ui.draggable.position( { of: player, my: 'left top', at: 'left top' } );
+    ui.draggable.draggable('option', 'revert', false);
+	return ui;
 }
 
 function convertMatrixModelToJson() {
@@ -287,9 +273,10 @@ function convertMatrixModelToJson() {
 }
 
 function send() {
-	if (correctPlayers == 11) {
+	if (correctPlayers == 10 && correctGoalKeeper == 1) {
 		var json = convertMatrixModelToJson();
-		makeDisabledSenderButton();
+		desableSenderButton();
+		$('#send_button').html('Enviando...');
 		$.ajax({
 	  			url:          "/create",
 				dataType:     "json",
@@ -305,10 +292,14 @@ function send() {
 	}
 }
 
-function makeDisabledSenderButton() {
+function desableSenderButton() {
 	$('#send_button').attr('disabled', 'disabled');
-	$('#send_button').removeClass("btn danger send").addClass("btn disabled send");
-	$('#send_button').html('Enviando...');
+	$('#send_button').removeClass("btn danger send").addClass("btn disabled send");	
+}
+
+function enableSenderButton() {
+	$("#send_button").removeAttr("disabled");
+	$('#send_button').removeClass("btn disabled send").addClass("btn danger send");
 }
 
 function cAlert(title, msg) {

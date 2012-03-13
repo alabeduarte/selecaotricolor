@@ -46,6 +46,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'factory_girl_rails', '~> 1.7.0'
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
 end

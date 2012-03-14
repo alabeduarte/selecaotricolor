@@ -27,9 +27,7 @@ class Formation
       player = Player.find(element_value.to_s)
       players_positions << PlayerFormationPosition.new(player: player, x: x_value, y: y_value)
     end
-    next_match = Calendar.next_match
-    next_match.contains_formations = true
-    next_match.save
+    next_match = self.checkin_next_match!
     Formation.create!(players_positions: players_positions, 
                   team: Team.bahia,
                   match: next_match,
@@ -39,6 +37,13 @@ class Formation
   
   def self.newly_created(user)
     Formation.first(:owner_id => user.id, :order => :created_at.desc)
+  end
+  
+  def self.checkin_next_match!
+    next_match = Calendar.next_match
+    next_match.contains_formations = true
+    next_match.save
+    next_match
   end
   
   def save_all_players

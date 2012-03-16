@@ -17,7 +17,11 @@ class Formation
   validates :created_at, :presence => true
   validates :owner, :presence => true
   
-  def self.create_from(data, user)
+  def self.create_from(args={})
+    data = args[:data]
+    owner = args[:owner]
+    current_match = args[:match] || Calendar.next_match
+    
     players_positions = Array.new
     data.each do |item|
       element_value = item["formation"]["player"]
@@ -27,20 +31,20 @@ class Formation
       player = Player.find(element_value.to_s)
       players_positions << PlayerFormationPosition.new(player: player, x: x_value, y: y_value)
     end
-    next_match = self.checkin_next_match!
+    match = self.checkin_next_match!(current_match)
     Formation.create!(players_positions: players_positions, 
                   team: Team.bahia,
-                  match: next_match,
+                  match: match,
                   created_at: Time.now,
-                  owner: user)    
+                  owner: owner)    
   end
   
   def self.newly_created(user)
     Formation.first(:owner_id => user.id, :order => :created_at.desc)
   end
   
-  def self.checkin_next_match!
-    next_match = Calendar.next_match
+  def self.checkin_next_match!(current_match)
+    next_match =  current_match || Calendar.next_match
     next_match.contains_formations = true
     next_match.save
     next_match

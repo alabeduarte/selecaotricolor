@@ -19,6 +19,10 @@ class Calendar
     sort(:day).where(:day => {:$gte => Time.now}).first
   end
   
+  def self.last_match
+    sort(:day.desc).where(:day => {:$lt => Time.now}).first
+  end
+  
   def formations
     Formation.all(match_id: id, :order => :created_at.desc)
   end

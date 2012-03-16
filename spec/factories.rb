@@ -1,6 +1,30 @@
 Factory.define :user do |f|
+  f.nickname 'admin'
+  f.email 'admin@selecaotricolor.com.br'
+  f.password '******'
+  f.admin false
+  f.confirmed_at Time.now.utc
+end
+
+Factory.define :user_t1, :class => User do |f|
   f.nickname 'T1'
   f.email 'teste1@t.com'
+  f.password 'mmmmmm'
+  f.admin false
+  f.confirmed_at Time.now.utc
+end
+
+Factory.define :user_t2, :class => User do |f|
+  f.nickname 'T2'
+  f.email 'teste2@t.com'
+  f.password 'mmmmmm'
+  f.admin false
+  f.confirmed_at Time.now.utc
+end
+
+Factory.define :user_t3, :class => User do |f|
+  f.nickname 'T3'
+  f.email 'teste3@t.com'
   f.password 'mmmmmm'
   f.admin false
   f.confirmed_at Time.now.utc

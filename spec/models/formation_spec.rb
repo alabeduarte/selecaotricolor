@@ -2,11 +2,11 @@ require "spec_helper"
 
 module FormationHelpers
   
-  def init_next_match
+  def init_next_match(home, away)
     Calendar.create!(
                       day: Time.utc(3000, 1, 1, 17, 0), 
-                      home: @bahia, 
-                      away: @vitoria, 
+                      home: home, 
+                      away: away, 
                       contains_formations: false)
   end
   
@@ -18,11 +18,11 @@ module FormationHelpers
     end
   end
   
-  def init_all_players
+  def init_all_players(team)
     json = '[{"player":{"enabled":false,"id":"4f04e6c3e1af80017c00008c","name":"Marcelo Lomba","number":31,"position_mapper_id":"4f4c334ae1af8008c8000079","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25c920e1af800323000879","name":"Omar","number":12,"position_mapper_id":"4f4c334ae1af8008c8000079","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25ca2de1af800323000896","name":"Madson","number":34,"position_mapper_id":"4f4c334ae1af8008c8000078","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":false,"id":"4f2fd106b3e30f0001000613","name":"Coelho","number":42,"position_mapper_id":"4f4c334ae1af8008c8000078","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":false,"id":"4f26088ce1af8009550001dd","name":"\u00c1vine","number":6,"position_mapper_id":"4f4c334ae1af8008c8000077","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25ca54e1af8003230008b5","name":"William Matheus","number":50,"position_mapper_id":"4f4c334ae1af8008c8000077","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f2ef9a6e1af800c0400082b","name":"Guti\u00e9rrez","number":3,"position_mapper_id":"4f4c334ae1af8008c8000077","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f04e6dde1af80017c0000c4","name":"Titi","number":22,"position_mapper_id":"4f4c334ae1af8008c8000076","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25ca68e1af8003230008d6","name":"Danny Morais","number":14,"position_mapper_id":"4f4c334ae1af8008c8000076","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25ca81e1af8003230008f9","name":"Diego Jussani","number":33,"position_mapper_id":"4f4c334ae1af8008c8000076","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25cb42e1af80032300091e","name":"Dudu","number":13,"position_mapper_id":"4f4c334ae1af8008c8000076","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f2efa0ae1af800c040009c4","name":"Rafael Donato","number":32,"position_mapper_id":"4f4c334ae1af8008c8000076","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":false,"id":"4f04e69be1af80017c000047","name":"Fahel","number":7,"position_mapper_id":"4f4c334ae1af8008c8000073","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25cc85e1af8003230009be","name":"Lenine","number":15,"position_mapper_id":"4f4c334ae1af8008c8000073","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f04e6b5e1af80017c000073","name":"Fabinho","number":55,"position_mapper_id":"4f4c334ae1af8008c8000073","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25cd32e1af800323000a51","name":"Filipe","number":16,"position_mapper_id":"4f4c334ae1af8008c8000070","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":false,"id":"4f04e6abe1af80017c00005c","name":"H\u00e9lder","number":8,"position_mapper_id":"4f4c334ae1af8008c8000070","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25cc9ae1af8003230009e7","name":"Diones","number":17,"position_mapper_id":"4f4c334ae1af8008c8000073","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":false,"id":"4f04e68ee1af80017c000034","name":"Morais","number":10,"position_mapper_id":"4f4c334ae1af8008c8000070","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25cd6ce1af800323000a7e","name":"F\u00e1bio","number":20,"position_mapper_id":"4f4c334ae1af8008c8000070","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25cd83e1af800323000aad","name":"Vander","number":18,"position_mapper_id":"4f4c334ae1af8008c8000070","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":false,"id":"4f25cd94e1af800323000ade","name":"Z\u00e9 Roberto","number":11,"position_mapper_id":"4f4c334ae1af8008c800006e","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f04e6d3e1af80017c0000a7","name":"Gabriel","number":8,"position_mapper_id":"4f4c334ae1af8008c800006f","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":false,"id":"4f03baa6e1af8003ee00000f","name":"Lulinha","number":77,"position_mapper_id":"4f4c334ae1af8008c800006d","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f2fd315b3e30f0001000a07","name":"Magno","number":26,"position_mapper_id":"4f4c334ae1af8008c800006d","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f03b5b6e1af8003be000026","name":"Souza","number":9,"position_mapper_id":"4f4c334ae1af8008c800006a","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f25cdcbe1af800323000b46","name":"J\u00fanior","number":99,"position_mapper_id":"4f4c334ae1af8008c800006a","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f2fd07db3e30f000100041b","name":"Ciro","number":19,"position_mapper_id":"4f4c334ae1af8008c800006a","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f4c3d5b5ce3360003003395","name":"Jones Carioca","number":98,"position_mapper_id":"4f4c334ae1af8008c800006a","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":false,"id":"4f4c3bf65ce33600030006eb","name":"J\u00e9ferson","number":8,"position_mapper_id":"4f4c334ae1af8008c8000071","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f4d9cd2d37b5a00030011f4","name":"Renan","number":1,"position_mapper_id":"4f4c334ae1af8008c8000079","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f4d9cf7d37b5a0003001924","name":"Bruno","number":1,"position_mapper_id":"4f4c334ae1af8008c8000079","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f4d9d40d37b5a000300208e","name":"Rafael","number":7,"position_mapper_id":"4f4c334ae1af8008c800006a","team_id":"4f2c332ee1af8002b4000001"}},{"player":{"enabled":true,"id":"4f4d9dd3d37b5a00030033be","name":"Paulinho","number":8,"position_mapper_id":"4f4c334ae1af8008c8000070","team_id":"4f2c332ee1af8002b4000001"}}]'
     parsed_json = JSON.load(json)
     parsed_json.each do |root| 
-      root["player"]["team"] = @bahia
+      root["player"]["team"] = team
       Player.create! root["player"]
     end
   end
@@ -35,11 +35,11 @@ describe Formation do
     let(:current_user) { Factory(:user) }
   
     before(:each) do      
-      @bahia = Factory(:bahia)
-      @vitoria = Factory(:vitoria)
-      init_next_match
+      bahia = Factory(:bahia)
+      vitoria = Factory(:vitoria)
+      init_next_match(bahia, vitoria)
       init_positions
-      init_all_players
+      init_all_players(bahia)
       
       @json_442 = '[ { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f25cdcbe1af800323000b46"         ,          "x": "1"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f2fd315b3e30f0001000a07"         ,          "x": "2"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "2"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6b5e1af80017c000073"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25ca54e1af8003230008b5"         ,          "x": "6"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f25ca2de1af800323000896"         ,          "x": "6"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25c920e1af800323000879"         ,          "x": "-1"         ,          "y": "-1"     }  }  ]'      
     end
@@ -51,7 +51,7 @@ describe Formation do
       end
       
       it "requires at least 11 players to be set" do                        
-        formation = Formation.create_from(JSON.load(@json_442), current_user)
+        formation = Formation.create_from(data: JSON.load(@json_442), owner: current_user)
         positions = formation.players_positions
         positions.size.should == 11
       end       
@@ -59,37 +59,38 @@ describe Formation do
     
     context "on create" do
       it "when formation is added then next match must be updated with the formation contained" do
-        next_match = Formation.checkin_next_match!
+        Calendar.next_match.contains_formations.should be_false
+        next_match = Formation.checkin_next_match!(Calendar.next_match)
         next_match.contains_formations.should be_true
       end     
       
       it "when formation is 4 defenders 4 midfield and 2 forwards then the tactical should be 4-4-2" do
         json = '[ { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f25cdcbe1af800323000b46"         ,          "x": "1"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f2fd315b3e30f0001000a07"         ,          "x": "2"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "2"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6b5e1af80017c000073"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25ca54e1af8003230008b5"         ,          "x": "6"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f25ca2de1af800323000896"         ,          "x": "6"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25c920e1af800323000879"         ,          "x": "-1"         ,          "y": "-1"     }  }  ]'
-        formation = Formation.create_from(JSON.load(json), current_user)        
+        formation = Formation.create_from(data: JSON.load(json), owner: current_user) 
         formation.tactical.should == "4-4-2"
       end
       
       it "when formation is 5 defenders 3 midfield and 2 forwards then the tactical should be 5-3-2" do
         json = '[ { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f25cdcbe1af800323000b46"         ,          "x": "1"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc9ae1af8003230009e7"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f04e6b5e1af80017c000073"         ,          "x": "4"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25ca54e1af8003230008b5"         ,          "x": "6"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f25ca2de1af800323000896"         ,          "x": "6"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f25ca68e1af8003230008d6"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "7"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25c920e1af800323000879"         ,          "x": "-1"         ,          "y": "-1"     }  }  ] '
-        formation = Formation.create_from(JSON.load(json), current_user)        
+        formation = Formation.create_from(data: JSON.load(json), owner: current_user)
         formation.tactical.should == "5-3-2"
       end
       
       it "when formation is 4 defenders 3 midfield and 3 forwards then the tactical should be 4-3-3" do
         json = '[ { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f2fd07db3e30f000100041b"         ,          "x": "1"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "1"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f2fd315b3e30f0001000a07"         ,          "x": "3"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f04e6b5e1af80017c000073"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25ca54e1af8003230008b5"         ,          "x": "6"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f25ca2de1af800323000896"         ,          "x": "6"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25c920e1af800323000879"         ,          "x": "-1"         ,          "y": "-1"     }  }  ] '
-        formation = Formation.create_from(JSON.load(json), current_user)
+        formation = Formation.create_from(data: JSON.load(json), owner: current_user)
         formation.tactical.should == "4-3-3"
       end
       
       it "when formation is 3 defenders 4 midfield and 3 forwards then the tactical should be 3-4-3" do
         json = '[ { "formation": {          "player": "4f25cdcbe1af800323000b46"         ,          "x": "0"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "1"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f25cd83e1af800323000aad"         ,          "x": "3"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f2fd315b3e30f0001000a07"         ,          "x": "3"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6b5e1af80017c000073"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "6"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f25ca68e1af8003230008d6"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25c920e1af800323000879"         ,          "x": "-1"         ,          "y": "-1"     }  }  ] '
-        formation = Formation.create_from(JSON.load(json), current_user)       
+        formation = Formation.create_from(data: JSON.load(json), owner: current_user)
         formation.tactical.should == "3-4-3"
       end
       
       it "when formation is 3 defenders 5 midfield and 2 forwards then the tactical should be 3-5-2" do
         json = '[ { "formation": {          "player": "4f2fd07db3e30f000100041b"         ,          "x": "0"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f2fd315b3e30f0001000a07"         ,          "x": "2"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f4d9dd3d37b5a00030033be"         ,          "x": "3"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "3"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6b5e1af80017c000073"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25ca68e1af8003230008d6"         ,          "x": "6"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "6"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f25c920e1af800323000879"         ,          "x": "-1"         ,          "y": "-1"     }  }  ] '
-        formation = Formation.create_from(JSON.load(json), current_user)        
+        formation = Formation.create_from(data: JSON.load(json), owner: current_user)
         formation.tactical.should == "3-5-2"
       end
     end

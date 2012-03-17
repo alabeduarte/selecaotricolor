@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Seleção Tricolor! - <%= yield(:title) || "Monte o seu esquema tático!" %></title>
-  <%= stylesheet_link_tag 'style', 'bootstrap.min', 'themes/base/jquery.ui.all', 'jquery.contextMenu' %>
+  <%= stylesheet_link_tag 'style', 'bootstrap.min', 'themes/base/jquery.ui.all' %>
   <%= csrf_meta_tag %>
   <%= favicon_link_tag %>
 </head>
@@ -42,7 +42,7 @@
 		</ul>
 	</footer>
 
-	<%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'jquery.ui.accordion.min', 'jquery.contextMenu', 'formation'  %>
+	<%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'jquery.ui.accordion.min', 'formation'  %>
 	<script type="text/javascript">
 		<%= yield :javascript %>
 	

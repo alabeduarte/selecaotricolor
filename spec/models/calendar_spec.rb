@@ -41,11 +41,15 @@ describe Calendar do
   
   context "find matches" do
     it "find next match" do
-      @next_match.id.should == Calendar.next_match.id
+      @next_match.next?.should be_true
     end
     it "find last match" do
       @last_match.id.should_not == @oldest_match.id
-      @last_match.id.should == Calendar.last_match.id
+      @last_match.last?.should be_true
+    end    
+    it "find oldest match" do
+      @oldest_match.oldest?.should be_true
+      @last_match.oldest?.should be_true
     end
   end
 end

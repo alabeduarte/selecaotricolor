@@ -6,7 +6,10 @@
 					<h3><%= "#{@match.home.name} x #{@match.away.name}" %></h3>
 				</div>
 			</li>
-			<li><%= "#{@match.day.to_s(:day)}" %></li>
+			<li><%= "#{@match.day.to_s(:day)}" %></li>			
+			<% if @match.oldest? %>
+			<li><%= "Esquema tático mais votado: #{@match.tactical_most_voted}" %></li>
+			<% end %>			
 		</ul>	
 	</div>
 </center>

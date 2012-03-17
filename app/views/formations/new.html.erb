@@ -13,6 +13,8 @@
 		</div>
 		<% if user_signed_in? %>	
 		<div id="player">
+			<div id="others" >
+			</div>
 			<h5 class="pills"><a href="#">Atacantes</a></h5>		
 			<div id="forwards" >
 			</div>
@@ -42,4 +44,23 @@
 
 <%= content_for :javascript do %>
 	$( init_soccer_field );
+	$(function(){
+	    $.contextMenu({
+	        selector: '.context-menu-one', 
+	        callback: function(key, options) {
+	            if (key == 'delete') {
+					this.draggable('destroy');
+					this.removeClass('correct ui-draggable-disabled ui-state-disabled context-menu-one');
+					this.css("top", "");
+					this.css("left", "");
+					this.removeAttr('aria-disabled');
+					this.addClass('ui-draggable');
+					this.appendTo('#others');
+				}
+	        },
+	        items: {
+	            "delete": {name: "Excluir", icon: "delete"}
+	        }
+	    });
+	});
 <% end %>

@@ -1,4 +1,3 @@
-<%= render :partial => "calendars/next_match_info" %>
 <div class="hero-unit">
 	<div class="welcome">
 		<h1>Bem-vindo ao Seleção Tricolor!</h1>
@@ -6,10 +5,11 @@
 		<p>
 		Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> você poderá responder: <h2>Qual time você gostaria que fosse a campo?</h2>
 		</p>
-		<h3>
+		<span>
 		Sinta-se à vontade, escale o seu time, monte o seu esquema tático e comece a torcer!
-		</h3>
+		</span>
 		<center>
+			<%= render :partial => "calendars/next_match_info" %>
 			<%= link_to t(:listing_formations_to_next_match), formations_matches_path(Calendar.next_match), :class => "btn success" %>
 		</center>
 		<br/>

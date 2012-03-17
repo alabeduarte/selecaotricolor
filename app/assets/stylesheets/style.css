@@ -23,16 +23,20 @@
 	margin-top: 50px;
 }
 
+.pills.positions a {
+	color: #FFF;
+}
+
 #player {
-	background-color: #ADD8E6;
+	background-color: #00008B;
 	background-repeat: repeat-x;
-	background-image: -khtml-gradient(linear, left top, left bottom, from(#ADD8E6), to(#FFF));
-	background-image: -moz-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: -ms-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ADD8E6), color-stop(100%, #FFF));
-	background-image: -webkit-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: -o-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: linear-gradient(top, #ADD8E6, #FFF);
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#00008B), to(#8B0000));
+	background-image: -moz-linear-gradient(top, #00008B, #8B0000);
+	background-image: -ms-linear-gradient(top, #00008B, #8B0000);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00008B), color-stop(100%, #8B0000));
+	background-image: -webkit-linear-gradient(top, #00008B, #8B0000);
+	background-image: -o-linear-gradient(top, #00008B, #8B0000);
+	background-image: linear-gradient(top, #00008B, #8B0000);
 	
 	position: relative;
 	float: left;
@@ -630,12 +634,8 @@
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-.welcome h1, .welcome h3 {
+.welcome h1, .welcome h2, .welcome h3 {
 	color: #0000CD;
-}
-
-.welcome h2 {
-	color: #0000FF;
 }
 
 .subtitle {
@@ -769,7 +769,7 @@
 	top: 72px;
 }
 
-.title h1 {
+.title h1, .title h2, .title h3 {
 	color: #CD0000;
 }
 

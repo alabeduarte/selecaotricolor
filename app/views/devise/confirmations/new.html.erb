@@ -1,5 +1,6 @@
-<h2><%= t(:resend_confirmation_instructions) %></h2>
-
+<div class="title">
+	<h2><%= t(:resend_confirmation_instructions) %></h2>
+</div>
 <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 

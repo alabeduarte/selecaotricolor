@@ -2,7 +2,7 @@ Factory.define :user do |f|
   f.nickname 'admin'
   f.email 'admin@selecaotricolor.com.br'
   f.password '******'
-  f.admin false
+  f.admin true
   f.confirmed_at Time.now.utc
 end
 

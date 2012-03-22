@@ -6,6 +6,15 @@ class Scorer
     @match = args[:match]
   end
   
+  def add(args)
+    bonus = args[:bonus]
+    winners = args[:to]
+    winners.each do |w|
+      w.bonus = bonus
+      w.save
+    end
+  end
+  
   def winners
     winners = Array.new
     @match.formations.each { |f| winners << f.owner unless f.owner.admin? }
@@ -19,7 +28,7 @@ class Scorer
       @admin_formation.players_positions.each do |real_position|
         f.players_positions.each do |position|
           if (real_position.player.id == position.player.id)
-            correct_count = correct_count + 1
+            correct_count += 1
           end
         end
       end
@@ -53,7 +62,8 @@ class Scorer
     formation_of_round = Formation.new team: base.team, match: base.match
     formation_of_round
   end
-  
+
+protected
   def tactical_group
     hash = Hash.new    
     @formations.each do |formation|    

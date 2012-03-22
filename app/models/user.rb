@@ -8,6 +8,8 @@ class User
 
   key :admin, Boolean
   key :nickname, String
+  key :bonus, Integer
+  
   validates :nickname, :presence => true
 
   def self.new_with_session(params, session)

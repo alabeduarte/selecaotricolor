@@ -21,8 +21,19 @@ class PlayerFormationPosition
       ""
     end
   end
+
+  def self.mapping_positions(data)
+    players_positions = Array.new
+    data.each do |item|
+      element_value = item["formation"]["player"]
+      x_value = item["formation"]["x"]
+      y_value = item["formation"]["y"]
+      players_positions << self.new(player_id: element_value, x: x_value, y: y_value)
+    end
+    players_positions
+  end
   
-  private
+private
   def position_mapper
     PositionMapper.first(:x_min.lte => x, :x_max.gte => x, :y_min.lte => y, :y_max.gte => y)
   end

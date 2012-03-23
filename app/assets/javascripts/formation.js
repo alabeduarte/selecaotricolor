@@ -275,7 +275,6 @@ function convertMatrixModelToJson() {
 function send() {
 	if (correctPlayers == 10 && correctGoalKeeper == 1) {
 		var json = convertMatrixModelToJson();
-		alert(json);
 		desableSenderButton();
 		$('#send_button').html('Enviando...');
 		$.ajax({

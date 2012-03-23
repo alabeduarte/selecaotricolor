@@ -2,7 +2,7 @@ class Scorer
   
   def initialize(args)
     @formations = args[:formations]
-    @admin_formation = args[:admin_formation]
+    @first_team = args[:first_team]
     @match = args[:match]
   end
   
@@ -25,7 +25,7 @@ class Scorer
     winners = Array.new        
     @match.formations.each do |f|
       correct_count = 0
-      @admin_formation.players_positions.each do |real_position|
+      @first_team.formation.players_positions.each do |real_position|
         f.players_positions.each do |position|
           if (real_position.player.id == position.player.id)
             correct_count += 1

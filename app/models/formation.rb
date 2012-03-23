@@ -36,19 +36,6 @@ class Formation
     Formation.first(:owner_id => user.id, :order => :created_at.desc)
   end
   
-  def self.admin_formation(args)
-    user = args[:admin]
-    match = args[:match]
-    if (user.admin?)
-      return Formation.first(
-                            :owner_id => user.id, 
-                            :match_id => match.id, 
-                            :order => :created_at.desc)
-    else
-      raise "No admin user"
-    end
-  end
-  
   def self.checkin_the_match!(current_match)
     match =  current_match || Calendar.next_match
     if !match.contains_formations?

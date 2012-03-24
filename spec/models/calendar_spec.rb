@@ -7,7 +7,7 @@ module CalendarHelpers
                       day: Time.utc(2000, 1, 1, 16, 0), 
                       home: home, 
                       away: away, 
-                      contains_formations: false)
+                      contains_formations: true)
   end
   
   def init_last_match(home, away)
@@ -15,7 +15,7 @@ module CalendarHelpers
                       day: Time.utc(2000, 1, 1, 17, 0), 
                       home: home, 
                       away: away, 
-                      contains_formations: false)
+                      contains_formations: true)
   end
   
   def init_next_match(home, away)
@@ -50,6 +50,13 @@ describe Calendar do
     it "find oldest match" do
       @oldest_match.oldest?.should be_true
       @last_match.oldest?.should be_true
+    end
+    
+    it "list all matches with tactics" do
+      matches = Calendar.with_tactics      
+      matches.size.should == 2
+      matches.at(0).should == @last_match
+      matches.at(1).should == @oldest_match
     end
   end
 end

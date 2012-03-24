@@ -8,7 +8,7 @@ class User
 
   key :admin, Boolean
   key :nickname, String
-  key :bonus, Integer
+  key :score, Integer
   
   validates :nickname, :presence => true
 

@@ -23,6 +23,10 @@ class Calendar
     sort(:day.desc).where(:day => {:$lt => Time.now}).first
   end
   
+  def self.with_tactics
+    all(contains_formations: true, :order => :day.desc)
+  end
+  
   def formations
     Formation.all(match_id: id, :order => :created_at.desc)
   end

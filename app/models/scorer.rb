@@ -7,10 +7,10 @@ class Scorer
   end
   
   def add(args)
-    bonus = args[:bonus]
+    score = args[:score]
     winners = args[:to]
     winners.each do |w|
-      w.bonus = bonus
+      w.score = score
       w.save
     end
   end

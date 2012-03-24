@@ -137,9 +137,9 @@ describe Scorer do
     it "should add bonus score to all users who create a squad" do
       scorer = Scorer.new(match: Calendar.last_match)
       winners = scorer.winners
-      winners.each {|w| w.should_receive(:bonus=).with(100)}
+      winners.each {|w| w.should_receive(:score=).with(100)}
       winners.each {|w| w.should_receive(:save)} 
-      scorer.add(bonus: 100, to: winners)      
+      scorer.add(score: 100, to: winners)      
     end
     
     xit "should elect the most votes players positions by formations of matches"

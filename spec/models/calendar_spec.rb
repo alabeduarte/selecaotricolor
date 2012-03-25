@@ -32,11 +32,11 @@ describe Calendar do
   include CalendarHelpers
   
   before(:each) do
-    bahia = Factory(:bahia)
-    vitoria = Factory(:vitoria)
-    @oldest_match = init_oldest_match(bahia, vitoria)
-    @last_match = init_last_match(bahia, vitoria)
-    @next_match = init_next_match(bahia, vitoria)
+    @bahia = Factory(:bahia)
+    @vitoria = Factory(:vitoria)
+    @oldest_match = init_oldest_match(@bahia, @vitoria)
+    @last_match = init_last_match(@bahia, @vitoria)
+    @next_match = init_next_match(@bahia, @vitoria)
   end
   
   context "find matches" do
@@ -57,6 +57,10 @@ describe Calendar do
       matches.size.should == 2
       matches.at(0).should == @last_match
       matches.at(1).should == @oldest_match
+    end
+    
+    it "should show description thought to string match" do
+      Calendar.next_match.to_s.should == "#{@bahia.name} x #{@vitoria.name}"
     end
   end
 end

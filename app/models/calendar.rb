@@ -15,6 +15,10 @@ class Calendar
   validates :home, :presence => true
   validates :away, :presence => true
   
+  def to_s
+    "#{home.name} x #{away.name}"
+  end
+  
   def self.next_match
     sort(:day).where(:day => {:$gte => Time.now}).first
   end

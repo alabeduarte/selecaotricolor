@@ -1,0 +1,63 @@
+	<div class="new_formation_invitation">
+		<h2>Tática Oficial</h2>
+		<div class="new_formation_actions">
+			<%= link_to "Refazer", :new, :class => "btn primary" %>		
+			<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
+		</div>
+	</div>	
+	<div class=".droppable-area">
+		<div id="soccerField">
+		</div>
+		<% if user_signed_in? %>	
+		<div id="player">
+			<div id="others" >
+			</div>
+			<h5 class="pills positions"><a href="#">Atacantes</a></h5>		
+			<div id="forwards" >
+			</div>
+			<h5 class="pills positions"><a href="#">Meias</a></h5>		
+			<div id="midfield" >
+			</div>
+			<h5 class="pills positions"><a href="#">Volantes</a></h5>		
+			<div id="midfield_defense" >
+			</div>
+			<h5 class="pills positions"><a href="#">Laterais Esquerdos</a></h5>		
+			<div id="left_back" >
+			</div>
+			<h5 class="pills positions"><a href="#">Zagueiros</a></h5>		
+			<div id="defender" >
+			</div>
+			<h5 class="pills positions"><a href="#">Laterais Direitos</a></h5>		
+			<div id="right_back" >
+			</div>
+			<h5 class="pills positions"><a href="#">Goleiros</a></h5>		
+			<div id="goalkeepers" >
+			</div>
+		</div>
+		<% end %>
+	<div id="slot"></div>
+	</div>
+	<div id="matrix"></div>
+
+<%= content_for :javascript do %>
+	$( init_soccer_field );
+	$(function(){
+	    $.contextMenu({
+	        selector: '.context-menu-one', 
+	        callback: function(key, options) {
+	            if (key == 'delete') {
+					this.draggable('destroy');
+					this.removeClass('correct ui-draggable-disabled ui-state-disabled context-menu-one');
+					this.css("top", "");
+					this.css("left", "");
+					this.removeAttr('aria-disabled');
+					this.addClass('ui-draggable');
+					this.appendTo('#others');
+				}
+	        },
+	        items: {
+	            "delete": {name: "Excluir", icon: "delete"}
+	        }
+	    });
+	});
+<% end %>

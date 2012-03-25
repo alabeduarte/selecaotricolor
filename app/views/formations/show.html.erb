@@ -1,4 +1,4 @@
-<% content_for :title, "contra #{@formation.match.home.name} x #{@formation.match.away.name}, meu #{Team.bahia.name} joga com #{@formation.tactical}" %>
+<% content_for :title, "em #{@formation.match}, meu #{Team.bahia.name} joga com #{@formation.tactical}" %>
 <center>
 	<div class="next_match_info">
 		<ul>
@@ -6,7 +6,7 @@
 			<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
 			<li>
 				<div class="match">
-					<h3><%= "#{@formation.match.home.name} x #{@formation.match.away.name}" %></h3>
+					<h3><%= "#{@formation.match}" %></h3>
 				</div>
 			</li>
 			<li><%= "#{@formation.match.day.to_s(:day)}" %></li>

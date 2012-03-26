@@ -1,4 +1,4 @@
-class FirstTeamController < ApplicationController
+class FirstTeamsController < ApplicationController
   
   def new
     @matches = Calendar.with_tactics

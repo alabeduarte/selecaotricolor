@@ -12,7 +12,7 @@
 		<h2>Tática Oficial</h2>
 		<div class="new_formation_actions">
 			<%= link_to "Refazer", :new, :class => "btn primary" %>		
-			<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
+			<button id="send_button" name="button" class="btn danger send">Enviar</button>
 		</div>
 	</div>	
 	<div class=".droppable-area">
@@ -51,23 +51,26 @@
 
 <%= content_for :javascript do %>
 	$( init_soccer_field );
-	$(function(){
-	    $.contextMenu({
-	        selector: '.context-menu-one', 
-	        callback: function(key, options) {
-	            if (key == 'delete') {
-					this.draggable('destroy');
-					this.removeClass('correct ui-draggable-disabled ui-state-disabled context-menu-one');
-					this.css("top", "");
-					this.css("left", "");
-					this.removeAttr('aria-disabled');
-					this.addClass('ui-draggable');
-					this.appendTo('#others');
-				}
-	        },
-	        items: {
-	            "delete": {name: "Excluir", icon: "delete"}
-	        }
-	    });
+	
+	$('#send_button').click(function() {
+		if (correctPlayers == 10 && correctGoalKeeper == 1) {
+			var json = convertMatrixModelToJson();
+			desableSenderButton();
+			$('#send_button').html('Enviando...');
+			$.ajax({
+		  			url:          "/first_teams/create",
+					dataType:     "json",
+					type:         "POST",
+					contentType:  "application/json",
+					data:         json,
+					complete: function() {
+						$('#send_button').html('Escalação Enviada!');
+					}
+			});
+		} else {
+			cSimpleAlert('Selecione os 11 jogadores!');
+		}		  	
 	});
+	
+	
 <% end %>

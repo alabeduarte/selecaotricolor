@@ -1,0 +1,27 @@
+<h1><%= t(:listing_formations) %></h1>
+<table class="zebra-striped">
+  <tr>
+	<th><%= t(:sended_to) %></th>
+	<th><%= t(:tactical) %></th>
+	<th><%= t(:created_at) %></th>
+	<th><%= t(:day) %></th>
+	<th><%= t(:home) %></th>
+	<th><%= t(:away) %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @first_teams.each do |first_team| %>
+  <tr>
+    <td><%= link_to t(:show), first_team, :class => "btn" %></td>
+    <td>
+		<% if can? :destroy, first_team %>
+			<%= link_to t(:destroy), first_team, :confirm => t(:are_you_sure), :method => :delete, :class => "btn error" %>
+		<% end %>
+	</td>
+  </tr>
+<% end %>
+</table>
+
+<br />

@@ -7,6 +7,7 @@
 	<th><%= t(:tactical) %></th>
 	<th><%= t(:day) %></th>
 	<th><%= t(:home) %></th>
+	<th></th>
 	<th><%= t(:away) %></th>
     <th></th>
     <th></th>
@@ -18,8 +19,11 @@
 	<td><%= formation.created_at.to_s(:day) %></td>
 	<td><%= formation.tactical %></td>
 	<td><%= formation.match.day.to_s(:day) %></td>
-	<td><%= formation.match.home.name %></td>
-	<td><%= formation.match.away.name %></td>
+	<td><%= image_tag("escudos/#{formation.match.home.label}.png", :size => "45x45", :alt => "#{formation.match.home.name}") %></td>
+	<td><%= formation.match %></td>
+	<td><%= image_tag("escudos/#{formation.match.away.label}.png", :size => "45x45", :alt => "#{formation.match.away.name}") %></td>
+	
+	
     <td><%= link_to t(:show), formation, :class => "btn" %></td>
     <td>
 		<% if can? :destroy, formation %>

@@ -1,3 +1,4 @@
+require 'util/extend_string'
 class Team
   include MongoMapper::Document
   
@@ -9,6 +10,10 @@ class Team
   
   def self.bahia
     where(name: 'Bahia').first
+  end
+  
+  def label
+    @name.downcase.strip.gsub(" ", "").removeaccents
   end
   
 end

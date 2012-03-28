@@ -371,10 +371,6 @@
 	list-style: none;	
 }
 
-.match h3 {
-	color: #0000CD;
-}
-
 .logo {
 	background-image: url(../../assets/selecaotricolor_logo.png);	
 	height: 60px;
@@ -781,3 +777,33 @@
 .facebookLogin div span {background-position: 0 -75px; color: #fff !important;}
 .facebookLogin:hover div span {background-position: 0 -100px;}
 .facebookLogin:active div span {background-position: 0 -125px;}
+
+.jogo {
+	margin-top: 3px;
+	margin-bottom: 5px;
+	width: 245px;
+	height: 59px;
+	padding-left: 55px;
+}
+
+.time, .x {
+	float: left;
+}
+
+.x {
+	margin-bottom: 23px;
+	margin-top: 23px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.match {
+	width: 290px;
+	height: 50px;
+	float: left;
+}
+
+.match h3 {
+	color: #0000CD;
+	margin-right: 35px;
+}

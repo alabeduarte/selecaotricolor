@@ -2,6 +2,15 @@
 	<div class="next_match_info">
 		<ul>
 			<li>
+				<div class="jogo">
+				    <div class="time">
+						<%= image_tag("escudos/#{@match.home.label}.png", :size => "45x45", :alt => "#{@match.home.name}") %>
+		            </div>
+		            <div class="x">x</div>
+		            <div class="time">
+		            	<%= image_tag("escudos/#{@match.away.label}.png", :size => "45x45", :alt => "#{@match.away.name}") %>
+		            </div>
+		        </div>
 				<div class="match">
 					<h3><%= "#{@match}" %></h3>
 				</div>

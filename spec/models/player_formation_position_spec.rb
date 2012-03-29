@@ -3,7 +3,7 @@ require "models/formation/helper"
 
 describe PlayerFormationPosition do
   
-    let(:current_user) { Factory(:user) }
+    let(:current_user) { Factory(:admin) }
   
     before(:each) do
       Formation::Helper.new

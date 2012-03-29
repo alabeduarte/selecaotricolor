@@ -5,15 +5,31 @@ class FirstTeamsController < ApplicationController
   end
   
   def create
-    FirstTeam.create_from(data: params[:_json], owner: current_user)   
+    @first_team = FirstTeam.create_from(data: params[:_json], owner: current_user)   
+    if @first_team
+      flash[:notice] = t(:formation_sent)
+      redirect_to first_team_path(@first_team)
+    else
+      render :new
+    end
   end
   
   def show
+    @first_team = FirstTeam.find(params[:id])
+    @formation = @first_team.formation
+    @players_positions = @formation.players_ordered_by_positions
+    respond_to do |format|
+      format.html
+      format.json  { 
+        render :json => @formation.as_json(:include => {
+          :players_positions => {:include => :player}
+        }) 
+      }
+    end
   end
   
   def index
-    @first_teams = FirstTeam.all
-    
+    @first_teams = FirstTeam.all    
     respond_to do |format|
       format.html
       format.xml  { render :xml => @first_teams }

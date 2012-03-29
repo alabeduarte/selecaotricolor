@@ -3,7 +3,7 @@ require "models/formation/helper"
 
 describe Scorer do
 
-  let(:admin_user) { Factory(:user) }
+  let(:admin_user) { Factory(:admin) }
   let(:user_t1) { Factory(:user_t1) }
   let(:user_t2) { Factory(:user_t2) }
   let(:user_t3) { Factory(:user_t3) }

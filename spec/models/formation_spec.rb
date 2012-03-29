@@ -2,7 +2,7 @@ require "spec_helper"
 require "models/formation/helper"
 
 describe Formation do
-    let(:current_user) { Factory(:user) }
+    let(:current_user) { Factory(:admin) }
   
     before(:each) do      
       Formation::Helper.new      

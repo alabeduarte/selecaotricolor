@@ -11,7 +11,7 @@
 						<li><%= link_to t(:my_formations), :current_user_formations %></li>          				
 	                	<li><%= link_to t(:account_config), "/configuration" %></li>
 						<% if current_user.admin? %>
-							<li><%= link_to 'Táticas Oficiais', :new_first_team %></li>
+							<li><%= link_to 'Táticas Oficiais', :first_team %></li>
 							<li><%= link_to 'Táticas enviadas', :list %></li>
 							<li><%= link_to 'Jogadores', :players %></li>
 							<li><%= link_to 'Mapeamento de posições', :position_mappers %></li>

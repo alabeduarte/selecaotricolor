@@ -1,8 +1,16 @@
-Factory.define :user do |f|
+Factory.define :admin, :class => User do |f|
   f.nickname 'admin'
   f.email 'admin@selecaotricolor.com.br'
   f.password '******'
   f.admin true
+  f.confirmed_at Time.now.utc
+end
+
+Factory.define :user, :class => User do |f|
+  f.nickname 'T'
+  f.email 'test@t.com'
+  f.password 'mmmmmm'
+  f.admin false
   f.confirmed_at Time.now.utc
 end
 

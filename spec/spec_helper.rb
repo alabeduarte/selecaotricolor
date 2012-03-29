@@ -38,4 +38,8 @@ RSpec.configure do |config|
     DatabaseCleaner[:mongo_mapper].clean
   end
   
+  # Devise
+  config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
+  
 end

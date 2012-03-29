@@ -55,15 +55,16 @@
 	$('#send_button').click(function() {
 		if (correctPlayers == 10 && correctGoalKeeper == 1) {
 			var json = convertMatrixModelToJson();
-			desableSenderButton();
+			desableSenderButton();			
 			$('#send_button').html('Enviando...');
 			$.ajax({
-		  			url:          "/first_teams/create",
+		  			url:          "/first_teams",
 					dataType:     "json",
 					type:         "POST",
 					contentType:  "application/json",
 					data:         json,
 					complete: function() {
+						$('#send_button').addClass('success');
 						$('#send_button').html('Escalação Enviada!');
 					}
 			});

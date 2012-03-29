@@ -1,4 +1,4 @@
-require 'util/extend_string'
+require 'support/extend_string'
 class Team
   include MongoMapper::Document
   

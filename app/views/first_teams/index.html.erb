@@ -6,6 +6,7 @@
 	<th><%= t(:created_at) %></th>
 	<th><%= t(:day) %></th>
 	<th><%= t(:home) %></th>
+	<th></th>
 	<th><%= t(:away) %></th>
     <th></th>
     <th></th>
@@ -14,6 +15,13 @@
 
 <% @first_teams.each do |first_team| %>
   <tr>
+	<td><%= first_team.formation.owner.nickname %></td>
+	<td><%= first_team.formation.try(:tactical) %></td>
+	<td><%= first_team.formation.created_at.to_s(:day) %></td>
+	<td><%= first_team.formation.match.day.to_s(:day) %></td>
+	<td><%= image_tag("escudos/#{first_team.formation.match.home.label}.png", :size => "45x45", :alt => "#{first_team.formation.match.home.name}") %></td>
+	<td><%= first_team.formation.match %></td>
+	<td><%= image_tag("escudos/#{first_team.formation.match.away.label}.png", :size => "45x45", :alt => "#{first_team.formation.match.away.name}") %></td>
     <td><%= link_to t(:show), first_team, :class => "btn" %></td>
     <td>
 		<% if can? :destroy, first_team %>
@@ -23,5 +31,7 @@
   </tr>
 <% end %>
 </table>
-
 <br />
+<div class="actions">
+	<%= link_to t(:new_formation), :new_first_team, :class => "btn small primary" %>
+</div>

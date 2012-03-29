@@ -1,10 +1,19 @@
-<% content_for :title, "em #{@formation.match}, meu #{Team.bahia.name} joga com #{@formation.tactical}" %>
+<% content_for :title, "Tática Oficial de #{@formation.match}" %>
 <center>
 	<div class="next_match_info">
 		<ul>
 			<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
 			<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
 			<li>
+				<div class="jogo">
+				    <div class="time">
+						<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45", :alt => "#{@formation.match.home.name}") %>
+		            </div>
+		            <div class="x">x</div>
+		            <div class="time">
+		            	<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45", :alt => "#{@formation.match.away.name}") %>
+		            </div>
+		        </div>
 				<div class="match">
 					<h3><%= "#{@formation.match}" %></h3>
 				</div>
@@ -15,19 +24,19 @@
 </center>
 	<div class="formation_header">
 		<h2 class="subtitle"><%= "#{t(:tactical)}: #{@formation.tactical}" %></h2>	
-		<%= render :partial => 'facebook_like' %>	
+		<%= render :partial => 'formations/facebook_like' %>	
 		<%= render :partial => "formations/share" %>
 	</div>
 	<div class="hero-unit">
 	<div id="call_up" class="show">          		
-		<%= render :partial => "players_holders" %>
+		<%= render :partial => "formations/players_holders" %>
 	</div>
 	<div id="soccerField" class="show">
 		<div id="emptySlot"></div>
 	</div>		
 	<div class="show"> 		         		
 	</div>
-	<%= render :partial => 'facebook_comments' %>
+	<%= render :partial => 'formations/facebook_comments' %>
 	</div>
 	<div id="matrix"></div>
 	<div id="json"></div>

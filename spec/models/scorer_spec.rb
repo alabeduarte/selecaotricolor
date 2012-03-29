@@ -144,4 +144,5 @@ describe Scorer do
     
     xit "should elect the most votes players positions by formations of matches"
   end
+  
 end

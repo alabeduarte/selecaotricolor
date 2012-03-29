@@ -5,8 +5,12 @@ class FirstTeamsController < ApplicationController
   end
   
   def create
-    @first_team = FirstTeam.create_from(data: params[:_json], owner: current_user)   
+    @first_team = FirstTeam.create_from(
+                                        data: params[:_json],
+                                        owner: current_user)   
     if @first_team
+      @first_team.apply_score_to_all_users
+      @first_team.apply_score_to_predict_users
       flash[:notice] = t(:formation_sent)
       redirect_to first_team_path(@first_team)
     else

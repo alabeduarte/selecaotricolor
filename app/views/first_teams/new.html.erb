@@ -58,7 +58,7 @@
 			desableSenderButton();			
 			$('#send_button').html('Enviando...');
 			$.ajax({
-		  			url:          "/first_teams",
+		  			url:          "/first_teams?match_id=" + $('#match_id'),
 					dataType:     "json",
 					type:         "POST",
 					contentType:  "application/json",

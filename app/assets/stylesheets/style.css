@@ -1,3 +1,25 @@
+body {
+	/*background-image: url(../../assets/background.png);	*/
+}
+
+.grass-footer {
+	background-image: url(../../assets/grass-footer.png);	
+}
+
+.footer-info a {
+	color: #FFF;
+}
+
+.version-info {
+	color: #FFF;
+}
+
+.new-formation {
+	background-image: url(../../assets/squad800x278.png);	
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 .bahia {
 	height: 45px;
 	width: 45px;
@@ -17,7 +39,7 @@
 	position: absolute;
 	height: 550px;
 	width: 1113px;
-	background-image: url(../../assets/soccer_field.png);
+	background-image: url(../../assets/soccer_field_2.png);
 	background-repeat: no-repeat;
 	margin-left: 20px;
 	margin-top: 50px;
@@ -97,7 +119,7 @@
 }
 
 #slot div {
-	opacity: 0.2;
+	opacity: 0.5;
 	position: relative;
 	width: 12px;
 	height: 12px;
@@ -134,8 +156,10 @@
 }
 
 .team {
-	border: 2px solid #B22222;
-	background-image: url(../../assets/team.png);
+	border: 2px solid #A52A2A;
+	background-image: url(../../assets/player-body-home.png);
+	background-repeat: no-repeat;
+	background-position: center;
 	color: blue;
 	font-size: 9px;
 	text-shadow: 0 1px 1px #F6F6F6;
@@ -154,7 +178,7 @@
 }
 
 .team.ui-draggable.correct.ui-draggable-disabled.ui-state-disabled {
-	background-image: url(../../assets/team.png);
+	background-image: url(../../assets/player-body-home.png);
 	opacity: 0.7;
 }
 

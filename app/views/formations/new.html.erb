@@ -1,8 +1,8 @@
+<div class="new-formation">
 <%= render :partial => "calendars/next_match_info" %>
-
-	<%= render :partial => 'facebook_like' %>
+	<%= render :partial => 'facebook_like' %>	
 	<div class="new_formation_invitation">
-		<h2>Monte o seu esquema tático!</h2>
+		<h2>Monte o seu esquema tático!</h2>		
 		<div class="new_formation_actions">
 			<%= link_to "Refazer", :new, :class => "btn primary" %>		
 			<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
@@ -64,3 +64,4 @@
 	    });
 	});
 <% end %>
+</div>

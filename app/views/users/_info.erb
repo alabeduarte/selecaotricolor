@@ -7,7 +7,8 @@
 						<%= "#{current_user.nickname} - #{current_user.score}" %>
 						<span class="caret"></span>
 					</a>
-					<ul id="user_config_menu" class="dropdown-menu user_info">  
+					<ul id="user_config_menu" class="dropdown-menu user_info">
+						<li><%= link_to t(:scores), :score %></li>  
 						<li><%= link_to t(:my_formations), :current_user_formations %></li>          				
 	                	<li><%= link_to t(:account_config), "/configuration" %></li>
 						<% if current_user.admin? %>

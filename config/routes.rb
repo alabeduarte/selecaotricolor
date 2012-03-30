@@ -1,5 +1,7 @@
 UcoachManager::Application.routes.draw do
 
+  get "scores/index"
+
   get "welcome/index"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
@@ -20,7 +22,7 @@ UcoachManager::Application.routes.draw do
   end
 
   root :to => "welcome#index"
-  resources :position_mappers, :teams, :players, :calendars, :formations, :first_teams
+  resources :position_mappers, :teams, :players, :calendars, :formations, :first_teams, :scores
   
   controller :formations do
     get 'new' => :new

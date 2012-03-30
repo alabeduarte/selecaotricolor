@@ -1,0 +1,15 @@
+<div class="title">
+	<h1><%= t(:scores) %></h1>
+</div>
+<table class="zebra-striped">
+  <tr>
+    <th><%= t(:nickname) %></th>
+    <th>Score</th>
+  </tr>
+<% @users.each do |u| %>
+  <tr>
+    <td><%= u.nickname %></td>
+	<td><%= u.score %></td>
+  </tr>
+<% end %>
+</table>

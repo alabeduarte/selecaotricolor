@@ -30,6 +30,10 @@ class User
     end
   end
   
+  def self.all_by_score
+    all(admin: false, :order => :score.desc)
+  end
+  
   def owner_of?(formation)
     formation.owner_id == id
   end

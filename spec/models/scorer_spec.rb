@@ -142,6 +142,18 @@ describe Scorer do
       scorer.add(score: 100, to: winners)      
     end
     
+    it "should list users scores sorted by score" do
+      scorer = Scorer.new(match: Calendar.last_match)
+      all_users = Array.new
+      User.all.each {|u| all_users << u unless u.admin?}
+      scorer.add(score: 100, to: all_users)
+      all_users[0].score = 5000
+      all_users[0].save
+      users = User.all_by_score
+      users.size.should == 3
+      users[0].score.should be > users[1].score
+    end
+    
     xit "should elect the most votes players positions by formations of matches"
   end
   

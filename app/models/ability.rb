@@ -11,6 +11,7 @@ class Ability
         can [:newly_created, :current_user_formations, :destroy], Formation, :owner_id => user.id
         can [:show, :update, :destroy], User, :id => user.id
         can :bahia_squad, Player
+        can :index, Scorer
         can [:index, :formations_matches], Calendar
       end    
   end

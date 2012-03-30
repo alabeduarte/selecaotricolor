@@ -1,9 +1,8 @@
 	<%= form_tag Formation.new, :html => {:class => "well form-search"} do |f| %>
 		<div class="clearfix">
 	  		<div>
-				<%= hidden_field_tag 'match_id' %>
 				<div class="input">
-					<%= select(nil, :id, @matches) %>
+					<%= select("match", "id", @matches.collect {|m| [ m, m.id ] }) %>
 				</div>
 			</div>
 	  	</div>
@@ -58,7 +57,7 @@
 			desableSenderButton();			
 			$('#send_button').html('Enviando...');
 			$.ajax({
-		  			url:          "/first_teams?match_id=" + $('#match_id'),
+		  			url:          "/first_teams?match_id=" + $('#match_id').val(),
 					dataType:     "json",
 					type:         "POST",
 					contentType:  "application/json",

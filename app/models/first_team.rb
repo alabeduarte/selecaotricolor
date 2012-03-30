@@ -11,6 +11,12 @@ class FirstTeam
     FirstTeam.create!(formation: formation)
   end
   
+  def apply_score
+    apply_score_to_all_users
+    apply_score_to_predict_users
+  end
+  
+protected
   def apply_score_to_all_users
     scorer = Scorer.new(match: formation.match)
     winners = scorer.winners

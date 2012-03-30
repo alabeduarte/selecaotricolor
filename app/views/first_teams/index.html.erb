@@ -7,6 +7,8 @@
 	<th><%= t(:day) %></th>
 	<th><%= t(:home) %></th>
 	<th></th>
+	<th></th>
+	<th></th>
 	<th><%= t(:away) %></th>
     <th></th>
     <th></th>
@@ -20,7 +22,9 @@
 	<td><%= first_team.formation.created_at.to_s(:day) %></td>
 	<td><%= first_team.formation.match.day.to_s(:day) %></td>
 	<td><%= image_tag("escudos/#{first_team.formation.match.home.label}.png", :size => "45x45", :alt => "#{first_team.formation.match.home.name}") %></td>
-	<td><%= first_team.formation.match %></td>
+	<td><%= first_team.formation.match.home.name %></td>
+	<td>x</td>
+	<td><%= first_team.formation.match.away.name %></td>
 	<td><%= image_tag("escudos/#{first_team.formation.match.away.label}.png", :size => "45x45", :alt => "#{first_team.formation.match.away.name}") %></td>
     <td><%= link_to t(:show), first_team, :class => "btn" %></td>
     <td>

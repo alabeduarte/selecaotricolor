@@ -387,9 +387,15 @@ body {
 	margin-left: 30px;	
 }
 
-.next_match_info li, .match h3 {
+.next_match_info li {
+	margin-top: 8px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;    	
-} 
+}
+
+.match h3 {
+	margin-top: 0px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;    	
+}
 
 .next_match_info li {
 	color: #1E90FF;
@@ -645,7 +651,8 @@ body {
 
 .new_formation_actions {
 	position: relative;
-	margin: -33px 0 0 652px;
+	margin: 0 auto;
+	margin-top: 30px;
 }
 
 .welcome {
@@ -804,11 +811,14 @@ body {
 .facebookLogin:active div span {background-position: 0 -125px;}
 
 .jogo {
-	margin-top: 3px;
-	margin-bottom: 5px;
-	width: 245px;
+	background: url(../../assets/grass-footer.png) no-repeat;
+	position: relative;
+	margin: 0 auto;
+	width: 268px;
 	height: 59px;
-	padding-left: 55px;
+	padding-left: 155px;
+	padding-top: 10px;
+	padding-bottom: 5px;
 }
 
 .time, .x {

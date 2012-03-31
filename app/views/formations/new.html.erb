@@ -1,13 +1,12 @@
-<div class="new-formation">
+<div class="new-formation">	
 <%= render :partial => "calendars/next_match_info" %>
-	<%= render :partial => 'facebook_like' %>	
-	<div class="new_formation_invitation">
-		<h2>Monte o seu esquema tático!</h2>		
+	<center>
+		<%= image_tag("squad800x278.png", :size => "800x278", :alt => "Seleção Tricolor") %>
 		<div class="new_formation_actions">
 			<%= link_to "Refazer", :new, :class => "btn primary" %>		
 			<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
 		</div>
-	</div>	
+	</center>
 	<div class=".droppable-area">
 		<div id="soccerField">
 		</div>

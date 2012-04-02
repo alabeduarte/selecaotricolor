@@ -1,5 +1,6 @@
 <div class="new-formation">	
 <%= render :partial => "calendars/next_match_info" %>
+	<div class="hero-unit show">
 	<center>
 		<%= image_tag("squad800x278.png", :size => "800x278", :alt => "Seleção Tricolor") %>
 		<div class="new_formation_actions">
@@ -40,6 +41,7 @@
 	<div id="slot"></div>
 	</div>
 	<div id="matrix"></div>
+	</div>
 
 <%= content_for :javascript do %>
 	$( init_soccer_field );

@@ -1,4 +1,5 @@
-<div class="hero-unit">
+<%= render :partial => "calendars/next_match_info" %>
+<div class="hero-unit show">
 	<%= image_tag("squad800x278.png", :size => "800x278", :alt => "Seleção Tricolor") %>
 	<div class="welcome">
 		<h2>Bem-vindo ao</h2><%= image_tag("selecaotricolor_logo.png", :size => "800x123", :alt => "Seleção Tricolor") %>
@@ -9,8 +10,7 @@
 		<span>
 		Sinta-se à vontade, escale o seu time, monte o seu esquema tático e comece a torcer!
 		</span>
-		<center>
-			<%= render :partial => "calendars/next_match_info" %>
+		<center>			
 			<%= link_to t(:listing_formations_to_next_match), formations_matches_path(Calendar.next_match), :class => "btn success" %>
 		</center>
 		<br/>

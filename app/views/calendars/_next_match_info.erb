@@ -9,19 +9,12 @@
 	<div class="jogo">
 	    <div class="time">
 			<%= image_tag("escudos/#{next_match.home.label}.png", :size => "45x45", :alt => "#{next_match.home.name}") %>
+			<span class="team-home-name"><%= "#{next_match.home.name}" %></span>
         </div>
         <div class="x">x</div>
         <div class="time">
         	<%= image_tag("escudos/#{next_match.away.label}.png", :size => "45x45", :alt => "#{next_match.away.name}") %>
+			<span class="team-away-name"><%= "#{next_match.away.name}" %></span>
         </div>
     </div>
-	<div class="next_match_info">
-		<ul>
-			<li>
-				<div class="match">
-					<h3><%= "#{next_match}" %></h3>
-				</div>
-			</li>
-		</ul>
-	</div>
 </center>

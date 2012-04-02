@@ -1,20 +1,19 @@
 <center>
+	<center>
+		<div class="jogo">
+		    <div class="time">
+				<%= image_tag("escudos/#{@match.home.label}.png", :size => "45x45", :alt => "#{@match.home.name}") %>
+				<span class="team-home-name"><%= "#{@match.home.name}" %></span>
+	        </div>
+	        <div class="x">x</div>
+	        <div class="time">
+	        	<%= image_tag("escudos/#{@match.away.label}.png", :size => "45x45", :alt => "#{@match.away.name}") %>
+				<span class="team-away-name"><%= "#{@match.away.name}" %></span>
+	        </div>
+	    </div>
+	</center>
 	<div class="next_match_info">
-		<ul>
-			<li>
-				<div class="jogo">
-				    <div class="time">
-						<%= image_tag("escudos/#{@match.home.label}.png", :size => "45x45", :alt => "#{@match.home.name}") %>
-		            </div>
-		            <div class="x">x</div>
-		            <div class="time">
-		            	<%= image_tag("escudos/#{@match.away.label}.png", :size => "45x45", :alt => "#{@match.away.name}") %>
-		            </div>
-		        </div>
-				<div class="match">
-					<h3><%= "#{@match}" %></h3>
-				</div>
-			</li>
+		<ul>		
 			<li><%= "#{@match.day.to_s(:day)}" %></li>			
 			<% if @match.oldest? %>
 			<li><%= "Esquema tático mais votado: #{@match.tactical_most_voted}" %></li>
@@ -22,16 +21,11 @@
 		</ul>	
 	</div>
 </center>
-<div>
-	<%= render :partial => 'formations/facebook_like' %>
-	<%= render :partial => "formations/share" %>
-</div>
 <table class="zebra-striped">
   <tr>
 	<th><%= t(:sended_to) %></th>
 	<th><%= t(:tactical) %></th>
 	<th><%= t(:created_at) %></th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -63,4 +57,3 @@
 		<%= link_to t(:new_formation), new_path, :class => "btn small primary" %>
 	</div>
 <% end %>
-<%= render :partial => 'formations/facebook_comments' %>

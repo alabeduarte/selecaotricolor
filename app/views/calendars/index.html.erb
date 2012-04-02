@@ -1,7 +1,6 @@
 <div class="title">
 	<h1><%= t(:listing_calendars) %></h1>
 </div>
-<%= render :partial => 'formations/facebook_like' %>
 <table class="zebra-striped">
   <tr>
     <th><%= t(:day) %></th>
@@ -13,6 +12,7 @@
     <th></th>
     <th></th>
     <th></th>
+	<th></th>
   </tr>
 
 <% @calendars.each do |calendar| %>

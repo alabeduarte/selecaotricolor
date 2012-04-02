@@ -1,5 +1,9 @@
+table {
+	background-color: #FFF;
+}
+
 body {
-	/*background-image: url(../../assets/background.png);	*/
+
 }
 
 .grass-footer {
@@ -42,7 +46,7 @@ body {
 	width: 1113px;
 	background-image: url(../../assets/soccer_field_2.png);
 	background-repeat: no-repeat;
-	margin-left: 69px;
+	margin-left: 0px;
 	margin-top: 50px;
 }
 
@@ -63,7 +67,7 @@ body {
 	
 	position: relative;
 	float: left;
-	margin: 50px 0 0 448px;
+	margin: 50px 0 0 379px;
 	width: 420px;	
 	height: 490px;
 	overflow: auto;
@@ -116,7 +120,7 @@ body {
 	width: 340px;
 	padding: 0;	
 	float: left;
-	margin: 99px 0 0 83px;
+	margin: 99px 0 0 14px;
 }
 
 #slot div {
@@ -383,8 +387,9 @@ body {
 }
 
 .next_match_info {	
+	float: left;
 	width: 270px;
-	margin-left: 30px;	
+	margin: 0px auto;	
 }
 
 .next_match_info li {
@@ -394,7 +399,8 @@ body {
 
 .match h3 {
 	margin-top: 0px;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;    	
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; 
+	text-shadow: 0 1px 2px #000000;   	
 }
 
 .next_match_info li {
@@ -632,15 +638,8 @@ body {
 }
 
 .formation_header {
-	background-color: #ADD8E6;
-	background-repeat: repeat-x;
-	background-image: -khtml-gradient(linear, left top, left bottom, from(#ADD8E6), to(#FFF));
-	background-image: -moz-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: -ms-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ADD8E6), color-stop(100%, #FFF));
-	background-image: -webkit-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: -o-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: linear-gradient(top, #ADD8E6, #FFF);
+	margin: 0 auto;
+	text-align: center; 
 }
 
 .new_formation_invitation h2 {
@@ -707,26 +706,35 @@ body {
 	margin-top: 50px;
 }
 
-.hero-unit {
+.hero-unit.show {
 	float: left;
 	width: 800px;
+	padding-top: 10px;
 }
 
 [class*="show"] {
   float: left;
-  margin-left: 20px;
+
 }
 
-#call_up.show {
-	width: 213px;
+#call-up.show {
+	margin-right: 30px;
+	color: #0000CD;
 }
 
 #soccerField.show {
 	position: relative;
 	width: 358px;
-	height: 493px;
-	margin-top: 0px;
-	margin-bottom: 30px;
+	height: 509px;
+	margin: 0 auto;
+}
+
+#creator-info.show ul li {
+	color: #CD0000;
+}
+
+#creator-info.show ul {
+	list-style: none;	
 }
 
 #emptySlot.show {
@@ -811,18 +819,24 @@ body {
 .facebookLogin:active div span {background-position: 0 -125px;}
 
 .jogo {
-	background: url(../../assets/grass-footer.png) no-repeat;
 	position: relative;
 	margin: 0 auto;
 	width: 268px;
-	height: 59px;
-	padding-left: 155px;
+	height: 93px;
+	padding-left: 100px;
 	padding-top: 10px;
 	padding-bottom: 5px;
 }
 
+.time {
+	width: 45px;
+	height: 45px;
+}
+
 .time, .x {
 	float: left;
+	color: #FFF;
+	text-shadow: 0 1px 1px #F6F6F6;
 }
 
 .x {
@@ -832,9 +846,29 @@ body {
 	margin-right: 20px;
 }
 
+.team-home-name, .team-away-name {
+	float: left;
+	text-align: center;
+}
+
+.x, .team-home-name, .team-away-name {
+	color: #0000CD;
+	text-shadow: 0 1px 1px #F6F6F6;
+}
+
+.team-home-name {
+	margin-left: 0px;
+	margin-right: 6px;
+}
+
+.team-away-name {
+	margin-left: 6px;
+	margin-right: 20px;
+}
+
 .match {
-	width: 290px;
-	height: 50px;
+	margin: 0 auto;
+	margin-left: 30px;
 	float: left;
 }
 

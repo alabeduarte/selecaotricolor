@@ -31,7 +31,7 @@ class User
   end
   
   def self.all_by_score
-    all(admin: false, :order => :score.desc)
+    all(:admin.ne => true, :order => :score.desc)
   end
   
   def owner_of?(formation)

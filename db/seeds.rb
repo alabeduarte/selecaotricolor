@@ -1,6 +1,6 @@
 admin = User.create(nickname: 'admin', email: 'admin@selecaotricolor.com.br', password: '0m0m0m', admin: true, confirmed_at: Time.now.utc)
-User.create(nickname: 'T1', email: 'teste1@t.com', password: 'mmmmmm', admin: false, confirmed_at: Time.now.utc)
-User.create(nickname: 'T2', email: 'teste2@t.com', password: 'mmmmmm', admin: false, confirmed_at: Time.now.utc)
+User.create(nickname: 'T1', email: 'teste1@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+User.create(nickname: 'T2', email: 'teste2@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
 
 #Creating all 'Campeonato Baiano' teams
 json = '[

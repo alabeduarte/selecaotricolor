@@ -10,7 +10,11 @@ class Scorer
     score = args[:score]
     winners = args[:to]
     winners.each do |w|
-      w.score = score
+      if (w.score)
+        w.score += score
+      else
+        w.score = score
+      end
       w.save
     end
   end

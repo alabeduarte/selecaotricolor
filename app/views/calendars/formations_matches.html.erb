@@ -32,7 +32,13 @@
 
 <% @formations.each do |formation| %>
   <tr>
-	<td><%= formation.owner.nickname %></td>
+	<td>
+	<% if formation.owner.admin? %>
+		<i><%= formation.owner.nickname %></i>
+	<% else %>
+		<%= formation.owner.nickname %>
+	<% end %>
+	</td>
 	<td><%= formation.tactical %></td>
 	<td><%= formation.created_at.to_s(:day) %></td>
     <td><%= link_to t(:show), formation, :class => "btn" %></td>

@@ -730,8 +730,12 @@ body {
 	margin: 0 auto;
 }
 
+#creator-info.show {
+	width: 227px;
+}
+
 #creator-info.show ul li {
-	color: #CD0000;
+	color: #CD0000;	
 }
 
 #creator-info.show ul {

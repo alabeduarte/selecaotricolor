@@ -665,6 +665,7 @@ body {
 
 .welcome h1, .welcome h2, .welcome h3 {
 	color: #0000CD;
+	text-shadow: 0 2px 0 #1E90FF;
 }
 
 .subtitle {
@@ -767,7 +768,7 @@ body {
 #forwards, #midfield, #midfield_defense, #left_back, #defender, #right_back, #goalkeepers {
 	position: relative;
 	float: left;
-	width: 700px;
+	width: 444px;
 }
 
 .share {

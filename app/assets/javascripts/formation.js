@@ -23,6 +23,26 @@ function init_soccer_field() {
 	desableSenderButton();
 }
 
+function init_soccer_field_to_first_team() {
+  	// Reset the game
+  	correctPlayers = 0;
+  	//$('#player').html('');
+  	$('#slot').html('');
+
+  	// Create the soccer players
+  	var players = createEnabledAllPlayers();
+
+  	// Create the positions
+  	var slots = createSlots();
+
+  	// Matrix
+  	createMatrix(slots);
+
+  	// Matrix Model
+  	createMatrixModel(slots);
+	desableSenderButton();
+}
+
 function load_soccer_field() {
   
   // Reset the game
@@ -81,6 +101,70 @@ function addElementInSoccerField(element, player) {
       }
     }
   }
+}
+
+function createEnabledAllPlayers() {
+	var players = new Array();
+    var uri = '/bahia_squad.json';
+  	$.getJSON(uri, function(data) {
+		$.each(data, function(i, allPlayers) {
+			$.each(allPlayers, function(j, player) {
+				var playerId = i+1;			
+								
+				var playerDiv = '#' + player.id;
+				var positionDivName = '';
+				var positionDivClass = '';
+
+				if (player.position_mapper.code == 'G') {					
+					positionDivName = '#goalkeepers';					
+				} else if (player.position_mapper.code == 'DD') {
+					positionDivName = '#right_back';										
+				} else if (player.position_mapper.code == 'DC') {
+					positionDivName = '#defender';
+				} else if (player.position_mapper.code == 'DE') {
+					positionDivName = '#left_back';
+				} else if (player.position_mapper.code == 'MDC') {
+					positionDivName = '#midfield_defense';
+				} else if (player.position_mapper.code.substring(0, 1) == 'M') {
+					positionDivName = '#midfield';
+				} else if (player.position_mapper.code.substring(0, 1) == 'A') {
+					positionDivName = '#forwards';
+				}
+				
+				if (player.position_mapper.code == 'G') {					
+					positionDivClass = 'goal_keeper';
+				} else {
+					positionDivClass = 'team';
+				}
+				
+				$('<div id=' + player.id + '></div>').appendTo(positionDivName);					
+				$(playerDiv).addClass(positionDivClass);
+				
+				$('<p>' + '&nbsp' + '</p>').appendTo(playerDiv);
+				$('<span id="playerName_' + playerId + '">' + player.name + '</span>')
+					.addClass('playerName').appendTo(playerDiv);				
+				$(playerDiv).addClass('enabled');
+				$(playerDiv).data('number', i).appendTo(positionDivName).draggable( {
+			    	containment: '.droppable-area',
+				    stack: '#player div',
+			      	cursor: 'move',
+					appendTo: 'body',
+					helper: 'clone',
+			      	revert: true
+				});
+				$(playerDiv).mousedown(function () {
+					$('#slot').css('display', 'block');
+				});
+				$(playerDiv).mouseup(function () {
+					$('#slot').css("display","none");
+				});
+				$(playerDiv).addClass('player');
+				
+	  		});
+      });		
+	});
+	
+	return players;
 }
 
 function createPlayers() {

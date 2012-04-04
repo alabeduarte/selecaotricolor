@@ -49,7 +49,7 @@
 	<div id="matrix"></div>
 
 <%= content_for :javascript do %>
-	$( init_soccer_field );
+	$( init_soccer_field_to_first_team );
 	
 	$('#send_button').click(function() {
 		if (correctPlayers == 10 && correctGoalKeeper == 1) {
@@ -70,7 +70,5 @@
 		} else {
 			cSimpleAlert('Selecione os 11 jogadores!');
 		}		  	
-	});
-	
-	
+	});	
 <% end %>

@@ -17,33 +17,24 @@ class Formation
   validates :created_at, :presence => true
   validates :owner, :presence => true
   
-  def self.create_from(args)
+  after_save :checkin_the_match
+  
+  def self.new_by(args)
     data = args[:data]
     owner = args[:owner]
     current_match = args[:match] || Calendar.next_match
-    
     players_positions = PlayerFormationPosition.mapping_positions(data)
-    match_checked = self.checkin_the_match!(current_match)
-    Formation.create!(
-                  players_positions: players_positions, 
-                  team: Team.bahia,
-                  match: match_checked,
-                  created_at: Time.now,
-                  owner: owner)    
+    self.new(
+              players_positions: players_positions, 
+              team: Team.bahia,
+              match: current_match,
+              created_at: Time.now,
+              owner: owner)    
   end
   
   def self.newly_created(user)
     Formation.first(:owner_id => user.id, :order => :created_at.desc)
-  end
-  
-  def self.checkin_the_match!(current_match)
-    match =  current_match || Calendar.next_match
-    if !match.contains_formations?
-      match.contains_formations = true
-      match.save
-    end
-    match
-  end
+  end  
   
   def players_ordered_by_positions
     PlayerFormationPosition.all(:formation_id => id, :order => :id.asc)
@@ -69,6 +60,16 @@ class Formation
       end
     end
     "#{defenders}-#{midfields}-#{forwards}"
+  end
+  
+protected
+  def checkin_the_match
+    current_match = @match || Calendar.next_match
+    if !current_match.contains_formations?
+      current_match.contains_formations = true
+      current_match.save
+    end
+    current_match
   end
   
 end

@@ -7,10 +7,10 @@ class FirstTeamsController < ApplicationController
   
   def create
     selected_match = Calendar.find(params[:match_id])
-    formation = Formation.create_from(
-                                      match: selected_match,
-                                      data: params[:_json],
-                                      owner: current_user)    
+    formation = Formation.new_by(
+                                  match: selected_match,
+                                  data: params[:_json],
+                                  owner: current_user)    
     @first_team = FirstTeam.new(formation: formation)   
     if @first_team.save
       @first_team.apply_score(Scorer.new(match: selected_match))

@@ -16,7 +16,8 @@ class FormationsController < ApplicationController
   end
 
   def create
-    Formation.create_from(data: params[:_json], owner: current_user)
+    @formation = Formation.new_by(data: params[:_json], owner: current_user)
+    @formation.save
   end
   
   def update

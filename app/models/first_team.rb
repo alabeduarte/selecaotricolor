@@ -4,29 +4,23 @@ class FirstTeam
   key :formation_id, ObjectId
   belongs_to :formation
   validates :formation, :presence => true
-
-  def self.create_from(args)
-    args[:match] = args[:match] || Calendar.last_match
-    formation = Formation.create_from(args)
-    FirstTeam.create!(formation: formation)
-  end
   
-  def apply_score
-    apply_score_to_all_users
-    apply_score_to_predict_users
+  def apply_score(scorer)
+    @scorer = scorer
+    @scorer.first_team = self
+    self.apply_score_to_all_users
+    self.apply_score_to_predict_users
   end
   
 protected
   def apply_score_to_all_users
-    scorer = Scorer.new(match: formation.match)
-    winners = scorer.winners
-    scorer.add(score: 1000, to: winners)
+    winners = @scorer.winners
+    @scorer.add(score: 1000, to: winners)
   end
   
   def apply_score_to_predict_users
-    scorer = Scorer.new(match: formation.match, first_team: self)
-    winners = scorer.squad_winners
-    scorer.add(score: 5000, to: winners)
+    winners = @scorer.squad_winners
+    @scorer.add(score: 5000, to: winners)
   end
 
 end

@@ -7,12 +7,13 @@ class FirstTeamsController < ApplicationController
   
   def create
     selected_match = Calendar.find(params[:match_id])
-    @first_team = FirstTeam.create_from(
-                                        match: selected_match,
-                                        data: params[:_json],
-                                        owner: current_user)   
-    if @first_team
-      @first_team.apply_score
+    formation = Formation.create_from(
+                                      match: selected_match,
+                                      data: params[:_json],
+                                      owner: current_user)    
+    @first_team = FirstTeam.new(formation: formation)   
+    if @first_team.save
+      @first_team.apply_score(Scorer.new(match: selected_match))
       flash[:notice] = t(:formation_sent)
       redirect_to first_team_path(@first_team)
     else

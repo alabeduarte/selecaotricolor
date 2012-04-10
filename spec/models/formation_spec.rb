@@ -22,7 +22,10 @@ describe Formation do
       end       
     end
     
-    context "on create" do      
+    context "on create" do
+      
+      xit "dependencies should not be nil" do
+      end     
       
       it "when formation is added then next match must be updated with the formation contained" do
         next_match = Calendar.next_match

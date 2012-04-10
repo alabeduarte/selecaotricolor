@@ -23,10 +23,10 @@ describe Scorer do
     #     DC  Rafael Donato
     #     G Marcelo Lomba
     json = '[ { "formation": {          "player": "4f25cdcbe1af800323000b46"         ,          "x": "0"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e68ee1af80017c000034"         ,          "x": "2"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "2"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e69be1af80017c000047"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25ca54e1af8003230008b5"         ,          "x": "5"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f25ca2de1af800323000896"         ,          "x": "5"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e6c3e1af80017c00008c"         ,          "x": "-1"         ,          "y": "-1"     }  }  ]'
-    @first_team = FirstTeam.create_from(
+    @first_team = FirstTeam.new(formation: Formation.create_from(
                           data: JSON.load(json), 
                           owner: admin_user, 
-                          match: Calendar.last_match)
+                          match: Calendar.last_match))
     
     # => 4-4-2
     #     AC  Júnior
@@ -135,7 +135,7 @@ describe Scorer do
     end
     
     it "should add bonus score to all users who create a squad" do
-      scorer = Scorer.new(match: Calendar.last_match)
+      scorer = Scorer.new(match: Calendar.last_match, first_team: @first_team)
       winners = scorer.winners
       winners.each {|w| w.should_receive(:score=).with(100)}
       winners.each {|w| w.should_receive(:save)} 

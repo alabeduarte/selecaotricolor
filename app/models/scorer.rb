@@ -1,5 +1,7 @@
 class Scorer
   
+  attr_accessor :first_team
+  
   def initialize(args)
     @formations = args[:formations]
     @first_team = args[:first_team]

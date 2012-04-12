@@ -421,6 +421,7 @@ body {
 .user_actions {
 	position: relative;
 	color: #0000CD;
+	text-shadow: 0 1px 0 #FFF;
 	margin-top: 12px;
 	margin-right: 20px;
 	float: right;
@@ -658,14 +659,23 @@ body {
 	text-align: center;
 	position: relative;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;    
-	color: #0000CD;
 	font-size: 14px;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	color: #0000CD;
+	text-shadow: 0 1px 0 #FFF;
 }
 
 .welcome h1, .welcome h2, .welcome h3 {
 	color: #0000CD;
-	text-shadow: 0 2px 0 #1E90FF;
+	text-shadow: 0 2px 0 #0000CD;
+}
+
+.welcome ul {	
+	list-style: none;
+}
+
+.welcome li {
+	color: #0000CD;
+	text-shadow: 0 1px 0 #FFF;
 }
 
 .subtitle {

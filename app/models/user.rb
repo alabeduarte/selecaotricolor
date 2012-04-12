@@ -34,6 +34,10 @@ class User
     all(:admin.ne => true, :order => :score.desc)
   end
   
+  def self.top_scorers_of(limit)
+    all(:admin.ne => true, :limit => limit, :order => :score.desc)
+  end
+  
   def owner_of?(formation)
     formation.owner_id == id
   end

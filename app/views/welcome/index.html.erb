@@ -1,18 +1,42 @@
-<%= render :partial => "calendars/next_match_info" %>
 <div class="hero-unit show">
 	<%= image_tag("squad800x278.png", :size => "800x278", :alt => "Seleção Tricolor") %>
 	<div class="welcome">
-		<h2>Bem-vindo ao</h2><h1>selecaotricolor.com.br</h1>
+		<p><b>Bem-vindo ao</b></p>
+		<div class="title">
+			<h1>
+			selecaotricolor.com.br
+			</h1>
+		</div>
 		<span class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</span>
+		<br/>
 		<p>
-		Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> você poderá responder: <h2>Qual time você gostaria que fosse a campo?</h2>
+		Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> você poderá responder:
 		</p>
-		<span>
-		Sinta-se à vontade, escale o seu time, monte o seu esquema tático e comece a torcer!
-		</span>
+		<p><b>Qual time você gostaria que fosse a campo?</b></p>
 		<center>			
 			<%= link_to t(:listing_formations_to_next_match), formations_matches_path(Calendar.next_match), :class => "btn success" %>
 		</center>
+		<br/>
+		<div class="title">
+			<h3><%= t(:scores) %></h3>
+			<ul>
+				<li>Se você criar uma tática você ganha <b>1000 pontos</b></li>
+				<li>Se você acertar a escalação dos jogadres que começarão a partida: <b>5000 pontos</b></li>
+			</ul>
+		</div>
+		<table class="zebra-striped">
+		  <tr>
+		    <th><%= t(:nickname) %></th>
+		    <th>Score</th>
+		  </tr>
+		<% @users.each do |u| %>
+		  <tr>
+		    <td><%= u.nickname %></td>
+			<td><%= u.score %></td>
+		  </tr>
+		<% end %>
+		</table>
+		<br/>	
 		<br/>
 		<% if user_signed_in? %>
 			<center><%= link_to "Monte o seu esquema tático!", :new, :class => "btn danger large" %></center>

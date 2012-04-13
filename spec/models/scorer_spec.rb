@@ -7,6 +7,8 @@ describe Scorer do
   let(:user_t1) { Factory(:user_t1) }
   let(:user_t2) { Factory(:user_t2) }
   let(:user_t3) { Factory(:user_t3) }
+  let(:user_t4) { Factory(:user_t4) }
+  let(:user_t5) { Factory(:user_t5) }
 
   before(:each) do      
     formation_helper = Formation::Helper.new    
@@ -95,7 +97,7 @@ describe Scorer do
     json = '[ { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f25cdcbe1af800323000b46"         ,          "x": "1"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "1"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f26088ce1af8009550001dd"         ,          "x": "3"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f03baa6e1af8003ee00000f"         ,          "x": "3"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e68ee1af80017c000034"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e69be1af80017c000047"         ,          "x": "6"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e6c3e1af80017c00008c"         ,          "x": "-1"         ,          "y": "-1"     }  }  ]'
     Formation.new_by(
                           data: JSON.load(json), 
-                          owner: user_t1, 
+                          owner: user_t4, 
                           match: Calendar.last_match).save
                            
     # => 4-4-2
@@ -113,9 +115,11 @@ describe Scorer do
     json = '[ { "formation": {          "player": "4f25cdcbe1af800323000b46"         ,          "x": "0"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e68ee1af80017c000034"         ,          "x": "2"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "2"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e69be1af80017c000047"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f26088ce1af8009550001dd"         ,          "x": "6"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f25ca2de1af800323000896"         ,          "x": "6"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e6c3e1af80017c00008c"         ,          "x": "-1"         ,          "y": "-1"     }  }  ]'
     Formation.new_by(
                           data: JSON.load(json), 
-                          owner: user_t3, 
-                          match: Calendar.last_match).save                                             
-  end
+                          owner: user_t5, 
+                          match: Calendar.last_match).save
+                          
+    @scorer = Scorer.new(match: Calendar.last_match, first_team: @first_team)                                                
+  end  
   
   context "scoring players" do
     it "should elect the most votes tactical formation by matches" do
@@ -123,38 +127,37 @@ describe Scorer do
     end
     
     it "should score all users who create a squad" do             
-        scorer = Scorer.new(match: Calendar.last_match)
-        winners = scorer.winners
-        winners.size.should == 3
+        winners = @scorer.winners
+        winners.size.should == 5
     end
     
     it "should score all users must predict the squad" do
-      scorer = Scorer.new(match: Calendar.last_match, first_team: @first_team)
-      winners = scorer.squad_winners
+      winners = @scorer.squad_winners
       winners.size.should == 2
     end
     
     it "should add bonus score to all users who create a squad" do
-      scorer = Scorer.new(match: Calendar.last_match, first_team: @first_team)
-      winners = scorer.winners
+      winners = @scorer.winners
       winners.each {|w| w.should_receive(:score=).with(100)}
       winners.each {|w| w.should_receive(:save)} 
-      scorer.add(score: 100, to: winners)      
+      @scorer.add(score: 100, to: winners)      
     end
     
     it "should list users scores sorted by score" do
-      scorer = Scorer.new(match: Calendar.last_match)
-      all_users = Array.new
-      User.all.each {|u| all_users << u unless u.admin?}
-      scorer.add(score: 100, to: all_users)
-      all_users[0].score = 5000
-      all_users[0].save
+      add_score_to_users(@scorer)
       users = User.all_by_score
-      users.size.should == 3
+      users.size.should == 5
       users[0].score.should be > users[1].score
     end
-    
-    xit "should elect the most votes players positions by formations of matches"
-  end
   
+  end
+
+private
+  def add_score_to_users(scorer)
+    all_users = Array.new
+    User.all.each {|u| all_users << u unless u.admin?}
+    scorer.add(score: 100, to: all_users)
+    all_users[0].score = 5000
+    all_users[0].save
+  end
 end

@@ -38,6 +38,22 @@ Factory.define :user_t3, :class => User do |f|
   f.confirmed_at Time.now.utc
 end
 
+Factory.define :user_t4, :class => User do |f|
+  f.nickname 'T4'
+  f.email 'teste4@t.com'
+  f.password 'mmmmmm'
+  f.admin false
+  f.confirmed_at Time.now.utc
+end
+
+Factory.define :user_t5, :class => User do |f|
+  f.nickname 'T5'
+  f.email 'teste5@t.com'
+  f.password 'mmmmmm'
+  f.admin false
+  f.confirmed_at Time.now.utc
+end
+
 Factory.define :bahia, :class => Team do |f|
   f.name 'Bahia'
 end

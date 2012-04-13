@@ -17,6 +17,7 @@ class Formation
   validates :created_at, :presence => true
   validates :owner, :presence => true
   
+  before_validation :verify_if_once_per_match_and_per_user
   after_save :checkin_the_match
   
   def self.new_by(args)
@@ -62,7 +63,15 @@ class Formation
     "#{defenders}-#{midfields}-#{forwards}"
   end
   
+  def self.already_created?(owner, match)
+    Formation.first(:owner_id => owner.id, :match_id => match.id)
+  end
+  
 protected
+  def verify_if_once_per_match_and_per_user
+    raise I18n.t(:formation_once_per_match) if Formation.already_created?(self.owner, self.match)    
+  end
+  
   def checkin_the_match
     current_match = @match || Calendar.next_match
     if !current_match.contains_formations?

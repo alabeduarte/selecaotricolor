@@ -9,6 +9,9 @@ class FormationsController < ApplicationController
   end
 
   def new
+    if Formation.already_created?(current_user, Calendar.next_match)
+      redirect_to :current_user_formations, :notice => t(:formation_once_per_match)
+    end
   end
   
   def current_user_formations

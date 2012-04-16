@@ -1,11 +1,13 @@
 class FirstTeamsController < ApplicationController
   before_filter :authenticate_user!
+  caches_action :index
   
   def new
     @matches = Calendar.with_tactics
   end
   
   def create
+    expire_cache
     selected_match = Calendar.find(params[:match_id])
     formation = Formation.new_by(
                                   match: selected_match,
@@ -45,13 +47,19 @@ class FirstTeamsController < ApplicationController
   end
   
   def destroy
+    expire_cache
     @first_team = FirstTeam.find(params[:id])    
     @first_team.destroy
-
     respond_to do |format|
       format.html { redirect_to(first_teams_url) }
       format.xml  { head :ok }
     end
+  end
+  
+private
+  def expire_cache
+    expire_action :action => :index
+    expire_action(:controller => :welcome, :action => :index)
   end
   
 end

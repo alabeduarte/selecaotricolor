@@ -1,7 +1,8 @@
 class FormationsController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:show, :reports]
-
+  caches_action :index, :current_user_formations, :list, :show
+  
   respond_to :json, :html
 
   def index
@@ -21,10 +22,12 @@ class FormationsController < ApplicationController
   def create
     @formation = Formation.new_by(data: params[:_json], owner: current_user)
     @formation.save
+    expire_cache(@formation)
   end
   
   def update
     @formation = Formation.find(params[:id])
+    expire_cache(@formation)
     redirect_to @formation, :notice => t(:formation_updated)
   end
   
@@ -60,13 +63,11 @@ class FormationsController < ApplicationController
   end
   
   def destroy
-    @formation = Formation.find(params[:id])    
-    @formation.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(formations_url) }
-      format.xml  { head :ok }
-    end
+    @formation = Formation.find(params[:id])
+    expire_cache(@formation)
+    @formation.destroy    
+    flash[:notice] = t(:formation_destroyed)
+    redirect_to(formations_path)
   end
   
   def reports
@@ -77,6 +78,16 @@ class FormationsController < ApplicationController
     else
       @player = Player.new
     end
+  end
+  
+private
+  def expire_cache(formation=nil)
+    expire_action :action => :index
+    expire_action :action => :current_user_formations
+    expire_action :action => :list
+    expire_action :action => :show, :id => formation
+    expire_action(:controller => :calendars, :action => :index)
+    expire_action(:controller => :calendars, :action => :formations_matches, :id => formation.match)
   end
 
 end

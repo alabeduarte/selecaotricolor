@@ -1,6 +1,7 @@
 class CalendarsController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:index, :formations_matches]
+  caches_action :index, :formations_matches, :show
   
   def formations_matches
     @match = Calendar.find(params[:id])
@@ -58,6 +59,7 @@ class CalendarsController < ApplicationController
 
     respond_to do |format|
       if @calendar.save
+        expire_cache(@calendar)
         format.html { redirect_to @calendar, notice: 'Calendar was successfully created.' }
         format.json { render json: @calendar, status: :created, location: @calendar }
       else
@@ -74,6 +76,7 @@ class CalendarsController < ApplicationController
 
     respond_to do |format|
       if @calendar.update_attributes(params[:calendar])
+        expire_cache(@calendar)
         format.html { redirect_to @calendar, notice: 'Calendar was successfully updated.' }
         format.json { head :no_content }
       else
@@ -88,10 +91,17 @@ class CalendarsController < ApplicationController
   def destroy
     @calendar = Calendar.find(params[:id])
     @calendar.destroy
-
+    expire_cache
     respond_to do |format|
       format.html { redirect_to calendars_url }
       format.json { head :no_content }
     end
+  end
+  
+private
+  def expire_cache(calendar=nil)
+    expire_action :action => :index
+    expire_action :action => :formations_matches, :id => calendar
+    expire_action :action => :show, :id => calendar
   end
 end

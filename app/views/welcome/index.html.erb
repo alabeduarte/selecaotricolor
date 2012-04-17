@@ -19,8 +19,8 @@
 		<br/>
 		<div class="title">			
 			<ul>
-				<li>Se você criar uma tática você ganha <b>1000 pontos</b></li>
-				<li>Se você acertar a escalação dos jogadres que começarão a partida: <b>5000 pontos</b></li>
+				<li>Se você criar uma tática você ganha <b>100 pontos</b></li>
+				<li>Se você acertar a escalação dos jogadres que começarão a partida: <b>300 pontos</b></li>
 			</ul>
 			<h3>Top-Scorers do Bahia</h3>
 		</div>
@@ -40,6 +40,8 @@
 		<br/>
 		<% if user_signed_in? %>
 			<center><%= link_to "Monte o seu esquema tático!", :new, :class => "btn danger large" %></center>
+			<br/>
+			<i>Lembre-se: Você só poderá escalar seu time até 2 horas antes do jogo!</i>
 		<% end %>				
 	</div>
 	<div class="user_actions">		

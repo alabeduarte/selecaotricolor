@@ -16,12 +16,12 @@ class FirstTeam
 protected
   def apply_score_to_all_users
     winners = @scorer.winners
-    @scorer.add(score: 1000, to: winners)
+    @scorer.add(score: 100, to: winners)
   end
   
   def apply_score_to_predict_users
     winners = @scorer.squad_winners
-    @scorer.add(score: 5000, to: winners)
+    @scorer.add(score: 300, to: winners)
   end
 
 end

@@ -31,7 +31,7 @@ class User
   end
   
   def self.all_by_score
-    all(:admin.ne => true, :order => :score.desc)
+    all(:admin.ne => true, :score.ne => true, :order => :score.desc)
   end
   
   def self.top_scorers_of(limit)

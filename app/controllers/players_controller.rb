@@ -3,6 +3,7 @@ class PlayersController < ApplicationController
   before_filter :authenticate_user!
   caches_action :index, :layout => :false
   caches_action :show, :edit, :new
+  cache_sweeper :player_sweeper, :only => [:create, :update, :destroy]
   
   def bahia_squad
     @players = Player.players_of Team.bahia

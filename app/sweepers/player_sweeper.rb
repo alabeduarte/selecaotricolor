@@ -11,6 +11,7 @@ class PlayerSweeper < ActionController::Caching::Sweeper
 
 private 
   def expire_cache(player)
+    p "OPA!!"
     expire_action :controller => 'player', :action => 'bahia_squad'
   end
 end

@@ -63,6 +63,14 @@ describe Formation do
       end
     end
     
+    context "close to start the next match" do
+      it "should block new formations when match time is 2 hours be left" do
+        Time.stub(:now).and_return(Time.utc(2012, 1, 1, 14, 0))
+        Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 17, 0)))
+        Formation.time_is_over?(Calendar.next_match).should be_true
+      end      
+    end
+    
 private
   def new_formation(json=@json_442)
     Formation.new_by(data: JSON.load(json), owner: current_user)

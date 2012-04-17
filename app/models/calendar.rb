@@ -53,5 +53,13 @@ class Calendar
   def tactical_most_voted
     Scorer.new(formations: formations).tactical_most_voted    
   end
+  
+  def today?
+    (@day.day == Time.now.day) && (@day.month == Time.now.month) && (@day.year == Time.now.year)
+  end
+  
+  def expired?
+    @day.hour - Time.now.hour < 2
+  end
 
 end

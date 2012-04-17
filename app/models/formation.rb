@@ -67,6 +67,13 @@ class Formation
     Formation.first(:owner_id => owner.id, :match_id => match.id)
   end
   
+  def self.time_is_over?(match)
+    if (match.today?)
+      return match.expired?
+    end
+    return false
+  end
+  
 protected
   def verify_if_once_per_match_and_per_user
     raise I18n.t(:formation_once_per_match) if Formation.already_created?(self.owner, self.match)    

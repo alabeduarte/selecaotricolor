@@ -48,6 +48,7 @@ body {
 	background-repeat: no-repeat;
 	margin-left: 0px;
 	margin-top: 50px;
+	cursor: default;
 }
 
 .pills.positions a {
@@ -121,6 +122,7 @@ body {
 	padding: 0;	
 	float: left;
 	margin: 99px 0 0 14px;
+	cursor: default;
 }
 
 #slot div {
@@ -139,6 +141,7 @@ body {
 	-webkit-border-radius: 30px;
 	border-radius: 30px;
 	float: left;
+	cursor: default;
 }
 
 .emptySlot {
@@ -221,6 +224,7 @@ body {
 	position: relative;
 	float: left;
 	margin: 45px 0 0 14px;
+	cursor: default;
 }
   
 #gk {
@@ -279,7 +283,7 @@ body {
 	padding-left: 11px;
 	padding-bottom: 3px;
 	text-align: left;
-	cursor: text;
+	cursor: default;
 	position: absolute;
 	font-size: 11px;
 	margin: -28px 0 0 13px;

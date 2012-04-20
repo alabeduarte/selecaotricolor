@@ -441,8 +441,45 @@ function load_formation() {
 	var columns = matrixModel[lines-1].length;
 
 	var total = lines*columns;
-
 	$.getJSON(window.location.pathname + '.json', function(data) {
+  		$.each(data, function(i, formation){
+			$.each(formation.players_positions, function(j, player_position){
+				var x = player_position.x;
+				var y = player_position.y;
+				var player = player_position.player;
+				var element = player.number;
+
+				for(var index = 0; index < total; index++) {
+					if (x == 0) {
+						if (index == y) {
+							addPlayer(index, player);
+						}
+					} else {
+						var nextPosition = (columns * x) + y;
+						if (index == nextPosition) {
+							addPlayer(index, player);
+						}
+					}
+				}
+				if (x == -1 && y == -1) {
+					var slotId = '#gk';
+					$(slotId).addClass("present");
+					//$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
+					$(slotId).html('<p>' + '&nbsp' + '</p><span class="playerName">' 
+					+ player.name + '</span>');
+				}
+
+	        });	
+        });		
+	});
+}
+
+function load_formation_of_last_round() {
+	var lines = matrixModel.length;
+	var columns = matrixModel[lines-1].length;
+
+	var total = lines*columns;
+	$.getJSON('/last_squad_of_the_round.json', function(data) {
   		$.each(data, function(i, formation){
 			$.each(formation.players_positions, function(j, player_position){
 				var x = player_position.x;

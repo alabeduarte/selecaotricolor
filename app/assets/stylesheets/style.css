@@ -653,10 +653,14 @@ body {
 	color: #0000CD;	
 }
 
-.new_formation_actions {
+.actions.new_formation_actions {
 	position: relative;
 	margin: 0 auto;
 	margin-top: 30px;
+	padding-top: 17px;
+	padding-bottom: 18px;
+	padding-right: 0px;
+	padding-left: 0px;
 }
 
 .welcome {
@@ -719,6 +723,16 @@ body {
 .table_holders {
 	width: 170px;
 	margin-top: 50px;
+}
+
+.welcome.recent-winners {
+	margin-top: 100px;
+	margin-left: 24px;
+	width: 250px;
+}
+
+.recent-winners {
+	text-align: center;
 }
 
 .hero-unit.show {

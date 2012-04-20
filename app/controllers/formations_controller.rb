@@ -9,14 +9,18 @@ class FormationsController < ApplicationController
   end
 
   def new
-    next_match = Calendar.next_match    
-    if Formation.already_created?(current_user, next_match)
-      flash[:notice] = t(:formation_once_per_match) 
-      redirect_to :current_user_formations
-    end
-    if Formation.time_is_over?(next_match)
-      flash[:notice] = t(:formation_time_is_over)
-      redirect_to :controller => :calendars, :action => :formations_matches, :id => next_match 
+    next_match = Calendar.next_match
+    if (next_match)
+      if Formation.already_created?(current_user, next_match)
+        flash[:notice] = t(:formation_once_per_match) 
+        redirect_to :current_user_formations
+      end
+      if Formation.time_is_over?(next_match)
+        flash[:notice] = t(:formation_time_is_over)
+        redirect_to :controller => :calendars, :action => :formations_matches, :id => next_match 
+      end
+    else
+      redirect_to '/'
     end
   end
   

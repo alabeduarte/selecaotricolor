@@ -14,7 +14,7 @@ class CalendarsController < ApplicationController
   # GET /calendars
   # GET /calendars.json
   def index
-    @calendars = Calendar.sort(:day)
+    @calendars = Calendar.sort(:day.desc)
 
     respond_to do |format|
       format.html # index.html.erb

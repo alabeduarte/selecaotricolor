@@ -11,7 +11,15 @@ class FirstTeam
     @scorer.first_team = self
     self.apply_score_to_all_users
     self.apply_score_to_predict_users
-  end 
+  end
+  
+  def self.last_of_the_round
+    FirstTeam.sort(:id.desc).first
+  end
+  
+  def squad_winners_of_the_round(match)
+    Scorer.new(first_team: self, match: match).squad_winners
+  end
  
 protected
   def apply_score_to_all_users

@@ -1,11 +1,8 @@
 <div class="hero-unit show">
-	<%= image_tag("squad800x278.png", :size => "800x278", :alt => "Seleção Tricolor") %>
 	<div class="welcome">
 		<p><b>Bem-vindo ao</b></p>
 		<div class="title">
-			<h1>
-			selecaotricolor.com.br
-			</h1>
+			<h1>selecaotricolor.com.br</h1>
 		</div>
 		<span class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</span>
 		<br/>
@@ -17,11 +14,20 @@
 			<%= link_to t(:listing_formations_to_next_match), formations_matches_path(Calendar.next_match), :class => "btn success" %>
 		</center>
 		<br/>
-		<div class="title">			
+		<div class="title">
 			<ul>
 				<li>Se você criar uma tática você ganha <b>100 pontos</b></li>
-				<li>Se você acertar a escalação dos jogadres que começarão a partida: <b>300 pontos</b></li>
-			</ul>
+				<li>Se você acertar a escalação dos jogadores que começarão a partida: <b>300 pontos</b></li>
+			</ul>			
+		</div>
+		<% if user_signed_in? %>
+			<center><%= link_to "Monte o seu esquema tático!", :new, :class => "btn danger large" %></center>
+			<br/>
+			<i>Lembre-se: Você só poderá escalar seu time até 2 horas antes início do jogo!</i>
+		<% end %>
+		<br/>
+		<br/>
+		<div class="title">
 			<h3>Top-Scorers do Bahia</h3>
 		</div>
 		<table class="zebra-striped">
@@ -35,15 +41,54 @@
 			<td><%= u.score %></td>
 		  </tr>
 		<% end %>
-		</table>
-		<br/>	
-		<br/>
-		<% if user_signed_in? %>
-			<center><%= link_to "Monte o seu esquema tático!", :new, :class => "btn danger large" %></center>
-			<br/>
-			<i>Lembre-se: Você só poderá escalar seu time até 2 horas antes do jogo!</i>
-		<% end %>				
+		</table>				
+		<i>Para ver o <b>ranking</b> completo de pontuações, <a href="/scores">clique aqui!</a></i>
+	</div>	
+	<br/><br/>
+	<div class="welcome">
+		<div class="title">
+			<h3>Última Partida</h3>
+		</div>
+		<div class="formation_header">
+			<b><%= "#{t(:tactical)}: #{@formation.tactical}" %></b>
+		</div>
+		<div id="call-up" class="show">          		
+			<%= render :partial => "formations/players_holders" %>
+		</div>
+		<div id="soccerField" class="show">
+			<div id="emptySlot"></div>
+		</div>		
+		<div id="creator-info" class="show">
+			<ul>
+				<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
+				<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
+				<li>
+					<div class="time">
+						<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
+						<span class="team-home-name"><%= "#{@formation.match.home.name}" %></span>
+			        </div>
+			        <div class="x">x</div>
+			        <div class="time">
+			        	<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
+						<span class="team-away-name"><%= "#{@formation.match.away.name}" %></span>
+			        </div>
+				</li>
+			</ul>
+			<div class="welcome recent-winners">
+				<div class="title recent-winners">
+					<b>Usuários que acertaram a escalação do jogo passado</b>
+				</div>
+				<ul>
+					<% @recent_winners.each do |u| %>
+					  <li><b><%= u.nickname %></b></li>
+					<% end %>
+				</ul>	         		
+			</div>
+		</div>
 	</div>
+
+	<div id="matrix"></div>
+	<div id="json"></div>
 	<div class="user_actions">		
 		<% if !user_signed_in? %>
 			<p><strong>Atenção!</strong> Se você tem conta no <strong>Facebook</strong>, não precisa se cadastrar! Basta clicar no botão abaixo!</p>
@@ -58,3 +103,7 @@
 	</div>
 	<%= render :partial => "formations/share" %>
 </div>
+<%= content_for :javascript do %>
+	$( load_soccer_field );
+	$( load_formation_of_last_round );	
+<% end %>

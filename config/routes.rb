@@ -34,6 +34,10 @@ UcoachManager::Application.routes.draw do
     get 'my_formations', to: "formations#current_user_formations", :as => :current_user_formations
   end
   
+  controller :welcome do
+    get 'last_squad_of_the_round' => :last_squad_of_the_round
+  end
+  
   controller :players do
     get 'bahia_squad' => :bahia_squad
   end

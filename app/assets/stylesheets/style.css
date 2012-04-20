@@ -852,18 +852,15 @@ body {
 .facebookLogin:active div span {background-position: 0 -125px;}
 
 .jogo {
-	position: relative;
-	margin: 0 auto;
-	width: 268px;
-	height: 93px;
-	padding-left: 100px;
+	padding-left: 39px;
 	padding-top: 10px;
-	padding-bottom: 5px;
+	padding-bottom: 30px;
+	position: relative;
 }
 
 .time {
 	width: 45px;
-	height: 45px;
+	height: 45px;	
 }
 
 .time, .x {

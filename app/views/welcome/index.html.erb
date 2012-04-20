@@ -47,7 +47,8 @@
 	<br/><br/>
 	<div class="welcome">
 		<div class="title">
-			<h3>Última Partida</h3>
+			<h3>Partida Anterior</h3>
+			<span><%= link_to "Clique aqui", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %> para conferir as táticas enviadas para este jogo</span>
 		</div>
 		<div class="formation_header">
 			<b><%= "#{t(:tactical)}: #{@formation.tactical}" %></b>
@@ -62,7 +63,7 @@
 			<ul>
 				<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
 				<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
-				<li>
+				<li class="jogo">
 					<div class="time">
 						<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
 						<span class="team-home-name"><%= "#{@formation.match.home.name}" %></span>
@@ -74,9 +75,9 @@
 			        </div>
 				</li>
 			</ul>
-			<div class="welcome recent-winners">
+			<div class="welcome recent-winners">				
 				<div class="title recent-winners">
-					<b>Usuários que acertaram a escalação do jogo passado</b>
+					<b>Usuários que acertaram a escalação do jogo passado</b>					
 				</div>
 				<ul>
 					<% @recent_winners.each do |u| %>

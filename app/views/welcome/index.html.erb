@@ -7,23 +7,25 @@
 		<span class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</span>
 		<br/>
 		<p>
-		Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> você poderá responder:
+		Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> <b>você</b> poderá eleger o time que vai a campo a cada partida!
 		</p>
-		<p><b>Qual time você gostaria que fosse a campo?</b></p>
 		<center>			
 			<%= link_to t(:listing_formations_to_next_match), formations_matches_path(Calendar.next_match), :class => "btn success" %>
 		</center>
 		<br/>
 		<div class="title">
 			<ul>
-				<li>Se você criar uma tática você ganha <b>100 pontos</b></li>
-				<li>Se você acertar a escalação dos jogadores que começarão a partida: <b>300 pontos</b></li>
-			</ul>			
+				<li>A cada tática que você criar, ganha <b>100 pontos</b></li>
+				<li>A cada jogador que você acertar: <b>10 pontos</b></li>
+				<li>Se você acertar a escalação dos jogadores que começarão a partida: <b>40 pontos</b></li>
+				<li><i>Lembre-se: Você só poderá escalar seu time até 2 horas antes início do jogo!</i></li>
+			</ul>
+			<i>OBS: Não se preocupe! A partir da final do campeonato baiano, o ranking será <b>ZERADO</b>, assim você poderá competir de igual para igual com os usuários veteranos</i>		
 		</div>
+		<br/>
 		<% if user_signed_in? %>
 			<center><%= link_to "Monte o seu esquema tático!", :new, :class => "btn danger large" %></center>
-			<br/>
-			<i>Lembre-se: Você só poderá escalar seu time até 2 horas antes início do jogo!</i>
+			<br/>			
 		<% end %>
 		<br/>
 		<br/>

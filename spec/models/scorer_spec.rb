@@ -114,11 +114,14 @@ describe Scorer do
     #     G Marcelo Lomba                                              
     json = '[ { "formation": {          "player": "4f25cdcbe1af800323000b46"         ,          "x": "0"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e68ee1af80017c000034"         ,          "x": "2"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "2"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e69be1af80017c000047"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f26088ce1af8009550001dd"         ,          "x": "6"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f25ca2de1af800323000896"         ,          "x": "6"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e6c3e1af80017c00008c"         ,          "x": "-1"         ,          "y": "-1"     }  }  ]'
     Formation.new_by(
-                          data: JSON.load(json), 
-                          owner: user_t5, 
-                          match: Calendar.last_match).save
+                      data: JSON.load(json), 
+                      owner: user_t5, 
+                      match: Calendar.last_match).save
                           
-    @scorer = Scorer.new(match: Calendar.last_match, first_team: @first_team)                                                
+    @scorer = Scorer.new(match: Calendar.last_match, first_team: @first_team)
+    
+    # Clean all scores
+    clean_scores
   end  
   
   context "scoring players" do
@@ -147,9 +150,33 @@ describe Scorer do
       add_score_to_users(@scorer)
       users = User.all_by_score
       users.size.should == 5
-      users[0].score.should be > users[1].score
+      users[0].score.should be >= users[1].score
+      users[1].score.should be >= users[2].score
+      users[2].score.should be >= users[3].score
+      users[3].score.should be >= users[4].score
+    end    
+    
+    it "should add 170 points to users who predict 7 players" do      
+      @first_team.apply_score(@scorer)
+      User.find_by_email("teste3@t.com").score.should == 170
     end
-  
+    
+    it "should add 190 points to users who predict 9 players" do      
+      @first_team.apply_score(@scorer)
+      User.find_by_email("teste4@t.com").score.should == 190
+    end
+    
+    it "should add 200 points to users who predict 10 players" do      
+      @first_team.apply_score(@scorer)
+      User.find_by_email("teste5@t.com").score.should == 200
+    end
+    
+    it "should add 250 points to users who predict all players" do      
+      @first_team.apply_score(@scorer)
+      User.find_by_email("teste1@t.com").score.should == 250
+      User.find_by_email("teste2@t.com").score.should == 250
+    end
+    
   end
 
 private
@@ -157,7 +184,26 @@ private
     all_users = Array.new
     User.all.each {|u| all_users << u unless u.admin?}
     scorer.add(score: 100, to: all_users)
-    all_users[0].score = 5000
+    all_users[0].score = 250
     all_users[0].save
+    
+    all_users[1].score = 200
+    all_users[1].save
+    
+    all_users[2].score = 190
+    all_users[2].save
+    
+    all_users[3].score = 180
+    all_users[3].save
+    
+    all_users[4].score = 170
+    all_users[4].save
+  end
+  
+  def clean_scores
+    User.all.each do |u|
+      u.score = 0
+      u.save
+    end
   end
 end

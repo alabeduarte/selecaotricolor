@@ -5,7 +5,6 @@ class FirstTeam
   belongs_to :formation
   validates :formation, :presence => true
   
-  # before_save :do_something_before_save  
   def apply_score(scorer)
     @scorer = scorer
     @scorer.first_team = self
@@ -28,8 +27,10 @@ protected
   end
   
   def apply_score_to_predict_users
-    winners = @scorer.squad_winners
-    @scorer.add(score: 300, to: winners)
+    winners = @scorer.winners
+    @scorer.add_by_predict_player(10)
+    squad_winners = @scorer.squad_winners
+    @scorer.add(score: 40, to: squad_winners)
   end
 
 end

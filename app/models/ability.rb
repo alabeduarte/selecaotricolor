@@ -13,6 +13,7 @@ class Ability
         can :bahia_squad, Player
         can :index, Scorer
         can [:index, :formations_matches], Calendar
+        can :last_squad_of_the_round, FirstTeam
       end    
   end
 end

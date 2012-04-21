@@ -1,8 +1,20 @@
 class FirstTeamsController < ApplicationController
-  before_filter :authenticate_user!
+  load_and_authorize_resource
+  before_filter :authenticate_user!, :except => [:last_squad_of_the_round]
   
   def new
     @matches = Calendar.with_tactics
+  end
+  
+  def last_squad_of_the_round
+    respond_to do |format|
+      format.html
+      format.json  { 
+        render :json => FirstTeam.last_of_the_round.formation.as_json(:include => {
+          :players_positions => {:include => :player}
+        }) 
+      }
+    end
   end
   
   def create

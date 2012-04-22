@@ -81,11 +81,12 @@ protected
   
   def checkin_the_match
     current_match = @match || Calendar.next_match
-    if !current_match.contains_formations?
-      current_match.contains_formations = true
-      current_match.save
+    if current_match
+      if !current_match.contains_formations?
+        current_match.contains_formations = true
+        current_match.save
+      end
     end
-    current_match
   end
   
 end

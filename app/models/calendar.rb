@@ -55,11 +55,25 @@ class Calendar
   end
   
   def today?
-    (@day.day == Time.now.day) && (@day.month == Time.now.month) && (@day.year == Time.now.year)
+    now = Time.now.utc
+    match = @day.utc
+    (match.day == now.day) && (match.month == now.month) && (match.year == now.year)
   end
   
   def expired?
-    @day.hour - Time.now.hour < 2
+    limit = 2
+    now = Time.now.utc
+    match = @day.utc
+    if match.hour - now.hour <= limit
+      return true
+    else
+      if now.hour == match.hour
+        if now.min > match.min
+          return true
+        end
+      end      
+    end
+    return false
   end
 
 end

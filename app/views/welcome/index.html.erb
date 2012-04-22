@@ -3,12 +3,13 @@
 		<p><b>Bem-vindo ao</b></p>
 		<div class="title">
 			<h1>selecaotricolor.com.br</h1>
+			<%= render :partial => 'formations/facebook_like' %>
 		</div>
 		<span class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</span>
 		<br/>
 		<p>
 		Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> <b>você</b> poderá eleger o time que vai a campo a cada partida!
-		</p>
+		</p>		
 		<center>			
 			<%= link_to t(:listing_formations_to_next_match), formations_matches_path(Calendar.next_match), :class => "btn success" %>
 		</center>

@@ -105,8 +105,11 @@
 			<%= link_to "Login direto!", "login", :class => "btn primary small" %>
 			<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn danger small" %>
 		<% end %>
-	</div>
+	</div>	
 	<%= render :partial => "formations/share" %>
+</div>
+<div class="welcome">
+	Acesse também a nossa <a href="https://www.facebook.com/selecaotricolor" target="_blank">página no facebook</a>
 </div>
 <%= content_for :javascript do %>
 	$( load_soccer_field );

@@ -37,7 +37,7 @@ describe FirstTeamsController do
     end
   end
   
-  context "on creating first team" do
+  context "POST on creating first team" do
     it "should add bonus score to all users who create a squad" do
       first_team.should_receive(:apply_score).with(anything)
       post :create, :link => {:url => "http://localhost:3000/first_teams"}

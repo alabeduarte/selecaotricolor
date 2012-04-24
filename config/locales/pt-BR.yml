@@ -27,6 +27,8 @@ pt-BR:
     resend_confirmation_instructions: "Reenviar instruções de confirmação"
     team: Time
     teams: Times
+    emails: E-mails
+    email: E-mail
     goal: Gol
     player: Jogador
     positions: Posições

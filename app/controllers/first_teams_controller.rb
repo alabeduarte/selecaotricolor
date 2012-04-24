@@ -2,6 +2,8 @@ class FirstTeamsController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:last_squad_of_the_round]
   
+  respond_to :json, :html
+  
   def new
     @matches = Calendar.with_tactics
   end

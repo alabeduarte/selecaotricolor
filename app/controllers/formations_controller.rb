@@ -31,6 +31,7 @@ class FormationsController < ApplicationController
   def create
     @formation = Formation.new_by(data: params[:_json], owner: current_user)
     @formation.save
+    expire_cache(@formation)
   end
   
   def update
@@ -70,7 +71,8 @@ class FormationsController < ApplicationController
   end
   
   def destroy
-    @formation = Formation.find(params[:id])    
+    @formation = Formation.find(params[:id])
+    expire_cache(@formation) 
     @formation.destroy
 
     respond_to do |format|
@@ -89,4 +91,8 @@ class FormationsController < ApplicationController
     end
   end
 
+private
+  def expire_cache(formation)
+    expire_action :controller => :calendars, :action => :formations_matches, :id => formation.match
+  end
 end

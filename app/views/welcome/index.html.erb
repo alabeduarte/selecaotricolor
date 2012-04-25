@@ -90,6 +90,10 @@
 					<% @recent_winners.each do |u| %>
 					  <li><b><%= u.nickname %></b></li>
 					<% end %>
+					<% if @recent_winners.empty? %>
+						<li><b>Nenhum dos usuários acertaram a tática desta partida! =/</b></li>
+						<li><%= link_to "Clique aqui", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %> para conferir as táticas enviadas para este jogo</li>
+					<% end %>
 				</ul>	         		
 			</div>
 		</div>

@@ -7,10 +7,12 @@
     <th><%= t(:nickname) %></th>
     <th>Score</th>
   </tr>
-<% @users.each do |u| %>
-  <tr>
-    <td><%= u.nickname %></td>
-	<td><%= u.score %></td>
-  </tr>
+<% @users.each_with_index.map do |u, index| %>
+	<% index += 1 %>
+	<tr>
+		<td><%= ++index %></td>
+    	<td><%= u.nickname %></td>
+		<td><%= u.score %></td>
+  	</tr>
 <% end %>
 </table>

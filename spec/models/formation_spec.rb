@@ -57,9 +57,28 @@ describe Formation do
     end
     
     context "before create" do
-      it "should not allow the user to create a new tactic when formation is already created by user" do
+      it "should NOT allow the user to create a new tactic when formation is already created by user" do
         new_formation.save   
         expect { new_formation.save }.should raise_error
+      end
+    end
+    
+    context "after create" do
+      it "should show newly created formation after create" do
+        formation = new_formation
+        formation.save   
+        Formation.newly_created(current_user).should == formation
+      end
+    end
+    
+    context "show formation" do
+      it "should show all starting 11 players" do
+        formation = new_formation
+        formation.save        
+        players_ids = ["4f03b5b6e1af8003be000026", "4f25cdcbe1af800323000b46", "4f2fd315b3e30f0001000a07", "4f04e6d3e1af80017c0000a7", "4f04e6b5e1af80017c000073", "4f25cc85e1af8003230009be", "4f25ca54e1af8003230008b5", "4f25ca2de1af800323000896", "4f04e6dde1af80017c0000c4", "4f2efa0ae1af800c040009c4", "4f25c920e1af800323000879"]
+        Formation.newly_created(current_user).players_ordered_by_positions.each_with_index.map do |pos, index|
+          pos.player.id.to_s.should == players_ids[index]
+        end
       end
     end
     

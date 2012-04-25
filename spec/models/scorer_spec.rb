@@ -177,6 +177,15 @@ describe Scorer do
       User.find_by_email("teste2@t.com").score.should == 250
     end
     
+    it "should show all user must predict the squad" do
+      @first_team.apply_score(@scorer)
+      winners = Array.new
+      winners << user_t1
+      winners << user_t2
+      squad_winners = @first_team.squad_winners_of_the_round(Calendar.last_match)
+      squad_winners.should == winners
+    end
+    
   end
 
 private

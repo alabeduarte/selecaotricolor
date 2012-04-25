@@ -45,10 +45,11 @@ group :development, :test do
     gem 'database_cleaner'
 end
 
-group :test do
+group :test do  
   gem 'factory_girl_rails', '~> 1.7.0'
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
+  gem 'simplecov', :require => false
 end
 
 group :production do

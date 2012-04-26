@@ -30,7 +30,18 @@
 			<br/>			
 		<% end %>
 		<br/>
-		<br/>
+		<div class="user_actions">		
+			<% if !user_signed_in? %>
+				<p><strong>Atenção!</strong> Se você tem conta no <strong>Facebook</strong>, não precisa se cadastrar! Basta clicar no botão abaixo!</p>
+				<center>
+				<%= render :partial => "users/facebook_authentication" %>
+				</center>
+				<br/><br/>
+				<p>Do contrário, faça o <strong>Login direto</strong> ou se cadastre rapidamente:</p>
+				<%= link_to "Login direto!", "login", :class => "btn primary small" %>
+				<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn danger small" %>
+			<% end %>
+		</div>		
 		<div class="title">
 			<h3>Top-Scorers do Bahia</h3>
 		</div>
@@ -98,22 +109,13 @@
 			</div>
 		</div>
 	</div>
-
 	<div id="matrix"></div>
-	<div id="json"></div>
-	<div class="user_actions">		
-		<% if !user_signed_in? %>
-			<p><strong>Atenção!</strong> Se você tem conta no <strong>Facebook</strong>, não precisa se cadastrar! Basta clicar no botão abaixo!</p>
-			<center>
-			<%= render :partial => "users/facebook_authentication" %>
-			</center>
-			<br/><br/>
-			<p>Do contrário, faça o <strong>Login direto</strong> ou se cadastre rapidamente:</p>
-			<%= link_to "Login direto!", "login", :class => "btn primary small" %>
-			<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn danger small" %>
-		<% end %>
-	</div>	
-	<%= render :partial => "formations/share" %>
+	<div id="json"></div>	
+</div>
+<div class="foobar formationActions">
+	<div class="share right">
+		<%= render :partial => "formations/share" %>
+	</div>
 </div>
 	Acesse também a nossa <a href="http://www.facebook.com/selecaotricolor" target="_blank">página no facebook</a>
 <%= content_for :javascript do %>

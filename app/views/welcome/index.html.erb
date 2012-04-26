@@ -48,6 +48,7 @@
 		<table class="zebra-striped">
 		  <tr>
 		    <th></th>
+			<th></th>
 			<th><%= t(:nickname) %></th>
 		    <th>Score</th>
 		  </tr>
@@ -55,6 +56,7 @@
 			<% index += 1 %>
 			<tr>
 				<td><%= ++index %></td>
+				<td><%= image_tag(u.image, :size => "25x25") %></td>
 		    	<td><%= u.nickname %></td>
 				<td><%= u.score %></td>
 		  	</tr>

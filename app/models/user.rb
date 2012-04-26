@@ -9,23 +9,29 @@ class User
   key :admin, Boolean
   key :nickname, String
   key :score, Integer
+  key :image, String
   
   validates :nickname, :presence => true
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+      if data = session["devise.facebook_data"]
         user.email = data["email"]
+        user.image = data["image"]
       end
     end
   end
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
-    data = access_token.extra.raw_info
+    # data = access_token.extra.raw_info
+    data = access_token.info
     if user = User.where(:email => data.email).first
+      if data.image.present?    # update the user's image every time he logs in
+        user.update_attribute(:image, data.image)        
+      end
       user
     else # Create a user with a stub password. 
-      User.create!(role: :plain, nickname: data.name, email: data.email, 
+      User.create!(role: :plain, nickname: data.name, email: data.email, :image => data.image, 
                     password: Devise.friendly_token[0,20], confirmed_at: Time.now.utc) 
     end
   end
@@ -44,6 +50,10 @@ class User
   
   def formations
     Formation.all(owner_id: id, :order => :created_at.desc)
+  end
+  
+  def image
+    @image || "escudos/bahia.png"
   end
 
 end

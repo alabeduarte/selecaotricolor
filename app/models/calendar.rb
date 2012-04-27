@@ -44,10 +44,7 @@ class Calendar
   end
   
   def oldest?
-    if @day <= Calendar.last_match.day
-      return true
-    end
-    return false
+    @day <= Calendar.last_match.day
   end
   
   def tactical_most_voted

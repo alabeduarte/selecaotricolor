@@ -80,6 +80,22 @@ describe Formation do
           pos.player.id.to_s.should == players_ids[index]
         end
       end
+      
+      it "should show all positions of 11 players" do
+        formation = new_formation
+        formation.save
+        formation.players_positions[0].description.should == "Atacante (Centro)"
+        formation.players_positions[1].description.should == "Atacante (Centro)"
+        formation.players_positions[2].description.should == "Meio Campo Avan\u00e7ado (Lado Esquerdo)"
+        formation.players_positions[3].description.should == "Meio Campo Avan\u00e7ado (Lado Direito)"
+        formation.players_positions[4].description.should == "Meio Campo Defensivo (Lado Esquerdo)"
+        formation.players_positions[5].description.should == "Meio Campo Defensivo (Lado Direito)"
+        formation.players_positions[6].description.should == "Defesa (Lado Esquerdo)"
+        formation.players_positions[7].description.should == "Defesa (Lado Direito)"
+        formation.players_positions[8].description.should == "Defesa (Centro)"
+        formation.players_positions[9].description.should == "Defesa (Centro)"
+        formation.players_positions[10].description.should == "Goleiro"
+      end
     end
     
     context "check out the next match is today" do

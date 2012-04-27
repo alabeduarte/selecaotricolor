@@ -1,42 +1,14 @@
 require "spec_helper"
-
-module CalendarHelpers
-  
-  def init_oldest_match(home, away)
-    Calendar.create!(
-                      day: Time.utc(2000, 1, 1, 16, 0), 
-                      home: home, 
-                      away: away, 
-                      contains_formations: true)
-  end
-  
-  def init_last_match(home, away)
-    Calendar.create!(
-                      day: Time.utc(2000, 1, 1, 17, 0), 
-                      home: home, 
-                      away: away, 
-                      contains_formations: true)
-  end
-  
-  def init_next_match(home, away)
-    Calendar.create!(
-                      day: Time.utc(3000, 1, 1, 17, 0), 
-                      home: home, 
-                      away: away, 
-                      contains_formations: false)
-  end
-  
-end
-
+require "models/calendar/helper"
 describe Calendar do
-  include CalendarHelpers
-  
   before(:each) do
+    calendar_helper = Calendar::Helper.new
+    
     @bahia = Factory(:bahia)
     @vitoria = Factory(:vitoria)
-    @oldest_match = init_oldest_match(@bahia, @vitoria)
-    @last_match = init_last_match(@bahia, @vitoria)
-    @next_match = init_next_match(@bahia, @vitoria)
+    @oldest_match = calendar_helper.init_oldest_match(@bahia, @vitoria)
+    @last_match = calendar_helper.init_last_match(@bahia, @vitoria)
+    @next_match = calendar_helper.init_next_match(@bahia, @vitoria)
   end
   
   context "find matches" do

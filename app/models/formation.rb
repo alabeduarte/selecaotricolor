@@ -49,13 +49,9 @@ class Formation
       if position.acronym[0] == 'D' 
         defenders += 1
       end
-    end
-    players_positions.each do |position| 
       if position.acronym[0] == 'M' 
         midfields += 1
       end
-    end
-    players_positions.each do |position| 
       if position.acronym[0] == 'A' 
         forwards += 1
       end
@@ -68,10 +64,7 @@ class Formation
   end
   
   def self.time_is_over?(match)
-    if (match.today?)
-      return match.expired?
-    end
-    return false
+    match.expired? if match.today?
   end
   
 protected

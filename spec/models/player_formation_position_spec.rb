@@ -21,4 +21,5 @@ describe PlayerFormationPosition do
       positions.each {|p| p.player.should_not be_nil}
     end
   end
+  
 end

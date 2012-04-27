@@ -21,11 +21,4 @@ class Player
     Player.all(:team_id => team.id, :order => :position_mapper_id.asc)
   end
   
-  def self.disabled_players_names_of(team)
-    disabled_players = Player.all(:team_id => team.id, :enabled => false, :order => :position_mapper_id.desc)
-    names = Array.new
-    disabled_players.each do |d| names << d.name end
-    names
-  end
-  
 end

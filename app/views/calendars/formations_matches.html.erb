@@ -24,6 +24,7 @@
 </center>
 <table class="zebra-striped">
   <tr>
+	<th></th>
 	<th><%= t(:sended_to) %></th>
 	<th><%= t(:tactical) %></th>
 	<th><%= t(:created_at) %></th>
@@ -33,6 +34,7 @@
 
 <% @formations.each do |formation| %>
   <tr>
+	<td><%= image_tag(formation.owner.image, :size => "25x25") %></td>
 	<td>
 	<% if formation.owner.admin? %>
 		<i><%= formation.owner.nickname %></i>

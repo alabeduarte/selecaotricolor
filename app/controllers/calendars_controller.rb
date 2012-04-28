@@ -1,10 +1,8 @@
 class CalendarsController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:index, :formations_matches]
-  caches_action :formations_matches
   
   def formations_matches
-    p "TESTE"
     @match = Calendar.find(params[:id])
     @formations = @match.formations
     respond_to do |format|

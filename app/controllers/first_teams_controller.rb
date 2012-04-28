@@ -28,7 +28,6 @@ class FirstTeamsController < ApplicationController
     @first_team = FirstTeam.new(formation: formation)   
     if @first_team.save
       @first_team.apply_score(Scorer.new(match: selected_match))
-      expire_cache(@first_team.formation)
       flash[:notice] = t(:formation_sent)
       redirect_to first_team_path(@first_team)
     else
@@ -69,8 +68,4 @@ class FirstTeamsController < ApplicationController
     end
   end
   
-private
-  def expire_cache(formation)
-    expire_action :controller => :calendars, :action => :formations_matches, :id => formation.match
-  end  
 end

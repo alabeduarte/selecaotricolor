@@ -68,3 +68,15 @@ Factory.define :calendar do |f|
   f.association :away, :factory => :vitoria
   f.contains_formations false
 end
+
+Factory.define :souza, :class => Player do |f|
+  f.name "Souza"
+  f.number 9
+  f.association :team, :factory => :bahia
+end
+
+Factory.define :lulinha, :class => Player do |f|
+  f.name "Neto Baiano"
+  f.number 9
+  f.association :team, :factory => :vitoria
+end

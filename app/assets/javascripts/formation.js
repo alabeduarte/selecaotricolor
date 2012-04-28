@@ -177,11 +177,11 @@ function createEnabledAllPlayers() {
 				});
 				$(playerDiv).mousedown(function () {
 					$('#slot').css('display', 'block');
-					$('#soccerField').addClass('positions-map');
+					$('#positionMap').css('display', 'block');
 				});
 				$(playerDiv).mouseup(function () {
 					$('#slot').css("display","none");
-					$('#soccerField').removeClass('positions-map');
+					$('#positionMap').css('display', 'none');
 				});
 				$(playerDiv).addClass('player');
 				
@@ -245,11 +245,11 @@ function createPlayers() {
 					});
 					$(playerDiv).mousedown(function () {
 						$('#slot').css('display', 'block');
-						$('#soccerField').addClass('positions-map');
+						$('#positionMap').css('display', 'block');
 					});
 					$(playerDiv).mouseup(function () {
 						$('#slot').css("display","none");
-						$('#soccerField').removeClass('positions-map');
+						$('#positionMap').css('display', 'none');
 					});
 				} else {
 					$(playerDiv).addClass('disabled');
@@ -328,7 +328,7 @@ function handlePlayerDrop(event, ui) {
 	    }
 	}
 	$('#slot').css('display', 'none');
-	$('#soccerField').removeClass('positions-map');
+	$('#positionMap').css('display', 'none');
 	if (correctGoalKeeper == 1 && correctPlayers == 10) {
 		enableSenderButton();
 	}

@@ -63,6 +63,7 @@ body {
 	margin-left: 0px;
 	margin-top: 50px;
 	cursor: default;
+	display: none;
 }
 
 .pills.positions a {

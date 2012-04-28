@@ -99,16 +99,16 @@ describe Formation do
     end
     
     context "check out the next match is today" do
-      it "should checked is true" do
+      it "should be checked" do
         Time.stub(:now).and_return(Time.utc(2012, 1, 1, 16, 0, 0))
         next_match = Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0))
-        next_match.today?.should be_true
+        next_match.should be_today
       end
 
-      it "should checked is false" do
+      it "should not be checked" do
         Time.stub(:now).and_return(Time.utc(2012, 1, 2, 16, 0, 0))
         next_match = Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0))
-        next_match.today?.should be_false
+        next_match.should_not be_today
       end
     end
     
@@ -117,31 +117,31 @@ describe Formation do
         it "should block new formations when now are 16:00 clock" do
           Time.stub(:now).and_return(Time.utc(2012, 1, 1, 16, 0, 0))
           Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
-          Formation.time_is_over?(Calendar.next_match).should be_true
+          Formation.should be_time_is_over(Calendar.next_match)
         end
 
         it "should block new formations when and now are 15:00 hours" do
           Time.stub(:now).and_return(Time.utc(2012, 1, 1, 15, 0, 0))
           Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
-          Formation.time_is_over?(Calendar.next_match).should be_true
+          Formation.should be_time_is_over(Calendar.next_match)
         end
         
         it "should block new formations when and now are 14:01 hours" do
           Time.stub(:now).and_return(Time.utc(2012, 1, 1, 14, 01, 00))
           Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
-          Formation.time_is_over?(Calendar.next_match).should be_true
+          Formation.should be_time_is_over(Calendar.next_match)
         end
         
         it "should block new formations when and now are 14:00:59 hours" do
           Time.stub(:now).and_return(Time.utc(2012, 1, 1, 14, 0, 59))
           Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
-          Formation.time_is_over?(Calendar.next_match).should be_true
+          Formation.should be_time_is_over(Calendar.next_match)
         end
         
         it "should block new formations when and now are 14:00 hours" do
           Time.stub(:now).and_return(Time.utc(2012, 1, 1, 14, 0, 0))
           Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
-          Formation.time_is_over?(Calendar.next_match).should be_true
+          Formation.should be_time_is_over(Calendar.next_match)
         end
       end
     end
@@ -151,13 +151,13 @@ describe Formation do
         it "should NOT block new formations when and now are 13:59:59 hours" do
           Time.stub(:now).and_return(Time.utc(2012, 1, 1, 13, 59, 59))
           Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
-          Formation.time_is_over?(Calendar.next_match).should_not be_true
+          Formation.should_not be_time_is_over(Calendar.next_match)
         end
       
         it "should NOT block new formations when and now are 13:59:00 hours" do
           Time.stub(:now).and_return(Time.utc(2012, 1, 1, 13, 59, 00))
           Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
-          Formation.time_is_over?(Calendar.next_match).should_not be_true
+          Formation.should_not be_time_is_over(Calendar.next_match)
         end
       end
     end

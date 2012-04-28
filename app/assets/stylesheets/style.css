@@ -43,12 +43,27 @@ body {
 #soccerField {
 	position: absolute;
 	height: 550px;
-	width: 1113px;
+	width: 1113px;	
+	margin-left: 0px;
+	margin-top: 50px;
+	cursor: default;
+}
+
+.soccer-field-grass {
 	background-image: url(../../assets/soccer_field_2.png);
+	background-repeat: no-repeat;
+}
+
+.positions-map {
+	position: absolute;
+	height: 550px;
+	width: 1113px;
+	background-image: url(../../assets/soccer_field_positions.png);
 	background-repeat: no-repeat;
 	margin-left: 0px;
 	margin-top: 50px;
 	cursor: default;
+	opacity: 0.9;
 }
 
 .pills.positions a {
@@ -264,7 +279,7 @@ body {
 	text-shadow: 0 1px 1px #F6F6F6;
 	text-shadow: 0 1px 1px #F6F6F6;
 	padding-bottom: 0px;
-	margin-top: -11px;
+	margin-top: -17px;
 }
 
 #gk.present {

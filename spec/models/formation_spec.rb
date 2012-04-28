@@ -130,17 +130,26 @@ describe Formation do
           Time.stub(:now).and_return(Time.utc(2012, 1, 1, 14, 01, 00))
           Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
           Formation.should be_time_is_over(Calendar.next_match)
-        end
-        
-        it "should block new formations when and now are 14:00:59 hours" do
-          Time.stub(:now).and_return(Time.utc(2012, 1, 1, 14, 0, 59))
-          Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
+        end        
+                
+      end
+      
+      context "given the next match start at 16:30 clock when missing two hours to start the game" do
+        it "should block new formations when and now are 14:31 hours" do
+          Time.stub(:now).and_return(Time.utc(2012, 1, 1, 14, 31, 0))
+          Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 30, 0)))
           Formation.should be_time_is_over(Calendar.next_match)
         end
         
-        it "should block new formations when and now are 14:00 hours" do
-          Time.stub(:now).and_return(Time.utc(2012, 1, 1, 14, 0, 0))
-          Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
+        it "should block new formations when and now are 16:00 hours" do
+          Time.stub(:now).and_return(Time.utc(2012, 1, 1, 16, 0, 0))
+          Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 30, 0)))
+          Formation.should be_time_is_over(Calendar.next_match)
+        end
+        
+        it "should block new formations when and now are 16:31 hours" do
+          Time.stub(:now).and_return(Time.utc(2012, 1, 1, 16, 31, 0))
+          Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 30, 0)))
           Formation.should be_time_is_over(Calendar.next_match)
         end
       end
@@ -148,8 +157,8 @@ describe Formation do
     
     context "accept new formations when" do
       context "given the next match start at 16:00 clock when missing two hours to start the game" do
-        it "should NOT block new formations when and now are 13:59:59 hours" do
-          Time.stub(:now).and_return(Time.utc(2012, 1, 1, 13, 59, 59))
+        it "should block new formations when and now are 14:00 hours" do
+          Time.stub(:now).and_return(Time.utc(2012, 1, 1, 14, 0, 0))
           Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
           Formation.should_not be_time_is_over(Calendar.next_match)
         end
@@ -159,6 +168,20 @@ describe Formation do
           Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 0, 0)))
           Formation.should_not be_time_is_over(Calendar.next_match)
         end
+      end
+    end
+    
+    context "given the next match start at 16:30 clock when missing two hours to start the game" do
+      it "should block new formations when and now are 14:29:00 hours" do
+        Time.stub(:now).and_return(Time.utc(2012, 1, 1, 14, 29, 00))
+        Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 30, 0)))
+        Formation.should_not be_time_is_over(Calendar.next_match)
+      end
+      
+      it "should block new formations when and now are 14:30:00 hours" do
+        Time.stub(:now).and_return(Time.utc(2012, 1, 1, 14, 30, 00))
+        Calendar.stub(:next_match).and_return(Calendar.new(day: Time.utc(2012, 1, 1, 16, 30, 0)))
+        Formation.should_not be_time_is_over(Calendar.next_match)
       end
     end
     

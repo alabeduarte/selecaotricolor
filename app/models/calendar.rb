@@ -61,14 +61,11 @@ class Calendar
     limit = 2
     now = Time.now.utc
     match = @day.utc
-    if match.hour - now.hour <= limit
+    if (match.hour - now.hour < limit)
       return true
-    else
-      if now.hour == match.hour
-        if now.min > match.min
-          return true
-        end
-      end      
+    end
+    if match.hour - now.hour == limit && now.min > match.min
+      return true
     end
     return false
   end

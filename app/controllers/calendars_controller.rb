@@ -1,13 +1,14 @@
 class CalendarsController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:index, :formations_matches]
+  respond_to :json, :html
   
   def formations_matches
     @match = Calendar.find(params[:id])
-    @formations = @match.formations
-    respond_to do |format|
-      format.html
-      format.json { render json: @formations }
+    if @match
+      @formations = @match.formations
+    else
+      redirect_to '/'
     end
   end
   

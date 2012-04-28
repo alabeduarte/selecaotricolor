@@ -16,7 +16,8 @@ class FirstTeam
     FirstTeam.sort(:id.desc).first
   end
   
-  def squad_winners_of_the_round(match)
+  def squad_winners_of_the_round
+    match = formation.match
     Scorer.new(first_team: self, match: match).squad_winners
   end
  

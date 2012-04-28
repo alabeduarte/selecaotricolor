@@ -162,7 +162,15 @@ describe Scorer do
       users[1].score.should be >= users[2].score
       users[2].score.should be >= users[3].score
       users[3].score.should be >= users[4].score
-    end    
+    end  
+    
+    it "should show the best users scores" do
+      add_score_to_users(@scorer)
+      users = User.top_scorers_of 3
+      users.size.should == 3
+      users[0].score.should be >= users[1].score
+      users[1].score.should be >= users[2].score
+    end  
     
     it "should add 170 points to users who predict 7 players" do      
       @first_team.apply_score(@scorer)
@@ -190,7 +198,7 @@ describe Scorer do
       winners = Array.new
       winners << user_t1
       winners << user_t2
-      squad_winners = @first_team.squad_winners_of_the_round(Calendar.last_match)
+      squad_winners = @first_team.squad_winners_of_the_round
       squad_winners.should == winners
     end
     

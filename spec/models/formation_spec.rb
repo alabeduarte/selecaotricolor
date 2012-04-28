@@ -71,6 +71,15 @@ describe Formation do
       end
     end
     
+    context "before destroy" do
+      it "should destroy all positions" do
+        formation = new_formation
+        formation_id = formation.id.to_s
+        formation.destroy
+        PlayerFormationPosition.all(formation_id: formation_id).should be_empty
+      end
+    end
+    
     context "show formation" do
       it "should show all starting 11 players" do
         formation = new_formation

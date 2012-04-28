@@ -77,15 +77,6 @@ class Scorer
     group = tactical_group
     group.fetch(tactical) if group.has_key? tactical
   end
-  
-  def self.formation_of_round
-    scorer = Scorer.new :formations => Calendar.last_match.formations
-    tactical = scorer.tactical_most_voted
-    formations = scorer.formations_by(tactical)
-    base = formations.first
-    formation_of_round = Formation.new team: base.team, match: base.match
-    formation_of_round
-  end
 
 protected
   def tactical_group

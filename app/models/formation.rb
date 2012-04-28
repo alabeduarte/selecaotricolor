@@ -19,6 +19,7 @@ class Formation
   
   before_validation :verify_if_once_per_match_and_per_user
   after_save :checkin_the_match
+  before_destroy :destroy_all_positions
   
   def self.new_by(args)
     data = args[:data]
@@ -80,6 +81,10 @@ protected
         current_match.save
       end
     end
+  end
+  
+  def destroy_all_positions
+    players_positions.each { |p| p.destroy }
   end
   
 end

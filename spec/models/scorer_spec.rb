@@ -129,6 +129,14 @@ describe Scorer do
       Calendar.last_match.tactical_most_voted.should == '4-4-2'
     end
     
+    it "should add score for the first time" do
+      winners = Array.new
+      new_user = User.create(nickname: 'T1', email: 'teste1@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+      winners << new_user
+      @scorer.add(score: 100, to: winners)
+      new_user.score.should == 100
+    end
+    
     it "should score all users who create a squad" do             
         winners = @scorer.winners
         winners.size.should == 5

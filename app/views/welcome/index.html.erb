@@ -102,7 +102,9 @@
 					</div>
 					<ul>
 						<% @recent_winners.each do |u| %>
-						  <li><b><%= u.nickname %></b></li>
+							<li>
+								<span><%= image_tag(u.image, :size => "25x25") %></span> :: <span><b><%= u.nickname %></b></span>
+			</li>
 						<% end %>
 						<% if @recent_winners.empty? %>
 							<li><b>Nenhum dos usuários acertaram a tática desta partida! =/</b></li>

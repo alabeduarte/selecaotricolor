@@ -8,7 +8,14 @@
 			<button onclick="send();" id="send_button" name="button" class="btn danger send">Enviar</button>
 		</div>
 	</center>
-	<div class=".droppable-area">
+	<div class="legend">
+		<ul>
+			<li class="defense">Defesa</li>
+			<li class="midfield">Meio Campo</li>
+			<li class="forward">Ataque</li>
+		</ul>
+	</div>
+	<div class="droppable-area">
 		<div id="soccerField" class="soccer-field-grass">
 		</div>
 		<% if user_signed_in? %>	

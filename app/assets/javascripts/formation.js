@@ -178,11 +178,9 @@ function createEnabledAllPlayers() {
 				$(playerDiv).mousedown(function () {
 					$('#slot').css('display', 'block');
 					$('#soccerField').addClass('positions-map');
-					$('#soccerField').removeClass('soccer-field-grass');
 				});
 				$(playerDiv).mouseup(function () {
 					$('#slot').css("display","none");
-					$('#soccerField').addClass('soccer-field-grass');
 					$('#soccerField').removeClass('positions-map');
 				});
 				$(playerDiv).addClass('player');
@@ -248,11 +246,9 @@ function createPlayers() {
 					$(playerDiv).mousedown(function () {
 						$('#slot').css('display', 'block');
 						$('#soccerField').addClass('positions-map');
-						$('#soccerField').removeClass('soccer-field-grass');
 					});
 					$(playerDiv).mouseup(function () {
 						$('#slot').css("display","none");
-						$('#soccerField').addClass('soccer-field-grass');
 						$('#soccerField').removeClass('positions-map');
 					});
 				} else {
@@ -332,7 +328,6 @@ function handlePlayerDrop(event, ui) {
 	    }
 	}
 	$('#slot').css('display', 'none');
-	$('#soccerField').addClass('soccer-field-grass');
 	$('#soccerField').removeClass('positions-map');
 	if (correctGoalKeeper == 1 && correctPlayers == 10) {
 		enableSenderButton();

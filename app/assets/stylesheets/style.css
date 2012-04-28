@@ -63,7 +63,6 @@ body {
 	margin-left: 0px;
 	margin-top: 50px;
 	cursor: default;
-	opacity: 0.9;
 }
 
 .pills.positions a {
@@ -83,7 +82,7 @@ body {
 	
 	position: relative;
 	float: left;
-	margin: 50px 0 0 379px;
+	margin: 16px 0 0 379px;
 	width: 420px;	
 	height: 490px;
 	overflow: auto;
@@ -768,7 +767,7 @@ body {
 
 .welcome.recent-winners {
 	margin-top: 100px;
-	margin-left: 24px;
+	margin-left: 12px;
 	width: 250px;
 }
 
@@ -951,4 +950,37 @@ body {
 .match h3 {
 	color: #0000CD;
 	margin-right: 35px;
+}
+
+.legend {
+	margin-bottom: 0px;
+}
+
+.legend ul {
+	list-style:none;
+}
+
+.legend ul li {
+	display: inline; 
+	color: #FFF;
+	text-shadow: 0 1px 1px #F6F6F6;
+	position: relative;
+	margin: 3px;
+	padding: 3px;
+	float: right;
+}
+
+.defense {
+	background: #B8860B;
+	border: 2px solid #DAA520;
+}
+
+.midfield {
+	background: #104E8B;
+	border: 2px solid #4876FF;
+}
+
+.forward {
+	background: #8B0000;
+	border: 2px solid #CD0000;
 }

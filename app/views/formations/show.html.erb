@@ -14,7 +14,10 @@
 	</div>		
 	<div id="creator-info" class="show">
 		<ul>
-			<li><%= "#{t(:sended_to)} #{@formation.owner.nickname} - #{@formation.owner.score}" %></li>
+			<li><%= "#{t(:sended_to)}" %></li>
+			<li>
+				<span><%= image_tag(@formation.owner.image, :size => "25x25") %></span> :: <span><b><%= "#{@formation.owner.nickname} - #{@formation.owner.score}" %></b></span>
+</li>
 			<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
 			<li>
 					    <div class="time">

@@ -297,10 +297,13 @@ function createEmptySlots() {
   return slots;
 }
 
-function handlePlayerDrop(event, ui) {	
+function handlePlayerDrop(event, ui) {		
 	var slot = $(this).attr('id');
   	var player = ui.draggable.attr('id');
   	if (slot == $('#gk').attr('id')) {
+		if (correctGoalKeeper > 0) {
+			return;
+		}
     	goalKeeper = player;
   	}
 
@@ -313,7 +316,8 @@ function handlePlayerDrop(event, ui) {
 		    }
 		}		
 	}
-	if (goalKeeper != undefined && correctGoalKeeper == 0) {
+		
+	if (goalKeeper != undefined && correctGoalKeeper == 0) {		
 		ui = dropPlayer($(this), ui, slot); 
 	    if (player == goalKeeper) {
 	      correctGoalKeeper++;

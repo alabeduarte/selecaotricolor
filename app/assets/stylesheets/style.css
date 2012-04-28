@@ -144,6 +144,10 @@ body {
 	cursor: default;
 }
 
+.ui-droppable.hovered {
+	background-color: #B22222;
+}
+
 .emptySlot {
 	margin: 20px;
 	float: left;
@@ -193,16 +197,16 @@ body {
 .goal_keeper {
 	font-size: 9px;
 	text-align: center;
-	width: 12px;
-	height: 12px;
+	width: 30px;
+	height: 4px;
 	padding: 5px;
 	padding-top: 10px;
 	padding-bottom: 0;
 	border: 2px solid #333;
-	-moz-border-radius: 30px;
-	-webkit-border-radius: 30px;
-	border-radius: 30px;
-	background: #D3D3D3;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	background: #27408B;
 	color: blue;
 	text-shadow: 0 1px 1px #F6F6F6;
 	border: 2px solid #B22222;
@@ -230,17 +234,14 @@ body {
 #gk {
 	font-size: 9px;
 	text-align: center;
-	width: 12px;
-	height: 12px;
+	width: 30px;
+	height: 4px;
 	padding: 5px;
 	padding-top: 10px;
 	padding-bottom: 0;
 	border: 2px solid #333;
-	-moz-border-radius: 30px;
-	-webkit-border-radius: 30px;
-	border-radius: 30px;
 	position: absolute;
-	margin: 446px 0 0 166px;
+	margin: 453px 0 0 157px;
 	opacity: 0.5;
 }
 
@@ -263,13 +264,12 @@ body {
 	text-shadow: 0 1px 1px #F6F6F6;
 	text-shadow: 0 1px 1px #F6F6F6;
 	padding-bottom: 0px;
-	margin-top: -7px;
+	margin-top: -11px;
 }
 
 #gk.present {
 	opacity: 1;
-	margin: 450px 0 0 166px;
-	background: #D3D3D3;
+	background: #27408B;
 	color: blue;
 	text-shadow: 0 1px 1px #F6F6F6;
 	border: 2px solid #B22222;
@@ -557,14 +557,22 @@ body {
 }
 
 .fb_button {
-    background-color: #3b5998;
-    border-color: #d8dfea rgb(14, 31, 91) rgb(14, 31, 91) rgb(216, 223, 234);
-    border-style: solid;
-    border-width: 1px;    
-    padding: 2px 18px;
-	width: 273px;
-	height: 21px;
-	margin-bottom: 3px;
+    color: white;
+	text-decoration: none;
+	display: block;
+	width: 177px;
+	background: url(../../assets/background-facebook.png) center center no-repeat;
+	padding: 13px 0;
+	margin: 10px auto;
+	font: 14px Helvetica,Arial,sans-serif;
+	text-align: center;
+	text-shadow: 0 1px 0 #191970;
+}
+
+.fb_button:hover {
+	color: white;
+	text-shadow: 0 1px 0 #4682B4;
+	text-decoration:none;
 }
 
 .fb_button_text {

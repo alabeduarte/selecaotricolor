@@ -12,6 +12,8 @@ class User
   key :image, String
   
   validates :nickname, :presence => true
+  
+  before_destroy :destroy_all_formations
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -54,6 +56,11 @@ class User
   
   def image
     @image || "escudos/bahia.png"
+  end
+
+private
+  def destroy_all_formations
+    formations.each { |f| f.destroy }
   end
 
 end

@@ -35,4 +35,15 @@ describe Calendar do
       Calendar.next_match.to_s.should == "#{@bahia.name} x #{@vitoria.name}"
     end
   end
+  
+  context "before destroy" do
+    it "should destroy all formations" do
+      Formation.create(owner: Factory(:user), match: Calendar.next_match, created_at: Time.now, team: @bahia)
+      match = Calendar.next_match
+      match_id = match.id
+      match.destroy
+      Formation.all(match_id: match_id).should be_empty
+    end
+  end
+  
 end

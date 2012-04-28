@@ -74,7 +74,7 @@ describe Formation do
     context "before destroy" do
       it "should destroy all positions" do
         formation = new_formation
-        formation_id = formation.id.to_s
+        formation_id = formation.id
         formation.destroy
         PlayerFormationPosition.all(formation_id: formation_id).should be_empty
       end

@@ -15,6 +15,8 @@ class Calendar
   validates :home, :presence => true
   validates :away, :presence => true
   
+  before_destroy :destroy_all_formations
+  
   def to_s
     "#{home.name} x #{away.name}"
   end
@@ -68,6 +70,11 @@ class Calendar
       return true
     end
     return false
+  end
+
+private
+  def destroy_all_formations
+    formations.each { |f| f.destroy }
   end
 
 end

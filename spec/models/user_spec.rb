@@ -66,6 +66,14 @@ describe User do
     @formation_3.save
   end
   
+  context "before destroy" do
+    it "should destroy all formations" do
+      user_id = user_t1.id
+      user_t1.destroy
+      Formation.all(owner_id: user_id).should be_empty
+    end
+  end
+  
   context "show data" do
     it "should show default image when image is nil" do
       User.new.image.should == "escudos/bahia.png"

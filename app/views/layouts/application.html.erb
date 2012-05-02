@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Seleção Tricolor! - <%= yield(:title) || "Monte o seu esquema tático!" %></title>
-	<meta name="author" content="Seleção Tricolor">
-	<meta name="description" content="Um site interativo, não oficial, exclusivo para a torcida do BAHIA. Escale o seu time! Bora Bahêa!">
-	<meta name="keywords" content="bahia, ecbahia, bbmp, bora bahia minha porra, esporte clube bahia, tricolor de aço, esquadrão de aço, seleção tricolor, salvador, ba, tática, escale seu time">
-  <%= stylesheet_link_tag 'style', 'bootstrap.min', 'themes/base/jquery.ui.all' %>
-  <%= csrf_meta_tag %>
-  <%= favicon_link_tag %>
-</head>
-<body>	
-	<div id="dialog-message" title="Ops...">
-		<p id="custom-alert-message"/>
-	</div>
-	<div class="topbar menu">		
-		<div class="container">
-			<ul class="pills">
-			  <li><%= menu_link_to 'Home', :root %></li>			  
-			  <li><%= menu_link_to 'Calendário dos Jogos', :calendars %></li>
-			</ul>
-			<div class="logo"></div>
+	<head>
+		<title>Seleção Tricolor! - <%= yield(:title) || "Monte o seu esquema tático!" %></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="author" content="Seleção Tricolor">
+		<meta name="description" content="Um site interativo, não oficial, exclusivo para a torcida do BAHIA. Escale o seu time! Bora Bahêa!">
+		<meta name="keywords" content="bahia, ecbahia, bbmp, bora bahia minha porra, esporte clube bahia, tricolor de aço, esquadrão de aço, seleção tricolor, salvador, ba, tática, escale seu time">
+	  <%= stylesheet_link_tag 'style-general', 'style-others', 'style-menu', 'style', 'bootstrap.min', 'themes/base/jquery.ui.all' %>
+	  <%= csrf_meta_tag %>
+	  <%= favicon_link_tag %>
+	</head>
+	<body>
+		<div id="divHead">
+			<div id="head-content">
+				<div id="dialog-message" title="Ops...">
+					<p id="custom-alert-message"/>
+				</div>
+				<%= render :partial => "users/info" %>
+				<% if flash[:notice] -%>
+					<div id="notice" class="alert-message notice">
+						<a class="close notice" onclick="dispose();">×</a>
+						<%= flash[:notice] %>
+					</div>
+				<% end -%>
+			</div>
 		</div>
-	</div>
-	
-	<%= render :partial => "users/info" %>
-	
-	<% if flash[:notice] -%>
-		<div id="notice" class="alert-message notice">
-			<a class="close notice" onclick="dispose();">×</a>
-			<%= flash[:notice] %>
+		<div id="divCenter">
+			<div id="center-content">
+				<%= yield %>
+			</div>
 		</div>
-	<% end -%>
-	<div class="container">
-		<div class="content">
-			<%= yield %>
+
+		<div id="divBase">
+			<div id="base-content">
+				<div class="footer-info">
+					<ul>
+						<li>Acesse também a nossa <a href="http://www.facebook.com/selecaotricolor" target="_blank">página no facebook</a></li>
+						<li><%= mail_to "contato@selecaotricolor.com.br", 'Entre em contato conosco' %></li>
+					  	<li><%= menu_link_to 'Termos de uso', :terms %></li>
+					  	<li class="version-info">Versão BETA</li>
+					</ul>
+				</div>
+			</div>
 		</div>
-	</div>
-	<footer class="grass-footer">
-		<ul class="pills">
-		  <li class="footer-info"><%= mail_to "contato@selecaotricolor.com.br", 'Entre em contato conosco' %></li>
-		  <li class="footer-info"><%= menu_link_to 'Termos de uso', :terms %></li>
-		  <li class="version-info">Versão BETA</li>		
-		</ul>
-	</footer>
 
 	<%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'jquery.ui.accordion.min', 'formation'  %>
 	<script type="text/javascript">
@@ -68,5 +68,5 @@
 			window.open(uri, "_blank");
 		}
 	</script>
-</body>
+	</body>
 </html>

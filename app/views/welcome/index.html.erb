@@ -1,5 +1,5 @@
 <% content_for :title, "Escale o seu Time!" %>
-<div class="hero-unit show">
+
 	<div class="welcome">
 		<p><b>Bem-vindo ao</b></p>
 		<div class="title">
@@ -21,27 +21,24 @@
 				<li>A cada jogador que você acertar: <b>10 pontos</b></li>
 				<li>Se você acertar a escalação dos jogadores que começarão a partida: <b>40 pontos</b></li>
 				<li><i>Lembre-se: Você só poderá escalar seu time até 2 horas antes início do jogo!</i></li>
-			</ul>
-			<i>OBS: Se você está com baixa pontuação em relação aos demais, não se preocupe! A partir da final do campeonato baiano, o ranking será <b>ZERADO</b>, assim você poderá competir de igual para igual com os usuários veteranos</i>		
+			</ul>		
 		</div>
-		<br/>
 		<% if user_signed_in? %>
 			<center><%= link_to "Monte o seu esquema tático!", :new, :class => "btn danger large" %></center>
 			<br/>			
 		<% end %>
-		<br/>
-		<div class="user_actions">		
-			<% if !user_signed_in? %>
-				<p><strong>Atenção!</strong> Se você tem conta no <strong>Facebook</strong>, não precisa se cadastrar! Basta clicar no botão abaixo!</p>
-				<center>
-				<%= render :partial => "users/facebook_authentication" %>
-				</center>
-				<br/><br/>
-				<p>Do contrário, faça o <strong>Login direto</strong> ou se cadastre rapidamente:</p>
-				<%= link_to "Login direto!", "login", :class => "btn primary small" %>
-				<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn danger small" %>
-			<% end %>
-		</div>		
+		<% if !user_signed_in? %>
+			<p><strong>Atenção!</strong> Se você tem conta no <strong>Facebook</strong>, não precisa se cadastrar! Basta clicar no botão abaixo!</p>
+			<center>
+			<%= render :partial => "users/facebook_authentication" %>
+			</center>			
+			<p>Do contrário, faça o <strong>Login</strong> ou se cadastre rapidamente:</p>
+			<%= link_to "Login", "login", :class => "btn primary small" %>
+			<%= link_to "Ainda não sou cadastrado!", "registration", :class => "btn danger small" %>
+		<% end %>
+		<br/><br/><br/>
+		
+		<div class="top-scorers">
 		<div class="title">
 			<h3>Top-Scorers do Bahia</h3>
 		</div>
@@ -63,67 +60,32 @@
 		<% end %>
 		</table>				
 		<i>Para ver o <b>ranking</b> completo de pontuações, <a href="/scores">clique aqui!</a></i>
-	</div>	
-	<br/><br/>
-	<% if @formation %>
-		<div class="welcome">
-			<div class="title">
-				<h3>Partida Anterior</h3>
-				<span><%= link_to "Clique aqui", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %> para conferir as táticas enviadas para este jogo</span>
-			</div>
-			<div class="formation_header">
-				<b><%= "#{t(:tactical)}: #{@formation.tactical}" %></b>
-			</div>
-			<div id="call-up" class="show">          		
-				<%= render :partial => "formations/players_holders" %>
-			</div>
-			<div id="soccerField" class="soccer-field-grass show">
-				<div id="emptySlot"></div>
-			</div>		
-			<div id="creator-info" class="show">
-				<ul>
-					<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
-					<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
-					<li class="jogo">
-						<div class="time">
-							<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
-							<span class="team-home-name"><%= "#{@formation.match.home.name}" %></span>
-				        </div>
-				        <div class="x">x</div>
-				        <div class="time">
-				        	<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
-							<span class="team-away-name"><%= "#{@formation.match.away.name}" %></span>
-				        </div>
-					</li>
-				</ul>
-				<div class="welcome recent-winners">				
-					<div class="title recent-winners">
-						<b>Usuários que acertaram a escalação do jogo passado</b>					
-					</div>
-					<ul>
-						<% @recent_winners.each do |u| %>
-							<li>
-								<span><%= image_tag(u.image, :size => "25x25") %></span> :: <span><b><%= u.nickname %></b></span>
-			</li>
-						<% end %>
-						<% if @recent_winners.empty? %>
-							<li><b>Nenhum dos usuários acertaram a tática desta partida! =/</b></li>
-							<li><%= link_to "Clique aqui", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %> para conferir as táticas enviadas para este jogo</li>
-						<% end %>
-					</ul>	         		
+		</div>
+		<br/><br/>
+		<% if @formation %>
+			<div class="last-squad-of-the-round">
+				<div class="title">
+					<h3>Partida Anterior</h3>
+					<span><%= link_to "Clique aqui", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %> para conferir as táticas enviadas para este jogo</span>
+				</div>
+				<div class="formation_header">
+					<b><%= "#{t(:tactical)}: #{@formation.tactical}" %></b>
+				</div>
+				<div id="call-up" class="show">          		
+					<%= render :partial => "formations/players_holders" %>
 				</div>
 			</div>
-		</div>
-	<% end %>
-	<div id="matrix"></div>
-	<div id="json"></div>	
-</div>
-<div class="foobar formationActions">
+		<% end %>
+		
+	</div>
+	
+
+<div class="foobar shareActions">
 	<div class="share right">
 		<%= render :partial => "formations/share" %>
 	</div>
 </div>
-	Acesse também a nossa <a href="http://www.facebook.com/selecaotricolor" target="_blank">página no facebook</a>
+	
 <%= content_for :javascript do %>
 	$( load_soccer_field );
 	$( load_formation_of_last_round );	

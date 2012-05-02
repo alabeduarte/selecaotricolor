@@ -1,9 +1,4 @@
 /*Configuracao das cores dos links - Inicio*/
-a{font-size:1.2em; font-family:Arial; color: #fff;}
-a:link {font-size:1.4em; font-family:Arial; color: #fff; text-decoration: underline; }
-a:active {font-size:1.4em; font-family:Arial; color: #fff; text-decoration: none;}
-a:hover {font-size:1.4em; font-family:Arial; color: #000; text-decoration: none;}
-/*a[href]:after {content:" [" attr(href) "]";}*/
 /*Configuracao das cores dos links - Fim*/
 p.pNormal{
 	font-family:Verdana ;

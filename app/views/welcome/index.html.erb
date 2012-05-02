@@ -74,6 +74,39 @@
 				<div id="call-up" class="show">          		
 					<%= render :partial => "formations/players_holders" %>
 				</div>
+				<div id="creator-info" class="show">
+					<ul>
+						<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
+						<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
+						<li class="jogo">
+							<div class="time">
+								<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
+								<span class="team-home-name"><%= "#{@formation.match.home.name}" %></span>
+					        </div>
+					        <div class="x">x</div>
+					        <div class="time">
+					        	<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
+								<span class="team-away-name"><%= "#{@formation.match.away.name}" %></span>
+					        </div>
+						</li>
+					</ul>
+					<div class="welcome recent-winners">				
+						<div class="title recent-winners">
+							<b>Usuários que acertaram a escalação do jogo passado</b>					
+						</div>
+						<ul>
+							<% @recent_winners.each do |u| %>
+								<li>
+									<span><%= image_tag(u.image, :size => "25x25") %></span> :: <span><b><%= u.nickname %></b></span>
+				</li>
+							<% end %>
+							<% if @recent_winners.empty? %>
+								<li><b>Nenhum dos usuários acertaram a tática desta partida! =/</b></li>
+								<li><%= link_to "Clique aqui", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %> para conferir as táticas enviadas para este jogo</li>
+							<% end %>
+						</ul>	         		
+					</div>
+				</div>
 			</div>
 		<% end %>
 		

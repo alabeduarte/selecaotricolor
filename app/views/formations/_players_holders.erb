@@ -1,13 +1,9 @@
 <div class="call-up">
-	<table class="zebra-striped">
-		<tr>
-		    <th><%= t(:player) %></th>
-			<th><%= t(:position) %></th>
-		</tr>
+	<table>
 	<% @players_positions.each do |position| %>
 	  	<tr>
+			<td class="position"><%= position.acronym %></td>
 		    <td><%= position.player.name %></td>
-			<td><%= position.acronym %></td>
 		</tr>
 	<% end %>
 	</table>

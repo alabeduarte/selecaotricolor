@@ -453,10 +453,10 @@ function load_formation_of_last_round() {
   	getFormationByServer('/last_squad_of_the_round');
 }
 
-function getFormationByServer(path, lines, columns, total) {
+function getFormationByServer(path) {
 	var lines = matrixModel.length;
 	var columns = matrixModel[lines-1].length;
-	var total = lines*columns;
+	var total = lines*columns;	
 	$.getJSON(path + '.json', function(data) {
   		$.each(data, function(i, formation){
 			$.each(formation.players_positions, function(j, player_position){
@@ -464,7 +464,7 @@ function getFormationByServer(path, lines, columns, total) {
 				var y = player_position.y;
 				var player = player_position.player;
 				var element = player.number;
-
+				
 				for(var index = 0; index < total; index++) {
 					if (x == 0) {
 						if (index == y) {

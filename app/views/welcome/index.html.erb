@@ -35,21 +35,24 @@
 					</li>
 				</ul>
 				<div class="recent-winners">
-					<table>
-						<tr>
-							<th><%= image_tag('icons/trophy.png', :size => "16x16") %></th>
-						</tr>
-					<% @recent_winners.each do |u| %>
-					  	<tr>							
-						    <td><%= image_tag(u.image, :size => "25x25") %></span> :: <span><b><%= u.nickname %></b></td>
-						</tr>
-					<% end %>
-					</table>
+					<div class="link">
+						<%= link_to "Táticas Enviadas para este jogo", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %>	
+					</div>
 					<% if @recent_winners.empty? %>
 						<ul>						
-							<li><b>Nenhum dos usuários acertaram a tática desta partida! =/</b></li>
-							<li><%= link_to "Clique aqui", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %> para conferir as táticas enviadas para este jogo</li>						
+							<li><b>Nenhum dos usuários acertaram a escalação desta partida! =/</b></li>
 						</ul>
+					<% else %>
+						<table>
+							<tr>
+								<th><span class="champions-of-round-icon"></span>Campeões da Rodada</th>
+							</tr>
+						<% @recent_winners.each do |u| %>
+						  	<tr>							
+							    <td><%= image_tag(u.image, :size => "25x25") %></span> :: <span><b><%= u.nickname %></b></td>
+							</tr>
+						<% end %>
+						</table>
 					<% end %>         		
 				</div>
 			</div>
@@ -67,28 +70,6 @@
 	<% end %>
 
 <div class="welcome footer">
-	<div class="top-scorers">
-		<div class="title">
-			<h3>Top-Scorers do Bahia</h3>
-		</div>
-		<table class="zebra-striped">
-		  <tr>
-		    <th><%= image_tag('icons/trophy.png', :size => "16x16") %></th>
-			<th></th>
-			<th><%= t(:nickname) %></th>
-		    <th>Score</th>
-		  </tr>
-		<% @users.each_with_index.map do |u, index| %>
-			<% index += 1 %>
-			<tr>
-				<td><%= ++index %></td>
-				<td><%= image_tag(u.image, :size => "25x25") %></td>
-		    	<td><%= u.nickname %></td>
-				<td><%= u.score %></td>
-		  	</tr>
-		<% end %>
-		</table>						
-	</div>
 	<div class="rules">
 		<ul>
 			<li>A cada tática que você criar, ganha <b>100 pontos</b><span class="score-check"><%= image_tag('icons/check.png', :size => "24x24") %></span></li>

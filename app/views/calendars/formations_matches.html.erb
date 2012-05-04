@@ -1,27 +1,28 @@
 <% content_for :title, "#{t(:listing_formations)} :: #{@match.home.name} x #{@match.away.name}" %>
-<center>
-	<center>
-		<div class="jogo">
-		    <div class="time">
-				<%= image_tag("escudos/#{@match.home.label}.png", :size => "45x45", :alt => "#{@match.home.name}") %>
-				<span class="team-home-name"><%= "#{@match.home.name}" %></span>
-	        </div>
-	        <div class="x">x</div>
-	        <div class="time">
-	        	<%= image_tag("escudos/#{@match.away.label}.png", :size => "45x45", :alt => "#{@match.away.name}") %>
-				<span class="team-away-name"><%= "#{@match.away.name}" %></span>
-	        </div>
-	    </div>
-	</center>
+<h1 class="subtitle"><%= "#{@match.home.name} x #{@match.away.name} :: #{@match.day.to_s(:day)}" %></h1>
+	<div class="jogo">
+	    <div class="time">
+			<%= image_tag("escudos/#{@match.home.label}.png", :size => "45x45", :alt => "#{@match.home.name}") %>
+			<span class="team-home-name"><%= "#{@match.home.name}" %></span>
+        </div>
+        <div class="x">x</div>
+        <div class="time">
+        	<%= image_tag("escudos/#{@match.away.label}.png", :size => "45x45", :alt => "#{@match.away.name}") %>
+			<span class="team-away-name"><%= "#{@match.away.name}" %></span>
+        </div>
+    </div>
 	<div class="next_match_info">
 		<ul>		
-			<li><%= "#{@match.day.to_s(:day)}" %></li>			
 			<% if @match.oldest? %>
 			<li><%= "Esquema tático mais votado: #{@match.tactical_most_voted}" %></li>
 			<% end %>			
 		</ul>	
 	</div>
-</center>
+
+<div id="soccerField" class="soccer-field-grass list">
+	<div id="emptySlot"></div>
+</div>
+
 <table class="zebra-striped">
   <tr>
 	<th></th>
@@ -29,6 +30,7 @@
 	<th><%= t(:tactical) %></th>
 	<th><%= t(:created_at) %></th>
     <th></th>
+	<th></th>
     <th></th>
   </tr>
 
@@ -44,6 +46,7 @@
 	</td>
 	<td><%= formation.tactical %></td>
 	<td><%= formation.created_at.to_s(:day) %></td>
+	<td><button class="btn" onclick="showFormation('/formations/<%= formation.id %>')" />TESTE</td>
     <td><%= link_to t(:show), formation, :class => "btn" %></td>
     <td>
 		<% if can? :destroy, formation %>

@@ -1,0 +1,55 @@
+.jogo {
+	position: relative;
+	font-size: 12px;
+	padding-left: 42%;
+	padding-top: 2%;
+	padding-bottom: 7%;
+}
+
+.time {
+	width: 45px;
+	height: 45px;	
+}
+
+.time, .x {
+	float: left;
+	color: #FFF;
+	text-shadow: 0 1px 1px #F6F6F6;
+}
+
+.x {
+	margin-bottom: 23px;
+	margin-top: 23px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.team-home-name, .team-away-name {
+	text-align: center;
+}
+
+.x, .team-home-name, .team-away-name {
+	color: #191970;
+	text-shadow: 0 1px 1px #F6F6F6;
+}
+
+.team-home-name {
+	margin-left: 0px;
+	margin-right: 6px;
+}
+
+.team-away-name {
+	margin-left: 6px;
+	margin-right: 20px;
+}
+
+.match {
+	margin: 0 auto;
+	margin-left: 30px;
+	float: left;
+}
+
+.match h3 {
+	color: #0000CD;
+	margin-right: 35px;
+}

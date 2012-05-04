@@ -43,12 +43,17 @@ table {
 .subtitle {
     font-size: 18px;
 	color: #191970;
+	padding-top: 20px;
 }
 
 .rules ul li {
 	color: #191970;
 	text-shadow: 0 1px 0 #FFF;
 	margin: 20px;
+}
+
+.signed-in {
+	margin-bottom: 3%;
 }
 
 .login-links {
@@ -506,17 +511,25 @@ button.btn::-moz-focus-inner,input[type=submit].btn::-moz-focus-inner{padding:0;
 
 .alert-message.notice {	
 	position: fixed;
-	width: 100%;
+	width: 65%;
 	height: 25px;
 	top: 0;
 	z-index: 6;
+	font-size: 12px;
 }
 
 .close.notice {
 	position: fixed;
-	right:2%;
-	top: 12px;
+	right:21%;
+	top: 2%;
 	cursor: pointer;
+	border: 2px solid #333;
+	width: 6px;
+	height: 6px;
+	padding: 6px;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
 }
 
 .new_formation_invitation {
@@ -549,11 +562,6 @@ button.btn::-moz-focus-inner,input[type=submit].btn::-moz-focus-inner{padding:0;
 	background-image: -webkit-linear-gradient(top, #FFF, #ADD8E6);
 	background-image: -o-linear-gradient(top, #FFF, #ADD8E6);
 	background-image: linear-gradient(top, #FFF, #ADD8E6);
-}
-
-.formation_header {
-	margin: 0 auto;
-	text-align: center; 
 }
 
 .new_formation_invitation h2 {
@@ -678,58 +686,3 @@ button.btn::-moz-focus-inner,input[type=submit].btn::-moz-focus-inner{padding:0;
 .facebookLogin div span {background-position: 0 -75px; color: #fff !important;}
 .facebookLogin:hover div span {background-position: 0 -100px;}
 .facebookLogin:active div span {background-position: 0 -125px;}
-
-.jogo {
-	padding-left: 39px;
-	padding-top: 10px;
-	padding-bottom: 30px;
-	position: relative;
-}
-
-.time {
-	width: 45px;
-	height: 45px;	
-}
-
-.time, .x {
-	float: left;
-	color: #FFF;
-	text-shadow: 0 1px 1px #F6F6F6;
-}
-
-.x {
-	margin-bottom: 23px;
-	margin-top: 23px;
-	margin-left: 20px;
-	margin-right: 20px;
-}
-
-.team-home-name, .team-away-name {
-	text-align: center;
-}
-
-.x, .team-home-name, .team-away-name {
-	color: #191970;
-	text-shadow: 0 1px 1px #F6F6F6;
-}
-
-.team-home-name {
-	margin-left: 0px;
-	margin-right: 6px;
-}
-
-.team-away-name {
-	margin-left: 6px;
-	margin-right: 20px;
-}
-
-.match {
-	margin: 0 auto;
-	margin-left: 30px;
-	float: left;
-}
-
-.match h3 {
-	color: #0000CD;
-	margin-right: 35px;
-}

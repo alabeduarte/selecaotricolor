@@ -288,9 +288,16 @@
 #soccerField.show {
 	position: relative;
 	width: 358px;
-	height: 509px;
+	height: 493px;
 	margin-bottom: 50%;
 	margin: 0 auto;
+}
+
+#soccerField.list {
+	height: 493px;
+	width: 358px;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 #creator-info.show {
@@ -309,6 +316,15 @@
 
 #emptySlot.show {
 	
+}
+
+.formation-header {
+	margin: 0 auto;
+	text-align: center; 
+	color: #191970;
+	text-shadow: 0 1px 0 #FFF;
+	position: relative;
+	margin-bottom: -22px;
 }
 
 .legend {

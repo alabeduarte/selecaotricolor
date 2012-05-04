@@ -11,9 +11,20 @@
 	Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> escolha qual o time ideal para cada partida!
 	</p>
 </div>
-	
-	<div class="last-squad-of-the-round">
-		<% if @formation %>
+	<% if !user_signed_in? %>
+		<div class="signed-in">
+			<%= render :partial => "users/facebook_authentication" %>
+			<div class="login-links">
+				<%= link_to "Login Alternativo", "login", :class => "btn primary small" %>
+				<%= link_to "Ainda não sou cadastrado(a)!", "registration", :class => "btn danger small" %>
+			</div>
+		</div>
+	<% end %>
+	<% if @formation %>
+		<div class="formation-header">
+			<h2><%= "#{t(:tactical)}: #{@formation.tactical}" %></h2>			
+		</div>
+		<div class="last-squad-of-the-round">
 			<%= render :partial => "formations/players_holders" %>			
 			<div id="soccerField" class="soccer-field-grass show">
 				<div id="emptySlot"></div>
@@ -62,18 +73,8 @@
 					<% end %>         		
 				</div>
 			</div>
-		<% end %>
-	</div>
-
-	<% if !user_signed_in? %>
-		<div class="signed-in">
-			<%= render :partial => "users/facebook_authentication" %>
-			<div class="login-links">
-				<%= link_to "Login Alternativo", "login", :class => "btn primary small" %>
-				<%= link_to "Ainda não sou cadastrado(a)!", "registration", :class => "btn danger small" %>
-			</div>
 		</div>
-	<% end %>
+	<% end %>	
 
 <div class="welcome footer">
 	<div class="rules">

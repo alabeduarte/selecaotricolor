@@ -497,3 +497,8 @@ function addPlayer(index, player) {
 	+ player.name + '</span>');
 	$(slotId).addClass("team");
 }
+
+function showFormation(path) {
+	load_soccer_field();
+	getFormationByServer(path);
+}

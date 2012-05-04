@@ -1,6 +1,6 @@
 <% content_for :title, "#{t(:listing_formations)} :: #{@match.home.name} x #{@match.away.name}" %>
 <h1 class="subtitle"><%= "#{@match.home.name} x #{@match.away.name} :: #{@match.day.to_s(:day)}" %></h1>
-	<div class="jogo">
+	<div class="jogo center">
 	    <div class="time">
 			<%= image_tag("escudos/#{@match.home.label}.png", :size => "45x45", :alt => "#{@match.home.name}") %>
 			<span class="team-home-name"><%= "#{@match.home.name}" %></span>
@@ -11,61 +11,46 @@
 			<span class="team-away-name"><%= "#{@match.away.name}" %></span>
         </div>
     </div>
-	<div class="next_match_info">
-		<ul>		
-			<% if @match.oldest? %>
-			<li><%= "Esquema tático mais votado: #{@match.tactical_most_voted}" %></li>
-			<% end %>			
-		</ul>	
-	</div>
 
+<div class="new-formation">
+	<% if @match == Calendar.next_match %>
+		<div class="actions">
+			<%= link_to 'Escale o seu time!', new_path, :class => "btn large primary" %>
+		</div>
+	<% end %>
+</div>	
+<section id="formation-list-section">
+	<% if @match.oldest? %>
+		<h1 class="tactical-most-voted"><%= "Esquema tático mais votado: #{@match.tactical_most_voted}" %></h1>
+	<% end %>
+	<div class="formation-list">
+	        <ul>
+				<% @formations.each do |formation| %>
+	            	<li onclick="showFormation('/formations/<%= formation.id %>')">					
+						<%= image_tag(formation.owner.image, :size => "25x25") %>
+						<p class="creator">
+							<strong>
+								<% if formation.owner.admin? %>
+									<i><%= formation.owner.nickname %></i>
+								<% else %>
+									<%= formation.owner.nickname %>
+								<% end %>
+							</strong>
+						</p>
+						<p class="tactical"><%= formation.tactical %></p>
+						<p class="match-day"><%= formation.created_at.to_s(:day) %></p>
+					</li>
+				<% end %>
+			</ul>
+	</div>
+</section>
 <div id="soccerField" class="soccer-field-grass list">
 	<div id="emptySlot"></div>
 </div>
 
-<table class="zebra-striped">
-  <tr>
-	<th></th>
-	<th><%= t(:sended_to) %></th>
-	<th><%= t(:tactical) %></th>
-	<th><%= t(:created_at) %></th>
-    <th></th>
-	<th></th>
-    <th></th>
-  </tr>
-
-<% @formations.each do |formation| %>
-  <tr>
-	<td><%= image_tag(formation.owner.image, :size => "25x25") %></td>
-	<td>
-	<% if formation.owner.admin? %>
-		<i><%= formation.owner.nickname %></i>
-	<% else %>
-		<%= formation.owner.nickname %>
-	<% end %>
-	</td>
-	<td><%= formation.tactical %></td>
-	<td><%= formation.created_at.to_s(:day) %></td>
-	<td><button class="btn" onclick="showFormation('/formations/<%= formation.id %>')" />TESTE</td>
-    <td><%= link_to t(:show), formation, :class => "btn" %></td>
-    <td>
-		<% if can? :destroy, formation %>
-			<%= link_to t(:destroy), formation, :confirm => t(:are_you_sure), :method => :delete, :class => "btn error" %>
-		<% end %>
-	</td>
-  </tr>
-<% end %>
-<% if @formations.empty? %>
-	<tr class="empty-table">
-		<th colspan="5"> <%= t(:formations_not_sended) %> </th>
-	</tr>
-<% end %>
-</table>
-
-<br />
-
-<% if @match == Calendar.next_match %>
-	<div class="actions">
-		<%= link_to t(:new_formation), new_path, :class => "btn small primary" %>
-	</div>
+<%= content_for :javascript do %>
+	$('.formation-list ul li').click(function() {
+		$('.formation-list ul li').removeClass('selected');
+		$(this).addClass('selected'); 	
+	});
 <% end %>

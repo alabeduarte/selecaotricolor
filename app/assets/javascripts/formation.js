@@ -278,7 +278,7 @@ function createSlots() {
     } );
   }
   
-  $('<div id="gk">' + '<p>GK</p>' + '</div>').data('number', i).appendTo('#soccerField').droppable( {
+  $('<div id="gk">' + '<p></p>' + '</div>').data('number', i).appendTo('#soccerField').droppable( {
     accept: '.goal_keeper',
     hoverClass: 'hovered',
     drop: handlePlayerDrop
@@ -297,7 +297,7 @@ function createEmptySlots() {
     $('<div id="' + i + '" class="emptySlot" ></div>').appendTo('#emptySlot');
   }
   
-  $('<div id="gk">' + 'GK' + '</div>').data('number', i).appendTo('#soccerField');
+  $('<div id="gk">' + '' + '</div>').data('number', i).appendTo('#soccerField');
   return slots;
 }
 

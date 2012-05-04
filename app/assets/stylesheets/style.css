@@ -1,5 +1,5 @@
 body {
-	font-family: Helvetica, sans-serif;
+	font-family: Helvetica, sans-serif; /*"Squada One",cursive;*/
 }
 
 table {
@@ -181,13 +181,6 @@ button.btn::-moz-focus-inner,input[type=submit].btn::-moz-focus-inner{padding:0;
 
 .version-info {
 	color: #FFF;
-}
-
-.new-formation {	
-	/*
-	background: center top url(../../assets/squad800x278.png) no-repeat;
-	height: 1000px;
-	*/
 }
 
 .bahia {

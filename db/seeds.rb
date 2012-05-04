@@ -1,6 +1,24 @@
 admin = User.create(nickname: 'admin', email: 'admin@selecaotricolor.com.br', password: '0m0m0m', admin: true, confirmed_at: Time.now.utc)
-User.create(nickname: 'T1', email: 'teste1@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
-User.create(nickname: 'T2', email: 'teste2@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t1 = User.create(nickname: 'Usuario Teste 1', email: 'teste1@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t2 = User.create(nickname: 'Usuario Teste 2', email: 'teste2@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t3 = User.create(nickname: 'Usuario Teste 3', email: 'teste3@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t4 = User.create(nickname: 'Usuario Teste 4', email: 'teste4@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t5 = User.create(nickname: 'Usuario Teste 5', email: 'teste5@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t6 = User.create(nickname: 'Usuario Teste 6', email: 'teste6@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t7 = User.create(nickname: 'Usuario Teste 7', email: 'teste7@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t8 = User.create(nickname: 'Usuario Teste 8', email: 'teste8@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t9 = User.create(nickname: 'Usuario Teste 9', email: 'teste9@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t10 = User.create(nickname: 'Usuario Teste 10', email: 'teste10@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t11 = User.create(nickname: 'Usuario Teste 11', email: 'teste11@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t12 = User.create(nickname: 'Usuario Teste 12', email: 'teste12@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t13 = User.create(nickname: 'Usuario Teste 13', email: 'teste13@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t14 = User.create(nickname: 'Usuario Teste 14', email: 'teste14@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t15 = User.create(nickname: 'Usuario Teste 15', email: 'teste15@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t16 = User.create(nickname: 'Usuario Teste 16', email: 'teste16@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t17 = User.create(nickname: 'Usuario Teste 17', email: 'teste17@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t18 = User.create(nickname: 'Usuario Teste 18', email: 'teste18@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t19 = User.create(nickname: 'Usuario Teste 19', email: 'teste19@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
+user_t20 = User.create(nickname: 'Usuario Teste 20', email: 'teste20@t.com', password: 'mmmmmm', confirmed_at: Time.now.utc)
 
 #Creating all 'Campeonato Baiano' teams
 json = '[
@@ -59,7 +77,7 @@ Calendar.create!(day: Time.utc(2012, 4, 8, 16, 0), home: juazeirense, away: bahi
 Calendar.create!(day: Time.utc(2012, 4, 15, 16, 0), home: bahia, away: bahia_de_feira)
 Calendar.create!(day: Time.utc(2012, 4, 18, 22, 0), home: atletico_de_alagoinhas, away: bahia)
 
-json = '[{"code":"AC","description":"Atacante (Centro)","id":"4f4c334ae1af8008c800006a","x_max":1,"x_min":0,"y_max":3,"y_min":1},{"code":"AE","description":"Atacante (Lado Esquerdo)","id":"4f4c334ae1af8008c800006b","x_max":1,"x_min":0,"y_max":0,"y_min":0},{"code":"AD","description":"Atacante (Lado Direito)","id":"4f4c334ae1af8008c800006c","x_max":1,"x_min":0,"y_max":4,"y_min":4},{"code":"MAC","description":"Meio Campo Avan\u00e7ado (Centro)","id":"4f4c334ae1af8008c800006d","x_max":2,"x_min":2,"y_max":2,"y_min":2},{"code":"MAE","description":"Meio Campo Avan\u00e7ado (Lado Esquerdo)","id":"4f4c334ae1af8008c800006e","x_max":2,"x_min":2,"y_max":1,"y_min":0},{"code":"MAD","description":"Meio Campo Avan\u00e7ado (Lado Direito)","id":"4f4c334ae1af8008c800006f","x_max":2,"x_min":2,"y_max":4,"y_min":3},{"code":"MC","description":"Meio Campo (Centro)","id":"4f4c334ae1af8008c8000070","x_max":3,"x_min":3,"y_max":2,"y_min":2},{"code":"ME","description":"Meio Campo (Lado Esquerdo)","id":"4f4c334ae1af8008c8000071","x_max":3,"x_min":3,"y_max":1,"y_min":0},{"code":"MD","description":"Meio Campo (Lado Direito)","id":"4f4c334ae1af8008c8000072","x_max":3,"x_min":3,"y_max":4,"y_min":3},{"code":"MDC","description":"Meio Campo Defensivo (Centro)","id":"4f4c334ae1af8008c8000073","x_max":5,"x_min":4,"y_max":2,"y_min":2},{"code":"MDE","description":"Meio Campo Defensivo (Lado Esquerdo)","id":"4f4c334ae1af8008c8000074","x_max":4,"x_min":4,"y_max":1,"y_min":0},{"code":"MDD","description":"Meio Campo Defensivo (Lado Direito)","id":"4f4c334ae1af8008c8000075","x_max":4,"x_min":4,"y_max":4,"y_min":3},{"code":"DC","description":"Defesa (Centro)","id":"4f4c334ae1af8008c8000076","x_max":7,"x_min":6,"y_max":3,"y_min":1},{"code":"DE","description":"Defesa (Lado Esquerdo)","id":"4f4c334ae1af8008c8000077","x_max":7,"x_min":5,"y_max":0,"y_min":0},{"code":"DD","description":"Defesa (Lado Direito)","id":"4f4c334ae1af8008c8000078","x_max":7,"x_min":5,"y_max":4,"y_min":4},{"code":"G","description":"Goleiro","id":"4f4c334ae1af8008c8000079","x_max":-1,"x_min":-1,"y_max":-1,"y_min":-1}]'
+json = '[{"code":"AC","description":"Atacante (Centro)","id":"4f4c334ae1af8008c800006a","x_max":1,"x_min":0,"y_max":3,"y_min":1},{"code":"AE","description":"Atacante (Lado Esquerdo)","id":"4f4c334ae1af8008c800006b","x_max":1,"x_min":0,"y_max":0,"y_min":0},{"code":"AD","description":"Atacante (Lado Direito)","id":"4f4c334ae1af8008c800006c","x_max":1,"x_min":0,"y_max":4,"y_min":4},{"code":"MAC","description":"Meio Campo Avan\u00e7ado (Centro)","id":"4f4c334ae1af8008c800006d","x_max":2,"x_min":2,"y_max":2,"y_min":2},{"code":"MAE","description":"Meio Campo Avan\u00e7ado (Lado Esquerdo)","id":"4f4c334ae1af8008c800006e","x_max":2,"x_min":2,"y_max":1,"y_min":0},{"code":"MAD","description":"Meio Campo Avan\u00e7ado (Lado Direito)","id":"4f4c334ae1af8008c800006f","x_max":2,"x_min":2,"y_max":4,"y_min":3},{"code":"MC","description":"Meio Campo (Centro)","id":"4f4c334ae1af8008c8000070","x_max":3,"x_min":3,"y_max":2,"y_min":2},{"code":"ME","description":"Meio Campo (Lado Esquerdo)","id":"4f4c334ae1af8008c8000071","x_max":3,"x_min":3,"y_max":1,"y_min":0},{"code":"MD","description":"Meio Campo (Lado Direito)","id":"4f4c334ae1af8008c8000072","x_max":3,"x_min":3,"y_max":4,"y_min":3},{"code":"MDC","description":"Meio Campo Defensivo (Centro)","id":"4f4c334ae1af8008c8000073","x_max":5,"x_min":4,"y_max":3,"y_min":1},{"code":"MDE","description":"Meio Campo Defensivo (Lado Esquerdo)","id":"4f4c334ae1af8008c8000074","x_max":4,"x_min":4,"y_max":0,"y_min":0},{"code":"MDD","description":"Meio Campo Defensivo (Lado Direito)","id":"4f4c334ae1af8008c8000075","x_max":4,"x_min":4,"y_max":4,"y_min":4},{"code":"DC","description":"Defesa (Centro)","id":"4f4c334ae1af8008c8000076","x_max":7,"x_min":6,"y_max":3,"y_min":1},{"code":"DE","description":"Defesa (Lado Esquerdo)","id":"4f4c334ae1af8008c8000077","x_max":7,"x_min":5,"y_max":0,"y_min":0},{"code":"DD","description":"Defesa (Lado Direito)","id":"4f4c334ae1af8008c8000078","x_max":7,"x_min":5,"y_max":4,"y_min":4},{"code":"G","description":"Goleiro","id":"4f4c334ae1af8008c8000079","x_max":-1,"x_min":-1,"y_max":-1,"y_min":-1}]'
 parsed_json = JSON.load(json)
 parsed_json.each do |root| 
   PositionMapper.create! root
@@ -71,3 +89,26 @@ parsed_json.each do |root|
   root["player"]["team"] = bahia
   Player.create! root["player"]
 end
+
+json = '[ { "formation": {          "player": "4f25cdcbe1af800323000b46"         ,          "x": "0"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e68ee1af80017c000034"         ,          "x": "2"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "2"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e69be1af80017c000047"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25ca54e1af8003230008b5"         ,          "x": "5"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f25ca2de1af800323000896"         ,          "x": "5"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f04e6c3e1af80017c00008c"         ,          "x": "-1"         ,          "y": "-1"     }  }  ]'
+FirstTeam.create(formation: Formation.new_by(data: JSON.load(json), owner: admin, match: Calendar.last_match))
+Formation.new_by(data: JSON.load(json), owner: user_t1, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t2, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t3, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t4, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t5, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t6, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t7, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t8, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t9, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t10, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t11, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t12, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t13, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t14, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t15, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t16, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t17, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t18, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t19, match: Calendar.last_match).save
+Formation.new_by(data: JSON.load(json), owner: user_t20, match: Calendar.last_match).save

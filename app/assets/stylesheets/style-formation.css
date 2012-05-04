@@ -260,14 +260,11 @@
 }
 
 .playerName {
-	padding-left: 11px;
-	padding-bottom: 3px;
-	text-align: left;
 	cursor: default;
 	position: absolute;
-	font-size: 11px;
-	margin: -28px 0 0 13px;
-	opacity: 1;
+	font-size: 12px;
+	margin-top: 24%;
+	margin-left: 40%;
 	color: #FFF;
 	text-shadow: 0 1px 1px #0000CD;
 	font-weight: bold;
@@ -361,7 +358,7 @@
 
 .call-up table {
 	position: absolute;
-	left: 138px;
+	left: 93px;
 	height: 505px;
 	width: 130px;
 	padding: 15px;
@@ -384,8 +381,17 @@
 	color: #708090;
 }
 
+.champions-of-round {
+	color: #191970;
+	text-shadow: 0 1px 0 #FFF;
+	font-size: 12px;
+	text-align: right;
+	margin-left: 49%;
+	width: 129px;
+}
+
 .champions-of-round-icon {
-	left: 30%;
+	left: 80%;
 	height: 16px;
 	width: 16px;
 	position: absolute;
@@ -393,12 +399,27 @@
 }
 
 .recent-winners {
-	margin-top: 24%;
-	margin-left: 12px;
-	width: 250px;
+	margin-top: 34%;
+	margin-left: 12px;	
 	text-align: center;
 	color: #191970;
 	font-size: 14px;
+	height: 340px;
+	width: 250px;
+}
+
+.recent-winners.champions-of-round {
+	height: 292px;
+	width: 250px;
+	margin-top: 2%;
+	overflow: auto;
+	overflow-x: hidden;
+	position: relative;
+}
+
+.recent-winners.champions-of-round table tbody tr td {
+	height: 43px;
+	padding-right: 30px;
 }
 
 .link {
@@ -416,4 +437,13 @@
 	font-weight: bold;
 	border: none;
 	text-align: right;
+	margin-right: 5%;
+}
+
+.user-avatar {
+	float: left;
+}
+
+.nickname {
+	
 }

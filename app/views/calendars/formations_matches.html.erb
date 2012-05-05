@@ -12,16 +12,16 @@
         </div>
     </div>
 
-<div class="new-formation">
-	<% if @match == Calendar.next_match %>
+<% if @match == Calendar.next_match %>
+	<div class="new-formation">
 		<div class="actions">
 			<%= link_to 'Escale o seu time!', new_path, :class => "btn large primary" %>
 		</div>
-	<% end %>
-</div>	
+	</div>	
+<% end %>
 <section id="formation-list-section">
 	<% if @match.oldest? %>
-		<h1 class="tactical-most-voted"><%= "Esquema tático mais votado: #{@match.tactical_most_voted}" %></h1>
+		<h1 class="subtitle"><%= "Esquema tático mais votado: #{@match.tactical_most_voted}" %></h1>
 	<% end %>
 	<div class="formation-list">
 	        <ul>
@@ -39,6 +39,7 @@
 						</p>
 						<p class="tactical"><%= formation.tactical %></p>
 						<p class="match-day"><%= formation.created_at.to_s(:day) %></p>
+						<p><%= render :partial => 'formations/facebook_like', :locals => {:uri => "#{request.host}/formations/#{formation.id}"} %></p>
 					</li>
 				<% end %>
 			</ul>
@@ -46,6 +47,12 @@
 </section>
 <div id="soccerField" class="soccer-field-grass list">
 	<div id="emptySlot"></div>
+</div>
+
+<div class="comments">
+	<%= content_for :footer_resources do %>
+		<%= render :partial => 'formations/facebook_comments' %>
+	<% end %>
 </div>
 
 <%= content_for :javascript do %>

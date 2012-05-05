@@ -3,26 +3,30 @@
 	<h2><b>Bem-vindo ao</b></h2>
 	<div class="title">
 		<h1>selecaotricolor.com.br</h1>
-		<%= render :partial => 'formations/facebook_like' %>
+		<%= render :partial => 'formations/facebook_like', :locals => {:uri => current_uri} %>
 	</div>
-	<span class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</span>
-	<br/>
-	<p>
-	Através do <a href="http://selecaotricolor.com.br">selecaotricolor.com.br</a> escolha qual o time ideal para cada partida!
-	</p>
-</div>
-	<% if !user_signed_in? %>
-		<div class="signed-in">
-			<%= render :partial => "users/facebook_authentication" %>
-			<div class="login-links">
-				<%= link_to "Login Alternativo", "login", :class => "btn primary small" %>
-				<%= link_to "Ainda não sou cadastrado(a)!", "registration", :class => "btn danger small" %>
+	<h1 class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
+	<% if Calendar.next_match %>
+		<div class="new-formation">
+			<div class="actions">
+				<%= link_to 'Escale o seu time!', new_path, :class => "btn large primary" %>
 			</div>
-		</div>
+		</div>	
+	<% else %>
+		<% if !user_signed_in? %>
+			<div class="signed-in">
+				<%= render :partial => "users/facebook_authentication" %>
+				<div class="login-links">
+					<%= link_to "Login Alternativo", "login", :class => "btn primary small" %>
+					<%= link_to "Ainda não sou cadastrado(a)!", "registration", :class => "btn danger small" %>
+				</div>
+			</div>
+		<% end %>
 	<% end %>
+</div>
 	<% if @formation %>
 		<div class="formation-header">
-			<h2><%= "#{t(:tactical)}: #{@formation.tactical}" %></h2>			
+			<h2 class="tactical"><%= "#{@formation.tactical}" %></h2>			
 		</div>
 		<div class="last-squad-of-the-round">
 			<%= render :partial => "formations/players_holders" %>			

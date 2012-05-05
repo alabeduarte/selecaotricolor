@@ -40,10 +40,25 @@ table {
 	text-shadow: 0 1px 0 #FFF;
 }
 
-.subtitle {
-    font-size: 18px;
-	color: #191970;
-	padding-top: 20px;
+h1.subtitle {
+    display: block;
+	position: relative;
+	background-color: #104E8B;
+	color: #E8E8E8;
+	text-shadow: 0 2px 0 #B22222;
+	font-family: Helvetica, sans-serif; /*"Squada One",cursive;*/
+	text-transform: uppercase;
+	z-index: 1;
+	padding: 6px 40px 8px;
+	font-size: 20px;
+	
+	-webkit-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	width: 80%;
 }
 
 .rules ul li {

@@ -69,11 +69,16 @@
 	position: relative;
 }
 
-#formation-list-section {
+#formation-list-section, #calendars-section {
 	height: 100%;
 }
 
-.formation-list {
+#formation-list-section .record-list {
+	height: 493px;
+	width: 46%;
+}
+
+.record-list {
 	float: left;
 	height: 493px;
 	width: 46%;
@@ -81,6 +86,7 @@
 	overflow-x: hidden;
 	margin-left: 7%;
 	font-size: 10px;
+	margin-bottom: 20px;
 	
 	background-color: none;
 	border-color: #191970;
@@ -94,11 +100,11 @@
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
-.formation-list ul {
+.record-list ul {
 	list-style:none;
 }
 
-.formation-list ul li {
+.record-list ul li {
 	margin-left: 0px;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -107,31 +113,69 @@
 	cursor: pointer;
 }
 
-.formation-list ul li:hover {
+.record-list ul li:hover {
 	background-color: #f5f5f5;
 }
 
-.formation-list ul li:active {
+.record-list ul li:active {
 	background-color: #FFF;
 }
 
-.formation-list ul li.selected, .formation-list ul li.selected p {
+.record-list ul li.selected, .record-list ul li.selected p {
 	background-color: #104E8B;
 	color: #E8E8E8;
 	text-shadow: 0 2px 0 #B22222;
 	font-weight: bold;
 }
 
-.formation-list ul li img {
+.record-list ul li img {
 	margin-right: 10px;
 	float: left;
+	vertical-align: text-bottom;
 }
 
-.formation-list ul li p {
+.record-list ul li p {
 	float: left;
 	width: 110px;
 	text-align: left;	
 	text-shadow: 0 1px 0 #FFF;
+}
+
+/* Buttons */
+.record-list ul li .edit {
+	cursor: pointer;
+	position: absolute;
+	margin-left: 5%;
+	margin-top: 6px;
+	width: 32px;
+	height: 32px;
+	background-image: url(../../assets/icons/edit.png);
+}
+
+.record-list ul li .destroy {
+	cursor: pointer;
+	position: absolute;
+	margin-left: 10%;
+	width: 32px;
+	height: 32px;
+	background: transparent url(../../assets/icons/destroy.png);
+}
+
+.record-list ul li .formations {
+	cursor: pointer;
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	background: transparent url(../../assets/icons/football.png);
+}
+
+.record-list ul li .edit:hover, .record-list ul li .destroy:hover, .record-list ul li .formations:hover {
+	opacity: 0.8;
+}
+
+.record-list ul li .edit.disabled:hover, .record-list ul li .destroy.disabled:hover, .record-list ul li .formations.disabled:hover {
+	opacity: 0.5;
+	cursor: default;
 }
 
 .creator, .match-day {
@@ -146,4 +190,39 @@
 
 .comments {
 	margin-top: 20px;
+}
+
+#calendars-section .record-list {
+	height: 100%;
+	width: 86%;
+}
+
+#calendars-section ul li {
+	cursor: default;
+}
+
+#calendars-section .x {
+	width: 5%;
+}
+
+#calendars-section .home-team, #calendars-section .away-team {
+	font-size: 14px;
+	color: #708090;
+	vertical-align:text-bottom;
+}
+
+#calendars-section .home-team {
+	width: 20%;
+}
+
+#calendars-section .away-team {
+	width: 30%;
+}
+
+#calendars-section .home-team:hover img, #calendars-section .away-team:hover img {
+	opacity: 0.7;
+}
+
+#calendars-section ul li p.button {
+	width: 10%;
 }

@@ -55,7 +55,11 @@ class User
   end
   
   def image
-    @image || "escudos/bahia.png"
+    if admin?
+      @image || "selecaoicone.png"
+    else
+      @image || "escudos/bahia.png"
+    end
   end
 
 private

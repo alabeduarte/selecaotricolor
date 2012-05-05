@@ -77,11 +77,14 @@ describe User do
   context "show data" do
     it "should show default image when image is nil" do
       User.new.image.should == "escudos/bahia.png"
+      User.new(admin: true).image.should == "selecaoicone.png"
     end
     
     it "should show your own image when it exists" do
       user = User.new image: "profile.jpg"
       user.image.should == "profile.jpg"
+      admin_user = User.new(admin: true, image: "profile.jpg")
+      admin_user.image.should == "profile.jpg"
     end
   end
   

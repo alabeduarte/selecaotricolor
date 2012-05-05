@@ -23,26 +23,26 @@
 	<% if @match.oldest? %>
 		<h1 class="subtitle"><%= "Esquema tático mais votado: #{@match.tactical_most_voted}" %></h1>
 	<% end %>
-	<div class="formation-list">
-	        <ul>
-				<% @formations.each do |formation| %>
-	            	<li onclick="showFormation('/formations/<%= formation.id %>')">					
-						<%= image_tag(formation.owner.image, :size => "25x25") %>
-						<p class="creator">
-							<strong>
-								<% if formation.owner.admin? %>
-									<i><%= formation.owner.nickname %></i>
-								<% else %>
-									<%= formation.owner.nickname %>
-								<% end %>
-							</strong>
-						</p>
-						<p class="tactical"><%= formation.tactical %></p>
-						<p class="match-day"><%= formation.created_at.to_s(:day) %></p>
-						<p><%= render :partial => 'formations/facebook_like', :locals => {:uri => "#{request.host}/formations/#{formation.id}"} %></p>
-					</li>
-				<% end %>
-			</ul>
+	<div class="record-list">
+		<ul>
+			<% @formations.each do |formation| %>
+            	<li onclick="showFormation('/formations/<%= formation.id %>')">					
+					<%= image_tag(formation.owner.image, :size => "25x25") %>
+					<p class="creator">
+						<strong>
+							<% if formation.owner.admin? %>
+								<i><%= formation.owner.nickname %></i>
+							<% else %>
+								<%= formation.owner.nickname %>
+							<% end %>
+						</strong>
+					</p>
+					<p class="tactical"><%= formation.tactical %></p>
+					<p class="match-day"><%= formation.created_at.to_s(:day) %></p>
+					<p><%= render :partial => 'formations/facebook_like', :locals => {:uri => "#{request.host}/formations/#{formation.id}"} %></p>
+				</li>
+			<% end %>
+		</ul>
 	</div>
 </section>
 <div id="soccerField" class="soccer-field-grass list">
@@ -56,8 +56,8 @@
 </div>
 
 <%= content_for :javascript do %>
-	$('.formation-list ul li').click(function() {
-		$('.formation-list ul li').removeClass('selected');
+	$('.record-list ul li').click(function() {
+		$('.record-list ul li').removeClass('selected');
 		$(this).addClass('selected'); 	
 	});
 <% end %>

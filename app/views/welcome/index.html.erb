@@ -1,10 +1,10 @@
 <% content_for :title, "Escale o seu Time!" %>
 <div class="welcome">
-	<h2><b>Bem-vindo ao</b></h2>
+	<h1><b>Bem-vindo!</b></h1>
 	<div class="title">
-		<h1>selecaotricolor.com.br</h1>
 		<%= render :partial => 'formations/facebook_like', :locals => {:uri => current_uri} %>
 	</div>
+	<%= image_tag('welcome.png', :size => "620x219", :alt => "Seleção Tricolor") %>
 	<h1 class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if Calendar.next_match %>
 		<div class="new-formation">

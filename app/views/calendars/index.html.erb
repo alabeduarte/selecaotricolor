@@ -1,58 +1,40 @@
 <% content_for :title, t(:listing_calendars) %>
-<div class="title">
-	<h1><%= t(:listing_calendars) %></h1>
-</div>
-<table class="zebra-striped">
-  <tr>
-    <th><%= t(:day) %></th>
-	<th><%= t(:home) %></th>
-	<th></th>
-	<th></th>
-	<th></th>
-	<th><%= t(:away) %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-	<th></th>
-  </tr>
+<h1 class="subtitle"><%= t(:listing_calendars) %></h1>
 
-<% @calendars.each do |calendar| %>
-  <tr>
-    <td><%= calendar.day.to_s(:day) %></td>
-	<td><%= image_tag("escudos/#{calendar.home.label}.png", :size => "45x45", :alt => "#{calendar.home.name}") %></td>
-	<td><%= calendar.home.name %></td>
-	<td>x</td>
-	<td><%= calendar.away.name %></td>
-	<td><%= image_tag("escudos/#{calendar.away.label}.png", :size => "45x45", :alt => "#{calendar.away.name}") %></td>
-	<td>
-		<% if can? :formations_matches, calendar %>
-			<% if calendar.contains_formations? %>
-				<%= link_to t(:formations_sended), formations_matches_path(calendar), :class => "btn success" %>				
-			<% else %>
-				<%= button_tag t(:formations_sended), :class => "btn disabled success" %>
+<section id="calendars-section">
+	<div class="record-list">
+		<ul>
+			<% @calendars.each do |calendar| %>
+            	<li>
+					<p class="match-day"><%= calendar.day.to_s(:day) %></p>
+					<p class="home-team">
+						<%= image_tag("escudos/#{calendar.home.label}.png", :size => "45x45", :alt => "#{calendar.home.name}") %>
+						<%= calendar.home.name %>
+					</p>
+					<p class="x">x</p>
+					<p class="away-team">
+						<%= calendar.away.name %>
+						<%= image_tag("escudos/#{calendar.away.label}.png", :size => "45x45", :alt => "#{calendar.away.name}") %>
+					</p>
+					<% if can? :formations_matches, calendar %>
+							<% if calendar.contains_formations? %>
+								<%= link_to "", formations_matches_path(calendar), :class => "formations" %>				
+							<% else %>
+								<%= button_tag "", :class => "formations disabled" %>
+							<% end %>
+
+					<% end %>
+					<% if can? :edit, calendar %>
+						<%= link_to "", edit_calendar_path(calendar), :class => "edit" %>
+					<% end %>
+					<% if can? :destroy, calendar %>
+						<%= link_to "", calendar, :confirm => t(:are_you_sure), :method => :delete, :class => "destroy" %>
+					<% end %>
+				</li>
 			<% end %>
-			
-		<% end %>
-	</td>
-	<td>
-		<% if can? :show, calendar %>
-			<%= link_to t(:show), calendar, :class => "btn" %>
-		<% end %>
-	</td>
-    <td>
-		<% if can? :edit, calendar %>
-			<%= link_to t(:edit), edit_calendar_path(calendar), :class => "btn primary" %>
-		<% end %>
-	</td>
-	<td>
-		<% if can? :destroy, calendar %>
-			<%= link_to t(:destroy), calendar, :confirm => t(:are_you_sure), :method => :delete, :class => "btn danger" %>
-		<% end %>
-	</td>
-  </tr>
-<% end %>
-</table>
-<br />
+		</ul>
+	</div>
+</section>
 
 <% if can? :create, Calendar %>
 	<div class="actions">

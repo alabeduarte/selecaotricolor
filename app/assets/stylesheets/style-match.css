@@ -142,38 +142,36 @@
 }
 
 /* Buttons */
-.record-list ul li .edit {
+.record-list ul li .button {
 	cursor: pointer;
-	position: absolute;
-	margin-left: 5%;
-	margin-top: 6px;
+	position: relative;
+	margin-left: 3%;
 	width: 32px;
 	height: 32px;
+	padding-left: 32px;
+	padding-bottom: 20px;
+}
+.record-list ul li .button.edit {
 	background-image: url(../../assets/icons/edit.png);
 }
 
-.record-list ul li .destroy {
-	cursor: pointer;
-	position: absolute;
-	margin-left: 10%;
-	width: 32px;
-	height: 32px;
+.record-list ul li .button.destroy {
 	background: transparent url(../../assets/icons/destroy.png);
 }
 
-.record-list ul li .formations {
-	cursor: pointer;
-	position: absolute;
+.record-list ul li .button.formations {
 	width: 48px;
 	height: 48px;
+	padding-left: 48px;
+	padding-bottom: 24px;
 	background: transparent url(../../assets/icons/football.png);
 }
 
-.record-list ul li .edit:hover, .record-list ul li .destroy:hover, .record-list ul li .formations:hover {
+.record-list ul li .button:hover {
 	opacity: 0.8;
 }
 
-.record-list ul li .edit.disabled:hover, .record-list ul li .destroy.disabled:hover, .record-list ul li .formations.disabled:hover {
+.record-list ul li .button.disabled:hover {
 	opacity: 0.5;
 	cursor: default;
 }

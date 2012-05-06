@@ -18,17 +18,17 @@
 					</p>
 					<% if can? :formations_matches, calendar %>
 							<% if calendar.contains_formations? %>
-								<%= link_to "", formations_matches_path(calendar), :class => "formations" %>				
+								<%= link_to "", formations_matches_path(calendar), :class => "button formations" %>				
 							<% else %>
-								<%= button_tag "", :class => "formations disabled" %>
+								<%= button_tag "", :class => "button formations disabled" %>
 							<% end %>
 
 					<% end %>
 					<% if can? :edit, calendar %>
-						<%= link_to "", edit_calendar_path(calendar), :class => "edit" %>
+						<%= link_to "", edit_calendar_path(calendar), :class => "button edit" %>
 					<% end %>
 					<% if can? :destroy, calendar %>
-						<%= link_to "", calendar, :confirm => t(:are_you_sure), :method => :delete, :class => "destroy" %>
+						<%= link_to "", calendar, :confirm => t(:are_you_sure), :method => :delete, :class => "button destroy" %>
 					<% end %>
 				</li>
 			<% end %>

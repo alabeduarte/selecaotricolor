@@ -418,12 +418,12 @@ function send() {
 
 function desableSenderButton() {
 	$('#send_button').attr('disabled', 'disabled');
-	$('#send_button').removeClass("btn danger send").addClass("btn disabled send");	
+	$('#send_button').addClass("disabled");	
 }
 
 function enableSenderButton() {
 	$("#send_button").removeAttr("disabled");
-	$('#send_button').removeClass("btn disabled send").addClass("btn danger send");
+	$('#send_button').removeClass("disabled");
 }
 
 function cAlert(title, msg) {

@@ -63,9 +63,15 @@
 	margin-right: 35px;
 }
 
-.new-formation {	
+.actions {	
 	margin: 0 auto;
-	margin-bottom: 8%;
+	padding-bottom: 20px;
+	position: relative;
+}
+
+.actions.large {	
+	margin: 0 auto;
+	margin-bottom: 12%;
 	padding-bottom: 20px;
 	position: relative;
 }
@@ -179,7 +185,7 @@
 .button.new-formation-btn {
 	cursor: pointer;
 	padding-left: 256px;
-	padding-bottom: 93px;
+	padding-bottom: 100px;
 	background: url(../../assets/icons/new-formation-btn.png) no-repeat;
 	
 	

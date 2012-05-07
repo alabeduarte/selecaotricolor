@@ -1,19 +1,8 @@
 <% content_for :title, "#{t(:listing_formations)} :: #{@match.home.name} x #{@match.away.name}" %>
-<h1 class="subtitle"><%= "#{@match.home.name} x #{@match.away.name} :: #{@match.day.to_s(:day)}" %></h1>
-	<div class="jogo center">
-	    <div class="time">
-			<%= image_tag("escudos/#{@match.home.label}.png", :size => "45x45", :alt => "#{@match.home.name}") %>
-			<span class="team-home-name"><%= "#{@match.home.name}" %></span>
-        </div>
-        <div class="x">x</div>
-        <div class="time">
-        	<%= image_tag("escudos/#{@match.away.label}.png", :size => "45x45", :alt => "#{@match.away.name}") %>
-			<span class="team-away-name"><%= "#{@match.away.name}" %></span>
-        </div>
-    </div>
+<%= render :partial => "calendars/match_info", :locals => { :match => @match } %>
 
 <% if @match == Calendar.next_match %>
-	<div class="new-formation">
+	<div class="actions large">
 		<%= link_to "", new_path, :class => "button new-formation-btn" %>
 	</div>	
 <% end %>

@@ -38,7 +38,6 @@ class FirstTeamsController < ApplicationController
   def show
     @first_team = FirstTeam.find(params[:id])
     @formation = @first_team.formation
-    @players_positions = @formation.players_ordered_by_positions
     respond_to do |format|
       format.html
       format.json  { 

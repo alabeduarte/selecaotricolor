@@ -29,7 +29,7 @@
 	</div>
 	<div class="hero-unit">
 	<div id="call_up" class="show">          		
-		<%= render :partial => "formations/players_holders" %>
+		<%= render :partial => "formations/players_holders", :locals => { :players_positions => @formation.players_ordered_by_positions } %>
 	</div>
 	<div id="soccerField" class="soccer-field-grass show">
 		<div id="emptySlot"></div>

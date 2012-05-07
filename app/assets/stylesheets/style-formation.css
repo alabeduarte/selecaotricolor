@@ -1,13 +1,13 @@
 .droppable-area {
-	height: 1200px;
-	width: 1113px;
+	height: 600px;
+	width: 419px;
 }
 
 #soccerField {
 	position: absolute;
-	height: 550px;
-	width: 1113px;	
-	margin-left: 0px;
+	height: 600px;
+	width: 419px;
+	margin-left: 50px;
 	margin-top: 50px;
 	cursor: default;
 }
@@ -20,22 +20,24 @@
 
 .positions-map {
 	position: absolute;
-	height: 550px;
-	width: 1113px;
+	height: 600px;
+	width: 419px;
 	background-image: url(../../assets/soccer_field_positions.png);
 	border: none;
 	background-repeat: no-repeat;
-	margin-left: 0px;
+	margin-left: 50px;
 	margin-top: 50px;
 	cursor: default;
 	display: none;
 }
 
 .pills.positions a {
-	color: #FFF;
+	font-size: 14px;
+	float: left;
 }
 
 #player {
+	/*
 	background-color: #00008B;
 	background-repeat: repeat-x;
 	background-image: -khtml-gradient(linear, left top, left bottom, from(#00008B), to(#8B0000));
@@ -45,11 +47,12 @@
 	background-image: -webkit-linear-gradient(top, #00008B, #8B0000);
 	background-image: -o-linear-gradient(top, #00008B, #8B0000);
 	background-image: linear-gradient(top, #00008B, #8B0000);
+	*/
 	
 	position: relative;
 	float: left;
-	margin: 16px 0 0 379px;
-	width: 420px;	
+	margin: 49px 0 0 429px;
+	width: 466px;	
 	height: 490px;
 	overflow: auto;
 	overflow-x: hidden;
@@ -81,7 +84,7 @@
 	position: relative;
 	margin-right: 70px;
 	margin-bottom: 40px;
-	margin-left: 10px;
+	margin-left: 15px;
 	float: left;
 }
 
@@ -101,7 +104,7 @@
 	width: 340px;
 	padding: 0;	
 	float: left;
-	margin: 99px 0 0 14px;
+	margin: 99px 0 0 64px;
 	cursor: default;
 }
 
@@ -277,7 +280,7 @@
 #forwards, #midfield, #midfield_defense, #left_back, #defender, #right_back, #goalkeepers {
 	position: relative;
 	float: left;
-	width: 444px;
+	width: 100%;
 }
 
 [class*="show"] {
@@ -331,7 +334,9 @@
 }
 
 .legend {
-	margin-bottom: 0px;
+	width: 20%;
+	height: 33px;
+	margin-left: 5%;
 }
 
 .legend ul {
@@ -345,7 +350,7 @@
 	position: relative;
 	margin: 3px;
 	padding: 3px;
-	float: right;
+	float: left;
 }
 
 .defense {

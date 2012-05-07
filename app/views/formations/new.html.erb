@@ -1,56 +1,55 @@
-<% content_for :title, t(:new_formation) %>
-<div class="new-formation">	
-<%= render :partial => "calendars/next_match_info" %>
-	<center>
-		<div class="new-formation">
-			<%= link_to "Refazer", :new, :class => "btn primary" %>			
-			<button onclick="send();" id="send_button" name="button" class="button new-formation send">Enviar</button>
+<% content_for :title, t(:new_formation) %>	
+<%= render :partial => "calendars/match_info", :locals => { :match => Calendar.next_match } %>
+<div class="legend">
+	<ul>
+		<li class="defense">Defesa</li>
+		<li class="midfield">Meio Campo</li>
+		<li class="forward">Ataque</li>
+	</ul>
+</div>
+<div class="droppable-area">
+	<div id="soccerField" class="soccer-field-grass"></div>
+	<div id="positionMap" class="positions-map"></div>
+	<% if user_signed_in? %>	
+	<div id="player">
+		<div id="others" >
 		</div>
-	</center>
-	<div class="legend">
-		<ul>
-			<li class="defense">Defesa</li>
-			<li class="midfield">Meio Campo</li>
-			<li class="forward">Ataque</li>
-		</ul>
+		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Atacantes</span></a></h5>		
+		<div id="forwards" >
+		</div>
+		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Meias</span></a></h5>		
+		<div id="midfield" >
+		</div>
+		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Volantes</span></a></h5>		
+		<div id="midfield_defense" >
+		</div>
+		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Laterais Esquerdos</span></a></h5>		
+		<div id="left_back" >
+		</div>
+		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Zagueiros</span></a></h5>		
+		<div id="defender" >
+		</div>
+		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Laterais Direitos</span></a></h5>		
+		<div id="right_back" >
+		</div>
+		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Goleiros</span></a></h5>		
+		<div id="goalkeepers" >
+		</div>
 	</div>
-	<div class="droppable-area">
-		<div id="soccerField" class="soccer-field-grass"></div>
-		<div id="positionMap" class="positions-map"></div>
-		<% if user_signed_in? %>	
-		<div id="player">
-			<div id="others" >
-			</div>
-			<h5 class="pills positions"><a href="#">Atacantes</a></h5>		
-			<div id="forwards" >
-			</div>
-			<h5 class="pills positions"><a href="#">Meias</a></h5>		
-			<div id="midfield" >
-			</div>
-			<h5 class="pills positions"><a href="#">Volantes</a></h5>		
-			<div id="midfield_defense" >
-			</div>
-			<h5 class="pills positions"><a href="#">Laterais Esquerdos</a></h5>		
-			<div id="left_back" >
-			</div>
-			<h5 class="pills positions"><a href="#">Zagueiros</a></h5>		
-			<div id="defender" >
-			</div>
-			<h5 class="pills positions"><a href="#">Laterais Direitos</a></h5>		
-			<div id="right_back" >
-			</div>
-			<h5 class="pills positions"><a href="#">Goleiros</a></h5>		
-			<div id="goalkeepers" >
-			</div>
-		</div>
-		<% end %>
+	<% end %>
 	<div id="slot"></div>
-	</div>
-	<div id="matrix"></div>
-
+</div>
+<div id="matrix"></div>
+<div class="actions">
+	<button onclick="send();" id="send_button" name="button" class="button new-formation-btn send">Enviar</button>
+</div>
+<%= content_for :footer_resources do %>
+	<%= render :partial => "formations/countdown" %>
+<% end %>
 <%= content_for :javascript do %>
 	$( init_soccer_field );
 	
+	/*
 	$(function(){
 	    $.contextMenu({
 	        selector: '.context-menu-one', 
@@ -70,5 +69,5 @@
 	        }
 	    });
 	});
+	*/
 <% end %>
-</div>

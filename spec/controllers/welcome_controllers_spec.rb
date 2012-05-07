@@ -7,7 +7,8 @@ describe WelcomeController do
   context "GET 'index" do
     it "should show main action" do      
       User.should_receive(:top_scorers_of).with(5)
-      FirstTeam.should_receive(:last_of_the_round)      
+      FirstTeam.should_receive(:last_of_the_round)
+      Calendar.should_receive(:next_match)     
       get :index, :link => {:url => "http://localhost:3000/"}
     end
     
@@ -56,7 +57,7 @@ describe WelcomeController do
       end
     end
     
-    context "when match dont exist" do
+    context "when last match dont exist" do
       it "should NOT show squad of the round" do
         FirstTeam.stub(last_of_the_round: first_team)
         first_team.stub(formation: formation)
@@ -69,14 +70,13 @@ describe WelcomeController do
 
 private
   def should_assign(args)
+    assigns[:next_match].should eq(args[:next_match])
     assigns[:recent_winners].should eq(args[:recent_winners])
     assigns[:formation].should eq(args[:formation])
-    assigns[:players_positions].should eq(args[:players_positions])
   end
 
   def should_not_assign
     assigns[:recent_winners].should eq(nil)
     assigns[:formation].should eq(nil)
-    assigns[:players_positions].should eq(nil)
   end
 end

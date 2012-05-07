@@ -6,20 +6,11 @@
 	</div>
 	<%= image_tag('welcome.png', :size => "620x219", :alt => "Seleção Tricolor") %>
 	<h1 class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
-	<% if Calendar.next_match %>
-		<div class="new-formation">
+	<% if @next_match %>
+		<div class="actions large">
 			<%= link_to "", new_path, :class => "button new-formation-btn" %>
-		</div>	
-	<% else %>
-		<% if !user_signed_in? %>
-			<div class="signed-in">
-				<%= render :partial => "users/facebook_authentication" %>
-				<div class="login-links">
-					<%= link_to "Login Alternativo", "login", :class => "btn primary small" %>
-					<%= link_to "Ainda não sou cadastrado(a)!", "registration", :class => "btn danger small" %>
-				</div>
-			</div>
-		<% end %>
+		</div>
+		<%= render :partial => "formations/countdown" %>
 	<% end %>
 </div>
 	<% if @formation %>
@@ -27,7 +18,7 @@
 			<h2 class="tactical"><%= "#{@formation.tactical}" %></h2>			
 		</div>
 		<div class="last-squad-of-the-round">
-			<%= render :partial => "formations/players_holders" %>			
+			<%= render :partial => "formations/players_holders", :locals => { :players_positions => @formation.players_ordered_by_positions } %>			
 			<div id="soccerField" class="soccer-field-grass show">
 				<div id="emptySlot"></div>
 			</div>

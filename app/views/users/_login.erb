@@ -1,0 +1,29 @@
+<% if !user_signed_in? %>
+	<%= form_for User.new, :url => login_path, :method => :post do |f| %>	
+		<fieldset class="login">
+			<ol>
+				<li>
+					<%= f.email_field :email, :placeholder => t(:email) %>
+				</li>
+				<li>
+					<%= f.password_field :password, :placeholder => t(:password), :class => 'small' %>
+				</li>	
+				<li class="login-btn">
+					<%= f.submit "ENTRAR", :class => "btn primary" %>
+				</li>									
+				<li class="boolean">
+					<label class="" for="user_remember_me" name="user[remember_me]">
+						<div class="checker" id="uniform-user_remember_me">
+							<span class="">
+								<%= f.check_box :remember_me %>
+							</span>
+						</div><%= t(:remember_me) %>
+					</label>
+				</li>
+				<li id="forgot_password" class="pills">
+					<%= link_to "#{t(:forgot_your_password)}", new_password_path(:user) %>
+				</li>				
+			</ol>	
+		</fieldset>
+	<% end %>
+<% end %>

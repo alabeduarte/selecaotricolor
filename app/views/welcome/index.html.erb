@@ -1,10 +1,10 @@
 <% content_for :title, "Escale o seu Time!" %>
-<div class="welcome">
-	<h1><b>Bem-vindo!</b></h1>
+<%= render :partial => "users/facebook_authentication" %>
+<%= link_to "Cadastrar sem Facebook", new_registration_path(:user), :class => "btn danger" %>
+<div class="welcome">	
 	<div class="title">
 		<%= render :partial => 'formations/facebook_like', :locals => {:uri => current_uri} %>
 	</div>
-	<%= image_tag('welcome.png', :size => "620x219", :alt => "Seleção Tricolor") %>
 	<h1 class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
 		<div class="actions large">

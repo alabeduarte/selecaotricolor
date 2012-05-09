@@ -1,20 +1,14 @@
-	<%= form_tag Formation.new, :html => {:class => "well form-search"} do |f| %>
-		<div class="clearfix">
-	  		<div>
-				<div class="input">
-					<%= select("match", "id", @matches.collect {|m| [ m, m.id ] }) %>
-				</div>
-			</div>
+<% content_for :title, "Tática Oficial" %>
+<h1 class="subtitle">Tática Oficial</h1>
+	<%= form_tag Formation.new do |f| %>
+		<div class="input">
+			<%= select("match", "id", @matches.collect {|m| [ m, m.id ] }) %>			
 	  	</div>
 	<% end %>
-	<div class="new_formation_invitation">
-		<h2>Tática Oficial</h2>
-		<div class="new_formation_actions">
-			<%= link_to "Refazer", :new, :class => "btn primary" %>		
-			<button id="send_button" name="button" class="btn danger send">Enviar</button>
-		</div>
-	</div>	
-	<div class=".droppable-area">
+	<div class="new_formation_actions">
+		<button id="send_button" name="button" class="btn danger send">Enviar</button>
+	</div>
+	<div class="droppable-area">
 		<div id="soccerField" class="soccer-field-grass">
 		</div>
 		<% if user_signed_in? %>	
@@ -44,9 +38,9 @@
 			</div>
 		</div>
 		<% end %>
-	<div id="slot"></div>
+		<div id="slot"></div>
+		<div id="matrix"></div>
 	</div>
-	<div id="matrix"></div>
 
 <%= content_for :javascript do %>
 	$( init_soccer_field_to_first_team );

@@ -1,41 +1,49 @@
-<h1><%= t(:listing_formations) %></h1>
-<table class="zebra-striped">
-  <tr>
-	<th><%= t(:sended_to) %></th>
-	<th><%= t(:tactical) %></th>
-	<th><%= t(:created_at) %></th>
-	<th><%= t(:day) %></th>
-	<th><%= t(:home) %></th>
-	<th></th>
-	<th></th>
-	<th></th>
-	<th><%= t(:away) %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @first_teams.each do |first_team| %>
-  <tr>
-	<td><%= first_team.formation.owner.nickname %></td>
-	<td><%= first_team.formation.try(:tactical) %></td>
-	<td><%= first_team.formation.created_at.to_s(:day) %></td>
-	<td><%= first_team.formation.match.day.to_s(:day) %></td>
-	<td><%= image_tag("escudos/#{first_team.formation.match.home.label}.png", :size => "45x45", :alt => "#{first_team.formation.match.home.name}") %></td>
-	<td><%= first_team.formation.match.home.name %></td>
-	<td>x</td>
-	<td><%= first_team.formation.match.away.name %></td>
-	<td><%= image_tag("escudos/#{first_team.formation.match.away.label}.png", :size => "45x45", :alt => "#{first_team.formation.match.away.name}") %></td>
-    <td><%= link_to t(:show), first_team, :class => "btn" %></td>
-    <td>
-		<% if can? :destroy, first_team %>
-			<%= link_to t(:destroy), first_team, :confirm => t(:are_you_sure), :method => :delete, :class => "btn error" %>
-		<% end %>
-	</td>
-  </tr>
-<% end %>
-</table>
-<br />
-<div class="actions">
-	<%= link_to t(:new_formation), :new_first_team, :class => "btn small primary" %>
+<% content_for :title, "Táticas Oficiais" %>
+<h1 class="subtitle">Táticas Oficiais</h1>
+<div class="actions large">
+	<%= link_to "", :new_first_team, :class => "button new-formation-btn" %>
 </div>
+<% if @first_teams.empty? %>
+<table>
+	<tr class="empty-table">
+		<th colspan="6"> <%= t(:formations_not_sended) %> </th>
+	</tr>
+</table>
+<% else %>
+	<section id="record-section">
+		<div class="record-list formations">
+			<ul>
+				<% @first_teams.each do |first_team| %>
+					<li>
+						<fieldset>
+							<legend>
+								<span>
+									<%= "#{t(:created_at)} #{first_team.formation.created_at.to_s(:day)}" %>
+								</span>
+							</legend>
+							<%= image_tag(first_team.formation.owner.image, :size => "25x25") %>
+							<p class="creator">
+								<strong>
+									<i><%= first_team.formation.owner.nickname %></i>
+								</strong>
+							</p>
+							<p class="home-team">
+								<%= image_tag("escudos/#{first_team.formation.match.home.label}.png", :size => "45x45", :alt => "#{first_team.formation.match.home.name}") %>
+								<%= first_team.formation.match.home.name %>
+							</p>
+							<p class="x">x</p>
+							<p class="away-team">
+								<%= first_team.formation.match.away.name %>
+								<%= image_tag("escudos/#{first_team.formation.match.away.label}.png", :size => "45x45", :alt => "#{first_team.formation.match.away.name}") %>
+							</p>												
+							<p class="tactical"><%= first_team.formation.tactical %></p>					
+							<%= link_to "", first_team, :class => "button formations" %>
+							<% if can? :destroy, first_team %>
+								<%= link_to "", first_team, :confirm => t(:are_you_sure), :method => :delete, :class => "button destroy" %>
+							<% end %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</section>
+<% end %>

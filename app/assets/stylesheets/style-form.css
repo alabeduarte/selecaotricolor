@@ -120,6 +120,32 @@ fieldset.register {
 	margin-left: 15%;
 }
 
+fieldset.configurations {
+	margin-left: 8%;
+}
+
+fieldset.configurations label {
+	padding-right: 3px;
+}
+
+fieldset.configurations input[type="text"], fieldset.configurations input[type="email"], fieldset.configurations input[type="password"] {
+	width: 420px;
+}
+
+fieldset.configurations input[type="submit"] {
+	margin-left: 150px;
+}
+
+fieldset.configurations input.hint {
+	font-size: 11px;
+}
+
+.cancel-account {
+	text-align: left;
+	font-size: 12px;
+	margin-left: 5%;
+}
+
 .terms-content {
 	font-size: 14px;
 	color: #191970;

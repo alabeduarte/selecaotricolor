@@ -22,7 +22,13 @@
 				</li>
 				<li id="forgot_password" class="pills">
 					<%= link_to "#{t(:forgot_your_password)}", new_password_path(:user) %>
-				</li>				
+				</li>
+				<li>
+					<%= render :partial => "users/facebook_authentication" %>
+				</li>
+				<li class="pills register">
+					<%= link_to "#{t(:sign_up)}", new_registration_path(:user) %>
+				</li>		
 			</ol>	
 		</fieldset>
 	<% end %>

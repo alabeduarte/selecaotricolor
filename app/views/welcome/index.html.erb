@@ -1,16 +1,20 @@
 <% content_for :title, "Escale o seu Time!" %>
-<%= render :partial => "users/facebook_authentication" %>
-<%= link_to "Cadastrar sem Facebook", new_registration_path(:user), :class => "btn danger" %>
+<% if !user_signed_in? %>
+	<%= render :partial => "users/facebook_authentication" %>
+	<%= link_to "Cadastrar sem Facebook", new_registration_path(:user), :class => "btn danger" %>
+<% end %>
 <div class="welcome">	
 	<div class="title">
 		<%= render :partial => 'formations/facebook_like', :locals => {:uri => current_uri} %>
 	</div>
 	<h1 class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
-		<div class="actions large">
-			<%= link_to "", new_path, :class => "button new-formation-btn" %>
-		</div>
-		<%= render :partial => "formations/countdown" %>
+		<% if user_signed_in? %>
+			<div class="actions large">
+				<%= link_to "", new_path, :class => "button new-formation-btn" %>
+			</div>
+			<%= render :partial => "formations/countdown" %>
+		<% end %>
 	<% end %>
 </div>
 	<% if @formation %>

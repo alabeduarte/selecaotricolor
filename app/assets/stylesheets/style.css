@@ -6,6 +6,15 @@ table {
 	border-collapse:collapse;border-spacing:0;
 }
 
+#logo {
+	width: 430px;
+	float: left;
+	height: 121px;
+	margin-left: 19px;
+	position: absolute;
+	cursor: pointer;
+}
+
 .title h1, .title h2, .title h3 {
 	color: #CD0000;
 	text-shadow: 0 2px 0 #0000CD;
@@ -123,7 +132,7 @@ h1.subtitle {
 }
 
 .footer-info {
-	margin-bottom: 30px;
+	margin-bottom: 130px;
 }
 
 .footer-info ul {
@@ -261,16 +270,6 @@ h1.subtitle {
 .next_match_info li {
 	color: #1E90FF;
 	list-style: none;	
-}
-
-.logo {
-	background-image: url(../../assets/selecaotricolor_logo.png);	
-	height: 60px;
-	width: 370px;
-	background-repeat: no-repeat;
-	margin-top: 0px;
-	margin-left: 370px;
-	position: absolute;
 }
 
 .user_actions {
@@ -532,25 +531,6 @@ h1.subtitle {
 	padding-bottom: 18px;
 	padding-right: 0px;
 	padding-left: 0px;
-}
-
-.content-area {
-	color: #0000CD;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-}
-
-.content-area li {
-	color: #0000FF;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-}
-
-.content-area.right {
-	margin-left: 570px;
-}
-
-.content-area.left {
-	margin-right: 390px;
-	margin-top: -380px;
 }
 
 .menu.formation {

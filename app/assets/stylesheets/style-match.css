@@ -76,7 +76,7 @@
 	position: relative;
 }
 
-#formation-list-section, #calendars-section {
+section {
 	height: 100%;
 }
 
@@ -123,11 +123,15 @@
 	background-color: #f5f5f5;
 }
 
+.record-list ul li.selected:hover, .record-list ul li.selected:hover p, .record-list ul li.selected:hover legend  {
+	background-color: #1874CD;
+}
+
 .record-list ul li:active {
 	background-color: #FFF;
 }
 
-.record-list ul li.selected, .record-list ul li.selected p {
+.record-list ul li.selected, .record-list ul li.selected p, .record-list ul li.selected legend {
 	background-color: #104E8B;
 	color: #E8E8E8;
 	text-shadow: 0 2px 0 #B22222;
@@ -224,33 +228,47 @@
 	margin-top: 20px;
 }
 
-#calendars-section .record-list {
+section .record-list {
 	height: 100%;
 	width: 86%;
 }
 
-#calendars-section ul li {
+#record-section .record-list ul li {
 	cursor: default;
 }
 
-#calendars-section .x {
-	width: 5%;
+#record-section .record-list ul li .x {
+	width: 2%;
 }
 
-#calendars-section .home-team, #calendars-section .away-team {
-	font-size: 14px;
+.home-team, .away-team {
+	font-size: 11px;
 	color: #708090;
-	vertical-align:text-bottom;
 }
 
-#calendars-section .home-team {
+.home-team {
 	width: 20%;
 }
 
-#calendars-section .away-team {
+.away-team {
 	width: 30%;
 }
 
-#calendars-section .home-team:hover img, #calendars-section .away-team:hover img {
+.home-team:hover img, .away-team:hover img {
 	opacity: 0.7;
+}
+
+.record-list.formations ul li p.home-team, .record-list.formations ul li p.away-team {
+	font-size: 11px;
+}
+
+.record-list.formations ul li fieldset {
+	margin: 0px;
+	padding: 0px;
+}
+
+.record-list.formations ul li fieldset legend {
+	font-size: 12px;
+	text-align: left;
+	margin-left: 0px;
 }

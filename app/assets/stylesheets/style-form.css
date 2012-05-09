@@ -62,6 +62,19 @@ form fieldset.login ol li.login-btn {
 	margin-right: 5px;
 }
 
+form fieldset.login ol li .fb_button {
+	width: 136px;
+	height: 31px;
+	font-size: 14px;
+	margin-top: -6px;
+	position: absolute;
+}
+
+form fieldset.login ol li.register {
+	margin-left: -159px;
+	margin-top: 21px;
+}
+
 label {
 	padding-top: 6px;
 	font-size: 13px;
@@ -71,7 +84,7 @@ label {
 	text-align: right;
 }
 
-fieldset legend{
+fieldset legend {
 	display:block;
 	padding-left:150px;
 	font-size:19.5px;
@@ -80,8 +93,46 @@ fieldset legend{
 	line-height:1.5;
 }
 
-.login-options {
+ul.login-options {
+	margin-left: 13%;
+	list-style: none;
+	text-align: left;
+	width: 39%;
+}
 
+ul.login-options li {
+	margin-bottom: 10px;
+}
+
+ul.login-options li .fb_button {
+	margin: 0px;
+}
+
+ul.login-options li a {
+	margin-left: -16px;
+}
+
+ul.login-options li a.btn {
+	margin-left: 0px;
+}
+
+fieldset.register {
+	margin-left: 15%;
+}
+
+.terms-content {
+	font-size: 14px;
+	color: #191970;
+	text-align: justify;
+	position: absolute;
+	top: 10%;
+	left: 52%;
+	width: 398px;
+}
+
+.terms-content.left {
+	left: 7%;
+	width: 87%;
 }
 
 form{margin-bottom:18px;}

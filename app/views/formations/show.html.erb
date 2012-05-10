@@ -1,44 +1,30 @@
 <% content_for :title, "em #{@formation.match}, meu #{Team.bahia.name} joga com #{@formation.tactical}" %>
-<center>
-	<%= image_tag("seriea699x278.png", :size => "699x278", :alt => "Seleção Tricolor") %>
-</center>	
-	<div class="hero-unit show">
-		<div class="formation_header">
-			<h2 class="subtitle"><%= "#{t(:tactical)}: #{@formation.tactical}" %></h2>			
-		</div>
-	<div id="call-up" class="show">          		
-		<%= render :partial => "formations/players_holders", :locals => { :players_positions => @formation.players_ordered_by_positions } %>
-	</div>
-	<div id="soccerField" class="soccer-field-grass show">
-		<div id="emptySlot"></div>
-	</div>		
-	<div id="creator-info" class="show">
-		<ul>
-			<li><%= "#{t(:sended_to)}" %></li>
-			<li>
-				<span><%= image_tag(@formation.owner.image, :size => "25x25") %></span> :: <span><b><%= "#{@formation.owner.nickname} - #{@formation.owner.score}" %></b></span>
-</li>
-			<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
-			<li>
-					    <div class="time">
-							<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
-							<span class="team-home-name"><%= "#{@formation.match.home.name}" %></span>
-				        </div>
-				        <div class="x">x</div>
-				        <div class="time">
-				        	<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
-							<span class="team-away-name"><%= "#{@formation.match.away.name}" %></span>
-				        </div>
-				</li>
-		</ul>		         		
-	</div>
-	<%= render :partial => 'facebook_like' %>	
-	<%= render :partial => "formations/share" %>
-	<%= render :partial => 'facebook_comments' %>
-	</div>
-	<div id="matrix"></div>
-	<div id="json"></div>
-
+<h1 class="subtitle"><%= "#{@formation.match}" %></h1>
+<div class="formation-header large">
+	<h2 class="tactical"><%= "#{@formation.tactical}" %></h2>			
+</div>
+<%= render :partial => "formations/players_holders", :locals => { :players_positions => @formation.players_ordered_by_positions } %>			
+<div id="soccerField" class="soccer-field-grass show-formation">
+	<div id="emptySlot"></div>
+</div>
+<div id="creator-info" class="show formation">
+	<ul>
+		<li><%= image_tag(@formation.owner.image, :size => "45x45") %></li>
+		<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
+		<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
+		<li class="jogo">
+			<div class="time">
+				<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
+				<span class="team-home-name"><%= "#{@formation.match.home.name}" %></span>
+	        </div>
+	        <div class="x">x</div>
+	        <div class="time">
+	        	<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
+				<span class="team-away-name"><%= "#{@formation.match.away.name}" %></span>
+	        </div>
+		</li>
+	</ul>		         		
+</div>
 <%= content_for :javascript do %>
 	$( load_soccer_field );
 	$( load_formation );	

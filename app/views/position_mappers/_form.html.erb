@@ -10,32 +10,45 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :x_min %><br />
-    <%= f.number_field :x_min %>
+<fieldset class="register">
+  <div class="clearfix">
+    <%= f.label :x_min %>
+	<div class="input">
+    	<%= f.number_field :x_min %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :x_max %><br />
-    <%= f.number_field :x_max %>
+  <div class="clearfix">
+    <%= f.label :x_max %>
+	<div class="input">
+    	<%= f.number_field :x_max %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :y_min %><br />
-    <%= f.number_field :y_min %>
+  <div class="clearfix">
+    <%= f.label :y_min %>
+	<div class="input">
+    	<%= f.number_field :y_min %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :y_max %><br />
-    <%= f.number_field :y_max %>
+  <div class="clearfix">
+    <%= f.label :y_max %>
+	<div class="input">
+    	<%= f.number_field :y_max %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+  <div class="clearfix">
+    <%= f.label :description %>
+	<div class="input">
+    	<%= f.text_field :description %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
+  <div class="clearfix">
+    <%= f.label :code %>
+	<div class="input">
+    	<%= f.text_field :code %>
+	</div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="clearfix">
+    <%= f.submit "Salvar", :class => "btn" %>
   </div>
+</fieldset>
 <% end %>

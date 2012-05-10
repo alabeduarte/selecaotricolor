@@ -1,0 +1,7 @@
+.record-list.players ul li form p input[type="checkbox"] {
+	margin-left: -77px;
+}
+
+.record-list.players ul li form p select {
+	margin-left: -133px;
+}

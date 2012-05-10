@@ -1,28 +1,20 @@
-<div class="title">
-	<h1><%= t(:teams) %></h1>
-</div>
-<table class="zebra-striped">
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @teams.each do |team| %>
-  <tr>
-    <td><%= team.name %></td>
-    <td><%= link_to 'Show', team, :class => "btn" %></td>
-    <td><%= link_to 'Edit', edit_team_path(team), :class => "btn primary" %></td>
-	<td>
-		<% if can? :destroy, team %>
-			<%= link_to t(:destroy), team, :confirm => t(:are_you_sure), :method => :delete, :class => "btn danger" %>
-		<% end %>
-	</td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Team', new_team_path %>
+<% content_for :title, t(:teams) %>
+<h1 class="subtitle"><%= t(:teams) %></h1>
+<%= link_to 'Novo', new_team_path, :class => "btn" %>
+<section id="record-section">
+	<div class="record-list">
+		<ul>
+			<% @teams.each do |team| %>
+				<li>
+					<p><%= team.name %></p>
+					<% if can? :edit, team %>
+						<%= link_to "", edit_team_path(team), :class => "button edit" %>
+					<% end %>
+					<% if can? :destroy, team %>
+						<%= link_to "", team, :confirm => t(:are_you_sure), :method => :delete, :class => "button destroy" %>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</section>

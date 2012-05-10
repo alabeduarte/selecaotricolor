@@ -10,12 +10,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<fieldset class="configurations">
+		<div class="clearfix">
+			<%= f.label :name %>
+			<div class="input">
+				<%= f.text_field :name %>
+			</div>
+		</div>
+		<div class="clearfix">
+			<%= f.submit :class => "btn" %>
+		</div>
+	</fieldset>
 <% end %>

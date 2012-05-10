@@ -1,43 +1,26 @@
-<div class="title">
-	<h1><%= t(:players) %></h1>
-</div>
-<table id="player_list" class="zebra-striped">
-  <tr>
-    <th class="header headerSortUp">Name</th>
-    <th class="header headerSortUp">Number</th>
-    <th>Time</th>
-	<th>Apto para jogar</th>
-	<th>Posição</th>	
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @players.each do |player| %>
-  <%= form_for(player) do |f| %>
-  <tr>
-    <td><%= player.name %></td>
-    <td><%= player.number %></td>
-    <td><%= f.collection_select(:team_id, Team.sort(:name), :id, :name, {:prompt => true}) %></td>
-	<td><%= f.check_box :enabled %></td>
-	<td><%= f.collection_select(:position_mapper_id, PositionMapper.all, :id, :description, {:prompt => true}) %></td>
-	<td><%= f.submit :class => "btn success" %></td>
-    <td><%= link_to t(:show), player, :class => "btn" %></td>
-    <td><%= link_to t(:edit), edit_player_path(player), :class => "btn primary" %></td>
-	<td>
-		<% if can? :destroy, player %>
-			<%= link_to t(:destroy), player, :confirm => t(:are_you_sure), :method => :delete, :class => "btn danger" %>
-		<% end %>
-	</td>
-  </tr>
-  <% end %>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Player', new_player_path %>
-
-<%= javascript_include_tag 'jquery.tablesorter.min' %>
-<%= render :partial => "players/player_list_sorter" %>
+<% content_for :title, t(:positions) %>
+<h1 class="subtitle"><%= t(:players) %></h1>
+<%= link_to 'Novo', new_player_path, :class => "btn" %>
+<section id="record-section">
+	<div class="record-list players">
+		<ul>
+			<% @players.each do |player| %>
+				<li>
+					<%= form_for(player) do |f| %>
+						<p><%= player.name %></p>
+					  	<p><%= player.number %></p>
+						<p><%= f.check_box :enabled %></p>
+						<p><%= f.collection_select(:position_mapper_id, PositionMapper.all, :id, :description, {:prompt => true}) %></p>
+						<p><%= f.submit :class => "btn success" %></p>
+					    <% if can? :edit, player %>
+							<%= link_to "", edit_player_path(player), :class => "button edit" %>
+						<% end %>
+						<% if can? :destroy, player %>
+							<%= link_to "", player, :confirm => t(:are_you_sure), :method => :delete, :class => "button destroy" %>
+						<% end %>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</section>

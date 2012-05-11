@@ -15,8 +15,19 @@ table {
 	cursor: pointer;
 }
 
+h1.app-description {
+	color: #B22222;
+	text-shadow: 0 2px 0 #191970;
+	font-family: Helvetica, sans-serif; /*"Squada One",cursive;*/
+	text-transform: uppercase;
+	z-index: 1;
+	padding: 10px 40px 8px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
 .title h1, .title h2, .title h3 {
-	color: #CD0000;
+	color: #191970;
 	text-shadow: 0 2px 0 #0000CD;
 	text-align: center;
 	margin: 2%;
@@ -37,7 +48,7 @@ table {
 }
 
 .welcome h2 {
-	color: #0000CD;
+	color: #191970;
 }
 
 .welcome ul {	
@@ -620,3 +631,11 @@ h1.subtitle {
 .facebookLogin div span {background-position: 0 -75px; color: #fff !important;}
 .facebookLogin:hover div span {background-position: 0 -100px;}
 .facebookLogin:active div span {background-position: 0 -125px;}
+
+.facebook-like {
+	float: left;
+	margin-top: -12px;
+	margin-left: -318px;
+	width: 1210px;
+	height: 80px;
+}

@@ -5,7 +5,7 @@ br { clear: both; }
   margin: 10px 7px;
   color: #000;
 }
-.desc { margin: 7px 3px; margin-left: 25%; margin-bottom: 10%; }
+.desc { margin: 7px 3px; margin-left: 25%; margin-bottom: 5%; }
 .desc div {
   float: left;
   font-family: Arial;

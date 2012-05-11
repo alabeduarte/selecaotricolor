@@ -4,20 +4,33 @@
 	<%= link_to "Cadastrar sem Facebook", new_registration_path(:user), :class => "btn danger" %>
 <% end %>
 <div class="welcome">	
-	<div class="title">
+	<div class="facebook-like">
 		<%= render :partial => 'formations/facebook_like', :locals => {:uri => current_uri} %>
 	</div>
-	<h1 class="subtitle">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
+	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
-		<% if user_signed_in? %>
+		<% if user_signed_in? %>		
+			<h1 class="subtitle">ESCALE O SEU TIME!</h1>
+			<a class="btn jogo" href="<%= "#{formations_matches_path}/#{@next_match.id}" %>">
+				<div class="time">
+					<%= image_tag("escudos/#{@next_match.home.label}.png", :size => "45x45") %>
+					<span class="team-home-name"><%= "#{@next_match.home.name}" %></span>
+				</div>
+			    <div class="x">x</div>
+			    <div class="time">
+			    	<%= image_tag("escudos/#{@next_match.away.label}.png", :size => "45x45") %>
+					<span class="team-away-name"><%= "#{@next_match.away.name}" %></span>
+			    </div>
+			 </a>			
+			<%= render :partial => "formations/countdown" %>
 			<div class="actions large">
 				<%= link_to "", new_path, :class => "button new-formation-btn" %>
-			</div>
-			<%= render :partial => "formations/countdown" %>
+			</div>			
 		<% end %>
 	<% end %>
 </div>
 	<% if @formation %>
+		<h1 class="subtitle">Partida Anterior</h1>
 		<div class="formation-header">
 			<h2 class="tactical"><%= "#{@formation.tactical}" %></h2>			
 		</div>
@@ -44,7 +57,7 @@
 				</ul>
 				<div class="recent-winners">
 					<div class="link">
-						<%= link_to "Táticas Enviadas para este jogo", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %>	
+						Para ver as táticas deste jogo, <%= link_to "clique aqui!", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %>
 					</div>
 					<% if @recent_winners.empty? %>
 						<ul>						

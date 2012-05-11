@@ -21,7 +21,7 @@
 									<%= "#{t(:created_at)} #{first_team.formation.created_at.to_s(:day)}" %>
 								</span>
 							</legend>
-							<%= image_tag(first_team.formation.owner.image, :size => "25x25") %>
+							<%= image_tag(first_team.formation.owner.image, :size => "25x25", :class => "user-avatar") %>
 							<p class="creator">
 								<strong>
 									<i><%= first_team.formation.owner.nickname %></i>

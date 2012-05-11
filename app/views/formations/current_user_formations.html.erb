@@ -10,8 +10,8 @@
 	<section id="record-section">
 		<div class="record-list formations">
 			<ul>
-				<% @formations.each_with_index.map do |formation, index| %>
-					<li class="<%= "selected" if index == 0 %>">
+				<% @formations.each do |formation| %>
+					<li>
 						<fieldset>
 							<legend>
 								<span>

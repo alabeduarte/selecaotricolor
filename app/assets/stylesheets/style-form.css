@@ -34,15 +34,13 @@ form fieldset.login ol li#forgot_password {
 }
 
 form fieldset.login ol li#forgot_password a {
-	font-family: "Helvetica",Arial,sans-serif;
-	font-size: 12px;
+	font-size: 15px;
 	line-height: 20px;
 }
 
 form fieldset.login ol li.boolean {
 	clear: right;
 	width: 161px;
-	font-family: "Helvetica",Arial,sans-serif;
 	color: #191970;
 	font-size: 12px;
 	line-height: 20px;
@@ -77,7 +75,7 @@ form fieldset.login ol li.register {
 
 label {
 	padding-top: 6px;
-	font-size: 13px;
+	font-size: 15px;
 	line-height: 18px;
 	float: left;
 	width: 146px;
@@ -137,7 +135,7 @@ fieldset.configurations input[type="submit"] {
 }
 
 fieldset.configurations input.hint {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .cancel-account {

@@ -1,5 +1,3 @@
 <% content_for :title, "E-mails" %>
-<div class="title">
-	<h1><%= t(:emails) %></h1>
-</div>
-<%= text_area_tag 'email', @emails, :disabled => true, :width => "100%", :height => "100%" %>
+<h1 class="subtitle"><%= t(:emails) %></h1>
+<%= text_area_tag 'email', @emails, :disabled => true %>

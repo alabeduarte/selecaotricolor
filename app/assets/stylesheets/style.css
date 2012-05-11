@@ -1,9 +1,14 @@
 body {
-	font-family: Helvetica, sans-serif; /*"Squada One",cursive;*/
+	font-family: 'Squada One', cursive;
 }
 
 table {
 	border-collapse:collapse;border-spacing:0;
+}
+
+textarea {
+	width: 70%;
+	height: 400px;
 }
 
 #logo {
@@ -18,11 +23,10 @@ table {
 h1.app-description {
 	color: #B22222;
 	text-shadow: 0 2px 0 #191970;
-	font-family: Helvetica, sans-serif; /*"Squada One",cursive;*/
 	text-transform: uppercase;
 	z-index: 1;
 	padding: 10px 40px 8px;
-	font-size: 20px;
+	font-size: 31px;
 	font-weight: bold;
 }
 
@@ -66,7 +70,6 @@ h1.subtitle {
 	background-color: #104E8B;
 	color: #E8E8E8;
 	text-shadow: 0 2px 0 #B22222;
-	font-family: Helvetica, sans-serif; /*"Squada One",cursive;*/
 	text-transform: uppercase;
 	z-index: 1;
 	padding: 10px 40px 8px;
@@ -269,12 +272,10 @@ h1.subtitle {
 
 .next_match_info li {
 	margin-top: 8px;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;    	
 }
 
 .match h3 {
 	margin-top: 0px;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; 
 	text-shadow: 0 1px 2px #000000;   	
 }
 
@@ -313,11 +314,12 @@ h1.subtitle {
 	color: #FFF;
 	position:fixed;
 	left:80%;
-	top:13px;
+	top:13px;	
 }
 
 .dropdown-menu.user_info {
 	display: none;
+	font-size: 16px;
 }
 
 .dropdown-menu.user_info.visible {
@@ -427,7 +429,6 @@ h1.subtitle {
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 	
 	color: #fff;
-    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
     font-size: 18px;
 	
 	line-height: normal;
@@ -568,8 +569,7 @@ h1.subtitle {
 .facebook_plugins.share {
 	position: relative;
 	bottom: 100px;
-	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .facebook_plugins.comment {

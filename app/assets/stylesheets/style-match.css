@@ -1,6 +1,6 @@
 .jogo.center {
 	position: relative;
-	font-size: 12px;
+	font-size: 18px;
 	padding-left: 42%;
 	padding-top: 2%;
 	padding-bottom: 7%;
@@ -88,6 +88,10 @@ section {
 #formation-list-section .record-list {
 	height: 493px;
 	width: 46%;
+}
+
+#formation-list-section .record-list ul li {
+	height: 48px;
 }
 
 .record-list {
@@ -217,7 +221,7 @@ section {
 }
 
 .creator, .match-day {
-	font-size: 12px;
+	font-size: 14px;
 	color: #191970;
 }
 
@@ -244,7 +248,7 @@ section .record-list {
 }
 
 .home-team, .away-team {
-	font-size: 11px;
+	font-size: 13px;
 	color: #708090;
 }
 
@@ -261,7 +265,7 @@ section .record-list {
 }
 
 .record-list.formations ul li p.home-team, .record-list.formations ul li p.away-team {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .record-list.formations ul li fieldset {
@@ -273,4 +277,36 @@ section .record-list {
 	font-size: 12px;
 	text-align: left;
 	margin-left: 0px;
+}
+
+#score-rank {
+	font-size: 48px;
+	color: #B22222;
+	text-shadow: 0 1px 0 #FFF;
+	float: right;
+}
+
+.score-position {
+	font-height: bold;
+	font-size: 16px;
+	color: 191970;
+	text-shadow: 0 2px 0 #FFF;	
+}
+
+.score-position.gold {
+	font-size: 48px;
+	color: #DAA520;
+	text-shadow: 0 2px 0 #FFD700;	
+}
+
+.score-position.silver {
+	font-size: 32px;
+	color: #BEBEBE;
+	text-shadow: 0 2px 0 #000;
+}
+
+.score-position.bronze {
+	font-size: 25px;
+	color: #8B5A00;
+	text-shadow: 0 1px 0 #CD8500;
 }

@@ -1,21 +1,44 @@
 <% content_for :title, "Scores" %>
-<div class="title">
-	<h1><%= t(:scores) %></h1>
-</div>
-<table class="zebra-striped">
-  <tr>
-	<th>#</th>
-	<th></th>
-    <th><%= t(:nickname) %></th>
-    <th>Score</th>
-  </tr>
-<% @users.each_with_index.map do |u, index| %>
-	<% index += 1 %>
-	<tr>
-		<td><%= ++index %></td>
-		<td><%= image_tag(u.image, :size => "25x25") %></td>
-    	<td><%= u.nickname %></td>
-		<td><%= u.score %></td>
-  	</tr>
+<h1 class="subtitle">Scores</h1>
+<section id="record-section">
+	<div class="record-list">
+		<ul>
+			<% @users.each_with_index.map do |u, index| %>
+				<% index += 1 %>
+				<li>
+					<fieldset>
+						<%= image_tag(u.image, :size => "45x45", :class => "user-avatar") %>
+						<p class="score-position" id="<%= index %>"><%= index %></p>
+						<p class="creator">
+							<strong>
+								<%= u.nickname %>
+							</strong>
+						</p>
+						<p id="score-rank"><%= u.score %></p>
+					</fieldset>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</section>
+<%= content_for :javascript do %>
+	$(function(){
+		var rankingText = $('p.score-position').text();
+		var total = rankingText.length;
+		for(var index=1; index<= total; index++) {	
+			var color;
+			if (index == 1) {
+				color = 'gold';
+			} else if (index > 1 && index <= 3) {
+				color = 'silver';
+			} else if (index > 3 && index <= 5) {
+				color = 'bronze';
+			} else {
+				color = null;
+			}
+			if (color) {
+				$('#' + index).addClass(color);
+			}
+		}
+	});
 <% end %>
-</table>

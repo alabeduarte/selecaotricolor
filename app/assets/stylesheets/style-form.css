@@ -29,8 +29,8 @@ form fieldset.login ol li {
 }
 
 form fieldset.login ol li#forgot_password {
-	margin-left: 0px;
-	margin-top: 8px;
+	margin-left: -152px;
+	margin-top: 26px;
 }
 
 form fieldset.login ol li#forgot_password a {
@@ -69,8 +69,9 @@ form fieldset.login ol li .fb_button {
 }
 
 form fieldset.login ol li.register {
-	margin-left: -159px;
-	margin-top: 21px;
+	margin-left: 137px;
+	margin-top: 7px;
+	width: 148px;
 }
 
 label {

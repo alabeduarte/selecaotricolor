@@ -26,8 +26,8 @@
 				<li>
 					<%= render :partial => "users/facebook_authentication" %>
 				</li>
-				<li class="pills register">
-					<%= link_to "#{t(:sign_up)}", new_registration_path(:user) %>
+				<li class="register">
+					<%= link_to "Cadastro sem Facebook", new_registration_path(:user), :class => 'btn' %>
 				</li>		
 			</ol>	
 		</fieldset>

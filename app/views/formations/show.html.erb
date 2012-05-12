@@ -1,5 +1,5 @@
 <% content_for :title, "em #{@formation.match}, meu #{Team.bahia.name} joga com #{@formation.tactical}" %>
-<h1 class="subtitle"><%= "#{@formation.match}" %></h1>
+<%= render :partial => "calendars/match_info", :locals => { :match => @formation.match } %>
 <div class="formation-header large">
 	<h2 class="tactical"><%= "#{@formation.tactical}" %></h2>			
 </div>
@@ -12,17 +12,7 @@
 		<li><%= image_tag(@formation.owner.image, :size => "45x45", :class => "user-avatar") %></li>
 		<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
 		<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
-		<li class="jogo">
-			<div class="time">
-				<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
-				<span class="team-home-name"><%= "#{@formation.match.home.name}" %></span>
-	        </div>
-	        <div class="x">x</div>
-	        <div class="time">
-	        	<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
-				<span class="team-away-name"><%= "#{@formation.match.away.name}" %></span>
-	        </div>
-		</li>
+		<li class="share"><%= render :partial => "formations/share" %></li>
 	</ul>		         		
 </div>
 <%= content_for :javascript do %>

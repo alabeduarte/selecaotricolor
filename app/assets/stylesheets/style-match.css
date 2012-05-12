@@ -1,28 +1,54 @@
 .jogo.center {
 	position: relative;
-	font-size: 18px;
-	padding-left: 42%;
-	padding-top: 2%;
-	padding-bottom: 7%;
-	margin-bottom: 5%;
+	font-size: 32px;
+	margin-left: 0px;
+	margin-bottom: 0px;
 }
 
 .jogo {
 	position: relative;
 	font-size: 12px;
-	padding-left: 20%;
+	padding-left: 10%;
 	padding-top: 2%;
 	padding-bottom: 12%;
 }
 
-.btn.jogo {
-	margin: 30px;
-	-webkit-box-shadow: 0 3px 10px #888;
+#creator-info ul li.share {
+	width: 200px;
+}
+
+#creator-info ul li.jogo {
+	font-size: 13px;
+	width: 120px;
+	height: 45px;
+	margin-left: 48px;
+}
+
+#creator-info ul div.time.home, #creator-info ul div.time.away {
+	font-size: 13px;
+	text-align: left;
+	margin-left: 0px;
+	width: 45px;
+}
+
+#creator-info ul div.x {
+	margin-bottom: 10px;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .time {
-	width: 45px;
 	height: 45px;
+	width: 350px;
+}
+
+.time.home {
+	text-align: right;
+}
+
+.time.away {
+	text-align: left;
 }
 
 .time, .x {
@@ -39,22 +65,12 @@
 }
 
 .team-home-name, .team-away-name {
-	text-align: center;
+	line-height: 35px;
 }
 
 .x, .team-home-name, .team-away-name {
 	color: #191970;
 	text-shadow: 0 1px 1px #F6F6F6;
-}
-
-.team-home-name {
-	margin-left: 0px;
-	margin-right: 6px;
-}
-
-.team-away-name {
-	margin-left: 6px;
-	margin-right: 20px;
 }
 
 .match {
@@ -143,8 +159,7 @@ section {
 .record-list ul li.selected, .record-list ul li.selected p, .record-list ul li.selected legend {
 	background-color: #104E8B;
 	color: #E8E8E8;
-	text-shadow: 0 2px 0 #B22222;
-	font-weight: bold;
+	text-shadow: 0 2px 0 #B22222;	
 }
 
 .record-list ul li img {

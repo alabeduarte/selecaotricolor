@@ -1,32 +1,19 @@
 <% content_for :title, "Escale o seu Time!" %>
-<% if !user_signed_in? %>
-	<%= render :partial => "users/facebook_authentication" %>
-	<%= link_to "Cadastrar sem Facebook", new_registration_path(:user), :class => "btn danger" %>
-<% end %>
 <div class="welcome">	
 	<div class="facebook-like">
 		<%= render :partial => 'formations/facebook_like', :locals => {:uri => current_uri} %>
 	</div>
+	<div class="share">
+		<%= render :partial => "formations/share" %>
+	</div>
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
-		<% if user_signed_in? %>		
-			<h1 class="subtitle">ESCALE O SEU TIME!</h1>
-			<a class="btn jogo" href="<%= "#{formations_matches_path}/#{@next_match.id}" %>">
-				<div class="time">
-					<%= image_tag("escudos/#{@next_match.home.label}.png", :size => "45x45") %>
-					<span class="team-home-name"><%= "#{@next_match.home.name}" %></span>
-				</div>
-			    <div class="x">x</div>
-			    <div class="time">
-			    	<%= image_tag("escudos/#{@next_match.away.label}.png", :size => "45x45") %>
-					<span class="team-away-name"><%= "#{@next_match.away.name}" %></span>
-			    </div>
-			 </a>			
-			<%= render :partial => "formations/countdown" %>
-			<div class="actions large">
-				<%= link_to "", new_path, :class => "button new-formation-btn" %>
-			</div>			
-		<% end %>
+		<h1 class="subtitle">ESCALE O SEU TIME!</h1>
+		<%= render :partial => "calendars/match_info", :locals => {:match => @next_match, :subtitle => false} %>	
+		<%= render :partial => "formations/countdown" %>
+		<div class="actions large">
+			<%= link_to "", new_path, :class => "button new-formation-btn" %>
+		</div>
 	<% end %>
 </div>
 	<% if @formation %>
@@ -44,14 +31,13 @@
 					<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
 					<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
 					<li class="jogo">
-						<div class="time">
+						<div class="time home">
 							<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
-							<span class="team-home-name"><%= "#{@formation.match.home.name}" %></span>
+							
 				        </div>
 				        <div class="x">x</div>
-				        <div class="time">
-				        	<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
-							<span class="team-away-name"><%= "#{@formation.match.away.name}" %></span>
+				        <div class="time away">				       
+							<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
 				        </div>
 					</li>
 				</ul>
@@ -95,12 +81,6 @@
 		</ul>		
 	</div>
 	<i>Para ver o <b>ranking</b> completo de pontuações, <a href="/scores">clique aqui!</a></i>
-</div>
-
-<div class="foobar shareActions">
-	<div class="share right">
-		<%= render :partial => "formations/share" %>
-	</div>
 </div>
 	
 <%= content_for :javascript do %>

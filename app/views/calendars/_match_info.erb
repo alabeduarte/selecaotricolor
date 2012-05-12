@@ -1,12 +1,15 @@
-<h1 class="subtitle"><%= "#{match.home.name} x #{match.away.name} :: #{match.day.to_s(:day)}" %></h1>
+<% subtitle = true if local_assigns[:subtitle].nil? %>
+<% if subtitle %>
+	<h1 class="subtitle"><%= "#{match.home.name} x #{match.away.name} :: #{match.day.to_s(:day)}" %></h1>
+<% end %>
 <div class="jogo center">
-	<div class="time">
-		<%= image_tag("escudos/#{match.home.label}.png", :size => "45x45", :alt => "#{match.home.name}") %>
+	<div class="time home">		
 		<span class="team-home-name"><%= "#{match.home.name}" %></span>
+		<%= image_tag("escudos/#{match.home.label}.png", :size => "45x45", :alt => "#{match.home.name}") %>		
 	</div>
     <div class="x">x</div>
-    <div class="time">
-    	<%= image_tag("escudos/#{match.away.label}.png", :size => "45x45", :alt => "#{match.away.name}") %>
+    <div class="time away">		
+    	<%= image_tag("escudos/#{match.away.label}.png", :size => "45x45", :alt => "#{match.away.name}") %>		
 		<span class="team-away-name"><%= "#{match.away.name}" %></span>
     </div>
  </div>

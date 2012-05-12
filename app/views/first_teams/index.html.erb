@@ -23,9 +23,7 @@
 							</legend>
 							<%= image_tag(first_team.formation.owner.image, :size => "25x25", :class => "user-avatar") %>
 							<p class="creator">
-								<strong>
-									<i><%= first_team.formation.owner.nickname %></i>
-								</strong>
+								<i><%= first_team.formation.owner.nickname %></i>
 							</p>
 							<p class="home-team">
 								<%= image_tag("escudos/#{first_team.formation.match.home.label}.png", :size => "45x45", :alt => "#{first_team.formation.match.home.name}") %>

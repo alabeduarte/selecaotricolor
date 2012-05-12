@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
     flash[:error] = exception.message
     redirect_to root_url
   end
+  
+  def expire_cache(match=nil)
+    expire_fragment(:controller => 'calendars', :action => 'formations_matches', :id => match)
+  end
 end

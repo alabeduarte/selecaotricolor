@@ -9,11 +9,7 @@
 					<fieldset>
 						<%= image_tag(u.image, :size => "45x45", :class => "user-avatar") %>
 						<p class="score-position" id="<%= index %>"><%= index %></p>
-						<p class="creator">
-							<strong>
-								<%= u.nickname %>
-							</strong>
-						</p>
+						<p class="scorer"><%= u.nickname %></p>
 						<p id="score-rank"><%= u.score %></p>
 					</fieldset>
 				</li>

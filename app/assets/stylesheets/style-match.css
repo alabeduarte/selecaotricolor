@@ -246,6 +246,11 @@ section {
 	color: #191970;
 }
 
+.scorer {
+	font-size: 18px;
+	color: #191970;
+}
+
 .tactical {
 	font-size: 20px;
 	color: #708090;
@@ -310,7 +315,7 @@ section .record-list {
 .score-position {
 	font-height: bold;
 	font-size: 16px;
-	color: 191970;
+	color: #191970;
 	text-shadow: 0 2px 0 #FFF;	
 }
 

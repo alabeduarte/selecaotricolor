@@ -4,6 +4,7 @@ class CalendarsController < ApplicationController
   respond_to :json, :html
   
   def formations_matches
+    p "TESTANDO!!!!"
     @match = Calendar.find(params[:id])
     if @match
       @formations = @match.formations
@@ -59,6 +60,7 @@ class CalendarsController < ApplicationController
 
     respond_to do |format|
       if @calendar.save
+        expire_cache(@calendar)
         format.html { redirect_to @calendar, notice: 'Calendar was successfully created.' }
         format.json { render json: @calendar, status: :created, location: @calendar }
       else
@@ -75,6 +77,7 @@ class CalendarsController < ApplicationController
 
     respond_to do |format|
       if @calendar.update_attributes(params[:calendar])
+        expire_cache(@calendar)
         format.html { redirect_to @calendar, notice: 'Calendar was successfully updated.' }
         format.json { head :no_content }
       else
@@ -88,6 +91,7 @@ class CalendarsController < ApplicationController
   # DELETE /calendars/1.json
   def destroy
     @calendar = Calendar.find(params[:id])
+    expire_cache(@calendar)
     @calendar.destroy
 
     respond_to do |format|

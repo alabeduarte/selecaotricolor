@@ -10,19 +10,18 @@
 	<% if @match.oldest? %>
 		<h1 class="subtitle"><%= "Esquema tático mais votado: #{@match.tactical_most_voted}" %></h1>
 	<% end %>
+	<% cache do %>
 	<div class="record-list">
 		<ul>
 			<% @formations.each do |formation| %>
             	<li onclick="showFormation('/formations/<%= formation.id %>')">					
 					<%= image_tag(formation.owner.image, :size => "25x25", :class => "user-avatar") %>
 					<p class="creator">
-						<strong>
-							<% if formation.owner.admin? %>
-								<i><%= formation.owner.nickname %></i>
-							<% else %>
-								<%= formation.owner.nickname %>
-							<% end %>
-						</strong>
+						<% if formation.owner.admin? %>
+							<i><%= formation.owner.nickname %></i>
+						<% else %>
+							<%= formation.owner.nickname %>
+						<% end %>
 					</p>
 					<p class="tactical"><%= formation.tactical %></p>
 					<p class="match-day"><%= formation.created_at.to_s(:day) %></p>
@@ -31,6 +30,7 @@
 			<% end %>
 		</ul>
 	</div>
+	<% end %>
 </section>
 <div id="soccerField" class="soccer-field-grass list">
 	<div id="emptySlot"></div>

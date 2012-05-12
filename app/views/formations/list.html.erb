@@ -20,13 +20,11 @@
 							</legend>
 							<%= image_tag(formation.owner.image, :size => "45x45", :class => "user-avatar") %>
 							<p class="creator">
-								<strong>
-									<% if formation.owner.admin? %>
-										<i><%= formation.owner.nickname %></i>
-									<% else %>
-										<%= formation.owner.nickname %>
-									<% end %>
-								</strong>
+								<% if formation.owner.admin? %>
+									<i><%= formation.owner.nickname %></i>
+								<% else %>
+									<%= formation.owner.nickname %>
+								<% end %>
 							</p>
 							<p class="home-team">
 								<%= image_tag("escudos/#{formation.match.home.label}.png", :size => "45x45", :alt => "#{formation.match.home.name}") %>

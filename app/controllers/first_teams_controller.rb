@@ -27,6 +27,7 @@ class FirstTeamsController < ApplicationController
                                   owner: current_user)    
     @first_team = FirstTeam.new(formation: formation)   
     if @first_team.save
+      expire_cache(@first_team.formation.match)
       @first_team.apply_score(Scorer.new(match: selected_match))
       flash[:notice] = t(:formation_sent)
       redirect_to first_team_path(@first_team)
@@ -59,6 +60,7 @@ class FirstTeamsController < ApplicationController
   
   def destroy
     @first_team = FirstTeam.find(params[:id])    
+    expire_cache(@first_team.formation.match)
     @first_team.destroy
 
     respond_to do |format|

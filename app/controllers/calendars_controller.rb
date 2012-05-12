@@ -4,7 +4,6 @@ class CalendarsController < ApplicationController
   respond_to :json, :html
   
   def formations_matches
-    p "TESTANDO!!!!"
     @match = Calendar.find(params[:id])
     if @match
       @formations = @match.formations

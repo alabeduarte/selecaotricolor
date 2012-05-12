@@ -92,7 +92,7 @@
 
 .actions.large {	
 	margin: 0 auto;
-	margin-bottom: 12%;
+	margin-bottom: 5%;
 	padding-bottom: 20px;
 	position: relative;
 }
@@ -208,29 +208,35 @@ section {
 	padding-left: 64px;
 	padding-bottom: 48px;
 	background: url(../../assets/icons/new-formation.png) no-repeat;
+	background-position-x: 10px;
 	-webkit-box-shadow: 0 3px 10px #888;
 }
 
-.button.new-formation-btn {
+.button.match-calendar {
 	cursor: pointer;
-	padding-left: 256px;
-	padding-bottom: 100px;
-	background: url(../../assets/icons/new-formation-btn.png) no-repeat;
+	width: 32px;
+	height: 32px;
+	padding-left: 64px;
+	padding-bottom: 48px;
+	background: url(../../assets/icons/match-calendar.png) no-repeat;
+	background-position-x: 10px;
 	-webkit-box-shadow: 0 3px 10px #888;
-	-webkit-border-radius: 10px;
-	-ms-border-radius: 10px;
-	-o-border-radius: 10px;
-	border-radius: 10px;
-	margin: 0 auto;
-	margin-bottom: 15px;
-	width: 20%;
 }
 
-.record-list ul li .button:hover, .button.new-formation:hover, .button.new-formation-btn:hover {
+.button.formations {
+	width: 64px;
+	height: 64px;
+	padding-left: 64px;
+	padding-bottom: 48px;
+	background: transparent url(../../assets/icons/formation-match.png) no-repeat;
+	background-position-x: 10px;
+}
+
+.record-list ul li .button:hover {
 	opacity: 0.8;
 }
 
-.record-list ul li .button.disabled:hover, .button.new-formation.disabled:hover, .button.new-formation-btn.disabled:hover {
+.record-list ul li .button.disabled:hover, .button.new-formation.disabled:hover {
 	opacity: 0.5;
 	cursor: default;
 }
@@ -324,4 +330,16 @@ section .record-list {
 	font-size: 25px;
 	color: #8B5A00;
 	text-shadow: 0 1px 0 #CD8500;
+}
+
+.pills.actions.large a.button.new-formation {
+	margin: 3px;	
+}
+
+.pills.match-calendars {
+	padding-bottom: 5%;
+}
+
+.pills.match-calendars a.button.formations {
+	-webkit-box-shadow: 0 3px 10px #888;
 }

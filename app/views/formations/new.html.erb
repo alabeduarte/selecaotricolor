@@ -40,14 +40,18 @@
 	<div id="slot"></div>
 </div>
 <div id="matrix"></div>
-<div class="actions">
-	<button onclick="send();" id="send_button" name="button" class="button new-formation-btn send">Enviar</button>
+<div class="pills actions">
+	<button id="send_button" name="button" class="btn danger send">Enviar</button>
 </div>
 <%= content_for :footer_resources do %>
 	<%= render :partial => "formations/countdown" %>
 <% end %>
 <%= content_for :javascript do %>
 	$( init_soccer_field );
+	
+	$('#send_button').click(function() {
+		send();
+	});
 	
 	/*
 	$(function(){

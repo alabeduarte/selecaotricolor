@@ -9,11 +9,15 @@
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
 		<h1 class="subtitle">ESCALE O SEU TIME!</h1>
-		<%= render :partial => "calendars/match_info", :locals => {:match => @next_match, :subtitle => false} %>	
-		<%= render :partial => "formations/countdown" %>
-		<div class="actions large">
-			<%= link_to "", new_path, :class => "button new-formation-btn" %>
+		<div class='pills match-calendars'>
+			<%= link_to "Calendário dos Jogos", :calendars, :class => 'button match-calendar' %>
+			<%= link_to "Táticas enviadas até agora", {:controller => 'calendars', :action => 'formations_matches', :id => @next_match}, :class => 'button formations' %>
 		</div>
+		<%= render :partial => "calendars/match_info", :locals => {:match => @next_match, :subtitle => false} %>			
+		<div class="pills actions large">
+			<%= link_to "ESCALE O SEU TIME!", new_path, :class => "button new-formation" %>
+		</div>
+		<%= render :partial => "formations/countdown" %>
 	<% end %>
 </div>
 	<% if @formation %>

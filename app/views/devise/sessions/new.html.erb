@@ -1,5 +1,21 @@
 <% content_for :title, t(:sign_in) %>
 <h1 class="subtitle"><%= t(:sign_in) %></h1>
+<%= form_for User.new, :url => login_path, :method => :post do |f| %>
+  <fieldset class="register">
+	<div class="clearfix">
+  		<%= f.email_field :email, :placeholder => t(:email) %>		
+  	</div>
+
+	<div class="clearfix">
+  		<%= f.password_field :password, :placeholder => t(:password) %>		
+  	</div>
+
+	<div class="clearfix">
+  		<%= f.submit "ENTRAR", :class => "btn primary" %>
+  	</div>
+
+  </fieldset>
+<% end %>
 <fieldset class="login-options">
 	<%= render :partial => "devise/shared/links" %>
 </fieldset>

@@ -8,7 +8,7 @@
 	</li>
 	<li>
 		<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-			<%= link_to "#{t(:sign_up)}", new_registration_path(resource_name), :class => "btn danger" %>
+			<%= link_to "Cadastro sem Facebook", new_registration_path(resource_name), :class => "btn danger large" %>
 		<% end -%>
 	</li>
 	<li class="pills">

@@ -2,11 +2,11 @@
 }
 
 html {
-	background: #000 ;
+	background: #FFF ;
 }
 
 body {
-	background: #000 url(../../assets/st_bg_body.jpg) no-repeat center 0%;
+	background: #FFF url(../../assets/st_bg_body.jpg) no-repeat center 0%;
 	
 	color: #333;
 	display: table;
@@ -20,7 +20,7 @@ body {
 p{line-height:15px; margin-top:5px;}
 
 #divHead{
-	background: #000 url(../../assets/st_bg_topo.jpg) no-repeat 0% 0%;
+	background: #FFF url(../../assets/st_bg_topo.jpg) no-repeat 0% 0%;
 	height: 131px;
 	margin: 0 auto;
 	position: relative;
@@ -30,7 +30,7 @@ p{line-height:15px; margin-top:5px;}
 }
 
 #divCenter{
-	background: #000 url(../../assets/st_bg_main_repeat.jpg) repeat-y 0px 0px;
+	background: #FFF url(../../assets/st_bg_main_repeat.jpg) repeat-y 0px 0px;
 	/*border:solid red 1px;*/
 	margin: 0px auto;
 	padding: 0px;

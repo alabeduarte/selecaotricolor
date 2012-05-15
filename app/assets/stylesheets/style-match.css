@@ -210,6 +210,8 @@ section {
 	background: url(../../assets/icons/new-formation.png) no-repeat;
 	background-position-x: 10px;
 	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 }
 
 .button.match-calendar {
@@ -221,6 +223,8 @@ section {
 	background: url(../../assets/icons/match-calendar.png) no-repeat;
 	background-position-x: 10px;
 	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 }
 
 .button.formations {
@@ -347,4 +351,6 @@ section .record-list {
 
 .pills.match-calendars a.button.formations {
 	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 }

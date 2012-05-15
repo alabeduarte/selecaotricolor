@@ -82,6 +82,8 @@
 	border-radius: 30px;
 	border: 2px solid #B22222;
 	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 	color: blue;
 	text-shadow: 0 1px 1px #F6F6F6;
 	position: relative;
@@ -164,6 +166,8 @@
 	cursor: pointer;	
 	opacity: 1;
 	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 }
 
 .team p {
@@ -180,6 +184,8 @@
 	background-image: url(../../assets/player-body-home.png);
 	opacity: 0.7;
 	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 }
 
 .goal_keeper {
@@ -199,6 +205,8 @@
 	text-shadow: 0 1px 1px #F6F6F6;
 	border: 2px solid #B22222;
 	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 }
 
 .enabled {
@@ -263,6 +271,8 @@
 	text-shadow: 0 1px 1px #F6F6F6;
 	border: 2px solid #B22222;
 	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 }
 
 #soccer_icon {
@@ -509,6 +519,8 @@
 	float: left;
 	border: 2px solid #FCFAFA;
 	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 }
 
 .nickname {

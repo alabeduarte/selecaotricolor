@@ -5,7 +5,7 @@
 
 #soccerField {
 	position: absolute;
-	height: 500px;
+	height: 550px;
 	width: 419px;
 	margin-left: 50px;
 	cursor: default;
@@ -34,11 +34,27 @@
 	float: left;
 }
 
+#tabs {
+	font-family: 'Squada One', cursive;	
+}
+
+#tabs ul li a {
+	width: 100%;
+	text-align: left;
+}
+
+#tabs ul li a span {
+	position: relative;
+}
+
+#tabs.ui-tabs .ui-tabs-nav li {
+}
+
 #player {
 	position: relative;
 	float: left;
 	margin: 0px 0 0 429px;
-	width: 466px;	
+	width: 450px;	
 	height: 490px;
 	overflow: auto;
 	overflow-x: hidden;
@@ -69,9 +85,9 @@
 	color: blue;
 	text-shadow: 0 1px 1px #F6F6F6;
 	position: relative;
-	margin-right: 70px;
+	margin-right: 69px;
 	margin-bottom: 40px;
-	margin-left: 15px;
+	margin-left: 13px;
 	float: left;
 }
 
@@ -270,7 +286,12 @@
 #forwards, #midfield, #midfield_defense, #left_back, #defender, #right_back, #goalkeepers {
 	position: relative;
 	float: left;
-	width: 100%;
+	width: 100%;	
+}
+
+#player div span {
+	color: #191970;
+	text-shadow: 0 1px 1px #F6F6F6;
 }
 
 [class*="show"] {
@@ -350,7 +371,7 @@
 }
 
 .legend {
-	width: 20%;
+	width: 100%;
 	height: 33px;
 	margin-left: 5%;
 	font-size: 13px;
@@ -369,6 +390,10 @@
 	margin: 3px;
 	padding: 3px;
 	float: left;
+}
+
+.legend ul li.defense, .legend ul li.midfield, .legend ul li.forward {
+	font-size: 33px;
 }
 
 .defense {

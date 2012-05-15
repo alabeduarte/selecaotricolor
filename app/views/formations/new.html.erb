@@ -12,28 +12,32 @@
 	<div id="positionMap" class="positions-map"></div>
 	<% if user_signed_in? %>	
 	<div id="player">
-		<div id="others" >
-		</div>
-		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Atacantes</span></a></h5>		
-		<div id="forwards" >
-		</div>
-		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Meias</span></a></h5>		
-		<div id="midfield" >
-		</div>
-		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Volantes</span></a></h5>		
-		<div id="midfield_defense" >
-		</div>
-		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Laterais Esquerdos</span></a></h5>		
-		<div id="left_back" >
-		</div>
-		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Zagueiros</span></a></h5>		
-		<div id="defender" >
-		</div>
-		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Laterais Direitos</span></a></h5>		
-		<div id="right_back" >
-		</div>
-		<h5 class="pills positions"><a href="#"><%= image_tag('icons/call-up.png', :size => "72x72", :alt => "Seleção Tricolor") %><span>Goleiros</span></a></h5>		
-		<div id="goalkeepers" >
+		<div id="tabs">
+			<ul>
+				<li><a href="#goalkeepers">Goleiros</a></li>				
+				<li><a href="#right_back">Laterais Direitos</a></li>
+				<li><a href="#defender">Zagueiros</a></li>
+				<li><a href="#left_back">Laterais Esquerdos</a></li>				
+				<li><a href="#midfield_defense">Volantes</a></li>
+				<li><a href="#midfield">Meias</a></li>
+				<li><a href="#forwards">Atacantes</a></li>
+			</ul>
+			<div id="goalkeepers" >
+			</div>
+			<div id="right_back" >
+			</div>
+			<div id="defender" >
+			</div>
+			<div id="left_back" >
+			</div>
+			<div id="midfield_defense" >
+			</div>
+			<div id="midfield" >
+			</div>					
+			<div id="forwards" >
+			</div>
+			<div id="others" >
+			</div>
 		</div>
 	</div>
 	<% end %>
@@ -52,25 +56,7 @@
 		send();
 	});
 	
-	/*
-	$(function(){
-	    $.contextMenu({
-	        selector: '.context-menu-one', 
-	        callback: function(key, options) {
-	            if (key == 'delete') {
-					this.draggable('destroy');
-					this.removeClass('correct ui-draggable-disabled ui-state-disabled context-menu-one');
-					this.css("top", "");
-					this.css("left", "");
-					this.removeAttr('aria-disabled');
-					this.addClass('ui-draggable');
-					this.appendTo('#others');
-				}
-	        },
-	        items: {
-	            "delete": {name: "Excluir", icon: "delete"}
-	        }
-	    });
-	});
-	*/
+	$(function() {
+		$( "#tabs").tabs();
+	});	
 <% end %>

@@ -236,7 +236,7 @@ function createPlayers() {
 				if (player.enabled) {
 					$(playerDiv).addClass('enabled');
 					$(playerDiv).data('number', i).appendTo(positionDivName).draggable( {
-				    	containment: '.droppable-area',
+				    	containment: '#soccerField',
 					    stack: '#player div',
 				      	cursor: 'move',
 						appendTo: 'body',

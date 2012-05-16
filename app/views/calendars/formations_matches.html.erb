@@ -6,10 +6,7 @@
 		<%= link_to "ESCALE O SEU TIME!", new_path, :class => "button new-formation" %>
 	</div>	
 <% end %>
-<section id="formation-list-section">
-	<% if @match.oldest? %>
-		<h1 class="subtitle"><%= "Esquema tático mais votado: #{@match.tactical_most_voted}" %></h1>
-	<% end %>
+<section id="formation-list-section">	
 	<% cache do %>
 	<div class="record-list">
 		<ul>

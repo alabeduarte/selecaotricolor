@@ -125,9 +125,6 @@ describe Scorer do
   end  
   
   context "scoring players" do
-    it "should elect the most votes tactical formation by matches" do
-      Calendar.last_match.tactical_most_voted.should == '4-4-2'
-    end
     
     it "should add score for the first time" do
       winners = Array.new
@@ -202,18 +199,6 @@ describe Scorer do
       squad_winners.should == winners
     end
     
-  end
-  
-  context "listing formations by tactical schemes" do
-    it "should list all formations corresponding to 4-4-2" do
-      scorer = Scorer.new :formations => Calendar.last_match.formations
-      scorer.formations_by('4-4-2').size.should == 4
-    end
-    
-    it "should list all formations corresponding to 3-4-3" do
-      scorer = Scorer.new :formations => Calendar.last_match.formations
-      scorer.formations_by('3-4-3').size.should == 2
-    end
   end
 
 private

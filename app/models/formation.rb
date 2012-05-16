@@ -17,6 +17,8 @@ class Formation
   validates :created_at, :presence => true
   validates :owner, :presence => true
   
+  scope :of_match, lambda { |match| where(:match_id => match.id, :order => :created_at.desc) }
+  
   before_validation :verify_if_once_per_match_and_per_user
   after_save :checkin_the_match
   before_destroy :destroy_all_positions
@@ -36,10 +38,18 @@ class Formation
   
   def self.newly_created(user)
     Formation.first(:owner_id => user.id, :order => :created_at.desc)
-  end  
+  end
+  
+  def self.already_created?(owner, match)
+    Formation.first(:owner_id => owner.id, :match_id => match.id)
+  end
+  
+  def self.time_is_over?(match)
+    match.expired? if match.today?
+  end
   
   def players_ordered_by_positions
-    PlayerFormationPosition.all(:formation_id => id, :order => :id.asc)
+    @players_ordered_by_positions ||= PlayerFormationPosition.all(:formation_id => id, :order => :id.asc)
   end
   
   def tactical
@@ -58,14 +68,6 @@ class Formation
       end
     end
     "#{defenders}-#{midfields}-#{forwards}"
-  end
-  
-  def self.already_created?(owner, match)
-    Formation.first(:owner_id => owner.id, :match_id => match.id)
-  end
-  
-  def self.time_is_over?(match)
-    match.expired? if match.today?
   end
   
 protected

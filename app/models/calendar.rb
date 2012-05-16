@@ -34,7 +34,7 @@ class Calendar
   end
   
   def formations
-    Formation.all(match_id: id, :order => :created_at.desc)
+    @formations ||= Formation.of_match(self).all
   end
   
   def next?
@@ -47,10 +47,6 @@ class Calendar
   
   def oldest?
     @day <= Calendar.last_match.day
-  end
-  
-  def tactical_most_voted
-    Scorer.new(formations: formations).tactical_most_voted    
   end
   
   def today?

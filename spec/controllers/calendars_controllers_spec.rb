@@ -6,7 +6,7 @@ describe CalendarsController do
       Calendar.stub(find: match)
       match.stub(formations: Array.new)
       get :formations_matches
-      should_assign match: match, formations: match.formations
+      should_assign match: match
     end
     
     context "when next match don't exist" do
@@ -21,6 +21,5 @@ describe CalendarsController do
 private
   def should_assign(args)
     assigns[:match].should eq(args[:match])
-    assigns[:formations].should eq(args[:formations])
   end
 end

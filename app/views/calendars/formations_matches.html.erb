@@ -13,7 +13,7 @@
 	<% cache do %>
 	<div class="record-list">
 		<ul>
-			<% @formations.each do |formation| %>
+			<% @match.formations.each do |formation| %>
             	<li onclick="showFormation('/formations/<%= formation.id %>')">					
 					<%= image_tag(formation.owner.image, :size => "25x25", :class => "user-avatar") %>
 					<p class="creator">

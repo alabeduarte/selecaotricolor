@@ -5,9 +5,7 @@ class CalendarsController < ApplicationController
   
   def formations_matches
     @match = Calendar.find(params[:id])
-    if @match
-      @formations = @match.formations
-    else
+    if @match.nil?
       redirect_to '/'
     end
   end

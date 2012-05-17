@@ -40,7 +40,7 @@ class FormationsController < ApplicationController
   end
   
   def newly_created
-    formation = Formation.newly_created(current_user).first
+    formation = Formation.newly_created(current_user)
     redirect_to formation, :notice => t(:formation_sent)
   end
 

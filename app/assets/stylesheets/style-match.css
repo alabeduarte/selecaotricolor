@@ -279,7 +279,8 @@ section .record-list {
 
 .home-team, .away-team {
 	font-size: 13px;
-	color: #708090;
+	color: #191970;
+	text-shadow: 0 1px 1px #F6F6F6;
 }
 
 .home-team {

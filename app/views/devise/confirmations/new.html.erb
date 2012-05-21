@@ -1,22 +1,14 @@
-<div class="title">
-	<h2><%= t(:resend_confirmation_instructions) %></h2>
-</div>
+<% content_for :title, t(:resend_confirmation_instructions) %>
+<h1 class="subtitle"><%= t(:resend_confirmation_instructions) %></h1>
 <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
-
-  	<fieldset>
+	<fieldset class="register">
 		<div class="clearfix">
-			<div>
-				<%= f.label :email %>
-				<div class="input">
-					<%= f.email_field :email %>
-				</div>
-			</div>
-		</div>
+	  		<%= f.email_field :email, :placeholder => t(:email) %>		
+	  	</div>
+		<div class="clearfix">
+	  		<%= f.submit t(:resend_confirmation_instructions), :class => "btn primary" %>
+	  	</div>
 	</fieldset>
-
-  	<div class="actions">
-		<%= f.submit t(:resend_confirmation_instructions), :class => "btn primary" %>
-	</div>
 <% end %>
 <%= render :partial => "devise/shared/links" %>

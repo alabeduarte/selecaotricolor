@@ -7,14 +7,14 @@
 			<% @calendars.each do |calendar| %>
             	<li>
 					<p class="match-day"><%= calendar.day.to_s(:day) %></p>
-					<p class="home-team">
-						<%= image_tag("escudos/#{calendar.home.label}.png", :size => "45x45", :alt => "#{calendar.home.name}") %>
+					<p class="home-team">						
 						<%= calendar.home.name %>
+						<%= image_tag("escudos/#{calendar.home.label}.png", :size => "45x45") %>
 					</p>
 					<p class="x">x</p>
-					<p class="away-team">
+					<p class="away-team">						
+						<%= image_tag("escudos/#{calendar.away.label}.png", :size => "45x45") %>
 						<%= calendar.away.name %>
-						<%= image_tag("escudos/#{calendar.away.label}.png", :size => "45x45", :alt => "#{calendar.away.name}") %>
 					</p>
 					<% if can? :formations_matches, calendar %>
 							<% if calendar.contains_formations? %>

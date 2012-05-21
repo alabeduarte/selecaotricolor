@@ -1,25 +1,16 @@
-<div class="title">
-	<h2><%= t(:forgot_your_password) %></h2>
-</div>
-
+<% content_for :title, t(:forgot_your_password) %>
+<h1 class="subtitle"><%= t(:forgot_your_password) %></h1>
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
-  <fieldset>
 	
+  <fieldset class="register">
 	<div class="clearfix">
-		<div>
-			<%= f.label :email %>
-			<div class="input">
-				<%= f.email_field :email %>
-			</div>
-		</div>
-	</div>
-	
-	<div class="actions">
-		<%= f.submit t(:send_password_instructions), :class => "btn large primary" %>
-	</div>
-	
-  </fieldset>
+  		<%= f.email_field :email, :placeholder => t(:email) %>		
+  	</div>
+	<div class="clearfix">
+  		<%= f.submit t(:send_password_instructions), :class => "btn large primary" %>
+  	</div>
 
+  </fieldset>
 <% end %>
 <%= render :partial => "devise/shared/links" %>

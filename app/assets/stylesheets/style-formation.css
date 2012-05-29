@@ -133,7 +133,11 @@
 }
 
 .ui-droppable.hovered {
-	background-color: #B22222;
+	background-color: #B22222;	
+}
+
+.ui-draggable-dragging {
+	z-index: 9999;
 }
 
 .emptySlot {
@@ -293,7 +297,7 @@
 	opacity: 0;
 }
 
-#forwards, #midfield, #midfield_defense, #left_back, #defender, #right_back, #goalkeepers {
+#others, #forwards, #midfield, #midfield_defense, #left_back, #defender, #right_back, #goalkeepers {
 	position: relative;
 	float: left;
 	width: 100%;	

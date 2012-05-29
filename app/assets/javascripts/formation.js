@@ -114,6 +114,20 @@ function isAvailable(slot) {
 	return true;
 }
 
+function getPlayerBySlot(slot) {
+	var Player = function(position, id) {
+	    this.position =  position;
+	    this.id = id;
+	}	
+	for(var x = 0; x < matrix.length; x++) {
+    	for(var y = 0; y < matrix[x].length; y++) {
+      		if (matrix[x][y] == slot+'_') {
+				return new Player(matrix[x][y].replace('_', ''),  matrixModel[x][y].replace('_', ''));
+      		}
+    	}
+  	}
+}
+
 function removeElementInSoccerField(player) {
   for(var x = 0; x < matrixModel.length; x++) {
     for(var y = 0; y < matrixModel[x].length; y++) {	  
@@ -184,7 +198,6 @@ function createEnabledAllPlayers() {
 					$('#positionMap').css('display', 'none');
 				});
 				$(playerDiv).addClass('player');
-				
 	  		});
       });		
 	});
@@ -226,7 +239,7 @@ function createPlayers() {
 					positionDivClass = 'team';
 				}
 				
-				$('<div id=' + player.id + '></div>').appendTo(positionDivName);					
+				$('<div id=' + player.id + ' name=' + positionDivName + '></div>').appendTo(positionDivName);					
 				$(playerDiv).addClass(positionDivClass);
 				
 				$('<p>' + '&nbsp' + '</p>').appendTo(playerDiv);
@@ -241,6 +254,7 @@ function createPlayers() {
 				      	cursor: 'move',
 						appendTo: 'body',
 						helper: 'clone',
+						drag: handleDragging,
 				      	revert: true
 					});
 					$(playerDiv).mousedown(function () {
@@ -254,8 +268,7 @@ function createPlayers() {
 				} else {
 					$(playerDiv).addClass('disabled');
 				}
-				$(playerDiv).addClass('player');
-				
+				$(playerDiv).addClass('player');				
 	  		});
       });		
 	});
@@ -301,6 +314,10 @@ function createEmptySlots() {
   return slots;
 }
 
+function handleDragging(event, ui) {
+	$(this).css('z-index', 1);
+}
+
 function handlePlayerDrop(event, ui) {		
 	var slot = $(this).attr('id');
   	var player = ui.draggable.attr('id');
@@ -320,6 +337,9 @@ function handlePlayerDrop(event, ui) {
 		    }
 		}		
 	}
+	if (isNewPlayer(ui)) {
+		substitution(slot, ui, player, $(this));			
+	}
 		
 	if (goalKeeper != undefined && correctGoalKeeper == 0) {		
 		ui = dropPlayer($(this), ui, slot); 
@@ -334,8 +354,29 @@ function handlePlayerDrop(event, ui) {
 	}
 }
 
+function substitution(slot, ui, player, target) {
+	var playerBySlot = getPlayerBySlot(slot);
+	$('#' + playerBySlot.id).removeClass('correct');
+	$('#' + playerBySlot.id).css('position', 'relative');
+	$('#' + playerBySlot.id).css('top', '0');
+	$('#' + playerBySlot.id).css('left', '0');
+	
+	var position = $('#' + playerBySlot.id).attr('name');
+	$('#' + playerBySlot.id).appendTo(position);
+	removeElementInSoccerField(playerBySlot.id);
+	ui = dropPlayer(target, ui, slot);  
+    if (player != goalKeeper) {
+      correctPlayers++;
+      addElementInSoccerField(slot, player);
+    }
+}
+
 function isPlayerPositionChange(ui) {
 	return ui.draggable.hasClass('correct') && !ui.draggable.hasClass('goal_keeper');
+}
+
+function isNewPlayer(ui) {
+	return !ui.draggable.hasClass('correct') && !ui.draggable.hasClass('goal_keeper');
 }
 
 function dropPlayer(target, ui, slot) {
@@ -347,7 +388,7 @@ function dropPlayer(target, ui, slot) {
 	ui.draggable.addClass('correct');
 	ui.draggable.css('position', 'absolute');
     ui.draggable.position( { of: target, my: 'left top', at: 'left top' } );
-    ui.draggable.draggable('option', 'revert', false);		
+    ui.draggable.draggable('option', 'revert', false);
 	return ui;
 }
 

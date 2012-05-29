@@ -10,7 +10,7 @@
 	  <%= csrf_meta_tag %>
 	  <%= favicon_link_tag %>
 	  <link href='http://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
-	  <link rel="image_src" href="http://www.selecaotricolor.com.br/assets/icons/new-formation.jpg" />
+	  <link rel="image_src" href="http://www.selecaotricolor.com.br/assets/icons/new-formation.png" />
 	</head>
 	<body>
 		<div id="divHead">
@@ -25,7 +25,13 @@
 						<a class="close notice" onclick="dispose();"><span>×</span></a>
 						<%= flash[:notice] %>
 					</div>
-				<% end -%>
+				<% end %>
+				<% if flash[:error] -%>
+					<div id="notice" class="alert-message notice">
+						<a class="close notice" onclick="dispose();"><span>×</span></a>
+						<%= flash[:error] %>
+					</div>
+				<% end %>
 				<%= render :partial => "users/login" %>
 			</div>
 		</div>

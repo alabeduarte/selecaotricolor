@@ -27,6 +27,7 @@ h1.app-description {
 	z-index: 1;
 	padding: 10px 40px 8px;
 	font-size: 31px;
+	font-weight: normal;
 }
 
 .title h1, .title h2, .title h3 {
@@ -660,4 +661,32 @@ h1.subtitle {
 	margin-left: -318px;
 	width: 1210px;
 	height: 80px;
+}
+
+#slideshow {
+ width: 900px;
+ height: 270px;
+ margin: 3em auto;
+ position: relative;
+}
+
+#slideshow-wrapper {
+ width: 400px;
+ height: 360px;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ margin: -125px 0 0 -228px;
+}
+
+#slideshow-wrapper img {
+ display: none;
+}
+
+#slideshow-wrapper #caption {
+ text-align: center;
+ padding: 5px 0;
+ padding-left: 50px;
+ display: none;
+ font-size: 25px;
 }

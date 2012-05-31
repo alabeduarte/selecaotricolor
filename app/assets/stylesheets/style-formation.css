@@ -12,7 +12,7 @@
 }
 
 .soccer-field-grass {
-	background-image: url(../../assets/soccer_field_2.png);
+	background-image: url(../../assets/soccer_field.png);
 	border: none;
 	background-repeat: no-repeat;
 }
@@ -134,6 +134,7 @@
 
 .ui-droppable.hovered {
 	background-color: #B22222;	
+	z-index: 2;
 }
 
 .ui-draggable-dragging {

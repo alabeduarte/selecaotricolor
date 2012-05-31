@@ -13,7 +13,7 @@
 			<% @match.formations.each do |formation| %>
             	<li onclick="showFormation('/formations/<%= formation.id %>')">					
 					<%= image_tag(formation.owner.image, :size => "25x25", :class => "user-avatar") %>
-					<p class="creator">
+					<p class="creator">						
 						<% if formation.owner.admin? %>
 							<i><%= formation.owner.nickname %></i>
 						<% else %>
@@ -31,12 +31,6 @@
 </section>
 <div id="soccerField" class="soccer-field-grass list">
 	<div id="emptySlot"></div>
-</div>
-
-<div class="comments">
-	<%= content_for :footer_resources do %>
-		<%= render :partial => 'formations/facebook_comments' %>
-	<% end %>
 </div>
 
 <%= content_for :javascript do %>

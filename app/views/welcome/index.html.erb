@@ -2,10 +2,7 @@
 <div class="welcome">	
 	<div class="facebook-like">
 		<%= render :partial => 'formations/facebook_like', :locals => {:uri => current_uri} %>
-	</div>
-	<div class="share">
-		<%= render :partial => "formations/share" %>
-	</div>
+	</div>	
 	<section id="slideshow">
 	 <div id="slideshow-wrapper">
 		<%= image_tag('tutorial/monte-o-seu-time.png', :size => "472x250", :alt => 'Avalie o seu elenco!') %>
@@ -16,6 +13,9 @@
 	  <div id="caption"></div>
 	 </div>
 	</section>
+	<div class="share">
+		<%= render :partial => "formations/share" %>
+	</div>
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
 		<h1 class="subtitle">ESCALE O SEU TIME!</h1>

@@ -29,14 +29,13 @@ class FormationsController < ApplicationController
   end
 
   def create
-    @formation = Formation.new_by(data: params[:_json], owner: current_user)
-    @formation.save
-    expire_cache(@formation.match)
-  end
-  
-  def update
-    @formation = Formation.find(params[:id])
-    redirect_to @formation, :notice => t(:formation_updated)
+    @formation = Formation.new_by(data: params[:_json], owner: current_user)    
+    if @formation.save
+      expire_cache(@formation.match)
+      respond_to do |format|
+        render :json => { :success => true }
+      end
+    end
   end
   
   def newly_created
@@ -66,16 +65,13 @@ class FormationsController < ApplicationController
     end
   end
   
-  def edit
-  end
-  
   def destroy
     @formation = Formation.find(params[:id])
     expire_cache(@formation.match)
     @formation.destroy
 
     respond_to do |format|
-      format.html { redirect_to(formations_url) }
+      format.html { redirect_to :root, :notice => t(:formation_destroyed) }
       format.xml  { head :ok }
     end
   end

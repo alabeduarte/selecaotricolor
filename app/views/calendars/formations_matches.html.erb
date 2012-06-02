@@ -21,8 +21,8 @@
 						<% end %>
 					</p>
 					<p class="tactical"><%= formation.tactical %></p>
-					<p class="match-day"><%= formation.created_at.to_s(:day) %></p>				
-					<iframe src="//www.facebook.com/plugins/like.php?href=<%= "#{request.host}/formations/#{formation.id}" %>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;" style="float: right; margin-top: 4px; height: 21px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+					<p class="match-day"><%= formation.created_at.to_s(:day) %></p>
+					<%= render :partial => 'rating/facebook_like_count', :locals => {:uri => "#{request.host}/formations/#{formation.id}"} %>					
 				</li>
 			<% end %>
 		</ul>

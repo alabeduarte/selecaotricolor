@@ -9,6 +9,7 @@ class Player
   key :team_id, ObjectId
   key :position_mapper_id, ObjectId
   key :enabled, Boolean
+  key :rating, Integer
   
   belongs_to :team
   belongs_to :position_mapper
@@ -18,7 +19,17 @@ class Player
   validates :team, :presence => true
   
   def self.players_of(team)
-    Player.all(:team_id => team.id, :order => :position_mapper_id.asc)
+    Player.sort(:position_mapper_id.asc, :rating.desc).where(:team_id => team.id)
+  end
+  
+  def increase_rating
+    self.rating ||= 0
+    self.update_attributes(rating: self.rating + 1)
+  end
+  
+  def decrease_rating
+    self.rating ||= 0
+    self.update_attributes(rating: self.rating - 1) if self.rating > 0
   end
   
 end

@@ -1,7 +1,7 @@
 <% content_for :title, "Escale o seu Time!" %>
 <div class="welcome">	
 	<div class="facebook-like">
-		<%= render :partial => 'formations/facebook_like', :locals => {:uri => current_uri} %>
+		<%= render :partial => 'rating/facebook_like', :locals => {:uri => current_uri} %>
 	</div>	
 	<section id="slideshow">
 	 <div id="slideshow-wrapper">
@@ -14,7 +14,7 @@
 	 </div>
 	</section>
 	<div class="share">
-		<%= render :partial => "formations/share" %>
+		<%= render :partial => "rating/share" %>
 	</div>
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
@@ -43,7 +43,19 @@
 			<h2 class="tactical"><%= "#{@formation.tactical}" %></h2>			
 		</div>
 		<div class="last-squad-of-the-round">
-			<%= render :partial => "formations/players_holders", :locals => { :players_positions => @formation.players_ordered_by_positions } %>			
+			<div class="rating call-up">
+				<table id="squad_of_the_round">
+					<% @formation.players_ordered_by_positions.each do |position| %>
+				  	<tr>
+						<td class="position"><%= position.acronym %></td>
+					    <td><%= position.player.name %></td>
+						<td>
+							<fb:like layout="button_count" href=<%= "/positions/like/#{position.id}" %>></fb:like>
+						</td>
+					</tr>
+					<% end %>
+				</table>
+			</div>
 			<div id="soccerField" class="soccer-field-grass show">
 				<div id="emptySlot"></div>
 			</div>
@@ -98,4 +110,24 @@
 <%= content_for :javascript do %>
 	$( load_soccer_field );
 	$( load_formation_of_last_round );
+	
+
+	FB.Event.subscribe('edge.create', function(response) {
+		if (response.indexOf("positions/like") > 0) {
+			$.ajax({
+		  			url:   response,
+					type:  "POST"
+			});
+		}		
+	});
+	
+	FB.Event.subscribe('edge.remove', function(response) {
+		if (response.indexOf("positions/like") > 0) {
+			$.ajax({
+		  			url:   response,
+					type:  "DELETE"
+			});
+		}		
+	});
+
 <% end %>

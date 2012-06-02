@@ -1,7 +1,6 @@
 UcoachManager::Application.routes.draw do
 
   get "scores/index"
-
   get "welcome/index"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
@@ -44,6 +43,12 @@ UcoachManager::Application.routes.draw do
   
   controller :calendars do
     get 'calendars/matches/:id', to: "calendars#formations_matches", :as => :formations_matches
+  end
+  
+  controller :players_formations_positions do
+    get "positions/show/:id" => :show
+    post "positions/like/:id" => :like
+    delete "positions/like/:id" => :unlike
   end
   
   controller :about do

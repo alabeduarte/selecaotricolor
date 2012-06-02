@@ -17,7 +17,7 @@
 		<li><%= image_tag(@formation.owner.image, :size => "45x45", :class => "user-avatar") %></li>
 		<li><%= "#{t(:sended_to)} #{@formation.owner.nickname}" %></li>
 		<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
-		<li class="share"><%= render :partial => "formations/share" %></li>
+		<li class="share"><%= render :partial => "rating/share" %></li>
 	</ul>		         		
 </div>
 <%= content_for :javascript do %>

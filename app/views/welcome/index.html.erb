@@ -18,7 +18,7 @@
 	</div>
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
-		<h1 class="subtitle">ESCALE O SEU TIME!</h1>
+		<h1 class="subtitle">próxima partida</h1>
 		<div class='pills match-calendars'>
 			<%= link_to "Calendário dos Jogos", :calendars, :class => 'button match-calendar' %>
 			<%= link_to "Táticas enviadas até agora", {:controller => 'calendars', :action => 'formations_matches', :id => @next_match}, :class => 'button formations' %>
@@ -38,7 +38,7 @@
 	<i>Para ver o <b>ranking</b> completo de pontuações, <a href="/scores">clique aqui!</a></i>		
 </div>
 	<% if @formation %>
-		<h1 class="subtitle">Partida Anterior</h1>
+		<h1 class="subtitle">partida Anterior</h1>
 		<div class="formation-header">
 			<h2 class="tactical"><%= "#{@formation.tactical}" %></h2>			
 		</div>

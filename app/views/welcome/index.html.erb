@@ -1,4 +1,5 @@
 <% content_for :title, "Escale o seu Time!" %>
+<input id="host" type="hidden" value=<%= "#{request.host}" %> />
 <div class="welcome">	
 	<div class="facebook-like">
 		<%= render :partial => 'rating/facebook_like', :locals => {:uri => current_uri} %>
@@ -50,7 +51,7 @@
 						<td class="position"><%= position.acronym %></td>
 					    <td><%= position.player.name %></td>
 						<td>
-							<fb:like layout="button_count" href=<%= "/positions/like/#{position.id}" %>></fb:like>
+							<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/positions/like/#{position.id}" %>></fb:like>
 						</td>
 					</tr>
 					<% end %>
@@ -113,18 +114,20 @@
 	
 
 	FB.Event.subscribe('edge.create', function(response) {
+		var uri = response.replace($('#host').val(), "");
 		if (response.indexOf("positions/like") > 0) {
 			$.ajax({
-		  			url:   response,
+		  			url:   uri,
 					type:  "POST"
 			});
 		}		
 	});
 	
 	FB.Event.subscribe('edge.remove', function(response) {
+		var uri = response.replace($('#host').val(), "");
 		if (response.indexOf("positions/like") > 0) {
 			$.ajax({
-		  			url:   response,
+		  			url:   uri,
 					type:  "DELETE"
 			});
 		}		

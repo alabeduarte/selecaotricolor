@@ -1,6 +1,4 @@
-UcoachManager::Application.routes.draw do
-
-  get "scores/index"
+UcoachManager::Application.routes.draw do  
   get "welcome/index"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
@@ -21,7 +19,7 @@ UcoachManager::Application.routes.draw do
   end
 
   root :to => "welcome#index"
-  resources :position_mappers, :teams, :players, :calendars, :formations, :first_teams, :scores, :newsletters
+  resources :position_mappers, :teams, :players, :calendars, :formations, :first_teams, :newsletters
   
   controller :formations do
     get 'new' => :new
@@ -49,6 +47,11 @@ UcoachManager::Application.routes.draw do
     get "positions/show/:id" => :show
     post "positions/like/:id" => :like
     delete "positions/like/:id" => :unlike
+  end
+  
+  controller :scores do
+    get "scores" => :index
+    get "scores/rules" => :rules
   end
   
   controller :about do

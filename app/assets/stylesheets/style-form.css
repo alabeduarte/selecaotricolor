@@ -20,6 +20,8 @@ form fieldset.login {
 }
 
 form fieldset.login ol {
+	height: 100px;
+	width: 94%;
 	list-style: none;
 }
 
@@ -60,18 +62,17 @@ form fieldset.login ol li.login-btn {
 	margin-right: 5px;
 }
 
-form fieldset.login ol li .fb_button {
-	width: 136px;
-	height: 31px;
-	font-size: 14px;
-	margin-top: -6px;
-	position: absolute;
+form fieldset.login ol li.register {
+	margin-top: 7px;
+	margin-left: 18%;
+	width: 148px;
 }
 
-form fieldset.login ol li.register {
-	margin-left: 137px;
-	margin-top: 7px;
-	width: 148px;
+form fieldset.login ol li.facebook {
+	margin-top: 0px;
+	margin-left: 3%;
+	width: 177px;
+	height: 58px;
 }
 
 label {

@@ -9,8 +9,8 @@
 	position: relative;
 	font-size: 12px;
 	padding-left: 10%;
-	padding-top: 2%;
-	padding-bottom: 12%;
+	padding-top: 4%;
+	padding-bottom: 7%;
 }
 
 #creator-info ul li.share {
@@ -221,6 +221,32 @@ section {
 	padding-left: 64px;
 	padding-bottom: 48px;
 	background: url(../../assets/icons/match-calendar.png) no-repeat;
+	background-position-x: 10px;
+	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
+}
+
+.button.ranking {
+	cursor: pointer;
+	width: 32px;
+	height: 32px;
+	padding-left: 64px;
+	padding-bottom: 48px;
+	background: url(../../assets/icons/ranking.png) no-repeat;
+	background-position-x: 10px;
+	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
+}
+
+.button.question {
+	cursor: pointer;
+	width: 32px;
+	height: 32px;
+	padding-left: 64px;
+	padding-bottom: 48px;
+	background: url(../../assets/icons/help.png) no-repeat;
 	background-position-x: 10px;
 	-webkit-box-shadow: 0 3px 10px #888;
 	-moz-box-shadow: 0 3px 10px #888;

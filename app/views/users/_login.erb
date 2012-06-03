@@ -10,25 +10,13 @@
 				</li>	
 				<li class="login-btn">
 					<%= f.submit "ENTRAR", :class => "btn primary" %>
-				</li>									
-				<li class="boolean">
-					<label class="" for="user_remember_me" name="user[remember_me]">
-						<div class="checker" id="uniform-user_remember_me">
-							<span class="">
-								<%= f.check_box :remember_me %>
-							</span>
-						</div><%= t(:remember_me) %>
-					</label>
-				</li>
-				<li id="forgot_password" class="pills">
-					<%= link_to "#{t(:forgot_your_password)}", new_password_path(:user) %>
-				</li>
-				<li>
-					<%= render :partial => "users/facebook_authentication" %>
-				</li>
+				</li>																							
 				<li class="register">
 					<%= link_to "Cadastro sem Facebook", new_registration_path(:user), :class => 'btn' %>
-				</li>		
+				</li>
+				<li class="facebook">
+					<%= render :partial => "users/facebook_authentication" %>
+				</li>
 			</ol>	
 		</fieldset>
 	<% end %>

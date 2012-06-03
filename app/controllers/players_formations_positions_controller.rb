@@ -4,7 +4,7 @@ class PlayersFormationsPositionsController < ApplicationController
   end
 
   def like
-    position = PlayerFormationPosition.find(params[:id])
+    @position = PlayerFormationPosition.find(params[:id])
     player = position.player
     if player.increase_rating
       respond_to do |format|
@@ -14,7 +14,7 @@ class PlayersFormationsPositionsController < ApplicationController
   end
   
   def unlike
-    position = PlayerFormationPosition.find(params[:id])
+    @position = PlayerFormationPosition.find(params[:id])
     player = position.player
     if player.decrease_rating
       respond_to do |format|

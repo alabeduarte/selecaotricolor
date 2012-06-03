@@ -22,7 +22,6 @@
 					</p>
 					<p class="tactical"><%= formation.tactical %></p>
 					<p class="match-day"><%= formation.created_at.to_s(:day) %></p>
-					<%= render :partial => 'rating/facebook_like_count', :locals => {:uri => "#{request.host}/formations/#{formation.id}"} %>					
 				</li>
 			<% end %>
 		</ul>

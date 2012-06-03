@@ -1,5 +1,6 @@
 body {
 	font-family: 'Squada One', cursive;
+	color: #191970;
 }
 
 table {
@@ -89,6 +90,10 @@ h1.subtitle {
 	margin: 0 auto;
 	margin-bottom: 15px;
 	width: 80%;
+}
+
+.rules {
+	margin-bottom: 2%;
 }
 
 .rules ul li {
@@ -426,26 +431,25 @@ h1.subtitle {
 	margin-top: 70px;
 }
 
-.fb_button {
+.facebook-button {
     color: white;
 	text-decoration: none;
 	display: block;
 	width: 177px;
 	background: url(../../assets/background-facebook.png) center center no-repeat;
 	padding: 13px 0;
-	margin: 10px auto;
 	font: 14px Helvetica,Arial,sans-serif;
 	text-align: center;
 	text-shadow: 0 1px 0 #191970;
 }
 
-.fb_button:hover {
+.facebook-button:hover {
 	color: white;
 	text-shadow: 0 1px 0 #4682B4;
 	text-decoration:none;
 }
 
-.fb_button_text {
+.facebook-button-text {
 	cursor: pointer;
 	display: inline-block;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
@@ -456,7 +460,7 @@ h1.subtitle {
 	line-height: normal;
 }
 
-.fb_button_text a:hover {
+.facebook-button-text a:hover {
 	color: #fff;
 }
 
@@ -666,7 +670,6 @@ h1.subtitle {
 #slideshow {
  width: 900px;
  height: 320px;
- margin: 5em auto;
  position: relative;
 }
 
@@ -687,4 +690,13 @@ h1.subtitle {
  padding-left: 10px;
  display: none;
  font-size: 25px;
+}
+
+.welcome div.description p {
+	line-height: 22px;
+	margin-top: 2%;
+	margin-left: 14%;
+	text-align: left;
+	width: 80%;
+	font-size: 18px;
 }

@@ -1,0 +1,33 @@
+<% content_for :title, "Entenda como o Seleção Tricolor funciona" %>
+<h1 class="subtitle">Entenda como o Seleção Tricolor funciona</h1>
+<div class="welcome">
+	<section id="slideshow">
+		<div id="slideshow-wrapper">
+			<%= image_tag('tutorial/monte-o-seu-time.png', :size => "472x250", :alt => 'Avalie o seu elenco!') %>
+			<%= image_tag('tutorial/posicionamento-goleiro.png', :size => "472x250", :alt => 'Prepare a sua defesa!') %>
+			<%= image_tag('tutorial/posicionamento.png', :size => "472x250", :alt => 'Monte o seu esquema tático!') %>
+			<%= image_tag('tutorial/substituicao.png', :size => "472x250", :alt => 'Substitua os Jogadores que quiser!') %>
+			<%= image_tag('tutorial/pituacu.jpg', :size => "472x250", :alt => '#bbmp !!') %>
+	  		<div id="caption"></div>
+	 	</div>
+	</section>
+	<div class="description">
+		<article>
+		<p><a href="http://selecaotricolor.com.br">Seleção Tricolor</a> é um <i><a href="http://facebook.com/selecaotricolor">social game</a></i> onde cada usuário define qual deve ser o time ideal para cada partida<p>
+		<p>Clicando e arrastando os jogadores (em formato de <a href="http://pt.wikipedia.org/wiki/Futebol_de_bot%C3%A3o">jogo de botão</a>) o usuário poderá escolher quem irá a campo e definir as respectivas posições.</p>
+		<p>Além de ser um espaço para o torcedor do Bahia divulgar a sua opinião tática na web, o Seleção Tricolor também avalia todas as táticas enviadas e aqueles que acertarem o esquema tático a cada partida serão pontuados. Por isso é importante que você <strong>SEMPRE</strong> <a href="http://selecaotricolor.com.br/new">escale o seu time a cada jogo</a></p>
+		<p>Como o esquema tático exato é um pouco subjetivo, levamos em consideração apenas a escalação.<p>
+		<p>Confira abaixo como é feita a distribuição de pontos por tática enviada:</p>
+		</article>
+	</div>
+	<div class="rules">		
+		<ul>
+			<li>A cada tática que você criar, ganha <b>100 pontos</b><span class="score-check"><%= image_tag('icons/check.png', :size => "24x24") %></span></li>
+			<li>A cada jogador que você acertar: <b>10 pontos</b><span class="score-check"><%= image_tag('icons/check.png', :size => "24x24") %></span></li>
+			<li>Se você acertar a escalação dos jogadores que começarão a partida: <b>40 pontos</b><span class="score-check"><%= image_tag('icons/check.png', :size => "24x24") %></span></li>
+		</ul>		
+		<div class='pills match-calendars'>
+			<%= link_to "Ranking dos usuários!", '/scores', :class => 'button ranking' %>
+		</div>
+	</div>	
+</div>

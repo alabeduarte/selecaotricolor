@@ -6,7 +6,7 @@
 #soccerField {
 	position: absolute;
 	height: 550px;
-	width: 419px;
+	width: 838px;
 	margin-left: 50px;
 	cursor: default;
 }
@@ -304,6 +304,19 @@
 	width: 100%;	
 }
 
+#slideshow.formation-hint #slideshow-wrapper {
+	margin-top: 5px;
+}
+
+#slideshow.formation-hint #caption {
+	color: #B22222;
+	text-shadow: 0 1px 0 #191970;
+	margin-top: -30px;
+	margin-left: 10px;
+	margin-bottom: 0px;
+	font-size: 18px;
+}
+
 #player div span {
 	color: #191970;
 	text-shadow: 0 1px 1px #F6F6F6;
@@ -545,4 +558,15 @@
 
 .nickname {
 	
+}
+
+.ranking {
+	margin: 0 auto;
+}
+
+span.hints {
+	font-size: 18px;
+	right: 8%;
+	top: 45%;
+	position: absolute;
 }

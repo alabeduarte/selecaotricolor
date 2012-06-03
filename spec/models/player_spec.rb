@@ -10,8 +10,7 @@ describe Player do
   context "listing" do
     it "should listing all players of bahia" do
       bahia_squad = Player.players_of(Team.bahia)
-      bahia_squad.size.should == 1
-      bahia_squad[0].should == souza      
+      bahia_squad.size.should == 1    
     end
   end
   

@@ -1,5 +1,13 @@
 <% content_for :title, t(:new_formation) %>
 <%= render :partial => "calendars/match_info", :locals => { :match => Calendar.next_match } %>
+<section id="slideshow" class="formation-hint">
+	<div id="slideshow-wrapper">		
+		<%= image_tag('tutorial/posicionamento.png', :size => "472x250", :alt => 'Arraste os jogadores para o campo') %>
+		<%= image_tag('tutorial/substituicao.png', :size => "472x250", :alt => 'Para substituir, basta mover um jogador sobre o outro') %>
+		<%= image_tag('tutorial/enviar.png', :size => "472x250", :alt => 'Quando achar quando estiver pronto, clique em "Enviar" ao final da tela') %>		
+		<div id="caption"></div>  		
+ 	</div>
+</section>
 <div class="legend">
 	<ul>
 		<li class="defense">Defesa</li>
@@ -7,9 +15,10 @@
 		<li class="forward">Ataque</li>
 	</ul>
 </div>
+<span class="hints">*Arraste os jogadores para o campo</span>
 <div class="droppable-area">
 	<div id="soccerField" class="soccer-field-grass"></div>
-	<div id="positionMap" class="positions-map"></div>
+	<div id="positionMap" class="positions-map"></div>	
 	<% if user_signed_in? %>	
 	<div id="player">
 		<div id="tabs">
@@ -35,15 +44,15 @@
 			<div id="midfield" >
 			</div>					
 			<div id="forwards" >
-			</div>
-		</div>
+			</div>						
+		</div>		
 	</div>
 	<% end %>
 	<div id="slot"></div>
 </div>
 <div id="matrix"></div>
 <div class="pills actions">
-	<button id="send_button" name="button" class="btn danger send">Enviar</button>
+	<button id="send_button" name="button" class="btn large danger send">Enviar</button>
 </div>
 <%= content_for :footer_resources do %>
 <% end %>

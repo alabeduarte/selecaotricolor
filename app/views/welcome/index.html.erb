@@ -3,41 +3,23 @@
 <div class="welcome">	
 	<div class="facebook-like">
 		<%= render :partial => 'rating/facebook_like', :locals => {:uri => current_uri} %>
-	</div>	
-	<section id="slideshow">
-	 <div id="slideshow-wrapper">
-		<%= image_tag('tutorial/monte-o-seu-time.png', :size => "472x250", :alt => 'Avalie o seu elenco!') %>
-		<%= image_tag('tutorial/posicionamento-goleiro.png', :size => "472x250", :alt => 'Prepare a sua defesa!') %>
-		<%= image_tag('tutorial/posicionamento.png', :size => "472x250", :alt => 'Monte o seu esquema tático!') %>
-		<%= image_tag('tutorial/substituicao.png', :size => "472x250", :alt => 'Substitua os Jogadores que quiser!') %>
-		<%= image_tag('tutorial/pituacu.jpg', :size => "472x250", :alt => '#bbmp !!') %>
-	  <div id="caption"></div>
-	 </div>
-	</section>
-	<div class="share">
-		<%= render :partial => "rating/share" %>
-	</div>
+	</div>			
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
-		<h1 class="subtitle">próxima partida</h1>
+		<h1 class="subtitle">escale o seu time para a próxima partida</h1>
 		<div class='pills match-calendars'>
 			<%= link_to "Calendário dos Jogos", :calendars, :class => 'button match-calendar' %>
 			<%= link_to "Táticas enviadas até agora", {:controller => 'calendars', :action => 'formations_matches', :id => @next_match}, :class => 'button formations' %>
+			<%= link_to "Ranking dos usuários!", '/scores', :class => 'button ranking' %>			
+		</div>
+		<div class="pills actions">
+			<%= link_to "Entenda como funciona o nosso site!", '/scores/rules', :class => 'button question' %>
 		</div>
 		<%= render :partial => "calendars/match_info", :locals => {:match => @next_match, :subtitle => false} %>			
 		<div class="pills actions large">
 			<%= link_to "ESCALE O SEU TIME!", new_path, :class => "button new-formation" %>
 		</div>
 	<% end %>
-	<div class="rules">
-		<ul>
-			<li>A cada tática que você criar, ganha <b>100 pontos</b><span class="score-check"><%= image_tag('icons/check.png', :size => "24x24") %></span></li>
-			<li>A cada jogador que você acertar: <b>10 pontos</b><span class="score-check"><%= image_tag('icons/check.png', :size => "24x24") %></span></li>
-			<li>Se você acertar a escalação dos jogadores que começarão a partida: <b>40 pontos</b><span class="score-check"><%= image_tag('icons/check.png', :size => "24x24") %></span></li>
-		</ul>		
-	</div>
-	<i>Para ver o <b>ranking</b> completo de pontuações, <a href="/scores">clique aqui!</a></i>		
-</div>
 	<% if @formation %>
 		<h1 class="subtitle">partida Anterior</h1>
 		<div class="formation-header">
@@ -67,7 +49,7 @@
 					<li class="jogo">
 						<div class="time home">
 							<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
-							
+
 				        </div>
 				        <div class="x">x</div>
 				        <div class="time away">				       
@@ -104,8 +86,9 @@
 				</div>
 			</div>
 		</div>
-	<% end %>	
+	<% end %>		
 
+</div>		
 <div class="welcome footer">	
 </div>
 <%= content_for :javascript do %>

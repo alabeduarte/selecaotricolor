@@ -5,7 +5,7 @@ class PlayersFormationsPositionsController < ApplicationController
 
   def like
     @position = PlayerFormationPosition.find(params[:id])
-    player = position.player
+    player = @position.player
     if player.increase_rating
       respond_to do |format|
         render :json => { :success => true }
@@ -15,7 +15,7 @@ class PlayersFormationsPositionsController < ApplicationController
   
   def unlike
     @position = PlayerFormationPosition.find(params[:id])
-    player = position.player
+    player = @position.player
     if player.decrease_rating
       respond_to do |format|
         render :json => { :success => true }

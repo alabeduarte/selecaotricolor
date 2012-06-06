@@ -22,7 +22,7 @@ describe PlayersFormationsPositionsController do
       PlayerFormationPosition.should_receive(:find).with(anything)
       position.should_receive(:player)
       player.should_receive(:increase_rating)
-      post :like
+      post :like, :id => position.id
       response.should be_success
     end    
   end
@@ -32,7 +32,7 @@ describe PlayersFormationsPositionsController do
       PlayerFormationPosition.should_receive(:find).with(anything)
       position.should_receive(:player)
       player.should_receive(:decrease_rating)
-      delete :unlike
+      delete :unlike, :id => position.id
       response.should be_success
     end    
   end

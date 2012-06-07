@@ -33,6 +33,7 @@ UcoachManager::Application.routes.draw do
   
   controller :first_teams do
     get 'last_squad_of_the_round' => :last_squad_of_the_round
+    get 'avalie-seu-time' => :last_squad_of_the_round
   end
   
   controller :players do
@@ -44,9 +45,9 @@ UcoachManager::Application.routes.draw do
   end
   
   controller :players_formations_positions do
-    get "positions/show/:id" => :show
-    post "positions/like/:id" => :like
-    delete "positions/like/:id" => :unlike
+    get "positions/rating/:id" => :show
+    post "positions/rating/:id" => :like
+    delete "positions/rating/:id" => :unlike
   end
   
   controller :scores do

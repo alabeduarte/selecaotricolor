@@ -462,16 +462,22 @@
 	font-size: 13px;
 }
 
-.rating.call-up {	
+.index.rating.call-up {	
 	width: 290px;
 	float: left;
 }
 
-.rating.call-up table {
+.index.rating.call-up table {
 	width: 50px;
 	position: relative;
 	left: 49px;
 	top: -15px;
+}
+
+.rating.call-up table {
+	width: 50px;
+	left: 49px;
+	top: 204px;
 }
 
 .rating.call-up table tbody tr td {

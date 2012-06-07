@@ -12,7 +12,7 @@ class Ability
         can [:show, :update, :destroy], User, :id => user.id
         can :bahia_squad, Player
         can [:index, :formations_matches], Calendar
-        can :last_squad_of_the_round, FirstTeam
+        can [:last_squad_of_the_round, :show], FirstTeam
       end    
   end
 end

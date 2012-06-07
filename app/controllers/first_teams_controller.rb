@@ -1,6 +1,6 @@
 class FirstTeamsController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate_user!, :except => [:last_squad_of_the_round]
+  before_filter :authenticate_user!, :except => [:last_squad_of_the_round, :show]
   
   respond_to :json, :html
   
@@ -10,8 +10,12 @@ class FirstTeamsController < ApplicationController
   
   def last_squad_of_the_round
     respond_to do |format|
-      format.html
-      format.json  { 
+      format.html {
+        @first_team = FirstTeam.last_of_the_round
+        @formation = @first_team.formation
+        render 'show'
+      }
+      format.json  {
         render :json => FirstTeam.last_of_the_round.formation.as_json(:include => {
           :players_positions => {:include => :player}
         }) 

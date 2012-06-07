@@ -26,14 +26,14 @@
 			<h2 class="tactical"><%= "#{@formation.tactical}" %></h2>			
 		</div>
 		<div class="last-squad-of-the-round">
-			<div class="rating call-up">
+			<div class="index rating call-up">
 				<table id="squad_of_the_round">
 					<% @formation.players_ordered_by_positions.each do |position| %>
 				  	<tr>
 						<td class="position"><%= position.acronym %></td>
 					    <td><%= position.player.name %></td>
 						<td>
-							<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/positions/like/#{position.id}" %>></fb:like>
+							<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/positions/rating/#{position.id}" %>></fb:like>
 						</td>
 					</tr>
 					<% end %>
@@ -98,7 +98,7 @@
 
 	FB.Event.subscribe('edge.create', function(response) {
 		var uri = response.replace($('#host').val(), "");
-		if (response.indexOf("positions/like") > 0) {
+		if (response.indexOf("positions/rating") > 0) {
 			$.ajax({
 		  			url:   uri,
 					type:  "POST"
@@ -108,7 +108,7 @@
 	
 	FB.Event.subscribe('edge.remove', function(response) {
 		var uri = response.replace($('#host').val(), "");
-		if (response.indexOf("positions/like") > 0) {
+		if (response.indexOf("positions/rating") > 0) {
 			$.ajax({
 		  			url:   uri,
 					type:  "DELETE"

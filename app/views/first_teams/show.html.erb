@@ -1,4 +1,4 @@
-<% content_for :title, "em #{@formation.match}, meu #{Team.bahia.name} joga com #{@formation.tactical}" %>
+<% content_for :title, "#{@formation.match}" %>
 <%= render :partial => "calendars/match_info", :locals => { :match => @formation.match } %>
 <input id="host" type="hidden" value=<%= "#{request.host}" %> />
 <div class="formation-header large">

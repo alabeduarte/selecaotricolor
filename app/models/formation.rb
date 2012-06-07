@@ -20,7 +20,7 @@ class Formation
   scope :of_match, lambda { |match| where(:match_id => match.id, :order => :created_at.desc) }
   
   before_validation :verify_if_once_per_match_and_per_user
-  after_save :checkin_the_match
+  after_save :checkin_the_match, :notify
   before_destroy :destroy_all_positions
   
   def self.new_by(args)
@@ -83,6 +83,10 @@ protected
         current_match.save
       end
     end
+  end
+  
+  def notify
+    FormationMailer.formation_sent(self).deliver
   end
   
   def destroy_all_positions

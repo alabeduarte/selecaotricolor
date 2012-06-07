@@ -38,8 +38,8 @@ pt-BR:
     listing_formations: Formações Enviadas
     listing_calendars: Calendário dos Jogos
     my_formations: Minhas Convocações
-    formations_not_sended: Nenhuma escalação foi enviada para esta partida
-    formations_sended: Escalações enviadas
+    formations_not_sent: Nenhuma escalação foi enviada para esta partida
+    formations_sent: Escalações enviadas
     admin: Administrador
     role: Papel
     formation_destroyed: Esquema Tático excluído com sucesso!
@@ -74,7 +74,7 @@ pt-BR:
     day: Dia
     home: Mando de campo
     away: Fora de casa
-    sended_to: Enviada por
+    sent_by: Enviada por
     date:
         abbr_day_names:
         - Dom

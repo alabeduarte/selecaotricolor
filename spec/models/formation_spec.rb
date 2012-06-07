@@ -194,6 +194,23 @@ describe Formation do
       end
     end
     
+    describe "sends a e-mail after save" do
+      let(:mail_message) { mock(:mail_message).as_null_object}
+      before do      
+        FormationMailer.stub(:formation_sent).and_return(mail_message)
+      end
+      it "should send notification for admin user after rating increase" do
+        formation = new_formation
+        should_send_notification_after_save(formation)
+        formation.save
+      end
+      
+      def should_send_notification_after_save(formation)
+        FormationMailer.should_receive(:formation_sent).with(formation)
+        mail_message.should_receive(:deliver)
+      end
+    end
+    
 private
   def new_formation(json=@json_442)
     Formation.new_by(data: JSON.load(json), owner: current_user)

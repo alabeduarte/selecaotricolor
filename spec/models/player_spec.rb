@@ -61,4 +61,28 @@ describe Player do
       end
     end
   end
+  
+  describe "notificating after rating" do
+    let(:player) { Player.new(name: "Some Player") }
+    let(:mail_message) { mock(:mail_message).as_null_object}
+    
+    before do      
+      FormationMailer.stub(:player_has_been_assessed).and_return(mail_message)
+    end
+    
+    it "should send notification for admin user after rating increase" do
+      should_send_notification_with(player)
+      player.increase_rating
+    end
+    
+    it "should send notification for admin user after rating decrease" do
+      should_send_notification_with(player)
+      player.decrease_rating      
+    end
+    
+    def should_send_notification_with(player)      
+      FormationMailer.should_receive(:player_has_been_assessed).with(player)
+      mail_message.should_receive(:deliver)
+    end
+  end
 end

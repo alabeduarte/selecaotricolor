@@ -25,11 +25,18 @@ class Player
   def increase_rating
     self.rating ||= 0
     self.update_attributes(rating: self.rating + 1)
+    notify
   end
   
   def decrease_rating
     self.rating ||= 0
     self.update_attributes(rating: self.rating - 1) if self.rating > 0
+    notify
+  end
+  
+private
+  def notify
+    FormationMailer.player_has_been_assessed(self).deliver    
   end
   
 end

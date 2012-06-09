@@ -19,10 +19,18 @@ class FirstTeam
     FirstTeam.sort(:id.desc).first
   end
   
+  def self.all_by_match
+    FirstTeam.sort(:id.desc).all
+  end
+  
   def squad_winners_of_the_round
     match = formation.match
     Scorer.new(first_team: self, match: match).squad_winners
   end
+  
+  def match
+    self.formation.match.to_s
+  end  
  
 protected
   def apply_score_to_all_users

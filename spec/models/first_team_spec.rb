@@ -58,6 +58,23 @@ describe FirstTeam do
     end
   end
   
+  context "showing through match" do
+    it "should show by match" do
+      new_first_team = FirstTeam.new(formation: new_formation)
+      new_first_team.save
+      new_first_team.match.should == "Bahia x Vit\u00f3ria"
+    end
+    
+    it "should sorting by match" do
+      FirstTeam.new(formation: new_formation(@json_442, Calendar.last_match)).save
+      FirstTeam.new(formation: new_formation).save
+      tactics = FirstTeam.all_by_match
+      tactics.size.should == 2
+      tactics[0].match.should == Calendar.next_match.to_s
+      tactics[1].match.should == Calendar.last_match.to_s
+    end
+  end
+  
 private
   def new_formation(json=@json_442, match=Calendar.next_match)
     Formation.new_by(data: JSON.load(json), owner: current_user, match: match)

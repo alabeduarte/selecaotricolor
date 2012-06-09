@@ -1,0 +1,39 @@
+<%= form_for(@substitution) do |f| %>
+  <% if @substitution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@substitution.errors.count, "error") %> prohibited this substitution from being saved:</h2>
+
+      <ul>
+      <% @substitution.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<fieldset class="configurations">
+		<div class="clearfix">
+		<%= f.hidden_field 'first_team_id' %>
+			<label for="first_team_id">Jogo:</label>
+		  	<div class="input">			
+				<%= f.collection_select(:first_team_id, FirstTeam.sort_by_match, :id, :match, {:prompt => true}) %>
+		  	</div>
+		</div>
+		<div class="clearfix">
+		<%= f.hidden_field 'off_id' %>
+			<label for="off_id">Sai:</label>
+		  	<div class="input">			
+				<%= f.collection_select(:off_id, Player.sort(:name), :id, :name, {:prompt => true}) %>
+		  	</div>
+		</div>
+		<div class="clearfix">
+		<%= f.hidden_field 'on_id' %>
+			<label for="on_id">Entra:</label>
+		  	<div class="input">			
+				<%= f.collection_select(:on_id, Player.sort(:name), :id, :name, {:prompt => true}) %>
+		  	</div>
+		</div>
+		<div class="clearfix">
+			<%= f.submit :class => "btn" %>
+		</div>
+	</fieldset>
+<% end %>

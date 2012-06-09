@@ -3,7 +3,10 @@ class FirstTeam
 
   key :formation_id, ObjectId
   belongs_to :formation
+  many :substitutions
+  
   validates :formation, :presence => true
+  validates :substitutions, :length => { :maximum => 3 }
   
   def apply_score(scorer)
     @scorer = scorer

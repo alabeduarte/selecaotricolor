@@ -58,6 +58,48 @@ describe FirstTeam do
     end
   end
   
+  describe "adding substitutions" do
+    before do
+      @first_team = FirstTeam.create(formation: new_formation(@json_442, Calendar.last_match))
+    end
+    
+    it "should add substitution in list of substitutions of the first team" do      
+      substitution = get_substitution
+      @first_team.substitutions << substitution
+      @first_team.save
+      first_team_saved = FirstTeam.find(@first_team.id)
+      first_team_saved.substitutions[0].id.should_not be_nil
+      first_team_saved.substitutions[0].should == substitution
+    end
+    
+    it "should add 2 substitutions" do
+      @first_team.substitutions << get_substitution
+      @first_team.substitutions << get_substitution
+      @first_team.valid?.should be_true
+    end
+    
+    it "should add 3 substitutions" do
+      @first_team.substitutions << get_substitution
+      @first_team.substitutions << get_substitution
+      @first_team.substitutions << get_substitution
+      @first_team.valid?.should be_true
+    end
+    
+    it "should not add more than 4 substitutions" do
+      @first_team.substitutions << get_substitution
+      @first_team.substitutions << get_substitution
+      @first_team.substitutions << get_substitution
+      @first_team.substitutions << get_substitution
+      @first_team.valid?.should_not be_true
+    end
+    
+    def get_substitution
+      off = Player.new(id: 1, name: "Off player", number: 10, team: Team.bahia)
+      on = Player.new(id: 2, name: "On player", number: 18, team: Team.bahia)
+      Substitution.new(off: off, on: on)
+    end
+  end
+  
 private
   def new_formation(json=@json_442, match=Calendar.next_match)
     Formation.new_by(data: JSON.load(json), owner: current_user, match: match)

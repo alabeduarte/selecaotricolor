@@ -11,42 +11,39 @@ describe Substitution do
   end
   
   describe "adding substitutions" do
-      # 
-      # it "should add substitution in list of substitutions of the first team" do            
-      #   substitution = get_substitution
-      #   substitution.first_team = @first_team
-      #   substitution.save!
-      #   substitution.id.should_not be_nil
-      # end
-    
-    it "should add substitution in list of substitutions of the first team" do      
-      substitution = get_substitution
-      @first_team.substitutions << substitution
-      @first_team.save!
-      @first_team_saved = FirstTeam.find(@first_team.id)
-      @first_team_saved.substitutions[0].id.should_not be_nil
-      @first_team_saved.substitutions[0].should == substitution
+      
+    it "should add substitution in list of substitutions of the first team" do            
+      substitution = add_substitution!
+      substitution.id.should_not be_nil
+      Substitution.total(@first_team).should == 1
     end
     
     it "should add 2 substitutions" do
-      @first_team.substitutions << get_substitution
-      @first_team.substitutions << get_substitution
-      @first_team.valid?.should be_true
+      add_substitution!
+      add_substitution!
+      Substitution.total(@first_team).should == 2
     end
     
     it "should add 3 substitutions" do
-      @first_team.substitutions << get_substitution
-      @first_team.substitutions << get_substitution
-      @first_team.substitutions << get_substitution
-      @first_team.valid?.should be_true
+      add_substitution!
+      add_substitution!
+      add_substitution!
+      Substitution.total(@first_team).should == 3
     end
     
     it "should not add more than 4 substitutions" do
-      @first_team.substitutions << get_substitution
-      @first_team.substitutions << get_substitution
-      @first_team.substitutions << get_substitution
-      @first_team.substitutions << get_substitution
-      @first_team.valid?.should_not be_true
+      add_substitution!
+      add_substitution!
+      add_substitution!      
+      expect { add_substitution! }.should raise_error
+      Substitution.total(@first_team).should == 3
+    end
+    
+    def add_substitution!
+      substitution = get_substitution
+      substitution.first_team = @first_team
+      substitution.save
+      substitution
     end
     
     def get_substitution

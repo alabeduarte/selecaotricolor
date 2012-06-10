@@ -15,6 +15,7 @@ pt-BR:
                             confirmation: "deve ser igual ao que você digitou na confirmação!"
                         nickname:
                             blank: é obrigatório! Preencha o apelido para poderem identificar você!
+    substitution_limit_overflow: O limite de Substituições já foi alcançado!
     replacement_registered_successfully: Substituição Cadastrada com Sucesso!
     formation_once_per_match: "Desculpe. Só é permitido que você crie uma tática por jogo! Se você quiser refazer a sua tática é preciso que você exclua a atual."
     formation_time_is_over: "Desculpe. Faltam menos de 2 horas para a partida começar, por isso não aceitaremos mais táticas por hoje!"

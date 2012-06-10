@@ -6,14 +6,31 @@
 </div>
 <div class="rating call-up">
 	<table id="squad_of_the_round">
-		<% @formation.players_ordered_by_positions.each do |position| %>
-	  	<tr>
-			<td class="position"><%= position.acronym %></td>
-		    <td><%= position.player.name %></td>
-			<td>
-				<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/positions/rating/#{position.id}" %>></fb:like>
-			</td>
-		</tr>	
+		<% @formation.players_ordered_by_positions.each do |position| %>	  	
+			<% if @first_team.has_replaced?(position.player) %>
+				<tr>
+					<td class="position"><-</td>
+				    <td><%= position.player.name %></td>
+					<td>
+						<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/positions/rating/#{position.id}" %>></fb:like>
+					</td>
+				</tr>
+				<tr>
+					<td class="position">-></td>
+				    <td><%= @first_team.alternate_of(position.player).name %></td>
+					<td>
+						<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/positions/rating/#{position.id}" %>></fb:like>
+					</td>
+				</tr>
+			<% else %>
+				<tr>
+					<td class="position"><%= position.acronym %></td>
+				    <td><%= position.player.name %></td>
+					<td>
+						<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/positions/rating/#{position.id}" %>></fb:like>
+					</td>
+				</tr>
+			<% end %>
 		<% end %>
 	</table>
 </div>			
@@ -31,8 +48,13 @@
 		<li><%= "#{t(:sent_by)} #{@formation.owner.nickname}" %></li>
 		<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
 		<li class="share"><%= render :partial => "rating/share" %></li>
-	</ul>		         		
+	</ul>     		
 </div>
+
+<%= content_for :footer_resources do %>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<% end %>
+
 <%= content_for :javascript do %>
 	$( load_soccer_field );
 	$( load_formation );

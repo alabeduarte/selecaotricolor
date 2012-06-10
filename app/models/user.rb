@@ -51,7 +51,7 @@ class User
   end
   
   def formations
-    Formation.all(owner_id: id, :order => :created_at.desc)
+    Formation.sort(:created_at.desc).where(owner_id: id).all
   end
   
   def image

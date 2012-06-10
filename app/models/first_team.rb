@@ -30,7 +30,20 @@ class FirstTeam
   
   def match
     self.formation.match.to_s
-  end  
+  end
+  
+  def has_replaced?(player)
+    alternate_of(player)? true: false
+  end
+  
+  def alternate_of(player)
+    self.substitutions.each do |sub|
+      if sub.off == player
+        return sub.on
+      end
+    end
+    return nil
+  end
  
 protected
   def apply_score_to_all_users

@@ -37,24 +37,24 @@ describe Substitution do
       add_substitution!      
       expect { add_substitution! }.should raise_error
       Substitution.total(@first_team).should == 3
-    end
-    
-    def add_substitution!
-      substitution = get_substitution
-      substitution.first_team = @first_team
-      substitution.save
-      substitution
-    end
-    
-    def get_substitution
-      off = Player.new(id: 1, name: "Off player", number: 10, team: Team.bahia)
-      on = Player.new(id: 2, name: "On player", number: 18, team: Team.bahia)
-      Substitution.new(off: off, on: on)
-    end
+    end    
   end
   
 private
   def new_formation(json=@json_442, match=Calendar.next_match)
     Formation.new_by(data: JSON.load(json), owner: current_user, match: match)
+  end
+  
+  def add_substitution!
+    substitution = get_substitution
+    substitution.first_team = @first_team
+    substitution.save
+    substitution
+  end
+  
+  def get_substitution
+    off = Player.new(id: 1, name: "Off player", number: 10, team: Team.bahia)
+    on = Player.new(id: 2, name: "On player", number: 18, team: Team.bahia)
+    Substitution.new(off: off, on: on)
   end
 end

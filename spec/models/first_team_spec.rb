@@ -14,7 +14,7 @@ describe FirstTeam do
     @json_442 = '[ { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f25cdcbe1af800323000b46"         ,          "x": "1"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f2fd315b3e30f0001000a07"         ,          "x": "2"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "2"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6b5e1af80017c000073"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25ca54e1af8003230008b5"         ,          "x": "6"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f25ca2de1af800323000896"         ,          "x": "6"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25c920e1af800323000879"         ,          "x": "-1"         ,          "y": "-1"     }  }  ]'      
   end
   
-  context "scoring players" do
+  describe "scoring players" do
     it "should make reference with scorer before apply scores" do
       scorer.should_receive(:first_team=).with(new_first_team)
       new_first_team.apply_score(scorer)
@@ -36,7 +36,7 @@ describe FirstTeam do
     
   end
   
-  context "showing the last round" do
+  describe "showing the last round" do
     it "when the official team has never been created then the first team the last round should be null" do
       FirstTeam.last_of_the_round.should be_nil
     end
@@ -58,7 +58,7 @@ describe FirstTeam do
     end
   end
   
-  context "showing through match" do
+  describe "showing through match" do
     it "should show by match" do
       new_first_team = FirstTeam.new(formation: new_formation)
       new_first_team.save
@@ -72,6 +72,53 @@ describe FirstTeam do
       tactics.size.should == 2
       tactics[0].match.should == Calendar.next_match.to_s
       tactics[1].match.should == Calendar.last_match.to_s
+    end
+  end
+  
+  describe "showing substitutions" do
+    before do
+      @formation = new_formation(@json_442, Calendar.last_match)
+      @first_team = FirstTeam.new(formation: new_formation(@json_442, Calendar.last_match))      
+    end
+    
+    context "when there is substitution" do
+      context "and current player has replaced" do
+        before do
+          @first_team.substitutions << get_substitution(@formation.players_positions[0].player)
+        end
+        it "should be true" do
+          position = @formation.players_positions[0]
+          @first_team.has_replaced?(position.player).should be_true
+        end
+        it "should display the alternate player" do
+          position = @formation.players_positions[0]
+          @first_team.alternate_of(position.player).name.should == "Alternate player"
+        end
+      end
+      
+      context "and current player hasn't replaced" do
+        before do
+          @first_team.substitutions << get_substitution(@formation.players_positions[5].player)
+        end
+        it "should NOT be true" do
+          position = @formation.players_positions[0]
+          @first_team.has_replaced?(position.player).should_not be_true
+        end
+      end
+    end
+    
+    context "when there are no substitution" do
+      before do
+        @first_team.substitutions = Array.new
+      end
+      it "should NOT be true" do
+        position = @formation.players_positions[0]
+        @first_team.has_replaced?(position.player).should_not be_true
+      end
+    end
+    
+    def get_substitution(off)
+      Substitution.new(off: off, on: Player.new(id: 2, name: "Alternate player", number: 18, team: Team.bahia))
     end
   end
   

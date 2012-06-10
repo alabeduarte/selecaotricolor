@@ -13,17 +13,12 @@ describe SubstitutionsController do
   end
   
   describe "post 'create'" do
-    before do
-      FirstTeam.stub(:find).and_return(first_team)      
-      first_team.stub(:save).and_return(true)
-    end
-    it "should update first team with substitutions" do
-      FirstTeam.should_receive(:find).with(anything)
-      first_team.should_receive(:<<)      
-      first_team.should_receive(:save)
-      post :create      
-      flash[:notice].should == I18n.t(:replacement_registered_successfully)
-      response.should be_success
+    it "should create new substitution" do
+      substitution = mock_model(Substitution).as_null_object
+      substitution.stub(:save).and_return(true)
+      Substitution.stub(:new).with({'these' => 'params'}).and_return(substitution)
+      post :create, :substitution => {'these' => 'params'}
+      assigns(:substitution).should be(substitution)
     end
   end
   

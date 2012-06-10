@@ -11,7 +11,14 @@ describe Substitution do
   end
   
   describe "adding substitutions" do
-    let(:@first_team) { mock.as_null_object }
+      # 
+      # it "should add substitution in list of substitutions of the first team" do            
+      #   substitution = get_substitution
+      #   substitution.first_team = @first_team
+      #   substitution.save!
+      #   substitution.id.should_not be_nil
+      # end
+    
     it "should add substitution in list of substitutions of the first team" do      
       substitution = get_substitution
       @first_team.substitutions << substitution

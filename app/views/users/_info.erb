@@ -16,6 +16,7 @@
 					<li><%= link_to t(:account_config), "/configuration" %></li>
 					<% if current_user.admin? %>
 						<li><%= link_to 'Táticas Oficiais', '/first_teams' %></li>
+						<li><%= link_to 'Substituições', new_substitution_path %></li>
 						<li><%= link_to 'Táticas enviadas', :list %></li>
 						<li><%= link_to 'Jogadores', :players %></li>
 						<li><%= link_to 'Mapeamento de posições', :position_mappers %></li>

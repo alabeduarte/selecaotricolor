@@ -5,14 +5,13 @@ class SubstitutionsController < ApplicationController
   def new
     @first_teams = FirstTeam.all_by_match  
   end
-  
+    
   def create
-    first_team = FirstTeam.find(params[:first_team_id])
-    first_team << Substitution.new(off: params[:off_id], on: params[:on_id])
-    if first_team.save
+    substitution = Substitution.new(params[:substitution])
+    if substitution.save
       flash[:notice] = t(:replacement_registered_successfully)
-    end
-    render :action => "show"
+      render :action => "show"
+    end    
   end
   
   def show

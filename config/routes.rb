@@ -45,10 +45,14 @@ UcoachManager::Application.routes.draw do
     get 'calendars/matches/:id', to: "calendars#formations_matches", :as => :formations_matches
   end
   
-  controller :players_formations_positions do
+  controller :rating do
     get "positions/rating/:id" => :show
     post "positions/rating/:id" => :like
     delete "positions/rating/:id" => :unlike
+    
+    get "positions/rating/sub/:id" => :show_sub
+    post "positions/rating/sub/:id" => :like_sub
+    delete "positions/rating/sub/:id" => :unlike_sub
   end
   
   controller :scores do

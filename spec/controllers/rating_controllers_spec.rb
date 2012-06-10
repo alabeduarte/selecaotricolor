@@ -1,5 +1,5 @@
 require "spec_helper"
-describe PlayersFormationsPositionsController do
+describe RatingController do
   let(:position) { mock_model(PlayerFormationPosition).as_null_object }
   let(:player) { mock_model(Player).as_null_object }
   

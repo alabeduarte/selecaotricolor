@@ -50,9 +50,9 @@ UcoachManager::Application.routes.draw do
     post "positions/rating/:id" => :like
     delete "positions/rating/:id" => :unlike
     
-    get "positions/rating/sub/:id" => :show_sub
-    post "positions/rating/sub/:id" => :like_sub
-    delete "positions/rating/sub/:id" => :unlike_sub
+    get "substitutions/rating/:id" => :show_sub
+    post "substitutions/rating/:id" => :like_sub
+    delete "substitutions/rating/:id" => :unlike_sub
   end
   
   controller :scores do

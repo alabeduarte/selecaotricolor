@@ -1,12 +1,15 @@
 class RatingController < ApplicationController
   def show
-    @position = PlayerFormationPosition.find(params[:id])
+     position = PlayerFormationPosition.find(params[:id])
+     @match = position.formation.match
+     @player = position.player
   end
 
   def like
-    @position = PlayerFormationPosition.find(params[:id])
-    player = @position.player
-    if player.increase_rating
+    position = PlayerFormationPosition.find(params[:id])
+    @match = position.formation.match
+    @player = position.player
+    if @player.increase_rating
       respond_to do |format|
         render :json => { :success => true }
       end
@@ -14,9 +17,10 @@ class RatingController < ApplicationController
   end
   
   def unlike
-    @position = PlayerFormationPosition.find(params[:id])
-    player = @position.player
-    if player.decrease_rating
+    position = PlayerFormationPosition.find(params[:id])
+    @match = position.formation.match
+    @player = position.player
+    if @player.decrease_rating
       respond_to do |format|
         render :json => { :success => true }
       end
@@ -24,13 +28,17 @@ class RatingController < ApplicationController
   end
   
   def show_sub
-    @substitution = Substitution.find(params[:id])
+    substitution = Substitution.find(params[:id])
+    @match = substitution.first_team.formation.match
+    @player = substitution.on
+    render "show"
   end
 
   def like_sub
-    @substitution = Substitution.find(params[:id])
-    player = @substitution.on
-    if player.increase_rating
+    substitution = Substitution.find(params[:id])
+    @match = substitution.first_team.formation.match
+    @player = substitution.on
+    if @player.increase_rating
       respond_to do |format|
         render :json => { :success => true }
       end
@@ -38,9 +46,10 @@ class RatingController < ApplicationController
   end
   
   def unlike_sub
-    @substitution = Substitution.find(params[:id])
-    player = @substitution.on
-    if player.decrease_rating
+    substitution = Substitution.find(params[:id])
+    @match = substitution.first_team.formation.match
+    @player = substitution.on
+    if @player.decrease_rating
       respond_to do |format|
         render :json => { :success => true }
       end

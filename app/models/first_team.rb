@@ -37,9 +37,15 @@ class FirstTeam
   end
   
   def substitution(player)
-    self.substitutions.each do |sub|
-      if sub.off == player
-        return sub
+    @cache ||= Hash.new
+    if @cache.has_key?(player)
+      return @cache.fetch(player)
+    else
+      self.substitutions.each do |sub|
+        if sub.off == player
+          @cache[player] = sub
+          return sub
+        end
       end
     end
     return nil

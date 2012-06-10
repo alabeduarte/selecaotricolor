@@ -576,3 +576,19 @@ span.hints {
 	top: 45%;
 	position: absolute;
 }
+
+.subs {
+	background-image: url(../../assets/icons/sprite_match.png);
+	background-repeat: no-repeat;
+	float: right;
+	height: 5px;
+	width: 12px;
+}
+
+.subs.off {
+	background-position: 4px -57px;
+}
+
+.subs.on {
+	background-position: 4px -81px;
+}

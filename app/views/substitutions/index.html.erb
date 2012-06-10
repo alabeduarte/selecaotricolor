@@ -1,0 +1,22 @@
+<% content_for :title, t(:substitutions) %>
+<h1 class="subtitle"><%= t(:substitutions) %></h1>
+<%= link_to 'Novo', new_substitution_path, :class => "btn" %>
+<section id="record-section">
+	<div class="record-list">
+		<ul>
+			<% @substitutions.each do |sub| %>
+				<li>
+					<p><%= sub.first_team.match %></p>
+					<p><%= sub.off.name %></p>
+					<p><%= sub.on.name %></p>
+					<% if can? :show, sub %>
+						<%= link_to "", substitution_path(sub), :class => "button edit" %>
+					<% end %>
+					<% if can? :destroy, sub %>
+						<%= link_to "", sub, :confirm => t(:are_you_sure), :method => :delete, :class => "button destroy" %>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</section>

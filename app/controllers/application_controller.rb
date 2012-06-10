@@ -9,4 +9,5 @@ class ApplicationController < ActionController::Base
   def expire_cache(match=nil)
     expire_fragment(:controller => 'calendars', :action => 'formations_matches', :id => match)
   end
+  
 end

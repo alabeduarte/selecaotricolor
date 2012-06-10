@@ -24,7 +24,7 @@ describe WelcomeController do
       first_team.stub(squad_winners_of_the_round: recent_winners)
       
       get :index
-      should_assign(recent_winners: recent_winners, formation: formation, players_positions: positions)
+      should_assign(first_team: first_team, recent_winners: recent_winners, formation: formation, players_positions: positions)
     end
     
   end
@@ -73,6 +73,7 @@ private
     assigns[:next_match].should eq(args[:next_match])
     assigns[:recent_winners].should eq(args[:recent_winners])
     assigns[:formation].should eq(args[:formation])
+    assigns[:first_team].should eq(args[:first_team])
   end
 
   def should_not_assign

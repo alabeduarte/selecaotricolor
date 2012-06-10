@@ -92,7 +92,7 @@ describe FirstTeam do
         end
         it "should display the alternate player" do
           position = @formation.players_positions[0]
-          @first_team.alternate_of(position.player).name.should == "Alternate player"
+          @first_team.substitution(position.player).on.name.should == "Alternate player"
         end
       end
       

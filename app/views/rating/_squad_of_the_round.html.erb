@@ -1,0 +1,26 @@
+<% first_team.formation.players_ordered_by_positions.each do |position| %>	  	
+	<% if first_team.has_replaced?(position.player) %>
+		<tr>
+			<td class="position"><-</td>
+		    <td><%= position.player.name %></td>
+			<td>
+				<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/positions/rating/#{position.id}" %>></fb:like>
+			</td>
+		</tr>
+		<tr>
+			<td class="position">-></td>
+		    <td><%= first_team.substitution(position.player).on.name %></td>
+			<td>
+				<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/substitutions/rating/#{first_team.substitution(position.player).id}" %>></fb:like>
+			</td>
+		</tr>
+	<% else %>
+		<tr>
+			<td class="position"><%= position.acronym %></td>
+		    <td><%= position.player.name %></td>
+			<td>
+				<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/positions/rating/#{position.id}" %>></fb:like>
+			</td>
+		</tr>
+	<% end %>
+<% end %>

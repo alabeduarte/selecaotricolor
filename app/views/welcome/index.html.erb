@@ -28,15 +28,7 @@
 		<div class="last-squad-of-the-round">
 			<div class="index rating call-up">
 				<table id="squad_of_the_round">
-					<% @formation.players_ordered_by_positions.each do |position| %>
-				  	<tr>
-						<td class="position"><%= position.acronym %></td>
-					    <td><%= position.player.name %></td>
-						<td>
-							<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/positions/rating/#{position.id}" %>></fb:like>
-						</td>
-					</tr>
-					<% end %>
+					<%= render :partial => "rating/squad_of_the_round", :locals => { :first_team => @first_team } %>
 				</table>
 			</div>
 			<div id="soccerField" class="soccer-field-grass show">
@@ -98,17 +90,19 @@
 
 	FB.Event.subscribe('edge.create', function(response) {
 		var uri = response.replace($('#host').val(), "");
-		if (response.indexOf("positions/rating") > 0) {
+		var validTarget = response.indexOf("positions/rating") > 0 || response.indexOf("substitutions/rating") > 0;
+		if (validTarget) {
 			$.ajax({
 		  			url:   uri,
 					type:  "POST"
 			});
-		}		
+		}
 	});
 	
 	FB.Event.subscribe('edge.remove', function(response) {
 		var uri = response.replace($('#host').val(), "");
-		if (response.indexOf("positions/rating") > 0) {
+		var validTarget = response.indexOf("positions/rating") > 0 || response.indexOf("substitutions/rating") > 0;
+		if (validTarget) {
 			$.ajax({
 		  			url:   uri,
 					type:  "DELETE"

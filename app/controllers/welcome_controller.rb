@@ -3,10 +3,10 @@ class WelcomeController < ApplicationController
   def index
     @users = User.top_scorers_of 5
     @next_match = Calendar.next_match
-    first_team = FirstTeam.last_of_the_round
-    if found? first_team
-      @recent_winners = first_team.squad_winners_of_the_round
-      @formation = first_team.formation
+    @first_team = FirstTeam.last_of_the_round
+    if found? @first_team
+      @recent_winners = @first_team.squad_winners_of_the_round
+      @formation = @first_team.formation
     end
   end
 

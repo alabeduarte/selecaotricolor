@@ -33,13 +33,13 @@ class FirstTeam
   end
   
   def has_replaced?(player)
-    alternate_of(player)? true: false
+    substitution(player)? true: false
   end
   
-  def alternate_of(player)
+  def substitution(player)
     self.substitutions.each do |sub|
       if sub.off == player
-        return sub.on
+        return sub
       end
     end
     return nil

@@ -333,6 +333,7 @@
 	height: 493px;
 	margin-bottom: 50%;
 	margin: 0 auto;
+	margin-top: 7%;
 }
 
 #soccerField.list {
@@ -352,6 +353,16 @@
 	margin-bottom: 50%;
 	left: 30%;
 	margin: 0 auto;
+}
+
+#soccerField.show-first-team {
+	position: relative;
+	width: 358px;
+	height: 493px;
+	margin-bottom: 50%;
+	left: 30%;
+	margin: 0 auto;
+	margin-top: 10%;
 }
 
 #creator-info.show {
@@ -440,7 +451,7 @@
 }
 
 .last-squad-of-the-round {	
-	height: 500px;
+	height: 700px;
 	margin-top: 3%;
 }
 
@@ -474,6 +485,10 @@
 	top: -15px;
 }
 
+.first-team {
+	height: 760px
+}
+
 .rating.call-up table {
 	width: 50px;
 	left: 49px;
@@ -494,6 +509,22 @@
 
 .position {
 	color: #708090;
+}
+
+span.player-status {
+	background-image: url(../../assets/icons/sprite-player-status.png);
+	background-repeat: no-repeat;
+	float: right;
+	height: 30px;
+	width: 26px;
+}
+
+.player-status.substitution.off {
+	background-position: 0px -65px;
+}
+
+.player-status.substitution.on {
+	background-position: 0px -97px;
 }
 
 .champions-of-round {
@@ -523,7 +554,7 @@
 }
 
 .recent-winners.champions-of-round {
-	height: 278px;
+	height: 378px;
 	width: 250px;
 	margin-top: 2%;
 	overflow: auto;

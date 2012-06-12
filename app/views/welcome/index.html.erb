@@ -8,22 +8,22 @@
 	<% if @next_match %>
 		<h1 class="subtitle">escale o seu time para a próxima partida</h1>
 		<div class='pills match-calendars'>
-			<%= link_to "Calendário dos Jogos", :calendars, :class => 'button match-calendar' %>
-			<%= link_to "Táticas enviadas até agora", {:controller => 'calendars', :action => 'formations_matches', :id => @next_match}, :class => 'button formations' %>
-			<%= link_to "Ranking dos usuários!", '/scores', :class => 'button ranking' %>			
+			<%= link_to "Calendário dos Jogos", :calendars, :class => 'icon match-calendar' %>
+			<%= link_to "Táticas enviadas até agora", {:controller => 'calendars', :action => 'formations_matches', :id => @next_match}, :class => 'icon formations' %>
+			<%= link_to "Ranking dos usuários!", '/scores', :class => 'icon ranking' %>			
 		</div>
 		<div class="pills actions">
-			<%= link_to "Entenda como funciona o nosso site!", '/scores/rules', :class => 'button question' %>
+			<%= link_to "Entenda como funciona o nosso site!", '/scores/rules', :class => 'icon question' %>
 		</div>
 		<%= render :partial => "calendars/match_info", :locals => {:match => @next_match, :subtitle => false} %>			
 		<div class="pills actions large">
-			<%= link_to "ESCALE O SEU TIME!", new_path, :class => "button new-formation" %>
+			<%= link_to "ESCALE O SEU TIME!", new_path, :class => "icon new-formation" %>
 		</div>
 	<% end %>
 	<% if @formation %>
 		<h1 class="subtitle">partida Anterior</h1>
-		<div class="formation-header">
-			<h2 class="tactical"><%= "#{@formation.tactical}" %></h2>			
+		<div class="pills actions">
+			<%= link_to "Avalie os jogadores!!", '/avalie-seu-time', :class => 'icon rating' %>
 		</div>
 		<div class="last-squad-of-the-round">
 			<div class="index rating call-up">
@@ -78,10 +78,7 @@
 				</div>
 			</div>
 		</div>
-	<% end %>		
-
-</div>		
-<div class="welcome footer">	
+	<% end %>
 </div>
 <%= content_for :javascript do %>
 	$( load_soccer_field );

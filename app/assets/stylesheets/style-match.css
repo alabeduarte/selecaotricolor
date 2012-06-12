@@ -201,59 +201,57 @@ section {
 	background: transparent url(../../assets/icons/formation-match.png) no-repeat;
 }
 
-.button.new-formation {
+.icon {
+	font-size: 18px;
 	cursor: pointer;
+	width: 32px;
+	height: 32px;
+	padding-left: 64px;
+	padding-bottom: 48px;	
+	background-position-x: 10px;
+	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
+}
+
+.icon.new-formation {
 	width: 64px;
 	height: 64px;
 	padding-left: 64px;
 	padding-bottom: 48px;
 	background: url(../../assets/icons/new-formation.png) no-repeat;
-	background-position-x: 10px;
-	-webkit-box-shadow: 0 3px 10px #888;
-	-moz-box-shadow: 0 3px 10px #888;
-	box-shadow: 0 3px 10px #888;
+	background-position-x: 5px;
 }
 
-.button.match-calendar {
-	cursor: pointer;
-	width: 32px;
-	height: 32px;
+.icon.match-calendar {
 	padding-left: 64px;
-	padding-bottom: 48px;
+	padding-bottom: 48px;	
 	background: url(../../assets/icons/match-calendar.png) no-repeat;
-	background-position-x: 10px;
-	-webkit-box-shadow: 0 3px 10px #888;
-	-moz-box-shadow: 0 3px 10px #888;
-	box-shadow: 0 3px 10px #888;
+	background-position-x: 10px;	
 }
 
-.button.ranking {
-	cursor: pointer;
-	width: 32px;
-	height: 32px;
+.icon.ranking {
 	padding-left: 64px;
 	padding-bottom: 48px;
 	background: url(../../assets/icons/ranking.png) no-repeat;
 	background-position-x: 10px;
-	-webkit-box-shadow: 0 3px 10px #888;
-	-moz-box-shadow: 0 3px 10px #888;
-	box-shadow: 0 3px 10px #888;
 }
 
-.button.question {
-	cursor: pointer;
-	width: 32px;
-	height: 32px;
+.icon.question {	
 	padding-left: 64px;
 	padding-bottom: 48px;
 	background: url(../../assets/icons/help.png) no-repeat;
 	background-position-x: 10px;
-	-webkit-box-shadow: 0 3px 10px #888;
-	-moz-box-shadow: 0 3px 10px #888;
-	box-shadow: 0 3px 10px #888;
 }
 
-.button.formations {
+.icon.rating {
+	padding-left: 64px;
+	padding-bottom: 48px;
+	background: url(../../assets/icons/rating.png) no-repeat;
+	background-position-x: 5px;
+}
+
+.icon.formations {
 	width: 64px;
 	height: 64px;
 	padding-left: 64px;

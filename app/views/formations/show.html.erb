@@ -9,15 +9,15 @@
 </div>
 <div id="creator-info" class="show formation">
 	<ul>
-		<li>
-			<div class="link">
-				Para ver todas as táticas deste jogo, <%= link_to "clique aqui!", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %>
-			</div>
-		</li>
 		<li><%= image_tag(@formation.owner.image, :size => "45x45", :class => "user-avatar") %></li>
 		<li><%= "#{t(:sent_by)} #{@formation.owner.nickname}" %></li>
 		<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
 		<li class="share"><%= render :partial => "rating/share" %></li>
+		<li>
+			<div class="pills actions">
+				<%= link_to "Táticas enviadas", {:controller => 'calendars', :action => 'formations_matches', :id => @formation.match}, :class => 'icon formations' %>
+			</di>
+		</li>
 	</ul>		         		
 </div>
 <%= content_for :javascript do %>

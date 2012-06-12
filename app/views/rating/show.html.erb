@@ -1,2 +1,5 @@
-<% content_for :title, "em #{@match}, eu curti a atuação de #{@player.name}" %>
-<%= "em #{@match}, eu curti a atuação de #{@player.name}" %>
+<% content_for :title, "Eu curti a atuação de #{@player.name} no jogo entre #{@match}" %>
+<div class="welcome">	
+	<%= "Eu curti a atuação de #{@player.name} no jogo entre #{@match}" %>
+	<p><strong>Pontuação Total: </strong><%= @player.rating %></p>
+</div>

@@ -129,7 +129,7 @@ fieldset.configurations label {
 }
 
 fieldset.configurations input[type="text"], fieldset.configurations input[type="email"], fieldset.configurations input[type="password"] {
-	width: 420px;
+	width: 70%;
 }
 
 fieldset.configurations input[type="submit"] {
@@ -137,7 +137,7 @@ fieldset.configurations input[type="submit"] {
 }
 
 fieldset.configurations input.hint {
-	font-size: 13px;
+	font-size: 13px;	
 }
 
 .cancel-account {

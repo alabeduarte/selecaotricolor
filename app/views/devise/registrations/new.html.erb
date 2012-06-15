@@ -4,20 +4,20 @@
   <%= devise_error_messages! %>
   <fieldset class="register">
 	<div class="clearfix">
-  		<%= f.email_field :email, :placeholder => t(:email) %>		
+  		<%= f.email_field :email, :placeholder => t(:email), :required => true %>		
   	</div>
 
 	<div class="clearfix">
-  		<%= f.text_field :nickname, :placeholder => t(:nickname) %>
+  		<%= f.text_field :nickname, :placeholder => t(:nickname), :required => true %>
 		
   	</div>
 
 	<div class="clearfix">
-  		<%= f.password_field :password, :placeholder => t(:password) %>		
+  		<%= f.password_field :password, :placeholder => t(:password), :required => true %>		
   	</div>
 
 	<div class="clearfix">
-  		<%= f.password_field :password_confirmation, :placeholder => t(:password_confirmation) %>
+  		<%= f.password_field :password_confirmation, :placeholder => t(:password_confirmation), :required => true %>
   	</div>
 
 	<div class="clearfix">

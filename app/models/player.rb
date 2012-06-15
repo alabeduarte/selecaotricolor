@@ -36,7 +36,7 @@ class Player
   
 private
   def notify
-    FormationMailer.player_has_been_assessed(self).deliver    
+    FormationMailer.player_has_been_assessed(self).deliver
   end
   
 end

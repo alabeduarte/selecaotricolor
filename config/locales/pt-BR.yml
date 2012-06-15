@@ -15,6 +15,12 @@ pt-BR:
                             confirmation: "deve ser igual ao que você digitou na confirmação!"
                         nickname:
                             blank: é obrigatório! Preencha o apelido para poderem identificar você!
+                        current_password:
+                            blank: Pedimos que informe a sua senha atual para que as alterações aconteçam
+    message_sent_successfully: Mensagem enviada com êxito!
+    email_required: Email é obrigatório!
+    message_required: Mensagem é obrigatória!
+    some_contact: Alguém escreveu uma mensagem para o Seleção Tricolor
     substitution_limit_overflow: O limite de Substituições já foi alcançado!
     substitution: Substituição
     substitutions: Substituições

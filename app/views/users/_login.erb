@@ -3,10 +3,10 @@
 		<fieldset class="login">
 			<ol>
 				<li>
-					<%= f.email_field :email, :placeholder => t(:email) %>
+					<%= f.email_field :email, :placeholder => t(:email), :required => true %>
 				</li>
 				<li>
-					<%= f.password_field :password, :placeholder => t(:password), :class => 'small' %>
+					<%= f.password_field :password, :placeholder => t(:password), :required => true, :class => 'small' %>
 				</li>	
 				<li class="login-btn">
 					<%= f.submit "ENTRAR", :class => "btn primary" %>

@@ -251,6 +251,20 @@ section {
 	background-position-x: 5px;
 }
 
+.icon.fanpage {
+	padding-left: 64px;
+	padding-bottom: 48px;
+	background: url(../../assets/icons/fanpage.png) no-repeat;
+	background-position-x: 5px;
+}
+
+.icon.contact {
+	padding-left: 64px;
+	padding-bottom: 48px;
+	background: url(../../assets/icons/contact.png) no-repeat;
+	background-position-x: 5px;
+}
+
 .icon.formations {
 	width: 64px;
 	height: 64px;
@@ -378,4 +392,9 @@ section .record-list {
 	-webkit-box-shadow: 0 3px 10px #888;
 	-moz-box-shadow: 0 3px 10px #888;
 	box-shadow: 0 3px 10px #888;
+}
+
+.app-menu {
+	height: 190px;
+	width: 100%;
 }

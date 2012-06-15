@@ -700,3 +700,22 @@ h1.subtitle {
 	width: 80%;
 	font-size: 18px;
 }
+
+
+input[type="email"].contact_us.email {
+	float: left;
+	width: 61%;
+}
+
+.contact_us.message {
+	float: left;
+	resize: none;
+	height: 200px;
+	width: 89%;	
+}
+
+input[type="submit"].btn.large.contact_us {
+	margin-left: 0px;
+	margin-right: 10%;
+	float: right;
+}

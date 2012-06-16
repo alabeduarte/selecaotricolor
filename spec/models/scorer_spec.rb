@@ -171,23 +171,23 @@ describe Scorer do
     
     it "should add 170 points to users who predict 7 players" do      
       @first_team.apply_score(@scorer)
-      User.find_by_email("teste3@t.com").score.should == 170
+      User.find_by_email("teste3@t.com").score.should == 70
     end
     
     it "should add 190 points to users who predict 9 players" do      
       @first_team.apply_score(@scorer)
-      User.find_by_email("teste4@t.com").score.should == 190
+      User.find_by_email("teste4@t.com").score.should == 90
     end
     
     it "should add 200 points to users who predict 10 players" do      
       @first_team.apply_score(@scorer)
-      User.find_by_email("teste5@t.com").score.should == 200
+      User.find_by_email("teste5@t.com").score.should == 100
     end
     
     it "should add 250 points to users who predict all players" do      
       @first_team.apply_score(@scorer)
-      User.find_by_email("teste1@t.com").score.should == 250
-      User.find_by_email("teste2@t.com").score.should == 250
+      User.find_by_email("teste1@t.com").score.should == 150
+      User.find_by_email("teste2@t.com").score.should == 150
     end
     
     it "should show all user must predict the squad" do

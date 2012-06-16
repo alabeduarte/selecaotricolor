@@ -11,7 +11,6 @@ class FirstTeam
   def apply_score(scorer)
     @scorer = scorer
     @scorer.first_team = self
-    self.apply_score_to_all_users
     self.apply_score_to_predict_users
   end
   

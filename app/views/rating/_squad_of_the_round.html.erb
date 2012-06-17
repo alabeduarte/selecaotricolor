@@ -1,4 +1,4 @@
-<% cache 'squad_of_the_round' do %>
+
 	<% first_team.formation.players_ordered_by_positions.each do |position| %>	  	
 		<% if first_team.has_replaced?(position.player) %>
 			<tr>
@@ -29,4 +29,3 @@
 			</tr>
 		<% end %>
 	<% end %>
-<% end %>

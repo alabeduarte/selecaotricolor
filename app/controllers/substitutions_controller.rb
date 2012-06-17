@@ -13,7 +13,6 @@ class SubstitutionsController < ApplicationController
   def create
     substitution = Substitution.new(params[:substitution])
     if substitution.save
-      expire_fragment 'squad_of_the_round'
       flash[:notice] = t(:replacement_registered_successfully)
       render :action => "show"
     end    

@@ -10,7 +10,6 @@ class RatingController < ApplicationController
     @match = position.formation.match
     @player = position.player
     if @player.increase_rating
-      expire_fragment 'squad_of_the_round'
       respond_to do |format|
         render :json => { :success => true }
       end
@@ -21,8 +20,7 @@ class RatingController < ApplicationController
     position = PlayerFormationPosition.find(params[:id])
     @match = position.formation.match
     @player = position.player
-    if @player.decrease_rating
-      expire_fragment 'squad_of_the_round'
+    if @player.decrease_rating      
       respond_to do |format|
         render :json => { :success => true }
       end
@@ -41,7 +39,6 @@ class RatingController < ApplicationController
     @match = substitution.first_team.formation.match
     @player = substitution.on
     if @player.increase_rating
-      expire_fragment 'squad_of_the_round'
       respond_to do |format|
         render :json => { :success => true }
       end
@@ -53,7 +50,6 @@ class RatingController < ApplicationController
     @match = substitution.first_team.formation.match
     @player = substitution.on
     if @player.decrease_rating
-      expire_fragment 'squad_of_the_round'
       respond_to do |format|
         render :json => { :success => true }
       end

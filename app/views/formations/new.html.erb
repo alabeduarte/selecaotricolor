@@ -1,13 +1,5 @@
 <% content_for :title, t(:new_formation) %>
 <%= render :partial => "calendars/match_info", :locals => { :match => Calendar.next_match } %>
-<section id="slideshow" class="formation-hint">
-	<div id="slideshow-wrapper">		
-		<%= image_tag('tutorial/posicionamento.png', :size => "472x250", :alt => 'Arraste os jogadores para o campo') %>
-		<%= image_tag('tutorial/substituicao.png', :size => "472x250", :alt => 'Para substituir, basta mover um jogador sobre o outro') %>
-		<%= image_tag('tutorial/enviar.png', :size => "472x250", :alt => 'Quando achar que estiver pronto, clique em "Enviar" ao final da tela') %>		
-		<div id="caption"></div>  		
- 	</div>
-</section>
 <div class="legend">
 	<ul>
 		<li class="defense">Defesa</li>
@@ -15,7 +7,6 @@
 		<li class="forward">Ataque</li>
 	</ul>
 </div>
-<span class="hints">*Arraste os jogadores para o campo</span>
 <div class="droppable-area">
 	<div id="soccerField" class="soccer-field-grass"></div>
 	<div id="positionMap" class="positions-map"></div>	
@@ -23,10 +14,10 @@
 	<div id="player">
 		<div id="tabs">
 			<ul>
-				<li><a href="#goalkeepers">Goleiros</a></li>				
+				<li><a href="#goalkeepers">Goleiros</a></li>
 				<li><a href="#right_back">Laterais Direitos</a></li>
 				<li><a href="#defender">Zagueiros</a></li>
-				<li><a href="#left_back">Laterais Esquerdos</a></li>				
+				<li><a href="#left_back">Laterais Esquerdos</a></li>
 				<li><a href="#midfield_defense">Volantes</a></li>
 				<li><a href="#midfield">Meias</a></li>
 				<li><a href="#forwards">Atacantes</a></li>
@@ -42,10 +33,10 @@
 			<div id="midfield_defense" >
 			</div>
 			<div id="midfield" >
-			</div>					
+			</div>
 			<div id="forwards" >
-			</div>						
-		</div>		
+			</div>
+		</div>
 	</div>
 	<% end %>
 	<div id="slot"></div>

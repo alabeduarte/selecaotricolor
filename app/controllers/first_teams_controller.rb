@@ -32,6 +32,8 @@ class FirstTeamsController < ApplicationController
     @first_team = FirstTeam.new(formation: formation)   
     if @first_team.save
       expire_cache(@first_team.formation.match)
+      expire_fragment 'squad_of_the_round'
+      
       @first_team.apply_score(Scorer.new(match: selected_match))
       flash[:notice] = t(:formation_sent)
       redirect_to first_team_path(@first_team)

@@ -22,9 +22,28 @@ class FirstTeam
     FirstTeam.sort(:id.desc).all
   end
   
-  def squad_winners_of_the_round
-    match = formation.match
-    Scorer.new(first_team: self, match: match).squad_winners
+  def squad_winners
+    winners = Array.new
+    match = self.formation.match
+    match.formations.each do |f|
+      correct_count = 0
+      formation.players_positions.each do |real_position|
+        f.players_positions.each do |position|
+          if (real_position.player.id == position.player.id)
+            correct_count += 1
+          end
+        end
+      end
+      winners << f.owner unless f.owner.admin? if correct_count == 11
+    end
+    return winners.uniq
+  end
+  
+  def tipsters
+    tipsters = Array.new
+    match = self.formation.match
+    match.formations.each { |f| tipsters << f.owner unless f.owner.admin? }
+    return tipsters.uniq
   end
   
   def match
@@ -49,18 +68,14 @@ class FirstTeam
     end
     return nil
   end
- 
-protected
-  def apply_score_to_all_users
-    winners = @scorer.winners
-    @scorer.add(score: 100, to: winners)
-  end
   
+  def predicted_score
+    tipsters.size * 50 / squad_winners.size
+  end
+ 
+  protected
   def apply_score_to_predict_users
-    winners = @scorer.winners
     @scorer.add_by_predict_player(10)
-    squad_winners = @scorer.squad_winners
     @scorer.add(score: 40, to: squad_winners)
   end
-
 end

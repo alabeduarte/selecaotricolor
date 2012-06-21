@@ -21,7 +21,7 @@ describe WelcomeController do
       
       FirstTeam.stub(last_of_the_round: first_team)
       first_team.stub(formation: formation)
-      first_team.stub(squad_winners_of_the_round: recent_winners)
+      first_team.stub(squad_winners: recent_winners)
       
       get :index
       should_assign(first_team: first_team, recent_winners: recent_winners, formation: formation, players_positions: positions)

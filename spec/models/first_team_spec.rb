@@ -1,16 +1,16 @@
 require "spec_helper"
 require "models/formation/helper"
 
-describe FirstTeam do 
-  
+describe FirstTeam do
+
   let(:first_team) { mock_model(FirstTeam).as_null_object }
   let(:scorer) { mock(:scorer).as_null_object }
   let(:formation) { mock_model(Formation).as_null_object }
   let(:new_first_team) { FirstTeam.new(formation: formation) }
   let(:current_user) { Factory(:admin) }
 
-  before(:each) do      
-    Formation::Helper.new     
+  before(:each) do
+    Formation::Helper.new
     @json_442 = '[ { "formation": {          "player": "4f03b5b6e1af8003be000026"         ,          "x": "0"         ,          "y": "2"     }  }  ,  { "formation": {          "player": "4f25cdcbe1af800323000b46"         ,          "x": "1"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f2fd315b3e30f0001000a07"         ,          "x": "2"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f04e6d3e1af80017c0000a7"         ,          "x": "2"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6b5e1af80017c000073"         ,          "x": "4"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f25cc85e1af8003230009be"         ,          "x": "4"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25ca54e1af8003230008b5"         ,          "x": "6"         ,          "y": "0"     }  }  ,  { "formation": {          "player": "4f25ca2de1af800323000896"         ,          "x": "6"         ,          "y": "4"     }  }  ,  { "formation": {          "player": "4f04e6dde1af80017c0000c4"         ,          "x": "7"         ,          "y": "1"     }  }  ,  { "formation": {          "player": "4f2efa0ae1af800c040009c4"         ,          "x": "7"         ,          "y": "3"     }  }  ,  { "formation": {          "player": "4f25c920e1af800323000879"         ,          "x": "-1"         ,          "y": "-1"     }  }  ]'      
   end
   
@@ -114,6 +114,35 @@ describe FirstTeam do
     
     def get_substitution(off)
       Substitution.new(off: off, on: Player.new(id: 2, name: "Alternate player", number: 18, team: Team.bahia))
+    end
+  end
+  
+  describe "scoring all predict players" do
+    let(:first_team) { FirstTeam.new }
+    context "when 5 tactics there are sent" do
+      before do
+        first_team.stub_chain(:tipsters, :size).and_return(5)
+      end
+      it "when 1 user should share 250 points to users who predict all players" do
+        first_team.stub_chain(:squad_winners, :size).and_return(1)
+        first_team.predicted_score.should == 250
+      end
+      it "when 2 users predicted all players should share 125 points to users who predict all players" do
+        first_team.stub_chain(:squad_winners, :size).and_return(2)
+        first_team.predicted_score.should == 125
+      end
+      it "when 3 users predicted all players should share 83 points to users who predict all players" do
+        first_team.stub_chain(:squad_winners, :size).and_return(3)
+        first_team.predicted_score.should == 83
+      end
+      it "when 4 users predicted all players should share 62 points to users who predict all players" do
+        first_team.stub_chain(:squad_winners, :size).and_return(4)
+        first_team.predicted_score.should == 62
+      end
+      it "when 4 users predicted all players should share 50 points to users who predict all players" do
+        first_team.stub_chain(:squad_winners, :size).and_return(5)
+        first_team.predicted_score.should == 50
+      end
     end
   end
   

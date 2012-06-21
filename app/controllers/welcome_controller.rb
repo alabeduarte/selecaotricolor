@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
     @next_match = Calendar.next_match
     @first_team = FirstTeam.last_of_the_round
     if found? @first_team
-      @recent_winners = @first_team.squad_winners_of_the_round
+      @recent_winners = @first_team.squad_winners
       @formation = @first_team.formation
     end
   end

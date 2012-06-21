@@ -123,23 +123,27 @@ describe FirstTeam do
       before do
         first_team.stub_chain(:tipsters, :size).and_return(5)
       end
-      it "when 1 user should share 250 points to users who predict all players" do
+      it "when nobody user predict all players should not share points" do
+        first_team.stub_chain(:squad_winners, :size).and_return(0)
+        first_team.predicted_score.should == 0
+      end
+      it "when 1 user predict all players should share 250 points to they" do
         first_team.stub_chain(:squad_winners, :size).and_return(1)
         first_team.predicted_score.should == 250
       end
-      it "when 2 users predicted all players should share 125 points to users who predict all players" do
+      it "when 2 user predict all players should share 125 points to they" do
         first_team.stub_chain(:squad_winners, :size).and_return(2)
         first_team.predicted_score.should == 125
       end
-      it "when 3 users predicted all players should share 83 points to users who predict all players" do
+      it "when 3 user predict all players should share 83 points to they" do
         first_team.stub_chain(:squad_winners, :size).and_return(3)
         first_team.predicted_score.should == 83
       end
-      it "when 4 users predicted all players should share 62 points to users who predict all players" do
+      it "when 4 user predict all players should share 62 points to they" do
         first_team.stub_chain(:squad_winners, :size).and_return(4)
         first_team.predicted_score.should == 62
       end
-      it "when 4 users predicted all players should share 50 points to users who predict all players" do
+      it "when 5 user predict all players should share 50 points to they" do
         first_team.stub_chain(:squad_winners, :size).and_return(5)
         first_team.predicted_score.should == 50
       end

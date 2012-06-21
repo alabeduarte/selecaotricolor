@@ -92,7 +92,19 @@ h1.subtitle {
 	width: 80%;
 }
 
+.score-rules {
+	font-size: 30px;
+}
+
 .rules {
+	line-height: 36px;
+	margin-top: 10px;
+	padding-top: 3px;
+	margin-left: 7%;
+	height: 80%;
+	width: 87%;
+	background-color: 
+	#FEFDED;
 	margin-bottom: 2%;
 }
 

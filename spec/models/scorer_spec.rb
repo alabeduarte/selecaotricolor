@@ -184,10 +184,10 @@ describe Scorer do
       User.find_by_email("teste5@t.com").score.should == 100
     end
     
-    it "should add 150 points to users who predict all players" do
+    it "should add 235 points to users who predict all players" do
       @first_team.apply_score(@scorer)
-      User.find_by_email("teste1@t.com").score.should == 150
-      User.find_by_email("teste2@t.com").score.should == 150
+      User.find_by_email("teste1@t.com").score.should == 235
+      User.find_by_email("teste2@t.com").score.should == 235
     end
     
     it "should show all user must predict the squad" do

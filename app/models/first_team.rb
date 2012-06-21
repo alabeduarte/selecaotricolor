@@ -70,12 +70,12 @@ class FirstTeam
   end
   
   def predicted_score
-    tipsters.size * 50 / squad_winners.size
+    (tipsters.size > 0 && squad_winners.size > 0)? (tipsters.size * 50 / squad_winners.size): 0
   end
  
   protected
   def apply_score_to_predict_users
     @scorer.add_by_predict_player(10)
-    @scorer.add(score: 40, to: squad_winners)
+    @scorer.add(score: predicted_score, to: squad_winners) if predicted_score > 0
   end
 end

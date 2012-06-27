@@ -14,13 +14,13 @@
 		<ul>			
 			<li><%= image_tag(@formation.owner.image, :size => "45x45", :class => "user-avatar") %></li>
 			<li><%= "#{t(:sent_by)} #{@formation.owner.nickname}" %></li>
-			<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>
-			<li class="share"><%= render :partial => "rating/share" %></li>
+			<li><%= "#{t(:created_at)} #{@formation.created_at.to_s(:day)}" %></li>			
 			<li>
 				<div class="pills actions">
 					<%= link_to "Táticas enviadas", {:controller => 'calendars', :action => 'formations_matches', :id => @formation.match}, :class => 'icon formations' %>
 				</di>
 			</li>
+			<li class="share"><%= render :partial => "rating/share" %></li>
 		</ul>     		
 	</div>	
 </div>

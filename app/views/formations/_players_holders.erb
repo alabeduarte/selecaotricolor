@@ -1,10 +1,28 @@
 <div class="call-up">
-	<table>
+	<table id="squad">
 	<% players_positions.each do |position| %>
 	  	<tr>
 			<td class="position"><%= position.acronym %></td>
-		    <td><%= position.player.name %></td>
+		    <td>
+				<div class="popover right">
+					<%= image_tag("/assets/bahia_squad/#{position.player.avatar}", :size => "75x105") %>
+					<%= position.player.name %>
+				</div>
+				<%= position.player.name %>
+			</td>
 		</tr>
 	<% end %>
 	</table>
 </div>
+<%= content_for :javascript do %>
+	;$(function(){
+		$('#squad tr').each(function() {
+			$(this).mouseover(function() {
+				$(this).find(".popover").css('display', 'block');
+			});
+			$(this).mouseout(function() {
+				$(this).find(".popover").css('display', 'none');
+			});
+		});
+	});
+<% end %>

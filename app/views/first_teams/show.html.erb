@@ -27,26 +27,4 @@
 <%= content_for :javascript do %>
 	$( load_soccer_field );
 	$( load_formation );
-	
-	FB.Event.subscribe('edge.create', function(response) {
-		var uri = response.replace($('#host').val(), "");
-		var validTarget = response.indexOf("positions/rating") > 0 || response.indexOf("substitutions/rating") > 0;
-		if (validTarget) {
-			$.ajax({
-		  			url:   uri,
-					type:  "POST"
-			});
-		}
-	});
-	
-	FB.Event.subscribe('edge.remove', function(response) {
-		var uri = response.replace($('#host').val(), "");
-		var validTarget = response.indexOf("positions/rating") > 0 || response.indexOf("substitutions/rating") > 0;
-		if (validTarget) {
-			$.ajax({
-		  			url:   uri,
-					type:  "DELETE"
-			});
-		}		
-	});	
 <% end %>

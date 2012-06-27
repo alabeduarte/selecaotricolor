@@ -5,3 +5,26 @@
 .record-list.players ul li form p select {
 	margin-left: -133px;
 }
+
+.player-avatar {
+	margin: 7px;
+	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
+	border: 2px solid #FCFAFA;
+}
+
+.share-player-rating {
+	position: relative;
+	margin-left: 20%;
+	margin-top: 10%;
+}
+
+.share-player-rating ul {
+	float: left;
+	list-style:none;
+}
+
+.share-player-rating li {
+	display: inline;
+}

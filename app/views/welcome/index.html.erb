@@ -20,7 +20,7 @@
 			<div class="pills actions">
 				<%= link_to "Entre em contato conosco!", '/contact_us/', :class => 'icon contact' %>
 				<a href="http://www.facebook.com/selecaotricolor" class="icon fanpage" target="_blank">Curta a nossa fanpage no Face!</a>
-				<%= link_to "Entenda quem somos!", '/scores/rules', :class => 'icon question' %>
+				<%= link_to "Entenda quem somos!", '/scores/rules', :class => 'icon question' %>				
 			</div>
 		</div>
 	<% end %>
@@ -69,7 +69,7 @@
 						<div class="recent-winners champions-of-round">
 							<table>
 							<% @recent_winners.each do |u| %>
-							  	<tr>							
+							  	<tr>
 								    <td>
 										<%= image_tag(u.image, :size => "25x25", :class => 'user-avatar') %>
 										:: <span class="nickname"><b><%= u.nickname %></b></span>
@@ -78,7 +78,7 @@
 							<% end %>
 							</table>
 						</div>
-					<% end %>         		
+					<% end %>
 				</div>
 			</div>
 		</div>
@@ -87,28 +87,4 @@
 <%= content_for :javascript do %>
 	$( load_soccer_field );
 	$( load_formation_of_last_round );
-	
-
-	FB.Event.subscribe('edge.create', function(response) {
-		var uri = response.replace($('#host').val(), "");
-		var validTarget = response.indexOf("positions/rating") > 0 || response.indexOf("substitutions/rating") > 0;
-		if (validTarget) {
-			$.ajax({
-		  			url:   uri,
-					type:  "POST"
-			});
-		}
-	});
-	
-	FB.Event.subscribe('edge.remove', function(response) {
-		var uri = response.replace($('#host').val(), "");
-		var validTarget = response.indexOf("positions/rating") > 0 || response.indexOf("substitutions/rating") > 0;
-		if (validTarget) {
-			$.ajax({
-		  			url:   uri,
-					type:  "DELETE"
-			});
-		}		
-	});
-
 <% end %>

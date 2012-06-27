@@ -60,9 +60,14 @@ describe User do
                           data: JSON.load(json), 
                           owner: user_t2, 
                           match: Calendar.last_match)
-                          
+                   
+    @formation_1.created_at = Time.utc(2012, 1, 18, 20, 30)       
     @formation_1.save
+    
+    @formation_2.created_at = Time.utc(2012, 1, 10, 18, 00)
     @formation_2.save
+    
+    @formation_3.created_at = Time.utc(2011, 1, 10, 18, 00)
     @formation_3.save
   end
   

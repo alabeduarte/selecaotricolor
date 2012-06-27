@@ -1,5 +1,43 @@
 <% content_for :title, "Eu curti a atuação de #{@player.name} no jogo entre #{@match}" %>
-<div class="welcome">	
-	<%= "Eu curti a atuação de #{@player.name} no jogo entre #{@match}" %>
-	<p><strong>Pontuação Total: </strong><%= @player.rating %></p>
+<div class="welcome">
+	<%= render :partial => "calendars/match_info", :locals => { :match => @match } %>
+	<%= image_tag("/assets/bahia_squad/#{@player.avatar}", :size => "75x105", :class => "player-avatar") %>
+	<span><%= "#{@player.name}" %></span>
+	<article>
+		<p><%= "Eu curti a atuação de #{@player.name} no jogo entre #{@match}" %></p>
+		<p><strong>Pontuação Total do Jogador: </strong><%= @player.rating %></p>		
+	</article>
+	<div class="pills actions large">
+		<%= link_to "Avalie os jogadores!!", '/avalie-seu-time', :class => 'icon rating' %>
+		<%= link_to "Táticas enviadas para este jogo", {:controller => 'calendars', :action => 'formations_matches', :id => @match}, :class => 'icon formations' %>
+		<a href="http://www.facebook.com/selecaotricolor" class="icon fanpage" target="_blank">Curta a nossa fanpage no Face!</a>
+	</div>
+	<div class="share-player-rating">
+		<ul>
+			<li>
+				<!-- Place this tag where you want the +1 button to render -->
+				<g:plusone size="small" annotation="inline" width="180"></g:plusone>
+
+				<!-- Place this render call where appropriate -->
+				<script type="text/javascript">
+				  window.___gcfg = {lang: 'pt-BR'};
+
+				  (function() {
+				    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				    po.src = 'https://apis.google.com/js/plusone.js';
+				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				  })();
+				</script>
+			</li>
+			<li>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-via="selecaotricolor" data-lang="pt">Tweetar</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</li>
+			<li>
+				<a name="fb_share" type="button" share_url="<%= current_uri %>"><%= t(:share) %></a> 
+				<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript">
+				</script>
+			</li>
+		</ul>
+	</div>
 </div>

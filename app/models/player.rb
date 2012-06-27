@@ -1,3 +1,4 @@
+require 'support/extend_string'
 class Player
   include MongoMapper::Document
   self.include_root_in_json = true
@@ -14,12 +15,18 @@ class Player
   belongs_to :team
   belongs_to :position_mapper
   
+  attr_reader :avatar
+  
   validates :name, :presence => true
   validates :number, :presence => true, :numericality => true, :length => {:minimum => 1, :maximum => 2}
   validates :team, :presence => true
   
   def self.players_of(team)
     Player.sort(:position_mapper_id.asc, :rating.desc).where(:team_id => team.id)
+  end
+  
+  def avatar
+    "#{@name.strip.gsub(" ", "").removeaccents.downcase}.jpg"
   end
   
   def increase_rating

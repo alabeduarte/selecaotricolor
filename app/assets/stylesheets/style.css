@@ -731,3 +731,53 @@ input[type="submit"].btn.large.contact_us {
 	margin-right: 10%;
 	float: right;
 }
+
+/* Popover styles
+ -------------------------------------------------- */
+/* Required style */
+.popover {
+	position: absolute;
+}
+
+/* Aesthetic styles */
+.popover {
+	/*background: #F33;*/
+	
+	background-color: #ADD8E6;
+	background-repeat: repeat-x;
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#ADD8E6), to(#FFF));
+	background-image: -moz-linear-gradient(top, #ADD8E6, #FFF);
+	background-image: -ms-linear-gradient(top, #ADD8E6, #FFF);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ADD8E6), color-stop(100%, #FFF));
+	background-image: -webkit-linear-gradient(top, #ADD8E6, #FFF);
+	background-image: -o-linear-gradient(top, #ADD8E6, #FFF);
+	background-image: linear-gradient(top, #ADD8E6, #FFF);
+	
+	text-align: right;
+	color: #191970;
+	font-size: 22px;
+	font-weight: normal;
+	-moz-border-radius: 5px; /* FF1+ */
+	-webkit-border-radius: 5px; /* Saf3+, Chrome */
+	-khtml-border-radius: 5px; /* Konqueror */
+	border-radius: 5px; /* Standard. IE9 */
+	padding: 10px;
+	width: 92px;
+	height: 150px;
+	display: none;
+	z-index: 9999;
+	border: 2px solid #B22222;	
+}
+
+.popover img {
+	margin: 7px;
+	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
+	border: 2px solid #FCFAFA;
+}
+
+.popover.right {
+	margin-top: -53px;
+	margin-left: 61%;
+}

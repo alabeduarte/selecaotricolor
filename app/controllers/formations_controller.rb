@@ -57,11 +57,17 @@ class FormationsController < ApplicationController
     @formation = Formation.find(params[:id])
     respond_to do |format|
       format.html
-      format.json  { 
-        render :json => @formation.as_json(:include => {
-          :players_positions => {:include => :player}
-        }) 
-      }
+      format.json  { render :json => @formation.as_json(
+        :include => {
+          :players_positions => {
+            :include => {
+              :player => {
+                :methods => [:avatar]
+              }
+            }
+          }
+        }
+      )}
     end
   end
   

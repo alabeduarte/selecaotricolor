@@ -85,4 +85,26 @@ describe Player do
       mail_message.should_receive(:deliver)
     end
   end
+  
+  describe "linkfiy avatar of players" do
+    it "should linkify Lulinha" do
+      player = Player.new name: "Lulinha"
+      player.avatar.should == "lulinha.jpg"
+    end
+    
+    it "should linkify H\u00e9lder" do
+      player = Player.new name: "H\u00e9lder"
+      player.avatar.should == "helder.jpg"
+    end
+    
+    it "should linkify \u00C1vine" do
+      player = Player.new name: "\u00C1vine"
+      player.avatar.should == "avine.jpg"
+    end
+    
+    it "should linkify Marcelo Lomba" do
+      player = Player.new name: "Marcelo Lomba"
+      player.avatar.should == "marcelolomba.jpg"
+    end
+  end
 end

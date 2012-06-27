@@ -15,11 +15,17 @@ class FirstTeamsController < ApplicationController
         @formation = @first_team.formation
         render 'show'
       }
-      format.json  {
-        render :json => FirstTeam.last_of_the_round.formation.as_json(:include => {
-          :players_positions => {:include => :player}
-        }) 
-      }
+      format.json  { render :json => FirstTeam.last_of_the_round.formation.as_json(
+        :include => {
+          :players_positions => {
+            :include => {
+              :player => {
+                :methods => [:avatar]
+              }
+            }
+          }
+        }
+      )}
     end
   end
   

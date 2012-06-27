@@ -8,6 +8,8 @@ class Team
   
   validates :name, :presence => true, :uniqueness => true
   
+  attr_reader :label
+  
   def self.bahia
     where(name: 'Bahia').first
   end

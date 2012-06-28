@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<%= image_tag("/assets/bahia_squad/#{@player.avatar}", :size => "75x105", :class => "player-avatar") %>
+<span><%= "#{@player.name}" %></span>
 <p>
   <b>Name:</b>
   <%= @player.name %>

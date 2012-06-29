@@ -781,3 +781,9 @@ input[type="submit"].btn.large.contact_us {
 	margin-top: -53px;
 	margin-left: 61%;
 }
+
+.ads.right {
+	left: 100%;
+	margin-left: 2%;
+	position: absolute;
+}

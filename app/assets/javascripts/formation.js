@@ -174,12 +174,20 @@ function createEnabledAllPlayers() {
 					positionDivClass = 'team';
 				}
 				
-				$('<div id=' + player.id + '></div>').appendTo(positionDivName);					
+				$('<div id=' + player.id + '></div>').appendTo(positionDivName);
 				$(playerDiv).addClass(positionDivClass);
 				
 				$('<p>' + '&nbsp' + '</p>').appendTo(playerDiv);
 				$('<span id="playerName_' + playerId + '">' + player.name + '</span>')
-					.addClass('playerName').appendTo(playerDiv);				
+					.addClass('playerName').appendTo(playerDiv);
+				
+				$('<div id="popover_' + playerId + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img>' + player.name + '</div>').appendTo(playerDiv);
+				$(playerDiv).popover({
+					my: 'left bottom',
+					at: 'right top',
+					offset: '-5px -5px'
+				});
+				
 				$(playerDiv).addClass('enabled');
 				$(playerDiv).data('number', i).appendTo(positionDivName).draggable( {
 			    	containment: '.droppable-area',
@@ -196,6 +204,12 @@ function createEnabledAllPlayers() {
 				$(playerDiv).mouseup(function () {
 					$('#slot').css("display","none");
 					$('#positionMap').css('display', 'none');
+				});
+				$(playerDiv).mouseover(function () {
+					$('#popover_' + playerId).css('display', 'block');
+				});
+				$(playerDiv).mouseout(function () {
+					$('#popover_' + playerId).css('display', 'none');
 				});
 				$(playerDiv).addClass('player');
 	  		});

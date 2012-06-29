@@ -38,8 +38,11 @@
 				<% end %>
 				<%= render :partial => "users/login" %>
 			</div>
-		</div>
+		</div>		
 		<div id="divCenter">
+			<div class="ads right">
+				<%= render :partial => "adsense/ads" %>
+			</div>
 			<div id="center-content">
 				<%= yield %>
 				<%= yield :footer_resources %>
@@ -47,7 +50,7 @@
 		</div>
 
 		<div id="divBase">
-			<div id="base-content">				
+			<div id="base-content">
 				<div class="footer-info">
 					<ul>
 						<li>Acesse também a nossa <a href="http://www.facebook.com/selecaotricolor" target="_blank">página no facebook</a></li>

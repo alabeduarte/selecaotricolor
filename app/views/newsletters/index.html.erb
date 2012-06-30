@@ -1,3 +1,10 @@
 <% content_for :title, "E-mails" %>
 <h1 class="subtitle"><%= t(:emails) %></h1>
-<%= text_area_tag 'email', @emails, :disabled => true %>
+<%= text_area_tag 'email', @emails %>
+
+<% if @winners_of_round %>
+	<h1 class="subtitle">Técnicos da Rodada</h1>
+	<p><b>Partida:</b><%= @match %></p>
+	<p><b>Pontos:</b><%= @predicted_score %></p>
+	<%= text_area_tag 'email', @winners_of_round %>
+<% end %>

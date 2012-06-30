@@ -3,7 +3,14 @@
 <div class="welcome">	
 	<div class="facebook-like">
 		<%= render :partial => 'rating/facebook_like', :locals => {:uri => 'http://facebook.com/selecaotricolor'} %>
-	</div>			
+	</div>				
+	<% if user_signed_in? %>
+		<div class='app-menu'>
+			<div class="pills actions">
+				<%= link_to t(:my_formations), :current_user_formations, :class => 'icon formations' %>
+			</div>
+		</div>
+	<% end %>
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
 		<h1 class="subtitle">escale o seu time para a próxima partida</h1>

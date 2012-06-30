@@ -6,7 +6,6 @@ describe WelcomeController do
   
   context "GET 'index" do
     it "should show main action" do      
-      User.should_receive(:top_scorers_of).with(5)
       FirstTeam.should_receive(:last_of_the_round)
       Calendar.should_receive(:next_match)     
       get :index, :link => {:url => "http://localhost:3000/"}

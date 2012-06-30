@@ -1,0 +1,93 @@
+#user-profile {
+	margin-left: 90px;
+	width: 815px;
+	height: 180px;
+}
+
+#user-profile > figure {
+	width: 70px;
+	height: 70px;
+	float: left;
+}
+
+#user-profile span, #user-profile label {
+	text-align: left;
+	padding-left: 8px;
+	float: left;
+	padding: 12px;
+}
+
+#user-profile label {
+	width: 7%;
+}
+
+#user-profile span.user-nickname {
+	padding-top: 8px;
+	width: 85%;
+}
+
+.user-score {
+	height: 50%;
+}
+
+.user-score label {
+	font-size: 20px;
+}
+
+#score {
+	font-size: 40px;
+	line-height: 7px;
+	height: 18px;
+}
+
+#user-profile > nav {
+	margin-top: -39px;
+	top: 44px;
+	right: 145px;
+}
+
+#user-profile > nav ul li {
+	display: inline;
+}
+
+.facebook-top-likes {
+	margin-bottom: 5%;
+}
+
+#profile-score-list-section {
+	width: 375px;
+	padding-left: 30px;
+}
+
+#profile-score-list-section .record-list {
+	height: 447px;
+	width: 324px;
+}
+
+#profile-score-list-section .record-list ul li {
+	padding-top: 7px;
+	padding-bottom: 36px;
+}
+
+#profile-score-list-section .record-list ul li a {
+	font-size: 20px;
+}
+
+#profile-score-list-section .record-list ul li p {
+	text-align: left;
+}
+
+#profile-score-list-section .record-list ul li p.score-position {
+	text-align: left;
+	width: 14px;
+}
+
+#profile-score-list-section .record-list ul li p.score-rank {
+	font-size: 20px;
+	text-shadow: 0 1px 0 white;
+	width: 14px;
+}
+
+a.btn.jogo.center.profile-new-formation {
+	height: 57px;
+}

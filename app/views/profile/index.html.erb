@@ -1,0 +1,42 @@
+<% content_for :title, "Técnico: #{current_user.nickname}" %>
+<div class="welcome">
+	<section class="facebook-top-likes">
+		<fb:like show_faces="yes" href="http://facebook.com/selecaotricolor"></fb:like>
+	</section>
+	<section id="user-profile">
+		<figure>
+			<%= image_tag(current_user.image, :size => "65x65", :class => "user-avatar") %>
+		</figure>
+		<span class="user-nickname"><%= "#{current_user.nickname}" %></span>
+		<div class="user-score">
+			<label for="score">Pontos:</label>
+			<span id="score"><%= "#{current_user.score}" %></span>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="#edit-user-image" class="trigger">Alterar imagem</a></li>
+				<li><%= link_to t(:account_config), "/configuration" %></li>
+			</ul>
+		</nav>
+	</section>
+	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
+	<h1 class="subtitle">Seleção Tricolor</h1>
+	<section id="profile-score-list-section">
+		<div class="record-list">
+			<ul>
+				<% @users.each_with_index.map do |user, index| %>
+					<% index += 1 %>
+	            	<li>
+						<%= image_tag(user.image, :size => "25x25", :class => "user-avatar") %>
+						<p class="score-position" id="<%= index %>"><%= index %></p>
+						<p class="creator"><%= user.nickname %></p>
+						<p class="score-rank"><%= user.score %></p>
+					</li>
+				<% end %>
+				<li><a href="/scores">Veja o Ranking completo</a></li>
+			</ul>
+		</div>
+	</section>
+</div>
+<%= content_for :javascript do %>
+<% end %>

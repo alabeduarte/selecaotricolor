@@ -35,12 +35,13 @@
 }
 
 #tabs {
-	font-family: 'Squada One', cursive;	
+	font-family: 'Squada One', cursive;		
 }
 
 #tabs ul li a {
 	width: 100%;
 	text-align: left;
+	font-size: 15px;
 }
 
 #tabs ul li a span {
@@ -234,6 +235,7 @@
 }
   
 #gk {
+	cursor: pointer;
 	font-size: 9px;
 	text-align: center;
 	width: 30px;

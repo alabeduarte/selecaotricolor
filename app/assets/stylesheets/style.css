@@ -1,6 +1,15 @@
 body {
 	font-family: 'Squada One', cursive;
 	color: #191970;
+	font-size: 18px;
+}
+
+span {
+	font-size: 18px;
+}
+
+a {
+	font-size: 20px;
 }
 
 table {
@@ -345,6 +354,7 @@ h1.subtitle {
 	width: 260px;
 	height: 35px;
 	line-height: 35px;
+	font-size: 15px;
 }
 
 .user_info ul li a img.arrow {

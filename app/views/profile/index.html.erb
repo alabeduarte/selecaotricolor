@@ -19,24 +19,122 @@
 			</ul>
 		</nav>
 	</section>
-	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
-	<h1 class="subtitle">Seleção Tricolor</h1>
-	<section id="profile-score-list-section">
-		<div class="record-list">
-			<ul>
-				<% @users.each_with_index.map do |user, index| %>
-					<% index += 1 %>
-	            	<li>
-						<%= image_tag(user.image, :size => "25x25", :class => "user-avatar") %>
-						<p class="score-position" id="<%= index %>"><%= index %></p>
-						<p class="creator"><%= user.nickname %></p>
-						<p class="score-rank"><%= user.score %></p>
-					</li>
-				<% end %>
-				<li><a href="/scores">Veja o Ranking completo</a></li>
-			</ul>
+	<section id="new-formation">
+		<div id="match-popover">
+			Próxima Partida
+			<span class="down"></span>
 		</div>
+		<div id="new-formation-popover">
+			Escale o seu time!
+			<span class="after"></span>
+		</div>
+		<nav>
+			<ul>
+				<li class="btn">
+					<span><%= "#{@next_match.home.name}" %></span>
+					<%= image_tag("escudos/#{@next_match.home.label}.png", :size => "45x45") %>
+					<span>x</span>
+					<%= image_tag("escudos/#{@next_match.away.label}.png", :size => "45x45") %>
+					<span><%= "#{@next_match.away.name}" %></span>
+				</li>
+			</ul>
+		</nav>
+	</section>
+	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
+	<% if @formation %>
+		<h1 class="subtitle">Menu</h1>
+		<section id="profile-options">
+			<section id='profile-last-match'>
+				<div id="match-popover">
+					Partida Anterior
+					<span class="down"></span>
+				</div>
+				<div id="last-match-popover">
+					Veja a Ficha Técnica do jogo anterior
+					<span class="after"></span>
+				</div>
+				<nav>
+					<ul>
+						<li class="btn">
+							<span><%= "#{@formation.match.home.name}" %></span>
+							<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
+							<span>x</span>
+							<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
+							<span><%= "#{@formation.match.away.name}" %></span>
+						</li>
+					</ul>
+				</nav>
+			</section>
+		</section>
+	<% end %>
+	<h1 class="subtitle">Minhas Convocações</h1>
+	<section id="formation-list-section">
+		<% if !current_user.most_recent_formations.empty? %>
+			<div class="record-list">
+				<ul>
+					<% current_user.most_recent_formations.each do |formation| %>
+		            	<li onclick="showFormation('/formations/<%= formation.id %>')">
+							<span><%= "#{formation.match.home.name}" %></span>
+							<%= image_tag("escudos/#{formation.match.home.label}.png", :size => "45x45") %>
+							<span>x</span>
+							<%= image_tag("escudos/#{formation.match.away.label}.png", :size => "45x45") %>
+							<span><%= "#{formation.match.away.name}" %></span>
+							<p class="tactical"><%= formation.tactical %></p>
+							<p class="match-day"><%= formation.created_at.to_s(:day) %></p>
+						</li>
+					<% end %>
+					<% if current_user.has_many_tactics? %>
+						<li><a href="/my_formations">Mais táticas...</a></li>
+					<% end %>
+				</ul>
+			</div>
+			<div id="soccerField" class="soccer-field-grass list">
+				<div id="emptySlot"></div>
+			</div>
+		<% end %>
+	</section>	
+	<section id="profile-options">
+		<section id="profile-score-list-section">
+			<div class="record-list">
+				<ul>
+					<% @users.each_with_index.map do |user, index| %>
+						<% index += 1 %>
+		            	<li>
+							<%= image_tag(user.image, :size => "25x25", :class => "user-avatar") %>
+							<p class="score-position" id="<%= index %>"><%= index %></p>
+							<p class="creator"><%= user.nickname %></p>
+							<p class="score-rank"><%= user.score %></p>
+						</li>
+					<% end %>
+					<li><a href="/scores">Veja o Ranking completo</a></li>
+				</ul>
+			</div>
+		</section>
+		<section id="profile-menu">
+		</section>
 	</section>
 </div>
 <%= content_for :javascript do %>
+
+	$(function() {
+		initPopover('#new-formation nav ul li', '#new-formation-popover', '/new');
+		initPopover('#profile-last-match nav ul li', '#last-match-popover', '/avalie-seu-time');
+	});
+
+	function initPopover(component, popover, targetUri) {
+		$(component).mouseover(function () {
+			$(popover).css('display', 'block');
+		});
+		$(component).mouseout(function () {
+			$(popover).css('display', 'none');
+		});	
+		$(component).click(function(){
+			window.location.href = targetUri;
+		});
+	}
+	
+	$('.record-list ul li').click(function() {
+		$('.record-list ul li').removeClass('selected');
+		$(this).addClass('selected'); 	
+	});
 <% end %>

@@ -14,7 +14,7 @@
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
 		<h1 class="subtitle">escale o seu time para a próxima partida</h1>
-		<%= render :partial => "calendars/match_info", :locals => {:match => @next_match, :subtitle => false} %>			
+		<%= render :partial => "calendars/match_info", :locals => {:match => @next_match, :subtitle => false} %>
 		<div class="pills actions large">
 			<%= link_to "ESCALE O SEU TIME!", new_path, :class => "icon new-formation" %>
 		</div>

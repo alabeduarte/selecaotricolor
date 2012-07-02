@@ -1,7 +1,7 @@
 #user-profile {
 	margin-left: 90px;
 	width: 815px;
-	height: 180px;
+	height: 95px;
 }
 
 #user-profile > figure {
@@ -54,9 +54,18 @@
 	margin-bottom: 5%;
 }
 
+#profile-options {
+	height: 520px;
+}
+
+#profile-options.large {
+	height: 670px;
+}
+
 #profile-score-list-section {
 	width: 375px;
-	padding-left: 30px;
+	padding-left: 40px;
+	float: left;
 }
 
 #profile-score-list-section .record-list {
@@ -67,10 +76,6 @@
 #profile-score-list-section .record-list ul li {
 	padding-top: 7px;
 	padding-bottom: 36px;
-}
-
-#profile-score-list-section .record-list ul li a {
-	font-size: 20px;
 }
 
 #profile-score-list-section .record-list ul li p {
@@ -90,4 +95,93 @@
 
 a.btn.jogo.center.profile-new-formation {
 	height: 57px;
+}
+
+#profile-menu {
+	float: left;
+}
+
+#profile-menu > nav ul li {
+	padding-bottom: 47px;
+}
+
+#new-formation {
+	float: left;
+	margin-top: 28px;
+/*	margin-left: 68px;*/
+	margin-left: 344px;
+	width: 815px;
+	height: 95px;
+	text-align: left;
+}
+
+#new-formation > nav ul li.btn {
+	font-size: 18px;
+	height: 47px;
+	color: #104E8B;
+	text-shadow: 0 1px 0 #FFF;
+}
+
+#new-formation-popover {
+	margin-left: 38px;
+	margin-top: 63px;
+	-moz-border-radius: 5px; /* FF1+ */
+	-webkit-border-radius: 5px; /* Saf3+, Chrome */
+	-khtml-border-radius: 5px; /* Konqueror */
+	border-radius: 5px; /* Standard. IE9 */
+	padding: 10px;
+	width: 200px;
+    position:absolute;
+	display: none;
+	font-size: 27px;
+	font-height: normal;
+	z-index: 9999;
+	background-color: #104E8B;
+	color: #E8E8E8;
+	text-shadow: 0 2px 0 #B22222;
+	text-transform: uppercase;
+}
+
+#new-formation-popover .after {
+	border-top: 10px solid transparent;
+	border-left: 15px solid #104E8B;
+	content: '';
+	top: -10px;
+	height: 0;
+	margin-left: -5px;
+	left: 50%;
+	position: absolute;
+	width: 0;
+}
+
+#match-popover {
+	margin-top: -41px;
+	margin-left: -88px;
+	-moz-border-radius: 5px; /* FF1+ */
+	-webkit-border-radius: 5px; /* Saf3+, Chrome */
+	-khtml-border-radius: 5px; /* Konqueror */
+	border-radius: 5px; /* Standard. IE9 */
+	padding: 10px;
+	width: 200px;
+    position:absolute;
+	display: block;
+	font-size: 27px;
+	font-height: normal;
+	z-index: 9999;
+	background-color: #B22222;
+	color: #E8E8E8;
+	text-shadow: 0 2px 0 #104E8B;
+	text-transform: uppercase;
+}
+
+#match-popover .down {
+	border-bottom: 10px solid transparent;
+	border-left: 0;
+	border-right: 15px solid #B22222;
+	content: '';
+	bottom: -10px;
+	height: 0;
+	right: 10px;
+	position: absolute;
+	width: 0;
 }

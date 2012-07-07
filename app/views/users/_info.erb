@@ -3,16 +3,17 @@
 		<ul>
 			<li>
 				<%= image_tag(current_user.image, :size => "45x45", :class => "user-avatar") %>
-				<a id="user_info_menu" class="btn primary dropdown-toggle" data-toggle="dropdown" href="#">						
+				<a id="user_info_menu" class="btn primary dropdown-toggle" data-toggle="dropdown" href="#">
 					<%= "#{current_user.nickname} # #{current_user.score} pontos" %>
 					<%= image_tag("icons/arrow-down.png", :size => "16x16", :class => "arrow") %>
 				</a>
-				<ul id="user_config_menu" class="dropdown-menu pills">						
+				<ul id="user_config_menu" class="dropdown-menu pills">
 					<li><%= link_to 'Home', :root %></li>
+					<li><%= link_to 'Meu Perfil', '/profile' %></li>
 					<li><%= link_to "Monte o seu esquema tático!", :new %></li>
 					<li><%= link_to 'Calendário dos Jogos', :calendars %></li>
-					<li><%= link_to t(:scores), '/scores' %></li>  
-					<li><%= link_to t(:my_formations), :current_user_formations %></li>          				
+					<li><%= link_to t(:scores), '/scores' %></li>
+					<li><%= link_to t(:my_formations), :current_user_formations %></li>
 					<li><%= link_to t(:account_config), "/configuration" %></li>
 					<% if current_user.admin? %>
 						<li><%= link_to 'Táticas Oficiais', '/first_teams' %></li>

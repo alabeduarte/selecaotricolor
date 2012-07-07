@@ -113,5 +113,9 @@ describe User do
     it "should NOT be true when formation don't created by the current user" do
       user_t1.should_not be_owner_of @formation_3
     end
+    
+    it "should list most recents formations of user" do
+      user_t1.most_recent_formations.size.should == 2
+    end
   end
 end

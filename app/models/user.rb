@@ -54,6 +54,14 @@ class User
     Formation.sort(:created_at.desc).where(owner_id: id).all
   end
   
+  def most_recent_formations
+    @most_recent_formations ||= Formation.sort(:created_at.desc).where(owner_id: id).limit(4).all
+  end
+  
+  def has_many_tactics?
+    Formation.where(owner_id: id).count > 4
+  end
+  
   def image
     if admin?
       @image || "selecaoicone.png"

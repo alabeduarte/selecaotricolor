@@ -1,0 +1,137 @@
+<% content_for :title, "Técnico: #{current_user.nickname}" %>
+<div class="welcome">
+	<section class="facebook-top-likes">
+		<fb:like show_faces="yes" href="http://facebook.com/selecaotricolor"></fb:like>
+	</section>
+	<section id="user-profile">
+		<figure>
+			<%= image_tag(current_user.image, :size => "65x65", :class => "user-avatar") %>
+		</figure>
+		<span class="user-nickname"><%= "#{current_user.nickname}" %></span>
+		<div class="user-score">
+			<label for="score">Pontos:</label>
+			<span id="score"><%= "#{current_user.score}" %></span>
+		</div>
+		<nav>
+			<ul>
+				<li><%= link_to t(:account_config), "/configuration" %></li>
+			</ul>
+		</nav>
+	</section>
+	<section id="new-formation">
+		<div id="match-popover">
+			Próxima Partida
+			<span class="down"></span>
+		</div>
+		<div id="new-formation-popover">
+			Escale o seu time!
+			<span class="after"></span>
+		</div>
+		<nav>
+			<ul>
+				<li class="btn">
+					<span><%= "#{@next_match.home.name}" %></span>
+					<%= image_tag("escudos/#{@next_match.home.label}.png", :size => "45x45") %>
+					<span>x</span>
+					<%= image_tag("escudos/#{@next_match.away.label}.png", :size => "45x45") %>
+					<span><%= "#{@next_match.away.name}" %></span>
+				</li>
+			</ul>
+		</nav>
+	</section>
+	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
+	<h1 class="subtitle">Seleção Tricolor</h1>
+	<div class='app-menu'>
+		<div class='pills match-calendars'>
+			<%= link_to "Calendário dos Jogos", :calendars, :class => 'icon match-calendar' %>
+			<%= link_to t(:my_formations), :current_user_formations, :class => 'icon formations' %>
+			<%= link_to "Ranking dos usuários!", '/scores', :class => 'icon ranking' %>
+		</div>
+		<div class="pills actions">
+			<%= link_to "Entre em contato conosco!", '/contact_us/', :class => 'icon contact' %>
+			<%= link_to "Entenda quem somos!", '/scores/rules', :class => 'icon question' %>
+		</div>
+	</div>
+	<% if @formation %>
+		<h1 class="subtitle">partida Anterior</h1>
+		<div class="pills actions">
+			<%= link_to "Avalie os jogadores!!", '/avalie-seu-time', :class => 'icon rating' %>
+		</div>
+		<div class="last-squad-of-the-round">
+			<div class="index rating call-up">
+				<table id="squad_of_the_round">
+					<%= render :partial => "rating/squad_of_the_round", :locals => { :first_team => @first_team } %>
+				</table>
+			</div>
+			<div id="soccerField" class="soccer-field-grass show">
+				<div id="emptySlot"></div>
+			</div>
+			<div id="creator-info" class="show">
+				<ul>
+					<li class="jogo">
+						<div class="time home">
+							<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
+
+				        </div>
+				        <div class="x">x</div>
+				        <div class="time away">
+							<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
+				        </div>
+					</li>
+				</ul>
+				<div class="recent-winners">
+					<div class="link">
+						Para ver as táticas deste jogo, <%= link_to "clique aqui!", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %>
+					</div>
+					<% if @recent_winners.empty? %>
+						<ul>
+							<li>Nenhum dos usuários acertaram a escalação desta partida! =/</li>
+						</ul>
+					<% else %>
+						<div class="champions-of-round">
+							<span class="champions-of-round-icon"></span>
+							Técnicos da Rodada
+						</div>						
+						<div class="recent-winners champions-of-round">
+							<table>
+							<% @recent_winners.each do |u| %>
+							  	<% if u == current_user %>
+									<tr class="selected">
+								<% else %>
+									<tr >
+								<% end %>
+								    <td>
+										<%= image_tag(u.image, :size => "25x25", :class => 'user-avatar') %>
+										:: <span class="nickname"><b><%= u.nickname %></b></span>
+									</td>
+								</tr>
+							<% end %>
+							</table>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>
+<%= content_for :javascript do %>
+
+	$(function() {
+		initPopover('#new-formation nav ul li', '#new-formation-popover', '/new');
+	});
+
+	function initPopover(component, popover, targetUri) {
+		$(component).mouseover(function () {
+			$(popover).css('display', 'block');
+		});
+		$(component).mouseout(function () {
+			$(popover).css('display', 'none');
+		});	
+		$(component).click(function(){
+			window.location.href = targetUri;
+		});
+	}
+	
+	$( load_soccer_field );
+	$( load_formation_of_last_round );
+<% end %>

@@ -44,7 +44,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
-    daemons (1.1.7)
+    daemons (1.1.8)
     database_cleaner (0.7.1)
     devise (2.0.0)
       bcrypt-ruby (~> 3.0)

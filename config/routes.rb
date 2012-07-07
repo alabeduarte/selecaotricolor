@@ -20,7 +20,7 @@ UcoachManager::Application.routes.draw do
   end
 
   root :to => "welcome#index"
-  resources :position_mappers, :teams, :players, :calendars, :formations, :first_teams, :newsletters, :substitutions
+  resources :position_mappers, :teams, :players, :calendars, :formations, :first_teams, :newsletters, :substitutions, :profile
   
   controller :formations do
     get 'new' => :new

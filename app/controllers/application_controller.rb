@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     first_team && first_team.formation && first_team.formation.players_ordered_by_positions && first_team.formation.match
   end
   
+  def after_sign_in_path_for(resource)
+    '/profile'
+  end
+  
 end

@@ -3,14 +3,7 @@
 <div class="welcome">	
 	<div class="facebook-like">
 		<%= render :partial => 'rating/facebook_like', :locals => {:uri => 'http://facebook.com/selecaotricolor'} %>
-	</div>				
-	<% if user_signed_in? %>
-		<div class='app-menu'>
-			<div class="pills actions">
-				<%= link_to t(:my_formations), :current_user_formations, :class => 'icon formations' %>
-			</div>
-		</div>
-	<% end %>
+	</div>
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
 	<% if @next_match %>
 		<h1 class="subtitle">escale o seu time para a próxima partida</h1>
@@ -75,7 +68,11 @@
 						<div class="recent-winners champions-of-round">
 							<table>
 							<% @recent_winners.each do |u| %>
-							  	<tr>
+								<% if u == current_user %>
+									<tr class="selected">
+								<% else %>
+									<tr >
+								<% end %>
 								    <td>
 										<%= image_tag(u.image, :size => "25x25", :class => 'user-avatar') %>
 										:: <span class="nickname"><b><%= u.nickname %></b></span>

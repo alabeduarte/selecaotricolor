@@ -6,9 +6,13 @@ Saiba quais são os <a href="/scores/rules">critérios</a> de pontuação
 		<ul>
 			<% @users.each_with_index.map do |u, index| %>
 				<% index += 1 %>
-				<li>
+				<% if u == current_user %>
+					<li id='score-list' class="selected">
+				<% else %>
+					<li id='score-list'>
+				<% end %>
 					<fieldset>
-						<%= image_tag(u.image, :size => "45x45", :class => "user-avatar") %>
+						<%= image_tag(u.image, :size => "25x25", :class => "user-avatar") %>
 						<p class="score-position" id="<%= index %>"><%= index %></p>
 						<p class="scorer"><%= u.nickname %></p>
 						<p id="score-rank"><%= u.score %></p>

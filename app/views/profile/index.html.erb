@@ -14,7 +14,6 @@
 		</div>
 		<nav>
 			<ul>
-				<li><a href="#edit-user-image" class="trigger">Alterar imagem</a></li>
 				<li><%= link_to t(:account_config), "/configuration" %></li>
 			</ul>
 		</nav>
@@ -41,84 +40,84 @@
 		</nav>
 	</section>
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
+	<h1 class="subtitle">Seleção Tricolor</h1>
+	<div class='app-menu'>
+		<div class='pills match-calendars'>
+			<%= link_to "Calendário dos Jogos", :calendars, :class => 'icon match-calendar' %>
+			<%= link_to t(:my_formations), :current_user_formations, :class => 'icon formations' %>
+			<%= link_to "Ranking dos usuários!", '/scores', :class => 'icon ranking' %>
+		</div>
+		<div class="pills actions">
+			<%= link_to "Entre em contato conosco!", '/contact_us/', :class => 'icon contact' %>
+			<%= link_to "Entenda quem somos!", '/scores/rules', :class => 'icon question' %>
+		</div>
+	</div>
 	<% if @formation %>
-		<h1 class="subtitle">Menu</h1>
-		<section id="profile-options">
-			<section id='profile-last-match'>
-				<div id="match-popover">
-					Partida Anterior
-					<span class="down"></span>
-				</div>
-				<div id="last-match-popover">
-					Veja a Ficha Técnica do jogo anterior
-					<span class="after"></span>
-				</div>
-				<nav>
-					<ul>
-						<li class="btn">
-							<span><%= "#{@formation.match.home.name}" %></span>
-							<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
-							<span>x</span>
-							<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
-							<span><%= "#{@formation.match.away.name}" %></span>
-						</li>
-					</ul>
-				</nav>
-			</section>
-		</section>
-	<% end %>
-	<h1 class="subtitle">Minhas Convocações</h1>
-	<section id="formation-list-section">
-		<% if !current_user.most_recent_formations.empty? %>
-			<div class="record-list">
-				<ul>
-					<% current_user.most_recent_formations.each do |formation| %>
-		            	<li onclick="showFormation('/formations/<%= formation.id %>')">
-							<span><%= "#{formation.match.home.name}" %></span>
-							<%= image_tag("escudos/#{formation.match.home.label}.png", :size => "45x45") %>
-							<span>x</span>
-							<%= image_tag("escudos/#{formation.match.away.label}.png", :size => "45x45") %>
-							<span><%= "#{formation.match.away.name}" %></span>
-							<p class="tactical"><%= formation.tactical %></p>
-							<p class="match-day"><%= formation.created_at.to_s(:day) %></p>
-						</li>
-					<% end %>
-					<% if current_user.has_many_tactics? %>
-						<li><a href="/my_formations">Mais táticas...</a></li>
-					<% end %>
-				</ul>
+		<h1 class="subtitle">partida Anterior</h1>
+		<div class="pills actions">
+			<%= link_to "Avalie os jogadores!!", '/avalie-seu-time', :class => 'icon rating' %>
+		</div>
+		<div class="last-squad-of-the-round">
+			<div class="index rating call-up">
+				<table id="squad_of_the_round">
+					<%= render :partial => "rating/squad_of_the_round", :locals => { :first_team => @first_team } %>
+				</table>
 			</div>
-			<div id="soccerField" class="soccer-field-grass list">
+			<div id="soccerField" class="soccer-field-grass show">
 				<div id="emptySlot"></div>
 			</div>
-		<% end %>
-	</section>	
-	<section id="profile-options">
-		<section id="profile-score-list-section">
-			<div class="record-list">
+			<div id="creator-info" class="show">
 				<ul>
-					<% @users.each_with_index.map do |user, index| %>
-						<% index += 1 %>
-		            	<li>
-							<%= image_tag(user.image, :size => "25x25", :class => "user-avatar") %>
-							<p class="score-position" id="<%= index %>"><%= index %></p>
-							<p class="creator"><%= user.nickname %></p>
-							<p class="score-rank"><%= user.score %></p>
-						</li>
-					<% end %>
-					<li><a href="/scores">Veja o Ranking completo</a></li>
+					<li class="jogo">
+						<div class="time home">
+							<%= image_tag("escudos/#{@formation.match.home.label}.png", :size => "45x45") %>
+
+				        </div>
+				        <div class="x">x</div>
+				        <div class="time away">
+							<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
+				        </div>
+					</li>
 				</ul>
+				<div class="recent-winners">
+					<div class="link">
+						Para ver as táticas deste jogo, <%= link_to "clique aqui!", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %>
+					</div>
+					<% if @recent_winners.empty? %>
+						<ul>
+							<li>Nenhum dos usuários acertaram a escalação desta partida! =/</li>
+						</ul>
+					<% else %>
+						<div class="champions-of-round">
+							<span class="champions-of-round-icon"></span>
+							Técnicos da Rodada
+						</div>						
+						<div class="recent-winners champions-of-round">
+							<table>
+							<% @recent_winners.each do |u| %>
+							  	<% if u == current_user %>
+									<tr class="selected">
+								<% else %>
+									<tr >
+								<% end %>
+								    <td>
+										<%= image_tag(u.image, :size => "25x25", :class => 'user-avatar') %>
+										:: <span class="nickname"><b><%= u.nickname %></b></span>
+									</td>
+								</tr>
+							<% end %>
+							</table>
+						</div>
+					<% end %>
+				</div>
 			</div>
-		</section>
-		<section id="profile-menu">
-		</section>
-	</section>
+		</div>
+	<% end %>
 </div>
 <%= content_for :javascript do %>
 
 	$(function() {
 		initPopover('#new-formation nav ul li', '#new-formation-popover', '/new');
-		initPopover('#profile-last-match nav ul li', '#last-match-popover', '/avalie-seu-time');
 	});
 
 	function initPopover(component, popover, targetUri) {
@@ -133,8 +132,6 @@
 		});
 	}
 	
-	$('.record-list ul li').click(function() {
-		$('.record-list ul li').removeClass('selected');
-		$(this).addClass('selected'); 	
-	});
+	$( load_soccer_field );
+	$( load_formation_of_last_round );
 <% end %>

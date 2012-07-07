@@ -148,7 +148,10 @@ section {
 	background-color: #f5f5f5;
 }
 
-.record-list ul li.selected:hover, .record-list ul li.selected:hover p, .record-list ul li.selected:hover legend  {
+.recent-winners.champions-of-round table tr.selected,
+.record-list ul li.selected:hover, 
+.record-list ul li.selected:hover p, 
+.record-list ul li.selected:hover legend  {
 	background-color: #1874CD;
 }
 
@@ -156,7 +159,10 @@ section {
 	background-color: #FFF;
 }
 
-.record-list ul li.selected, .record-list ul li.selected p, .record-list ul li.selected legend {
+.recent-winners.champions-of-round table tr.selected,
+.record-list ul li.selected, 
+.record-list ul li.selected p, 
+.record-list ul li.selected legend {
 	background-color: #104E8B;
 	color: #E8E8E8;
 	text-shadow: 0 2px 0 #B22222;	
@@ -346,6 +352,12 @@ section .record-list {
 	font-size: 12px;
 	text-align: left;
 	margin-left: 0px;
+}
+
+#score-list {
+	padding-top: 0px;
+	padding-bottom: 1px;
+	border-bottom: 1px solid #ddd;
 }
 
 #score-rank {

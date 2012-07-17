@@ -22,7 +22,5 @@
 	</div>
 	
 	<div class="share facebook">
-		<a name="fb_share" type="button" share_url="<%= current_uri %>"><%= t(:share) %></a> 
-		<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript">
-		</script>
+		<fb:share-button href="<%= current_uri %>" type="button_count"></fb:share-button>
 	</div>

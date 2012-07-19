@@ -181,7 +181,7 @@ function createEnabledAllPlayers() {
 				$('<span id="playerName_' + playerId + '">' + player.name + '</span>')
 					.addClass('playerName').appendTo(playerDiv);
 				
-				$('<div id="popover_' + playerId + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img>' + player.name + '</div>').appendTo(playerDiv);
+				$('<div id="popover_' + playerId + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img><span class="number">'+ player.number +'</span>' + player.name + '</div>').appendTo(playerDiv);
 				$(playerDiv).popover({
 					my: 'left bottom',
 					at: 'right top',
@@ -260,7 +260,7 @@ function createPlayers() {
 				$('<span id="playerName_' + playerId + '">' + player.name + '</span>')
 					.addClass('playerName').appendTo(playerDiv);
 				
-				$('<div id="popover_' + playerId + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img>' + player.name + '</div>').appendTo(playerDiv);
+				$('<div id="popover_' + playerId + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img><span class="number">'+ player.number +'</span>' + player.name + '</div>').appendTo(playerDiv);
 				$(playerDiv).popover({
 					my: 'left bottom',
 					at: 'right top',
@@ -551,7 +551,7 @@ function getFormationByServer(path) {
 					$(slotId).addClass("present");
 					//$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
 					$(slotId).html('<p>' + '&nbsp' + '</p><span class="playerName">' + player.name + '</span>');
-					$('<div id="popover_' + player.id + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img>' + player.name + '</div>').appendTo(slotId);
+					$('<div id="popover_' + player.id + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img><span class="number">'+ player.number +'</span>' + player.name + '</div>').appendTo(slotId);
 					$(slotId).popover({
 						my: 'left bottom',
 						at: 'right top',
@@ -575,7 +575,8 @@ function addPlayer(index, player) {
 	//$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
 	$(slotId).html('<p>' + '&nbsp' + '</p><span class="playerName">' + player.name + '</span>');
 	$(slotId).addClass("team");
-	$('<div id="popover_' + player.id + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img>' + player.name + '</div>').appendTo(slotId);
+
+	$('<div id="popover_' + player.id + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img><span class="number">'+ player.number +'</span>' + player.name + '</div>').appendTo(slotId);
 	$(slotId).popover({
 		my: 'left bottom',
 		at: 'right top',

@@ -792,6 +792,12 @@ input[type="submit"].btn.large.contact_us {
 	margin-left: 61%;
 }
 
+.popover span.number {
+	float: left;
+	color: #B22222;
+	font-size: 35px;
+}
+
 .ads.right {
 	left: 100%;
 	margin-left: 2%;

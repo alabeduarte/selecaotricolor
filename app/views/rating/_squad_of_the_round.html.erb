@@ -7,6 +7,7 @@
 		    <td>
 				<div class="popover right">
 					<%= image_tag("/assets/bahia_squad/#{position.player.avatar}", :size => "75x105") %>
+					<span class="number"><%= position.player.number %></span>
 					<%= position.player.name %>
 				</div>
 				<%= position.player.name %>
@@ -22,6 +23,7 @@
 		    <td>
 				<div class="popover right">
 					<%= image_tag("/assets/bahia_squad/#{first_team.substitution(position.player).on.avatar}", :size => "75x105") %>
+					<span class="number"><%= first_team.substitution(position.player).on.number %></span>
 					<%= first_team.substitution(position.player).on.name %>
 				</div>
 				<%= first_team.substitution(position.player).on.name %>
@@ -36,6 +38,7 @@
 		    <td>
 				<div class="popover right">
 					<%= image_tag("/assets/bahia_squad/#{position.player.avatar}", :size => "75x105") %>
+					<span class="number"><%= position.player.number %></span>
 					<%= position.player.name %>
 				</div>
 				<%= position.player.name %>

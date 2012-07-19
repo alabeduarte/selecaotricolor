@@ -316,7 +316,7 @@
 	font-size: 21px;
 }
 
-#player div span {
+#player div span.playerName {
 	color: #191970;
 	text-shadow: 0 1px 1px #F6F6F6;
 }

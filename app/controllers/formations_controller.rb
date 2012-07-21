@@ -1,6 +1,7 @@
 class FormationsController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:show, :reports]
+  before_filter :formation_has_created_check, :time_limit_check, :only => :new
 
   respond_to :json, :html
 
@@ -9,19 +10,6 @@ class FormationsController < ApplicationController
   end
 
   def new
-    next_match = Calendar.next_match
-    if (next_match)
-      if Formation.already_created?(current_user, next_match)
-        flash[:notice] = t(:formation_once_per_match) 
-        redirect_to :current_user_formations
-      end
-      if Formation.time_is_over?(next_match)
-        flash[:notice] = t(:formation_time_is_over)
-        redirect_to :controller => :calendars, :action => :formations_matches, :id => next_match 
-      end
-    else
-      redirect_to '/'
-    end
   end
   
   def current_user_formations
@@ -89,6 +77,31 @@ class FormationsController < ApplicationController
       @player
     else
       @player = Player.new
+    end
+  end
+
+private
+  def formation_has_created_check
+    next_match = Calendar.next_match
+    if (next_match)
+      if Formation.already_created?(current_user, next_match)
+        flash[:notice] = t(:formation_once_per_match) 
+        redirect_to :current_user_formations
+      end
+    else
+      redirect_to '/'
+    end    
+  end
+  
+  def time_limit_check
+    next_match = Calendar.next_match
+    if (next_match)
+      if Formation.time_is_over?(next_match)
+        flash[:notice] = t(:formation_time_is_over)
+        redirect_to :controller => :calendars, :action => :formations_matches, :id => next_match
+      end
+    else
+      redirect_to '/'
     end
   end
 

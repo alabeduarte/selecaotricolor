@@ -1,19 +1,17 @@
 <% content_for :title, "#{t(:listing_formations)} :: #{@match.home.name} x #{@match.away.name}" %>
-<%= render :partial => "calendars/match_info", :locals => { :match => @match } %>
-
 <% if @match == Calendar.next_match %>
-	<div class="pills actions large">
-		<%= link_to "ESCALE O SEU TIME!", new_path, :class => "icon new-formation" %>
-	</div>	
+	<%= render :partial => "formations/new_formation", :locals => { :match => @match } %>
+<% else %>
+	<%= render :partial => "calendars/match_info", :locals => { :match => @match } %>
 <% end %>
 <section id="formation-list-section">	
 	<% cache do %>
 	<div class="record-list">
 		<ul>
 			<% @match.formations.each do |formation| %>
-            	<li onclick="showFormation('/formations/<%= formation.id %>')">					
+            	<li onclick="showFormation('/formations/<%= formation.id %>')">
 					<%= image_tag(formation.owner.image, :size => "25x25", :class => "user-avatar") %>
-					<p class="creator">						
+					<p class="creator">
 						<% if formation.owner.admin? %>
 							<i><%= formation.owner.nickname %></i>
 						<% else %>

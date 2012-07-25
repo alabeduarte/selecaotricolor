@@ -22,6 +22,9 @@ Saiba quais são os <a href="/scores/rules">critérios</a> de pontuação
 		</ul>
 	</div>
 </section>
+<%= content_for :footer_resources do %>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<% end %>
 <%= content_for :javascript do %>
 	$(function(){
 		var rankingText = $('p.score-position').text();

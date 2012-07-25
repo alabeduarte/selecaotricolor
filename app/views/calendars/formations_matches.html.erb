@@ -1,9 +1,5 @@
 <% content_for :title, "#{t(:listing_formations)} :: #{@match.home.name} x #{@match.away.name}" %>
-<% if @match == Calendar.next_match %>
-	<%= render :partial => "formations/new_formation", :locals => { :match => @match } %>
-<% else %>
-	<%= render :partial => "calendars/match_info", :locals => { :match => @match } %>
-<% end %>
+<%= render :partial => "calendars/match_info", :locals => { :match => @match } %>
 <section id="formation-list-section">	
 	<% cache do %>
 	<div class="record-list">

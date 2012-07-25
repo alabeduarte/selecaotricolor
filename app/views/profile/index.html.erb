@@ -32,6 +32,7 @@
 			<%= link_to "Entenda quem somos!", '/scores/rules', :class => 'icon question' %>
 		</div>
 	</div>
+	<section id="feed"></section>
 	<% if @formation %>
 		<h1 class="subtitle">partida Anterior</h1>
 		<div class="pills actions">
@@ -97,4 +98,5 @@
 <%= content_for :javascript do %>
 	$( load_soccer_field );
 	$( load_formation_of_last_round );
+	$( fetch_breaking_news );
 <% end %>

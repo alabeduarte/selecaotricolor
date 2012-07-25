@@ -7,6 +7,13 @@ class WelcomeController < ApplicationController
       @recent_winners = @first_team.squad_winners
       @formation = @first_team.formation
     end
+  end
+  
+  def breaking_news
     @news = EcBahiaReader.new.breaking_news(5)
+    respond_to do |format|
+      format.html
+      format.json  { render :json => @news.as_json }
+    end
   end
 end

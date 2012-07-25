@@ -1,5 +1,5 @@
 <% if match %>
-	<section id="new-formation">
+	<div id="new-formation">
 		<div id="match-popover">
 			Próxima Partida
 			<span class="down"></span>
@@ -20,7 +20,7 @@
 				<li><%= match.day.to_s(:day) %></li>
 			</ul>
 		</nav>
-	</section>
+	</div>
 	<%= content_for :javascript do %>
 		$(function() {
 			initPopover('#new-formation nav ul li', '#new-formation-popover', '/new');

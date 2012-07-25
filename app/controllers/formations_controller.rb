@@ -1,7 +1,7 @@
 class FormationsController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:show, :reports]
-  before_filter :formation_has_created_check, :time_limit_check, :only => :new
+  before_filter :check_exist_next_match, :time_limit_check, :formation_has_created_check, :only => :new
 
   respond_to :json, :html
 
@@ -86,10 +86,8 @@ private
     if (next_match)
       if Formation.already_created?(current_user, next_match)
         flash[:notice] = t(:formation_once_per_match) 
-        redirect_to :current_user_formations
+        redirect_to '/'
       end
-    else
-      redirect_to '/'
     end    
   end
   
@@ -98,11 +96,14 @@ private
     if (next_match)
       if Formation.time_is_over?(next_match)
         flash[:notice] = t(:formation_time_is_over)
-        redirect_to :controller => :calendars, :action => :formations_matches, :id => next_match
+        redirect_to '/'
       end
-    else
-      redirect_to '/'
     end
+  end
+  
+  def check_exist_next_match
+    next_match = Calendar.next_match
+    redirect_to '/' if next_match.nil?
   end
 
 end

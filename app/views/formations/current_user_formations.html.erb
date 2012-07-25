@@ -1,8 +1,5 @@
 <% content_for :title, t(:my_formations) %>
 <h1 class="subtitle"><%= t(:my_formations) %></h1>
-<div class="pills actions large">
-	<%= link_to "ESCALE O SEU TIME!", new_path, :class => "icon new-formation" %>
-</div>
 <% if @formations.empty? %>
 <table>
 	<tr class="empty-table">

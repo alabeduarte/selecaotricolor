@@ -13,26 +13,29 @@ describe FormationsController do
   
   describe "GET 'new'" do
     context "when doesnt there next match" do
+      before do
+        Calendar.stub(:next_match).and_return(nil)
+      end
       it  "should redirect to root page" do
         get :new
         response.should redirect_to :root
-      end      
+      end
     end
     
     context "when there next match" do
       before do
         Calendar.stub(:next_match).and_return(next_match)
-      end   
+      end  
        
       context "when formation already created" do
         before do
           Formation.stub(:already_created?).with(@current_user, next_match).and_return(true)
           Formation.stub(:time_is_over?).with(next_match).and_return(false)
         end
-        it  "should redirect to current user formations" do
+        it  "should redirect to root page" do
           get :new
           flash[:notice].should == I18n.t(:formation_once_per_match)
-          response.should redirect_to :current_user_formations
+          response.should redirect_to :root
         end      
       end 
       
@@ -41,10 +44,10 @@ describe FormationsController do
           Formation.stub(:already_created?).with(@current_user, next_match).and_return(false)
           Formation.stub(:time_is_over?).with(next_match).and_return(true)
         end
-        it  "should redirect to current user formations" do
+        it  "should redirect to root page" do
           get :new
           flash[:notice].should == I18n.t(:formation_time_is_over)
-          response.should redirect_to :controller => :calendars, :action => :formations_matches, :id => next_match
+          response.should redirect_to :root
         end      
       end    
     end

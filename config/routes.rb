@@ -69,6 +69,10 @@ UcoachManager::Application.routes.draw do
     post "contact_us" => :create
   end
   
+  controller :welcome do
+    get "breaking_news", :breaking_news
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

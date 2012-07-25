@@ -1,39 +1,41 @@
-<section id="new-formation">
-	<div id="match-popover">
-		Próxima Partida
-		<span class="down"></span>
-	</div>
-	<div id="new-formation-popover">
-		Escale o seu time!
-		<span class="after"></span>
-	</div>
-	<nav>
-		<ul>
-			<li class="btn">
-				<span><%= "#{match.home.name}" %></span>
-				<%= image_tag("escudos/#{match.home.label}.png", :size => "45x45") %>
-				<span>x</span>
-				<%= image_tag("escudos/#{match.away.label}.png", :size => "45x45") %>
-				<span><%= "#{match.away.name}" %></span>
-			</li>
-			<li><%= match.day.to_s(:day) %></li>
-		</ul>
-	</nav>
-</section>
-<%= content_for :javascript do %>
-	$(function() {
-		initPopover('#new-formation nav ul li', '#new-formation-popover', '/new');
-	});
+<% if match %>
+	<section id="new-formation">
+		<div id="match-popover">
+			Próxima Partida
+			<span class="down"></span>
+		</div>
+		<div id="new-formation-popover">
+			Escale o seu time!
+			<span class="after"></span>
+		</div>
+		<nav>
+			<ul>
+				<li class="btn">
+					<span><%= "#{match.home.name}" %></span>
+					<%= image_tag("escudos/#{match.home.label}.png", :size => "45x45") %>
+					<span>x</span>
+					<%= image_tag("escudos/#{match.away.label}.png", :size => "45x45") %>
+					<span><%= "#{match.away.name}" %></span>
+				</li>
+				<li><%= match.day.to_s(:day) %></li>
+			</ul>
+		</nav>
+	</section>
+	<%= content_for :javascript do %>
+		$(function() {
+			initPopover('#new-formation nav ul li', '#new-formation-popover', '/new');
+		});
 
-	function initPopover(component, popover, targetUri) {
-		$(component).mouseover(function () {
-			$(popover).css('display', 'block');
-		});
-		$(component).mouseout(function () {
-			$(popover).css('display', 'none');
-		});	
-		$(component).click(function(){
-			window.location.href = targetUri;
-		});
-	}
+		function initPopover(component, popover, targetUri) {
+			$(component).mouseover(function () {
+				$(popover).css('display', 'block');
+			});
+			$(component).mouseout(function () {
+				$(popover).css('display', 'none');
+			});	
+			$(component).click(function(){
+				window.location.href = targetUri;
+			});
+		}
+	<% end %>
 <% end %>

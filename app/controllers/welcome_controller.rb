@@ -7,5 +7,6 @@ class WelcomeController < ApplicationController
       @recent_winners = @first_team.squad_winners
       @formation = @first_team.formation
     end
+    @news = EcBahiaReader.new.breaking_news(5)
   end
 end

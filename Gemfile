@@ -10,6 +10,8 @@ gem 'omniauth-facebook'
 gem 'mm-devise'
 gem "cancan"
 gem 'mm-multi-parameter-attributes'
+gem 'feedzirra'
+gem 'nokogiri'
 gem 'thin'
 
 # Gems used only for assets and not required

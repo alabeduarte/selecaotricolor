@@ -803,3 +803,16 @@ input[type="submit"].btn.large.contact_us {
 	margin-left: 2%;
 	position: absolute;
 }
+
+#feed {
+	
+}
+
+#feed ul {
+	text-align: left;
+	margin-left: 42px;
+}
+
+#feed ul li {
+	padding: 10px;
+}

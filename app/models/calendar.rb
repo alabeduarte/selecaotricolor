@@ -49,12 +49,6 @@ class Calendar
     @day <= Calendar.last_match.day
   end
   
-  def today?
-    now = Time.now.utc
-    match = @day.utc
-    (match.day == now.day) && (match.month == now.month) && (match.year == now.year)
-  end
-  
   def expired?
     Time.now.utc + 2.hour > @day.utc
   end

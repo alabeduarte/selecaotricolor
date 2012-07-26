@@ -30,7 +30,7 @@ describe FormationsController do
       context "when formation already created" do
         before do
           Formation.stub(:already_created?).with(@current_user, next_match).and_return(true)
-          Formation.stub(:time_is_over?).with(next_match).and_return(false)
+          next_match.stub(:expired?).and_return(false)
         end
         it  "should redirect to root page" do
           get :new
@@ -42,7 +42,7 @@ describe FormationsController do
       context "when the match is started" do
         before do
           Formation.stub(:already_created?).with(@current_user, next_match).and_return(false)
-          Formation.stub(:time_is_over?).with(next_match).and_return(true)
+          next_match.stub(:expired?).and_return(true)
         end
         it  "should redirect to root page" do
           get :new

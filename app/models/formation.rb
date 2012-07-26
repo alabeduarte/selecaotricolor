@@ -44,10 +44,6 @@ class Formation
     Formation.first(:owner_id => owner.id, :match_id => match.id)
   end
   
-  def self.time_is_over?(match)
-    match.expired? if match.today?
-  end
-  
   def players_ordered_by_positions
     @players_ordered_by_positions ||= PlayerFormationPosition.all(:formation_id => id, :order => :id.asc)
   end

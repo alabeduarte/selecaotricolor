@@ -94,7 +94,7 @@ private
   def time_limit_check
     next_match = Calendar.next_match
     if (next_match)
-      if Formation.time_is_over?(next_match)
+      if next_match.expired?
         flash[:notice] = t(:formation_time_is_over)
         redirect_to '/'
       end

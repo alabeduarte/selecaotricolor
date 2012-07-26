@@ -804,88 +804,43 @@ input[type="submit"].btn.large.contact_us {
 	position: absolute;
 }
 
-#feed {
-	position: fixed;
-	top: 20%;
-	left: 52%;
-	background-color: #ADD8E6;
-	background-repeat: repeat-x;
-	background-image: -khtml-gradient(linear, left top, left bottom, from(#ADD8E6), to(#FFF));
-	background-image: -moz-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: -ms-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ADD8E6), color-stop(100%, #FFF));
-	background-image: -webkit-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: -o-linear-gradient(top, #ADD8E6, #FFF);
-	background-image: linear-gradient(top, #ADD8E6, #FFF);
-	display: none;
-	text-align: center;
-	color: #191970;
-	font-size: 22px;
-	font-weight: normal;
-	-moz-border-radius: 5px; /* FF1+ */
-	-webkit-border-radius: 5px; /* Saf3+, Chrome */
-	-khtml-border-radius: 5px; /* Konqueror */
-	border-radius: 5px; /* Standard. IE9 */
-	padding: 10px;
-	width: 540px;
-	height: 318px;
-	z-index: 9999;
-	border: 2px solid #B22222;
+#feeds {
+	height: 300px;
 }
 
-#feed img {
-	margin-left: 226px;
+#ec_bahia_feed {
+	float: left;
+	height: 245px;
+}
+
+#ec_bahia_feed img {
+	position: absolute;
+	left: 72px;
+	opacity: 0.4;
 	-webkit-box-shadow: 0 3px 10px #888;
 	-moz-box-shadow: 0 3px 10px #888;
 	box-shadow: 0 3px 10px #888;
 	border: 2px solid #FFF;
-	margin-bottom: 16px;
 }
 
-#feed ul {	
+#ec_bahia_feed ul {	
 	text-align: left;
 	margin-left: 42px;
+	margin-top: 43px;
 }
 
-#feed ul li {
+#ec_bahia_feed ul li {
 	padding: 10px;
 }
 
-#feed ul li span {
+#ec_bahia_feed ul li span {
 	padding-right: 6px;
 }
 
-#feed ul li a {
+#ec_bahia_feed ul li a {
 	font-family: Palatino, serif;
-	font-size: 16px;
+	font-size: 14px;
 	color: #E2223B;
 	text-shadow: 0 1px 0 #FFF;
 	font-weight: normal;
-}
-
-#feed .close.notice {
-	background-color: #E2223B;
-	color: #FFF;
-	position: fixed;
-	right: 3%;
-	top: 17%;
-	cursor: pointer;
-	border: 2px solid #FFF;
-	width: 10px;
-	height: 10px;
-	padding: 6px;
-	-moz-border-radius: 30px;
-	-webkit-border-radius: 30px;
-	border-radius: 30px;
-	opacity: 1;
-}
-
-#feed .close.notice span {
-	font-size: 28px;
-	color: white;
-	margin-left: -2px;
-	top: -2px;
-	text-align: center;
-	position: relative;
-	opacity: 1;
 }

@@ -20,7 +20,12 @@
 	</section>
 	<%= render :partial => "formations/new_formation", :locals => { :match => @next_match } %>
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
-	<h1 class="subtitle">Seleção Tricolor</h1>
+	<section id="feeds">
+		<h1 class="subtitle">Notícias do Esquadrão de Aço</h1>
+		<section id="ec_bahia_feed"></section>
+		<section id="globoesporte_feed"></section>
+	</section>
+	<h1 class="subtitle">Menu do Seleção Tricolor</h1>
 	<div class='app-menu'>
 		<div class='pills match-calendars'>
 			<%= link_to "Calendário dos Jogos", :calendars, :class => 'icon match-calendar' %>
@@ -31,8 +36,7 @@
 			<%= link_to "Entre em contato conosco!", '/contact_us/', :class => 'icon contact' %>
 			<%= link_to "Entenda quem somos!", '/scores/rules', :class => 'icon question' %>
 		</div>
-	</div>
-	<section id="feed"></section>
+	</div>	
 	<% if @formation %>
 		<h1 class="subtitle">partida Anterior</h1>
 		<div class="pills actions">
@@ -98,5 +102,5 @@
 <%= content_for :javascript do %>
 	$( load_soccer_field );
 	$( load_formation_of_last_round );
-	$( fetch_breaking_news );
+	$( fetchNews );
 <% end %>

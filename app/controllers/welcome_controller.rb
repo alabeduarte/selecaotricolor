@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
     end
   end
   
-  def breaking_news
+  def ecbahia_news
     @news = EcBahiaReader.new.breaking_news(5)
     respond_to do |format|
       format.html

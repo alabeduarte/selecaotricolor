@@ -10,10 +10,18 @@ class WelcomeController < ApplicationController
   end
   
   def ecbahia_news
-    @news = EcBahiaReader.new.breaking_news(5)
+    @ecbahia_news = EcBahiaReader.new.breaking_news(5)
     respond_to do |format|
       format.html
-      format.json  { render :json => @news.as_json }
+      format.json  { render :json => @ecbahia_news.as_json }
+    end
+  end
+  
+  def globoesporte_news
+    @globoesporte_news = GloboEsporteReader.new.breaking_news(5)
+    respond_to do |format|
+      format.html
+      format.json  { render :json => @globoesporte_news.as_json }
     end
   end
 end

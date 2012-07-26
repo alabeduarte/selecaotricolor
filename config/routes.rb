@@ -71,6 +71,7 @@ UcoachManager::Application.routes.draw do
   
   controller :welcome do
     get "ecbahia_news", :ecbahia_news
+    get "globoesporte_news", :globoesporte_news
   end
   
   # The priority is based upon order of creation:

@@ -56,16 +56,7 @@ class Calendar
   end
   
   def expired?
-    limit = 2
-    now = Time.now.utc
-    match = @day.utc
-    if (match.hour - now.hour < limit)
-      return true
-    end
-    if match.hour - now.hour == limit && now.min > match.min
-      return true
-    end
-    return false
+    Time.now.utc + 2.hour > @day.utc
   end
 
 private

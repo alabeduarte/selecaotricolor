@@ -6,9 +6,9 @@ class GloboEsporteReader
   
   def breaking_news(limit)
     news = Array.new
-    urls = fetch(limit, '#globo-carrossel-passos .globo-carrossel-passo', 'a', 'href')
-    titles = fetch(limit, '#globo_destaque_carrossel ul li', 'a')
-    images = fetch(limit, '#globo-carrossel-thumbs div.globo-carrossel-thumb-content', 'img', 'src')
+    urls = fetch(limit: limit, css: '#globo-carrossel-passos .globo-carrossel-passo', tag: 'a', property: 'href')
+    titles = fetch(limit: limit, css: '#globo_destaque_carrossel ul li', tag: 'a')
+    images = fetch(limit: limit, css: '#globo-carrossel-thumbs div.globo-carrossel-thumb-content', tag: 'img', property: 'src')
     urls.size.times do |index|
       news << GloboEsporteNews.new(url: urls[index], title: titles[index], image: images[index])
     end
@@ -16,14 +16,14 @@ class GloboEsporteReader
   end
   
 private
-  def fetch(limit, css, tag, *options)
+  def fetch(args)
     array = Array.new
-    @reader.selector.css(css).first(limit).each do |item|
+    @reader.selector.css(args[:css]).first(args[:limit]).each do |item|
       if (item)
-        if (options.empty?)
-          array << item.css(tag).text
+        if (args[:property].nil?)
+          array << item.css(args[:tag]).text
         else
-          array << item.css(tag).map { |doc| doc[options.first] }.first
+          array << item.css(args[:tag]).map { |doc| doc[args[:property]] }.first
         end
       end
     end

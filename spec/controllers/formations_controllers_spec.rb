@@ -88,8 +88,8 @@ describe FormationsController do
   describe "GET 'list'" do
     it "list all formations" do
       formations = Array.new
-      Formation.stub(:all).and_return(formations)
-      Formation.should_receive(:all)
+      Formation.stub_chain(:sort, :limit).and_return(formations)
+      Formation.should_receive(:sort)
       get :list
       assigns[:formations].should eq(formations)
     end    

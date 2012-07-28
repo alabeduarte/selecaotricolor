@@ -27,8 +27,8 @@ describe FirstTeamsController do
   describe "GET 'index'" do
     it "displays all teams" do
       first_teams = Array.new
-      FirstTeam.stub(:all).and_return(first_teams)
-      FirstTeam.should_receive(:all)
+      FirstTeam.stub(:limit).with(20).and_return(first_teams)
+      FirstTeam.should_receive(:limit).with(20)
       get :index
       assigns[:first_teams].should eq(first_teams)
     end    

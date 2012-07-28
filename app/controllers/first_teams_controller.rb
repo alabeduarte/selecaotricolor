@@ -60,7 +60,7 @@ class FirstTeamsController < ApplicationController
   end
   
   def index
-    @first_teams = FirstTeam.all    
+    @first_teams = FirstTeam.limit(20)    
     respond_to do |format|
       format.html
       format.xml  { render :xml => @first_teams }

@@ -13,7 +13,7 @@ class FormationsController < ApplicationController
   end
   
   def current_user_formations
-    @formations = current_user.formations
+    @formations = current_user.formations.first(8)
   end
 
   def create
@@ -32,7 +32,7 @@ class FormationsController < ApplicationController
   end
 
   def list
-    @formations = Formation.all
+    @formations = Formation.sort(:created_at.desc).limit(20)
     
     respond_to do |format|
       format.html

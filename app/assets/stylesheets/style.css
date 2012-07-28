@@ -794,7 +794,7 @@ input[type="submit"].btn.large.contact_us {
 
 .popover span.number {
 	float: left;
-	color: #B22222;
+	color: #E2223B;
 	font-size: 35px;
 }
 
@@ -805,7 +805,7 @@ input[type="submit"].btn.large.contact_us {
 }
 
 #feeds {
-	height: 300px;
+	height: 430px;
 }
 
 #ec_bahia_feed {
@@ -813,14 +813,17 @@ input[type="submit"].btn.large.contact_us {
 	height: 245px;
 }
 
-#ec_bahia_feed img {
-	position: absolute;
-	left: 72px;
-	opacity: 0.4;
+#ec_bahia_feed img, #globoesporte_feed img, #globoesporte_thumbs img {
 	-webkit-box-shadow: 0 3px 10px #888;
 	-moz-box-shadow: 0 3px 10px #888;
 	box-shadow: 0 3px 10px #888;
 	border: 2px solid #FFF;
+}
+
+#ec_bahia_feed img {
+	position: absolute;
+	left: 72px;
+	opacity: 0.4;
 }
 
 #ec_bahia_feed ul {	
@@ -843,4 +846,74 @@ input[type="submit"].btn.large.contact_us {
 	color: #E2223B;
 	text-shadow: 0 1px 0 #FFF;
 	font-weight: normal;
+}
+
+#globoesporte_feed {
+	float: left;
+	height: 245px;
+}
+
+#globoesporte_feed img {
+	position: absolute;
+	right: 72px;
+	opacity: 0.4;
+}
+
+#globoesporte_feed ul {	
+	text-align: left;
+	margin-left: 42px;
+	margin-top: 66px;
+}
+
+#globoesporte_feed ul li {
+	padding: 10px;
+}
+
+#globoesporte_feed ul li span {
+	padding-right: 6px;
+}
+
+#globoesporte_feed ul li a {
+	font-family: Palatino, serif;
+	font-size: 14px;
+	color: #E2223B;
+	text-shadow: 0 1px 0 #FFF;
+	font-weight: normal;
+}
+
+#globoesporte_feed ul li a:hover, #globoesporte_feed ul li a.hovered {
+	text-decoration: underline;
+}
+
+#globoesporte_thumbs {
+	float: left;
+	height: 100px;
+	width: 954px;
+}
+
+#globoesporte_thumbs ul {
+	list-style:none;
+}
+
+#globoesporte_thumbs ul li {
+	display: inline;
+}
+
+#globoesporte_thumbs img:hover, #globoesporte_thumbs img.hovered {
+	border: 2px solid #E2223B;
+	cursor: pointer;
+}
+
+.globoesporte-logo {
+	background: #4B6C09 url('http://s.glbimg.com/es/ge/static/globoesporte/img/logo-globoesporte-internas.png?e372d16e5e2c') no-repeat scroll left center;
+	height: 60px;
+	width: 80px;
+}
+
+#loader-left {
+	margin: 157px;
+}
+
+#loader-right {
+	margin: 157px;
 }

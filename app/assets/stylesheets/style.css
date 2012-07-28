@@ -798,6 +798,11 @@ input[type="submit"].btn.large.contact_us {
 	font-size: 35px;
 }
 
+.ads.left {
+	right: 98%;
+	position: absolute;
+}
+
 .ads.right {
 	left: 100%;
 	margin-left: 2%;

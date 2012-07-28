@@ -28,13 +28,14 @@ function fetchGloboEsporteNews() {
 		$.each(data, function(index, item){
 			$('#globoesporte_feed ul').append($('<li>'));
 			$('#globoesporte_thumbs ul').append($('<li>'));
+			var description = $.trim(item.title);
 			
 			var urlId = 'url_' + index;
-			var link = $('<a id="' + urlId + '" href="' + item.url + '" target="_blank">' + item.title + '</a>');
+			var link = $('<a id="' + urlId + '" href="' + item.url + '" target="_blank">' + description + '</a>');
 			$('#globoesporte_feed ul li:last').append(link);
 			
 			var imageId = 'image_' + index;
-			var image = $('<img id="'+ imageId +'" alt="'+ item.title +'" class="globoesporte-thumbs" src="' + item.image + '" width="153px" height="96px">');
+			var image = $('<img id="'+ imageId +'" title="'+ description +'" alt="'+ description +'" class="globoesporte-thumbs" src="' + item.image + '" width="153px" height="96px">');
 			$('#globoesporte_thumbs ul li:last').append(image);
 			
 			$("#" + imageId).click(function () {

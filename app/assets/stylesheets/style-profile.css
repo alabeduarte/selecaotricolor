@@ -110,7 +110,7 @@ a.btn.jogo.center.profile-new-formation {
 	margin-top: 28px;
 	margin-left: 344px;
 	width: 815px;
-	height: 95px;
+	height: 116px;
 	text-align: left;
 }
 
@@ -118,14 +118,21 @@ a.btn.jogo.center.profile-new-formation {
 	list-style: none;
 }
 
+#new-formation > nav ul li {
+	padding: 10px;
+}
+
 #new-formation > nav ul li.btn {
 	font-size: 18px;
 	height: 47px;
 	color: #104E8B;
 	text-shadow: 0 1px 0 #FFF;
+	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 }
 
-#new-formation-popover {
+#match-limit-popover {
 	margin-left: 38px;
 	margin-top: 63px;
 	-moz-border-radius: 5px; /* FF1+ */
@@ -133,21 +140,25 @@ a.btn.jogo.center.profile-new-formation {
 	-khtml-border-radius: 5px; /* Konqueror */
 	border-radius: 5px; /* Standard. IE9 */
 	padding: 10px;
-	width: 200px;
+	width: 234px;
     position:absolute;
 	display: none;
-	font-size: 27px;
+	font-size: 20px;
 	font-height: normal;
 	z-index: 9999;
-	background-color: #104E8B;
-	color: #E8E8E8;
-	text-shadow: 0 2px 0 #B22222;
+	background-color: #FFD700;
+	color: #000;
+	text-shadow: none;
 	text-transform: uppercase;
+	
+	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 }
 
-#new-formation-popover .after {
+#match-limit-popover .arrow {
 	border-top: 10px solid transparent;
-	border-left: 15px solid #104E8B;
+	border-left: 15px solid #FFD700;
 	content: '';
 	top: -10px;
 	height: 0;
@@ -175,9 +186,12 @@ a.btn.jogo.center.profile-new-formation {
 	color: #E8E8E8;
 	text-shadow: 0 2px 0 #104E8B;
 	text-transform: uppercase;
+	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
 }
 
-#match-popover .down {
+#match-popover .arrow {
 	border-bottom: 10px solid transparent;
 	border-left: 0;
 	border-right: 15px solid #B22222;
@@ -185,6 +199,40 @@ a.btn.jogo.center.profile-new-formation {
 	bottom: -10px;
 	height: 0;
 	right: 10px;
+	position: absolute;
+	width: 0;
+}
+
+#new-formation-popover {
+	margin-top: -41px;
+	margin-left: 185px;
+	-moz-border-radius: 5px; /* FF1+ */
+	-webkit-border-radius: 5px; /* Saf3+, Chrome */
+	-khtml-border-radius: 5px; /* Konqueror */
+	border-radius: 5px; /* Standard. IE9 */
+	padding: 10px;
+	width: 200px;
+    position:absolute;
+	display: block;
+	font-size: 27px;
+	font-height: normal;
+	z-index: 9999;
+	background-color: #104E8B;
+	color: #E8E8E8;
+	text-shadow: 0 2px 0 #B22222;
+	text-transform: uppercase;
+	-webkit-box-shadow: 0 3px 10px #888;
+	-moz-box-shadow: 0 3px 10px #888;
+	box-shadow: 0 3px 10px #888;
+}
+
+#new-formation-popover .arrow {
+	border-bottom: 10px solid transparent;
+	border-left: 15px solid #104E8B;
+	content: '';
+	bottom: -10px;
+	height: 0;
+	right: 172px;
 	position: absolute;
 	width: 0;
 }

@@ -2,11 +2,15 @@
 	<div id="new-formation">
 		<div id="match-popover">
 			Próxima Partida
-			<span class="down"></span>
+			<span class="arrow"></span>
+		</div>
+		<div id="match-limit-popover">
+			Até 2 horas antes da partida!
+			<span class="arrow"></span>
 		</div>
 		<div id="new-formation-popover">
 			Escale o seu time!
-			<span class="after"></span>
+			<span class="arrow"></span>
 		</div>
 		<nav>
 			<ul>
@@ -23,7 +27,7 @@
 	</div>
 	<%= content_for :javascript do %>
 		$(function() {
-			initPopover('#new-formation nav ul li', '#new-formation-popover', '/new');
+			initPopover('#new-formation nav ul li', '#match-limit-popover', '/new');
 		});
 
 		function initPopover(component, popover, targetUri) {

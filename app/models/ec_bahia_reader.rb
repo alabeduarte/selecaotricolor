@@ -5,15 +5,12 @@ class EcBahiaReader
   end
   
   def breaking_news(limit)
-    news = Array.new
-    @reader.selector.css('#plantao ul li').first(limit).each do |item|
-      href = item.css('a').map { |link| link['href'] }
-      url = "#{@reader.url}#{href.first}"
-      date = item.at_css('.data').text
-      title = item.at_css('a').text
-      news << EcBahiaNews.new(url: url, date: date, title: title)
-    end
-    news
+    @reader.highlights( css: '#plantao ul li',
+                        url: 'a',
+                        date: '.data',
+                        title: 'a',
+                        host: 'http://www.ecbahia.com',
+                        limit: limit
+                        )
   end
-  
 end

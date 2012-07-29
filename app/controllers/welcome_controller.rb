@@ -18,7 +18,7 @@ class WelcomeController < ApplicationController
   end
   
   def globoesporte_news
-    @globoesporte_news = GloboEsporteReader.new.breaking_news(5)
+    @globoesporte_news = GloboEsporteReader.new.breaking_news(4)
     respond_to do |format|
       format.html
       format.json  { render :json => @globoesporte_news.as_json }

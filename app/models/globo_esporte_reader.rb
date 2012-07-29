@@ -10,7 +10,7 @@ class GloboEsporteReader
     titles = fetch(limit: limit, css: '#globo_destaque_carrossel ul li', tag: 'a')
     images = fetch(limit: limit, css: '#globo-carrossel-thumbs div.globo-carrossel-thumb-content', tag: 'img', property: 'src')
     urls.size.times do |index|
-      news << GloboEsporteNews.new(url: urls[index], title: titles[index], image: images[index])
+      news << News.new(url: urls[index], title: titles[index], image: images[index])
     end
     news
   end

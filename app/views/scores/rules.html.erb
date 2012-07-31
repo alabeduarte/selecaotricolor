@@ -31,9 +31,12 @@
 			<li class="score-rules">
 				A cada jogador que você acertar: <b>10 pontos</b><span class="score-check"><%= image_tag('icons/check.png', :size => "24x24") %></span>
 			</li>
-		</ul>					
+		</ul>
 	</div>
 	<div class='pills match-calendars'>
 		<%= link_to "Ranking dos usuários!", '/scores', :class => 'icon ranking' %>
 	</div>
 </div>
+<%= content_for :more_javascript do %>
+	<% javascript_include_tag 'slideshow' %>
+<% end %>

@@ -21,8 +21,8 @@ class WebReader
         image = item.css(args[:image]).map { |doc| doc['src'] }.first if args[:image]
         if (args[:host])
           host = args[:host]
-          url = "#{host}/#{url}".gsub('../', '').gsub('//', '/') if url
-          image = "#{host}/#{image}".gsub('../', '').gsub('//', '/') if image
+          url = "#{host}/#{url}".gsub('../', '') if url
+          image = "#{host}/#{image}".gsub('../', '') if image
         end
         news << News.new(url: url, date: date, title: title, image: image)
       end

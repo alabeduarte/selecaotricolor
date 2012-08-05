@@ -816,6 +816,7 @@ input[type="submit"].btn.large.contact_us {
 #ec_bahia_feed {
 	float: left;
 	height: 245px;
+	width: 489px;
 }
 
 #ec_bahia_feed img, #globoesporte_feed img, #globoesporte_thumbs img {
@@ -856,6 +857,7 @@ input[type="submit"].btn.large.contact_us {
 #globoesporte_feed {
 	float: left;
 	height: 245px;
+	width: 400px;
 }
 
 #globoesporte_feed img {

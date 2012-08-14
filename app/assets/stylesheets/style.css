@@ -926,10 +926,15 @@ input[type="submit"].btn.large.contact_us {
 	width: 80px;
 }
 
-#loader-left {
+#loader-left, #loader-right {
+	position: absolute;
 	margin: 157px;
 }
 
+#loader-left {
+	left: 95px;
+}
+
 #loader-right {
-	margin: 157px;
+	left: 516px;
 }

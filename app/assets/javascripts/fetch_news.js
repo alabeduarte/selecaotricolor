@@ -1,12 +1,19 @@
 function fetchNews() {
 	fetchECBahiaNews();
 	fetchGloboEsporteNews();
+	setInterval('refreshECBahiaNews()', 7200000); // 2 hours
+	setInterval('refreshGloboEsporteNews()', 7200000); // 2 hours
 }
 
 function fetchECBahiaNews() {
 	var logo = 'http://www.ecbahia.com/global/imgs/topo_logo.jpg'
 	$('#ec_bahia_feed').css('display', 'block');
-	$('#ec_bahia_feed').append($('<img src="' + logo + '" width="180px" height="30px">'));
+	var imgLogo = $('<img title="Atualizar" src="' + logo + '" width="180px" height="30px">');
+	imgLogo.css('cursor', 'pointer');
+	imgLogo.click(function(){
+		refreshECBahiaNews();
+	});
+	$('#ec_bahia_feed').append(imgLogo);
 	$('#ec_bahia_feed').append($('<ul>'));
 	$.getJSON('ecbahia_news.json', function(data) {
 		$.each(data, function(i, item){
@@ -18,10 +25,22 @@ function fetchECBahiaNews() {
 	});
 }
 
+function refreshECBahiaNews() {
+	$('#ec_bahia_feed').html('');
+	$('#loader-left').show();
+	fetchECBahiaNews();
+}
+
 function fetchGloboEsporteNews() {
 	var logo = 'http://s.glbimg.com/es/ge/static/globoesporte/img/logo-globoesporte-internas.png?2e69862f0df7'
 	$('#globoesporte_feed').css('display', 'block');
-	$('#globoesporte_feed').append($('<img class="globoesporte-logo" src="' + logo + '" width="80px" height="50px">'));
+	var imgLogo = $('<img title="Atualizar" class="globoesporte-logo" src="' + logo + '" width="80px" height="50px">');
+	imgLogo.css('cursor', 'pointer');
+	imgLogo.click(function(){
+		refreshGloboEsporteNews();
+	});
+	
+	$('#globoesporte_feed').append(imgLogo);
 	$('#globoesporte_feed').append($('<ul>'));
 	$('#globoesporte_thumbs').append($('<ul>'));
 	$.getJSON('globoesporte_news.json', function(data) {
@@ -46,6 +65,13 @@ function fetchGloboEsporteNews() {
 		});
 		$('#loader-right').hide();
 	});
+}
+
+function refreshGloboEsporteNews() {
+	$('#globoesporte_feed').html('');
+	$('#globoesporte_thumbs').html('');
+	$('#loader-right').show();
+	fetchGloboEsporteNews();
 }
 
 function addHoverEvent(sourceId, targetId) {

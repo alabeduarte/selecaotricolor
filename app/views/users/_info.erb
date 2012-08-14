@@ -32,6 +32,10 @@
 	</div>
 <% end %>
 <%= content_for :javascript do %>
+
+	$('.user-avatar').click(function(){
+		window.location.href = "/profile";
+	});
 		
 	$('#user_info_menu').click(function() {
 		if ($('#user_config_menu').hasClass('visible')) {

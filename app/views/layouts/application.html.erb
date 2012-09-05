@@ -1,91 +1,91 @@
 <!DOCTYPE html>
 <html xmlns:fb="http://ogp.me/ns/fb#">
-	<head>
-		<title>Seleção Tricolor! - <%= yield(:title) || "Monte o seu esquema tático!" %></title>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<meta name="author" content="Seleção Tricolor">
-		<meta name="description" content="Um site interativo, não oficial, exclusivo para a torcida do BAHIA. Escale o seu time! Bora Bahêa!">
-		<meta name="keywords" content="bahia, ecbahia, bbmp, bora bahia minha porra, esporte clube bahia, tricolor de aço, esquadrão de aço, seleção tricolor, salvador, ba, tática, escale seu time">
-	  <%= stylesheet_link_tag 'style-general', 'style-others', 'style-menu', 'style-formation', 'style-countdown', 'style-match', 'style-form', 'style-players', 'style-profile', 'style', 'themes/base/jquery.ui.all' %>
-	  <%= csrf_meta_tag %>
-	  <%= favicon_link_tag %>
-	  <link href='http://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
-	  <link rel="image_src" href="http://selecaotricolor.com.br/assets/icons/new-formation.png" />
-	</head>
-	<body>
-		<div id="fb-root"></div>
-		<script src="http://connect.facebook.net/pt_BR/all.js#appId=304922372888227&amp;xfbml=1" type="text/javascript"></script>		
-		
-		
-		<div id="divHead">
-			<%= link_to "", :root, :id => "logo" %>
-			<div id="head-content">
-				<div id="dialog-message" title="Ops...">
-					<p id="custom-alert-message"/>
-				</div>
-				<%= render :partial => "users/info" %>
-				<% if flash[:notice] -%>
-					<div id="notice" class="alert-message notice">
-						<a class="close notice" onclick="dispose();"><span>×</span></a>
-						<%= flash[:notice] %>
-					</div>
-				<% end %>
-				<% if flash[:error] -%>
-					<div id="notice" class="alert-message notice">
-						<a class="close notice" onclick="dispose();"><span>×</span></a>
-						<%= flash[:error] %>
-					</div>
-				<% end %>
-				<%= render :partial => "users/login" %>
-			</div>
-		</div>		
-		<div id="divCenter">
-			<div class="ads right">
-				<%= render :partial => "advertising/ads_vertical_right" %>
-			</div>
-			<div id="center-content">
-				<%= yield %>
-				<%= yield :footer_resources %>
-			</div>
-		</div>
+  <head>
+    <title>Seleção Tricolor! - <%= yield(:title) || "Monte o seu esquema tático!" %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="author" content="Seleção Tricolor">
+    <meta name="description" content="Um site interativo, não oficial, exclusivo para a torcida do BAHIA. Escale o seu time! Bora Bahêa!">
+    <meta name="keywords" content="bahia, ecbahia, bbmp, bora bahia minha porra, esporte clube bahia, tricolor de aço, esquadrão de aço, seleção tricolor, salvador, ba, tática, escale seu time">
+    <%= stylesheet_link_tag 'style-general', 'style-others', 'style-menu', 'style-formation', 'style-countdown', 'style-match', 'style-form', 'style-players', 'style-profile', 'style', 'themes/base/jquery.ui.all' %>
+    <%= csrf_meta_tag %>
+    <%= favicon_link_tag %>
+    <link href='http://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+    <link rel="image_src" href="http://selecaotricolor.com.br/assets/icons/new-formation.png" />
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/pt_BR/all.js#appId=<%= facebook_app_id %>&amp;xfbml=1" type="text/javascript"></script>
 
-		<div id="divBase">
-			<div id="base-content">
-				<div class="footer-info">
-					<ul>
-						<li>Acesse também a nossa <a href="http://www.facebook.com/selecaotricolor" target="_blank">página no facebook</a></li>
-						<li><%= link_to 'Entre em contato conosco', "/contact_us" %></li>
-					  	<li><%= menu_link_to 'Termos de uso', :terms %></li>
-					  	<li class="version-info">Versão BETA</li>
-					</ul>
-				</div>
-			</div>
-		</div>
 
-	<%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'jquery.ui.tabs.min', 'jquery.effects.core.min', 'jquery.effects.drop.min', 'jquery.cf.popover.min', 'formation', 'fetch_news' %>
-	<%= yield :more_javascript %>
-	<script type="text/javascript">
-		<%= yield :javascript %>
-	
-		<!-- Analytics -->
-		var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-28967114-1']);
-		  _gaq.push(['_setDomainName', 'selecaotricolor.com.br']);
-		  _gaq.push(['_trackPageview']);
+    <div id="divHead">
+      <%= link_to "", :root, :id => "logo" %>
+      <div id="head-content">
+        <div id="dialog-message" title="Ops...">
+          <p id="custom-alert-message"/>
+        </div>
+        <%= render :partial => "users/info" %>
+        <% if flash[:notice] -%>
+          <div id="notice" class="alert-message notice">
+            <a class="close notice" onclick="dispose();"><span>×</span></a>
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <% if flash[:error] -%>
+          <div id="notice" class="alert-message notice">
+            <a class="close notice" onclick="dispose();"><span>×</span></a>
+            <%= flash[:error] %>
+          </div>
+        <% end %>
+        <%= render :partial => "users/login" %>
+      </div>
+    </div>
+    <div id="divCenter">
+      <div class="ads right">
+        <%= render :partial => "advertising/ads_vertical_right" %>
+      </div>
+      <div id="center-content">
+        <%= yield %>
+        <%= yield :footer_resources %>
+      </div>
+    </div>
 
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		<!-- -->
-	
-		function dispose() {
-			$('#notice').toggle();
-		}
-		function href(uri) {
-			window.open(uri, "_blank");
-		}
-	</script>
-	</body>
+    <div id="divBase">
+      <div id="base-content">
+        <div class="footer-info">
+          <ul>
+            <li>Acesse também a nossa <a href="http://www.facebook.com/selecaotricolor" target="_blank">página no facebook</a></li>
+            <li><%= link_to 'Entre em contato conosco', "/contact_us" %></li>
+              <li><%= menu_link_to 'Termos de uso', :terms %></li>
+              <li class="version-info">Versão BETA</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  <%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'jquery.ui.tabs.min', 'jquery.effects.core.min', 'jquery.effects.drop.min', 'jquery.cf.popover.min', 'formation', 'fetch_news' %>
+  <%= yield :more_javascript %>
+  <script type="text/javascript">
+    <%= yield :javascript %>
+
+    <!-- Analytics -->
+    var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-28967114-1']);
+      _gaq.push(['_setDomainName', 'selecaotricolor.com.br']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    <!-- -->
+
+    function dispose() {
+      $('#notice').toggle();
+    }
+    function href(uri) {
+      window.open(uri, "_blank");
+    }
+  </script>
+  </body>
 </html>

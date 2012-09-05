@@ -14,9 +14,7 @@
   </head>
   <body>
     <div id="fb-root"></div>
-    <script src="http://connect.facebook.net/pt_BR/all.js#appId=<%= facebook_app_id %>&amp;xfbml=1" type="text/javascript"></script>
-
-
+    <a href="https://github.com/alabeduarte/ucoach_manager"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
     <div id="divHead">
       <%= link_to "", :root, :id => "logo" %>
       <div id="head-content">
@@ -63,6 +61,8 @@
     </div>
 
   <%= javascript_include_tag 'jquery-1.7.min', 'rails', 'jquery.ui.core.min', 'jquery.ui.widget.min', 'jquery.ui.mouse.min', 'jquery.ui.draggable.min', 'jquery.ui.droppable.min', 'jquery.ui.position.min', 'jquery.ui.dialog.min', 'jquery.ui.tabs.min', 'jquery.effects.core.min', 'jquery.effects.drop.min', 'jquery.cf.popover.min', 'formation', 'fetch_news' %>
+  <script src="http://connect.facebook.net/pt_BR/all.js#appId=304922372888227
+&amp;xfbml=1" type="text/javascript"></script>
   <%= yield :more_javascript %>
   <script type="text/javascript">
     <%= yield :javascript %>

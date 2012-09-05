@@ -23,8 +23,4 @@ module ApplicationHelper
     current_user.owner_of? formation unless !user_signed_in?
   end
 
-  def facebook_app_id
-    ENV["FB_APP_ID"]
-  end
-
 end

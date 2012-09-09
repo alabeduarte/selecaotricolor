@@ -37,7 +37,7 @@ UcoachManager::Application.configure do
   # config.logger = SyslogLogger.new
 
   # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -47,7 +47,7 @@ UcoachManager::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   config.action_mailer.raise_delivery_errors = true
-  
+
   # mailer configuration
   # heroku config:add GMAIL_USERNAME=no-reply@example.com GMAIL_PASSWORD=please
   config.action_mailer.default_url_options = { :host => 'selecaotricolor.com.br' }

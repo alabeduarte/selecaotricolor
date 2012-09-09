@@ -2,14 +2,14 @@ class CalendarsController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:index, :formations_matches]
   respond_to :json, :html
-  
+
   def formations_matches
     @match = Calendar.find(params[:id])
     if @match.nil?
       redirect_to '/'
     end
   end
-  
+
   # GET /calendars
   # GET /calendars.json
   def index

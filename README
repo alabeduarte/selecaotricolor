@@ -3,3 +3,8 @@ Através do http://selecaotricolor.com.br você poderá opinar: Qual time dever�
 Sinta-se à vontade, escale o seu time, monte o seu esquema tático e comece a torcer!
 Se você acertar o esquema tático, possíveis substituições ou até se acertar quem serão os artilheiros do Tricolor de Aço, acumulará pontos e prestígio perante seus amigos, afinal, sempre tem um que se acha o técnico após cada jogo.
 Prove que você entende das coisas e monte o seu esquema tático! BORA BAHÊA!
+
+How to build?
+  You need install mongodb and run:
+    rake db:setup
+    rails server

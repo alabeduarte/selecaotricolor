@@ -9,7 +9,7 @@ Licença
 
 O código pode ser lido, entendido e estudado livremente para outros projetos.
 
-Entretanto, o design, logomarca, textos e o site em si estão com copyright da exclusivo do Seleção Tricolor. **Proibido deployar o site do jeito que está aqui em um domínio próprio, ou copiar o seu design**.
+Entretanto: o design, logomarca, textos e o site em si estão com copyright da exclusivo do Seleção Tricolor. **Proibido deployar o site do jeito que está aqui em um domínio próprio, ou copiar o seu design**.
 
 How to build?
 You need install mongodb and run:

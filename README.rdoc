@@ -4,12 +4,10 @@ Sinta-se à vontade, escale o seu time, monte o seu esquema tático e comece a t
 Se você acertar o esquema tático, possíveis substituições ou até se acertar quem serão os artilheiros do Tricolor de Aço, acumulará pontos e prestígio perante seus amigos, afinal, sempre tem um que se acha o técnico após cada jogo.
 Prove que você entende das coisas e monte o seu esquema tático! BORA BAHÊA!
 
-Licença
+== Licença
 =======
-
-O código pode ser lido, entendido e estudado livremente para outros projetos.
-
-Entretanto: o design, logomarca, textos e o site em si estão com copyright da exclusivo do Seleção Tricolor. **Proibido deployar o site do jeito que está aqui em um domínio próprio, ou copiar o seu design**.
+* O design, logomarca, textos e o site em si estão com copyright da exclusivo do Seleção Tricolor.
+* <b>É proibido fazer o deploy do projeto em um domínio próprio, ou copiar o seu design</b>.
 
 How to build?
 You need install mongodb and run:

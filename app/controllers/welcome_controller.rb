@@ -1,3 +1,4 @@
+require 'news'
 require 'cache'
 class WelcomeController < ApplicationController
 

@@ -49,12 +49,12 @@ h1.app-description {
 
 .welcome {
 	text-align: center;
-	position: relative;	
+	position: relative;
 	font-size: 18px;
 	color: #191970;
 	text-shadow: 0 1px 0 #FFF;
 	padding-top: 3%;
-	padding-bottom: 2%;	
+	padding-bottom: 2%;
 }
 
 .welcome div.share {
@@ -72,7 +72,7 @@ h1.app-description {
 	color: #191970;
 }
 
-.welcome ul {	
+.welcome ul {
 	list-style: none;
 }
 
@@ -91,7 +91,7 @@ h1.subtitle {
 	z-index: 1;
 	padding: 10px 40px 8px;
 	font-size: 20px;
-	
+
 	-webkit-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
@@ -112,8 +112,7 @@ h1.subtitle {
 	margin-left: 7%;
 	height: 80%;
 	width: 87%;
-	background-color: 
-	#FEFDED;
+	background-color: #FEFDED;
 	margin-bottom: 2%;
 }
 
@@ -175,7 +174,7 @@ h1.subtitle {
 }
 
 .grass-footer {
-	background-image: url(../../assets/grass-footer.png);	
+	background-image: url(../../assets/grass-footer.png);
 }
 
 .footer-info {
@@ -187,7 +186,7 @@ h1.subtitle {
 }
 
 .footer-info ul li {
-	display: inline; 
+	display: inline;
 }
 
 .version-info {
@@ -197,7 +196,7 @@ h1.subtitle {
 .bahia {
 	height: 45px;
 	width: 45px;
-	background-image: url(../../assets/bahia.png);	
+	background-image: url(../../assets/bahia.png);
 	background-repeat: no-repeat;
 	background-position: left;
 	position: fixed;
@@ -297,10 +296,10 @@ h1.subtitle {
 	float: left;
 }
 
-.next_match_info {	
+.next_match_info {
 	float: left;
 	width: 270px;
-	margin: 0px auto;	
+	margin: 0px auto;
 }
 
 .next_match_info li {
@@ -309,12 +308,12 @@ h1.subtitle {
 
 .match h3 {
 	margin-top: 0px;
-	text-shadow: 0 1px 2px #000000;   	
+	text-shadow: 0 1px 2px #000000;
 }
 
 .next_match_info li {
 	color: #1E90FF;
-	list-style: none;	
+	list-style: none;
 }
 
 .user_actions {
@@ -328,14 +327,14 @@ h1.subtitle {
 }
 
 .topbar.formation ul {
-	list-style: none;	
+	list-style: none;
 }
 
 .topbar.formation li, .topbar.formation li h3, .topbar.formation li h1 {
 	color: #FFF;
 }
 
-.user_info {	
+.user_info {
 	width: 390px;
 	height: 86px;
 	margin-left: 520px;
@@ -396,7 +395,7 @@ h1.subtitle {
 }
 
 
-.foobar.shareActions { 
+.foobar.shareActions {
 	background-color: #FFF;
 	background-repeat: repeat-x;
 	background-image: -khtml-gradient(linear, left top, left bottom, from(#FFF), to(#1E90FF));
@@ -475,10 +474,10 @@ h1.subtitle {
 	cursor: pointer;
 	display: inline-block;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-	
+
 	color: #fff;
     font-size: 18px;
-	
+
 	line-height: normal;
 }
 
@@ -516,7 +515,7 @@ h1.subtitle {
 	margin: 30px;
 }
 
-.alert-message.notice {	
+.alert-message.notice {
 	position: fixed;
 	width: 65%;
 	height: 25px;
@@ -555,7 +554,7 @@ h1.subtitle {
 	background-image: -webkit-linear-gradient(top, #ADD8E6, #FFF);
 	background-image: -o-linear-gradient(top, #ADD8E6, #FFF);
 	background-image: linear-gradient(top, #ADD8E6, #FFF);
-	
+
 	margin-top: 18px;
 	padding: 17px 5px 38px 10px;
 	border-top: 1px solid #DDD;
@@ -580,7 +579,7 @@ h1.subtitle {
 .new_formation_invitation h2 {
 	margin-left: 10px;
 	margin-right: 10px;
-	color: #0000CD;	
+	color: #0000CD;
 }
 
 .actions.new_formation_actions {
@@ -733,7 +732,7 @@ input[type="email"].contact_us.email {
 	float: left;
 	resize: none;
 	height: 200px;
-	width: 89%;	
+	width: 89%;
 }
 
 input[type="submit"].btn.large.contact_us {
@@ -752,7 +751,7 @@ input[type="submit"].btn.large.contact_us {
 /* Aesthetic styles */
 .popover {
 	/*background: #F33;*/
-	
+
 	background-color: #ADD8E6;
 	background-repeat: repeat-x;
 	background-image: -khtml-gradient(linear, left top, left bottom, from(#ADD8E6), to(#FFF));
@@ -762,7 +761,7 @@ input[type="submit"].btn.large.contact_us {
 	background-image: -webkit-linear-gradient(top, #ADD8E6, #FFF);
 	background-image: -o-linear-gradient(top, #ADD8E6, #FFF);
 	background-image: linear-gradient(top, #ADD8E6, #FFF);
-	
+
 	text-align: right;
 	color: #191970;
 	font-size: 22px;
@@ -776,7 +775,7 @@ input[type="submit"].btn.large.contact_us {
 	height: 150px;
 	display: none;
 	z-index: 9999;
-	border: 2px solid #B22222;	
+	border: 2px solid #B22222;
 }
 
 .popover img {
@@ -841,7 +840,7 @@ input[type="submit"].btn.large.contact_us {
 	opacity: 0.4;
 }
 
-#ec_bahia_feed ul {	
+#ec_bahia_feed ul {
 	text-align: left;
 	margin-left: 42px;
 	margin-top: 43px;
@@ -875,7 +874,7 @@ input[type="submit"].btn.large.contact_us {
 	opacity: 0.4;
 }
 
-#globoesporte_feed ul {	
+#globoesporte_feed ul {
 	text-align: left;
 	margin-left: 0px;
 	margin-top: 66px;

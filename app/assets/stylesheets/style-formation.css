@@ -162,8 +162,8 @@
 }
 
 .team {
-  border: 2px solid #FFF;
-  background-image: url(../../assets/player-body-away2012.png);
+  border: 2px solid #B22222;
+  background-image: url(../../assets/player-body-home.png);
   background-repeat: no-repeat;
   background-position: center;
   color: blue;

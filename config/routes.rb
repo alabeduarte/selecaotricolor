@@ -1,27 +1,27 @@
-UcoachManager::Application.routes.draw do  
+UcoachManager::Application.routes.draw do
 
   get "welcome/index"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
     get "login", to: "devise/sessions#new", :as => :new_user_session
     get "login", to: "devise/sessions#new"
-    
+
     post 'login', to: 'devise/sessions#create', :as => :user_session
     get 'logout', to: 'devise/sessions#destroy', :as => :destroy_user_session
   end
-  
+
   devise_for :users, :skip => [:registrations] do
     get "registration", to: "devise/registrations#new", :as => :new_user_registration
     get "configuration", to: "devise/registrations#edit", :as => :edit_user_registration
   end
-  
+
   devise_scope :user do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
 
   root :to => "welcome#index"
   resources :position_mappers, :teams, :players, :calendars, :formations, :first_teams, :newsletters, :substitutions, :profile
-  
+
   controller :formations do
     get 'new' => :new
     post 'create' => :create
@@ -31,49 +31,49 @@ UcoachManager::Application.routes.draw do
     post 'reports' => :reports
     get 'my_formations', to: "formations#current_user_formations", :as => :current_user_formations
   end
-  
+
   controller :first_teams do
     get 'last_squad_of_the_round' => :last_squad_of_the_round
     get 'avalie-seu-time' => :last_squad_of_the_round
   end
-  
+
   controller :players do
     get 'bahia_squad' => :bahia_squad
   end
-  
+
   controller :calendars do
     get 'calendars/matches/:id', to: "calendars#formations_matches", :as => :formations_matches
   end
-  
+
   controller :rating do
     get "positions/rating/:id" => :show
     post "positions/rating/:id" => :like
     delete "positions/rating/:id" => :unlike
-    
+
     get "substitutions/rating/:id" => :show_sub
     post "substitutions/rating/:id" => :like_sub
     delete "substitutions/rating/:id" => :unlike_sub
   end
-  
+
   controller :scores do
     get "scores" => :index
     get "scores/rules" => :rules
   end
-  
+
   controller :about do
     get "about/terms", :as => :terms
   end
-  
+
   controller :contact_us do
     get "contact_us" => :index
     post "contact_us" => :create
   end
-  
+
   controller :welcome do
     get "ecbahia_news", :ecbahia_news
     get "globoesporte_news", :globoesporte_news
   end
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

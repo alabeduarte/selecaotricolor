@@ -1,4 +1,4 @@
-<% first_team.formation.players_ordered_by_positions.each do |position| %>	  	
+<% first_team.formation.players_ordered_by_positions.each do |position| %>
 	<% if first_team.has_replaced?(position.player) %>
 		<tr>
 			<td class="position">
@@ -13,7 +13,7 @@
 				<%= position.player.name %>
 			</td>
 			<td>
-				<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/positions/rating/#{position.id}" %>></fb:like>
+				<fb:like show_faces="no" layout="button_count" href=<%= "/positions/rating/#{position.id}" %>></fb:like>
 			</td>
 		</tr>
 		<tr>
@@ -29,7 +29,7 @@
 				<%= first_team.substitution(position.player).on.name %>
 			</td>
 			<td>
-				<fb:like show_faces="no" layout="button_count" href=<%= "#{request.host}/substitutions/rating/#{first_team.substitution(position.player).id}" %>></fb:like>
+				<fb:like show_faces="no" layout="button_count" href=<%= "/substitutions/rating/#{first_team.substitution(position.player).id}" %>></fb:like>
 			</td>
 		</tr>
 	<% else %>
@@ -71,7 +71,7 @@
 			});
 		}
 	});
-	
+
 	FB.Event.subscribe('edge.remove', function(response) {
 		var uri = response.replace($('#host').val(), "");
 		var validTarget = response.indexOf("positions/rating") > 0 || response.indexOf("substitutions/rating") > 0;
@@ -80,6 +80,6 @@
 		  			url:   uri,
 					type:  "DELETE"
 			});
-		}		
+		}
 	});
 <% end %>

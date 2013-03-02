@@ -12,8 +12,8 @@
 				</div>
 				<%= position.player.name %>
 			</td>
-			<td>
-				<fb:like show_faces="no" layout="button_count" href=<%= "/positions/rating/#{position.id}" %>></fb:like>
+			<td style="width: 24px; float: left;">
+        <div class="fb-like" data-href="<%= "/positions/rating/#{position.id}" %>" data-send="false" data-width="24" data-height="13" data-show-faces="false" data-font="lucida grande"></div>
 			</td>
 		</tr>
 		<tr>
@@ -28,8 +28,8 @@
 				</div>
 				<%= first_team.substitution(position.player).on.name %>
 			</td>
-			<td>
-				<fb:like show_faces="no" layout="button_count" href=<%= "/substitutions/rating/#{first_team.substitution(position.player).id}" %>></fb:like>
+			<td style="width: 24px; float: left;">
+        <div class="fb-like" data-href="<%= "/substitutions/rating/#{first_team.substitution(position.player).id}" %>" data-send="false" data-width="24" data-height="13" data-show-faces="false" data-font="lucida grande"></div>
 			</td>
 		</tr>
 	<% else %>

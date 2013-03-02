@@ -1,8 +1,8 @@
 <% content_for :title, "Escale o seu Time!" %>
 <input id="host" type="hidden" value=<%= "#{request.host}" %> />
-<div class="welcome">	
+<div class="welcome">
 	<section class="facebook-top-likes">
-		<fb:like show_faces="yes" href="http://facebook.com/selecaotricolor"></fb:like>
+    <div class="fb-like" data-href="http://facebook.com/selecaotricolor" data-send="false" data-width="450" data-show-faces="true" data-font="lucida grande"></div>
 	</section>
 	<%= render :partial => "formations/new_formation", :locals => { :match => @next_match } %>
 	<h1 class="app-description">Um site interativo, não oficial, exclusivo para a torcida do BAHIA.</h1>
@@ -48,7 +48,7 @@
 
 				        </div>
 				        <div class="x">x</div>
-				        <div class="time away">				       
+				        <div class="time away">
 							<%= image_tag("escudos/#{@formation.match.away.label}.png", :size => "45x45") %>
 				        </div>
 					</li>
@@ -58,14 +58,14 @@
 						Para ver as táticas deste jogo, <%= link_to "clique aqui!", :controller => 'calendars', :action => 'formations_matches', :id => @formation.match %>
 					</div>
 					<% if @recent_winners.empty? %>
-						<ul>						
+						<ul>
 							<li>Nenhum dos usuários acertaram a escalação desta partida! =/</li>
 						</ul>
 					<% else %>
 						<div class="champions-of-round">
 							<span class="champions-of-round-icon"></span>
 							Técnicos da Rodada
-						</div>						
+						</div>
 						<div class="recent-winners champions-of-round">
 							<table>
 							<% @recent_winners.each do |u| %>

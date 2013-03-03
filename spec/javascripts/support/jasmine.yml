@@ -1,5 +1,6 @@
 src_files:
   - 'assets/soccerField.js'
+  - 'assets/player.js'
 
 stylesheets:
   - stylesheets/**/*.css

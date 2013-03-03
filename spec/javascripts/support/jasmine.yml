@@ -1,0 +1,14 @@
+src_files:
+  - 'assets/soccerField.js'
+
+stylesheets:
+  - stylesheets/**/*.css
+
+helpers:
+  - 'helpers/**/*.js'
+
+spec_files:
+  - '**/*[sS]pec.js'
+
+src_dir: assets
+spec_dir: spec/javascripts

@@ -44,7 +44,7 @@ function init_soccer_field_to_first_team() {
 }
 
 function load_soccer_field() {
-  
+
   // Reset the game
   $('#emptySlot').html('');
 
@@ -62,7 +62,7 @@ function createMatrix(slots) {
   // Matrix
   matrix = new Array(8);
   for(var i = 0; i < matrix.length; i++) {
-    matrix[i] = new Array(5);  
+    matrix[i] = new Array(5);
   }
 
   for(var i = 0; i < (slots.length-1); i++) {
@@ -79,7 +79,7 @@ function createMatrixModel(slots) {
   // Matrix
   matrixModel = new Array(8);
   for(var i = 0; i < matrixModel.length; i++) {
-    matrixModel[i] = new Array(5);  
+    matrixModel[i] = new Array(5);
   }
 
   for(var i = 0; i < (slots.length-1); i++) {
@@ -118,7 +118,7 @@ function getPlayerBySlot(slot) {
 	var Player = function(position, id) {
 	    this.position =  position;
 	    this.id = id;
-	}	
+	}
 	for(var x = 0; x < matrix.length; x++) {
     	for(var y = 0; y < matrix[x].length; y++) {
       		if (matrix[x][y] == slot+'_') {
@@ -130,8 +130,8 @@ function getPlayerBySlot(slot) {
 
 function removeElementInSoccerField(player) {
   for(var x = 0; x < matrixModel.length; x++) {
-    for(var y = 0; y < matrixModel[x].length; y++) {	  
-      if (matrixModel[x][y] == player) {		
+    for(var y = 0; y < matrixModel[x].length; y++) {
+      if (matrixModel[x][y] == player) {
         matrix[x][y] = matrix[x][y].replace('_', '');
         matrixModel[x][y] = '';
 		correctPlayers--;
@@ -146,16 +146,16 @@ function createEnabledAllPlayers() {
   	$.getJSON(uri, function(data) {
 		$.each(data, function(i, allPlayers) {
 			$.each(allPlayers, function(j, player) {
-				var playerId = i+1;			
-								
+				var playerId = i+1;
+
 				var playerDiv = '#' + player.id;
 				var positionDivName = '';
 				var positionDivClass = '';
 
-				if (player.position_mapper.code == 'G') {					
-					positionDivName = '#goalkeepers';					
+				if (player.position_mapper.code == 'G') {
+					positionDivName = '#goalkeepers';
 				} else if (player.position_mapper.code == 'DD') {
-					positionDivName = '#right_back';										
+					positionDivName = '#right_back';
 				} else if (player.position_mapper.code == 'DC') {
 					positionDivName = '#defender';
 				} else if (player.position_mapper.code == 'DE') {
@@ -167,27 +167,27 @@ function createEnabledAllPlayers() {
 				} else if (player.position_mapper.code.substring(0, 1) == 'A') {
 					positionDivName = '#forwards';
 				}
-				
-				if (player.position_mapper.code == 'G') {					
+
+				if (player.position_mapper.code == 'G') {
 					positionDivClass = 'goal_keeper';
 				} else {
 					positionDivClass = 'team';
 				}
-				
+
 				$('<div id=' + player.id + '></div>').appendTo(positionDivName);
 				$(playerDiv).addClass(positionDivClass);
-				
+
 				$('<p>' + '&nbsp' + '</p>').appendTo(playerDiv);
 				$('<span id="playerName_' + playerId + '">' + player.name + '</span>')
 					.addClass('playerName').appendTo(playerDiv);
-				
+
 				$('<div id="popover_' + playerId + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img><span class="number">'+ player.number +'</span>' + player.name + '</div>').appendTo(playerDiv);
 				$(playerDiv).popover({
 					my: 'left bottom',
 					at: 'right top',
 					offset: '-5px -5px'
 				});
-				
+
 				$(playerDiv).addClass('enabled');
 				$(playerDiv).data('number', i).appendTo(positionDivName).draggable( {
 			    	containment: '.droppable-area',
@@ -213,9 +213,9 @@ function createEnabledAllPlayers() {
 				});
 				$(playerDiv).addClass('player');
 	  		});
-      });		
+      });
 	});
-	
+
 	return players;
 }
 
@@ -226,7 +226,7 @@ function createPlayers() {
 		$.each(data, function(i, allPlayers) {
 			$.each(allPlayers, function(j, player) {
 				var playerId = i+1;
-								
+
 				var playerDiv = '#' + player.id;
 				var positionDivName = '';
 				var positionDivClass = '';
@@ -246,27 +246,27 @@ function createPlayers() {
 				} else if (player.position_mapper.code.substring(0, 1) == 'A') {
 					positionDivName = '#forwards';
 				}
-				
-				if (player.position_mapper.code == 'G') {					
+
+				if (player.position_mapper.code == 'G') {
 					positionDivClass = 'goal_keeper';
 				} else {
 					positionDivClass = 'team';
 				}
-				
+
 				$('<div id=' + player.id + ' name=' + positionDivName + '></div>').appendTo(positionDivName);
 				$(playerDiv).addClass(positionDivClass);
-				
+
 				$('<p>' + '&nbsp' + '</p>').appendTo(playerDiv);
 				$('<span id="playerName_' + playerId + '">' + player.name + '</span>')
 					.addClass('playerName').appendTo(playerDiv);
-				
+
 				$('<div id="popover_' + playerId + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img><span class="number">'+ player.number +'</span>' + player.name + '</div>').appendTo(playerDiv);
 				$(playerDiv).popover({
 					my: 'left bottom',
 					at: 'right top',
 					offset: '-5px -5px'
 				});
-				
+
 				if (player.enabled) {
 					$(playerDiv).addClass('enabled');
 					$(playerDiv).data('number', i).appendTo(positionDivName).draggable( {
@@ -297,9 +297,9 @@ function createPlayers() {
 				}
 				$(playerDiv).addClass('player');
 	  		});
-      });		
+      });
 	});
-	
+
 	return players;
 }
 
@@ -308,7 +308,7 @@ function createSlots() {
   for ( var i = 1; i <= 40; i++ ) {
     slots[i-1] = i;
   }
-                
+
   for ( var i = 1; i <= slots.length; i++ ) {
     var index = i-1;
     $('<div id=' + i + '></div>').data('number', i).appendTo('#slot').droppable( {
@@ -317,7 +317,7 @@ function createSlots() {
       drop: handlePlayerDrop
     } );
   }
-  
+
   $('<div id="gk">' + '<p></p>' + '</div>').data('number', i).appendTo('#soccerField').droppable( {
     accept: '.goal_keeper',
     hoverClass: 'hovered',
@@ -331,12 +331,12 @@ function createEmptySlots() {
   for ( var i = 1; i <= 40; i++ ) {
     slots[i-1] = i;
   }
-                
+
   for ( var i = 1; i <= slots.length; i++ ) {
     var index = i-1;
     $('<div id="' + i + '" class="emptySlot" ></div>').appendTo('#emptySlot');
   }
-  
+
   $('<div id="gk">' + '' + '</div>').data('number', i).appendTo('#soccerField');
   return slots;
 }
@@ -345,7 +345,7 @@ function handleDragging(event, ui) {
 	$(this).css('z-index', 1);
 }
 
-function handlePlayerDrop(event, ui) {		
+function handlePlayerDrop(event, ui) {
 	var slot = $(this).attr('id');
   	var player = ui.draggable.attr('id');
   	if (slot == $('#gk').attr('id')) {
@@ -357,19 +357,19 @@ function handlePlayerDrop(event, ui) {
 
   	if (correctPlayers < 10 || isPlayerPositionChange(ui)) {
 		if (isAvailable(slot)) {
-			ui = dropPlayer($(this), ui, slot);  
+			ui = dropPlayer($(this), ui, slot);
 		    if (player != goalKeeper) {
 		      correctPlayers++;
 		      addElementInSoccerField(slot, player);
 		    }
-		}		
+		}
 	}
 	if (isNewPlayer(ui)) {
-		substitution(slot, ui, player, $(this));			
+		substitution(slot, ui, player, $(this));
 	}
-		
-	if (goalKeeper != undefined && correctGoalKeeper == 0) {		
-		ui = dropPlayer($(this), ui, slot); 
+
+	if (goalKeeper != undefined && correctGoalKeeper == 0) {
+		ui = dropPlayer($(this), ui, slot);
 	    if (player == goalKeeper) {
 	      correctGoalKeeper++;
 	    }
@@ -387,11 +387,11 @@ function substitution(slot, ui, player, target) {
 	$('#' + playerBySlot.id).css('position', 'relative');
 	$('#' + playerBySlot.id).css('top', '0');
 	$('#' + playerBySlot.id).css('left', '0');
-	
+
 	var position = $('#' + playerBySlot.id).attr('name');
 	$('#' + playerBySlot.id).appendTo(position);
 	removeElementInSoccerField(playerBySlot.id);
-	ui = dropPlayer(target, ui, slot);  
+	ui = dropPlayer(target, ui, slot);
     if (player != goalKeeper) {
       correctPlayers++;
       addElementInSoccerField(slot, player);
@@ -410,8 +410,8 @@ function dropPlayer(target, ui, slot) {
 	var playerId = ui.draggable.attr('id')
 	if (isPlayerPositionChange(ui)) {
 		removeElementInSoccerField(playerId);
-		addElementInSoccerField(slot, playerId);			
-	}	
+		addElementInSoccerField(slot, playerId);
+	}
 	ui.draggable.appendTo('#soccerField');
 	ui.draggable.addClass('correct');
 	ui.draggable.css('position', 'absolute');
@@ -445,7 +445,7 @@ function convertMatrixModelToJson() {
         json += ' , ';
       }
     }
-  }  
+  }
 
   if (goalKeeper) {
 	if (element > 0) {
@@ -458,7 +458,7 @@ function convertMatrixModelToJson() {
     json += '         , ';
     json += '         "y": "' + -1 + '"';
     json += '     } ';
-    json += ' } ';  
+    json += ' } ';
   }
 
   json += ' ] ';
@@ -487,7 +487,7 @@ function send() {
 
 function desableSenderButton() {
 	$('#send_button').attr('disabled', 'disabled');
-	$('#send_button').addClass("disabled");	
+	$('#send_button').addClass("disabled");
 }
 
 function enableSenderButton() {
@@ -514,18 +514,18 @@ function cSimpleAlert(msg) {
 	});
 }
 
-function load_formation() {	
+function load_formation() {
   	getFormationByServer(window.location.pathname);
 }
 
-function load_formation_of_last_round() {	
+function load_formation_of_last_round() {
   	getFormationByServer('/last_squad_of_the_round');
 }
 
 function getFormationByServer(path) {
 	var lines = matrixModel.length;
 	var columns = matrixModel[lines-1].length;
-	var total = lines*columns;	
+	var total = lines*columns;
 	$.getJSON(path + '.json', function(data) {
   		$.each(data, function(i, formation){
 			$.each(formation.players_positions, function(j, player_position){
@@ -533,7 +533,7 @@ function getFormationByServer(path) {
 				var y = player_position.y;
 				var player = player_position.player;
 				var element = player.number;
-				
+
 				for(var index = 0; index < total; index++) {
 					if (x == 0) {
 						if (index == y) {
@@ -549,7 +549,7 @@ function getFormationByServer(path) {
 				if (x == -1 && y == -1) {
 					var slotId = '#gk';
 					$(slotId).addClass("present");
-					//$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
+					//$(slotId).html('<p>' + player.number + '</p><span class="playerName">'
 					$(slotId).html('<p>' + '&nbsp' + '</p><span class="playerName">' + player.name + '</span>');
 					$('<div id="popover_' + player.id + '" class="popover"><img src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img><span class="number">'+ player.number +'</span>' + player.name + '</div>').appendTo(slotId);
 					$(slotId).popover({
@@ -565,14 +565,14 @@ function getFormationByServer(path) {
 					});
 				}
 
-	        });	
-        });		
+	        });
+        });
 	});
 }
 
 function addPlayer(index, player) {
 	var slotId = '#' + (index+1);
-	//$(slotId).html('<p>' + player.number + '</p><span class="playerName">' 
+	//$(slotId).html('<p>' + player.number + '</p><span class="playerName">'
 	$(slotId).html('<p>' + '&nbsp' + '</p><span class="playerName">' + player.name + '</span>');
 	$(slotId).addClass("team");
 

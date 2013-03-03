@@ -1,72 +1,70 @@
-SoccerField = function() {
-  this.rows = 5;
-  this.columns = 8;
-  this.slotSize = function() {
-    return this.rows * this.columns;
-  };
+SoccerField = function(rows, columns) {
+  this.rows = rows;
+  this.columns = columns;
+  this.slotSize = function() { return this.rows * this.columns; };
   this.slots = this.initSlots();
-  this.logicalMatrix = this.initLogicalMatrix();
-  this.matrix = this.fillMatrix();
+}
+
+EmptySlot = function(index, x, y) {
+  this.index = index;
+  this.x = x;
+  this.y = y;
+}
+
+PlayerSlot = function(player, x, y) {
+  this.index = player.position
+  this.player = player;
+  this.x = x;
+  this.y = y;
 }
 
 SoccerField.prototype.initSlots = function() {
-  var slots = [];
-  for(var i = 0; i < this.slotSize; i++) { slots[i] = i+1; }
-  return slots;
-}
-
-SoccerField.prototype.initMatrix = function() {
-  var matrix = new Array(this.columns);
-  for(var i = 0; i < matrix.length; i++) {
-    matrix[i] = new Array(this.rows);
+  var slots = new Array(this.columns);
+  for(var i = 0; i < slots.length; i++) {
+    slots[i] = new Array(this.rows);
   }
-  return matrix;
-}
-
-SoccerField.prototype.initLogicalMatrix = function() {
-  var logicalMatrix = this.initMatrix();
-  for(var x = 0; x < logicalMatrix.length; x++) {
-    for(var y = 0; y < logicalMatrix[x].length; y++) {
-      logicalMatrix[x][y] = '';
-    }
-  }
-  return logicalMatrix;
-}
-
-SoccerField.prototype.fillMatrix = function() {
-  var matrix = this.initMatrix();
   var index = 0;
   while(index < this.slotSize()) {
-    for(var x = 0; x < matrix.length; x++) {
-      for(var y = 0; y < matrix[x].length; y++) {
-        matrix[x][y] = index;
+    for(var x = 0; x < slots.length; x++) {
+      for(var y = 0; y < slots[x].length; y++) {
+        slots[x][y] = new EmptySlot(index, x, y);
         index++;
       }
     }
   }
-  return matrix;
+  return slots;
 }
 
-SoccerField.prototype.add = function(player) {
-  for(var x = 0; x < this.matrix.length; x++) {
-    for(var y = 0; y < this.matrix[x].length; y++) {
-      if (this.matrix[x][y] === player.position) {
-        this.matrix[x][y] = player.position + "_";
-        this.logicalMatrix[x][y] = player;
+SoccerField.prototype.getSlot = function(index) {
+  for(var x = 0; x < this.slots.length; x++) {
+    for(var y = 0; y < this.slots[x].length; y++) {
+      var slot = this.slots[x][y];
+      if (slot.index === index) {
+        return slot;
       }
     }
   }
+  return null;
+}
+
+SoccerField.prototype.add = function(player) {
+  var slot = this.getSlot(player.position);
+  if (slot) {
+    var x = slot.x;
+    var y = slot.y;
+    this.slots[x][y] = new PlayerSlot(player, x, y);
+    return player;
+  }
+  return null;
 }
 
 SoccerField.prototype.remove = function(player) {
-  for(var x = 0; x < this.logicalMatrix.length; x++) {
-    for(var y = 0; y < this.logicalMatrix[x].length; y++) {
-      if (this.logicalMatrix[x][y] == player) {
-        this.matrix[x][y] = this.matrix[x][y].replace('_', '');
-        this.logicalMatrix[x][y] = '';
-        return player;
-      }
-    }
+  var slot = this.getSlot(player.position);
+  if (slot) {
+    var x = slot.x;
+    var y = slot.y;
+    this.slots[x][y] = new EmptySlot(player.position, x, y);
+    return player;
   }
   return null;
 }
@@ -75,13 +73,10 @@ SoccerField.prototype.isAvailable = function(slot) {
   return this.getPlayerBySlot(slot)? false: true;
 }
 
-SoccerField.prototype.getPlayerBySlot = function(slot) {
-  for(var x = 0; x < this.matrix.length; x++) {
-    for(var y = 0; y < this.matrix[x].length; y++) {
-      if (this.matrix[x][y] === slot+'_') {
-        return this.logicalMatrix[x][y];
-      }
-    }
+SoccerField.prototype.getPlayerBySlot = function(index) {
+  var slot = this.getSlot(index);
+  if (slot && slot instanceof PlayerSlot) {
+    return slot.player;
   }
   return null;
 }

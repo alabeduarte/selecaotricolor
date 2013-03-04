@@ -21,10 +21,11 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
-    gem 'rspec', '~> 2.11.0'
-    gem "rspec-rails", '~> 2.11.0'
-    gem 'jasmine'
-    gem 'pry'
+  gem 'rspec', '~> 2.11.0'
+  gem "rspec-rails", '~> 2.11.0'
+  gem 'jasmine'
+  gem 'jasmine-jquery-rails'
+  gem 'pry'
 end
 
 group :test do

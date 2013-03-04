@@ -1,5 +1,19 @@
+src_dir: assets
 src_files:
+  - 'assets/jquery-1.7.min.js'
+  - 'assets/jquery.ui.core.min.js'
+  - 'assets/jquery.ui.widget.min.js'
+  - 'assets/jquery.ui.mouse.min.js'
+  - 'assets/jquery.ui.draggable.min.js'
+  - 'assets/jquery.ui.droppable.min.js'
+  - 'assets/jquery.ui.position.min.js'
+  - 'assets/jquery.ui.dialog.min.js'
+  - 'assets/jquery.ui.tabs.min.js'
+  - 'assets/jquery.effects.core.min.js'
+  - 'assets/jquery.effects.drop.min.js'
+  - 'assets/jquery.cf.popover.min.js'
   - 'assets/soccerField.js'
+  - 'assets/draggingDropHandler.js'
   - 'assets/player.js'
 
 stylesheets:
@@ -8,8 +22,6 @@ stylesheets:
 helpers:
   - 'helpers/**/*.js'
 
+spec_dir: spec/javascripts
 spec_files:
   - '**/*[sS]pec.js'
-
-src_dir: assets
-spec_dir: spec/javascripts

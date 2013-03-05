@@ -12,6 +12,7 @@ src_files:
   - 'assets/jquery.effects.core.min.js'
   - 'assets/jquery.effects.drop.min.js'
   - 'assets/jquery.cf.popover.min.js'
+  - 'assets/jasmine-jquery.js'
   - 'assets/soccerField.js'
   - 'assets/draggingDropHandler.js'
   - 'assets/player.js'

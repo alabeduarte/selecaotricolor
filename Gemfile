@@ -16,6 +16,7 @@ gem 'nokogiri', '1.5.0'
 group :assets do
   gem 'sass-rails', '3.2.4'
   gem 'uglifier', '1.2.3'
+  gem 'jasmine-jquery-rails'
 end
 
 gem 'jquery-rails'
@@ -24,7 +25,6 @@ group :development, :test do
   gem 'rspec', '~> 2.11.0'
   gem "rspec-rails", '~> 2.11.0'
   gem 'jasmine'
-  gem 'jasmine-jquery-rails'
   gem 'pry'
 end
 

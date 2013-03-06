@@ -6,3 +6,8 @@ PlayerBuilder.prototype.create = function() {
   $.getJSON(url, function(data) {
   });
 }
+
+PlayerBuilder.prototype.findAll = function() {
+  var url = '/bahia_squad.json';
+  return $.getJSON(url);
+}

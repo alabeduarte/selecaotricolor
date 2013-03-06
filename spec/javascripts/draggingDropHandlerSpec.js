@@ -8,8 +8,10 @@ describe("DraggingDropHandler", function() {
   });
 
   describe("Initializing soccer field", function() {
-    it("should build each slot as droppable", function() {
+    beforeEach(function() {
       draggingDropHandler.init();
+    });
+    it("should build each slot as droppable", function() {
       var soccerField = draggingDropHandler.soccerField;
       for(var i=0; i < soccerField.slotSize(); i++) {
         var item = $('#' + i);
@@ -17,7 +19,6 @@ describe("DraggingDropHandler", function() {
       }
     });
     it("should disable #send_button", function() {
-      draggingDropHandler.init();
       expect($('#send_button').hasClass('disabled')).toBe(true);
     });
   });

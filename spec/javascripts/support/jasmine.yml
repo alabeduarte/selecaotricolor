@@ -13,9 +13,12 @@ src_files:
   - assets/jquery.effects.drop.min.js
   - assets/jquery.cf.popover.min.js
   - assets/jasmine-jquery.js
+  - spec/javascripts/support/sinon-1.6.0.js
+  - spec/javascripts/support/jasmine-sinon.js
   - assets/soccerField.js
   - assets/draggingDropHandler.js
   - assets/player.js
+  - assets/playerBuilder.js
 
 stylesheets:
   - stylesheets/**/*.css

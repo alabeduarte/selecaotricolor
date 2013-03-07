@@ -9,5 +9,11 @@ PlayerBuilder.prototype.create = function() {
 
 PlayerBuilder.prototype.findAll = function() {
   var url = '/bahia_squad.json';
-  return $.getJSON(url);
+  var result = [];
+  $.getJSON(url, function(data) {
+    $.each(data, function(index, players) {
+      result[index] = players.player;
+    });
+  });
+  return result;
 }

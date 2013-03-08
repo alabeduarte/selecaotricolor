@@ -2,7 +2,7 @@ describe("DraggingDropHandler", function() {
   var draggingDropHandler;
 
   beforeEach(function() {
-    loadFixtures('draggingDropHandler.html');
+    loadFixtures('newFormation.html');
     var soccerField = new SoccerField(5, 8);
     draggingDropHandler = new DraggingDropHandler(soccerField);
   });

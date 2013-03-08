@@ -1,12 +1,6 @@
 PlayerBuilder = function() {
 }
 
-PlayerBuilder.prototype.create = function() {
-  var url = '/bahia_squad.json';
-  $.getJSON(url, function(data) {
-  });
-}
-
 PlayerBuilder.prototype.findAll = function() {
   var url = '/bahia_squad.json';
   var result = [];
@@ -16,4 +10,11 @@ PlayerBuilder.prototype.findAll = function() {
     });
   });
   return result;
+}
+
+PlayerBuilder.prototype.create = function(players) {
+  $.each(players, function(index, player) {
+    var positionDivName = "#forwards";
+    $('<div id=' + player.id + ' name=' + positionDivName + '></div>').appendTo(positionDivName);
+  });
 }

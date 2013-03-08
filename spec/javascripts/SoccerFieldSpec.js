@@ -4,7 +4,8 @@ describe("SoccerField", function() {
 
   beforeEach(function() {
     soccerField = new SoccerField(5, 8);
-    player = new Player("1", 10);
+    player = new Player({id: "playerId", position_mapper: {code: "AC"}});
+    player.slot = 10;
   });
 
   describe("Creating Slots", function() {
@@ -61,12 +62,12 @@ describe("SoccerField", function() {
           soccerField.add(player);
         });
         it("should be unavailable slot", function() {
-          expect(soccerField.isAvailable(player.position)).toBe(false);
+          expect(soccerField.isAvailable(player.slot)).toBe(false);
         });
         it("should get player by slot", function() {
-          var playerFound = soccerField.getPlayerBySlot(player.position);
-          expect(playerFound.id).toEqual("1");
-          expect(playerFound.position).toEqual(10);
+          var playerFound = soccerField.getPlayerBySlot(player.slot);
+          expect(playerFound.id).toEqual("playerId");
+          expect(playerFound.slot).toEqual(10);
         });
         it("should be able to remove player", function() {
           var playerRemoved = soccerField.remove(player);

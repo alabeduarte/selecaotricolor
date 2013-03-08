@@ -12,7 +12,7 @@ EmptySlot = function(index, x, y) {
 }
 
 PlayerSlot = function(player, x, y) {
-  this.index = player.position
+  this.index = player.slot
   this.player = player;
   this.x = x;
   this.y = y;
@@ -48,7 +48,7 @@ SoccerField.prototype.getSlot = function(index) {
 }
 
 SoccerField.prototype.add = function(player) {
-  var slot = this.getSlot(player.position);
+  var slot = this.getSlot(player.slot);
   if (slot) {
     var x = slot.x;
     var y = slot.y;
@@ -59,11 +59,11 @@ SoccerField.prototype.add = function(player) {
 }
 
 SoccerField.prototype.remove = function(player) {
-  var slot = this.getSlot(player.position);
+  var slot = this.getSlot(player.slot);
   if (slot) {
     var x = slot.x;
     var y = slot.y;
-    this.slots[x][y] = new EmptySlot(player.position, x, y);
+    this.slots[x][y] = new EmptySlot(player.slot, x, y);
     return player;
   }
   return null;

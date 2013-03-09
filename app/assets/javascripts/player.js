@@ -1,5 +1,6 @@
 Player = function(player) {
   this.id = player.id;
+  this.avatar = player.avatar;
   this.name = player.name;
   this.number = player.number;
   this.slot = null;

@@ -43,7 +43,7 @@ describe("PlayerBuilder", function() {
   describe("Preparing Players", function() {
     var players;
     beforeEach(function() {
-      players = [new Player({id: "playerId1", name: "Lomba", number: "1", position_mapper: {code: "G"}}), new Player({id: "playerId2", name: "Neto", number: "2", position_mapper: {code: "DD"}}), new Player({id: "playerId3", name: "Fahel", number: "7", position_mapper: {code: "MDC"}})];
+      players = [new Player({id: "playerId1", name: "Lomba", number: "1", position_mapper: {code: "G"}}), new Player({id: "playerId2", name: "Neto", number: "2", position_mapper: {code: "DD"}}), new Player({id: "playerId3", avatar: "avatar3", name: "Fahel", number: "7", position_mapper: {code: "MDC"}})];
     });
 
     describe("Appending to position div", function() {
@@ -75,8 +75,15 @@ describe("PlayerBuilder", function() {
       it("should have .popover css class", function() {
         expect($('#popover_playerId3')).toHaveClass("popover");
       })
-      xit("should have contain img source inside popover", function() {
-
+      it("should have contain img source inside popover", function() {
+        expect($('#popover_playerId3')).toContain($('#avatar_playerId3'));
+        expect($('#avatar_playerId3').attr('src')).toEqual('/assets/bahia_squad/avatar3');
+        expect($('#avatar_playerId3').attr('width')).toEqual('75px');
+        expect($('#avatar_playerId3').attr('height')).toEqual('105px');
+      });
+      it("should have player info inside popover", function() {
+        expect($('#popover_playerId3').html()).toContain('<span class="number">7</span>');
+        expect($('#playerId3').html()).toContain('Fahel');
       });
     });
 

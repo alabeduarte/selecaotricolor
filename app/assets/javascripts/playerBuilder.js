@@ -18,5 +18,8 @@ PlayerBuilder.prototype.create = function(players) {
   $.each(players, function(index, player) {
     $('<div id=' + player.id + ' name=' + player.positionName() + '></div>').appendTo("#" + player.positionName());
     $("#" + player.id).addClass(player.bodyType());
+    $("<p>&nbsp</p>").appendTo("#" + player.id);
+    $('<div id="popover_' + player.id + '"></div>').appendTo('#' + player.id);
+    $('#popover_' + player.id).addClass("popover");
   });
 }

@@ -41,33 +41,43 @@ describe("PlayerBuilder", function() {
   });
 
   describe("Preparing Players", function() {
-    describe("Creating div for players", function() {
+    var players;
+    beforeEach(function() {
+      players = [new Player({id: "playerId1", name: "Lomba", number: "1", position_mapper: {code: "G"}}), new Player({id: "playerId2", name: "Neto", number: "2", position_mapper: {code: "DD"}}), new Player({id: "playerId3", name: "Fahel", number: "7", position_mapper: {code: "MDC"}})];
+    });
 
-      describe("Appending to position div", function() {
-        it("should create div for player with player id inside in his position mapper", function() {
-          var players = [new Player({id: "playerId", name: "Neto", number: "2", position_mapper: {code: "DD"}})];
-          var player = players[0];
-          playerBuilder.create(players);
-          expect($("#" + player.positionName())).toContain($('#playerId'));
-        });
-
-        it("should add .goal_keeper css class for goalkeeper", function() {
-          var players = [new Player({id: "playerId", name: "Lomba", number: "1", position_mapper: {code: "G"}})];
-          var player = players[0];
-          var positionDivName = player.positionName();
-          playerBuilder.create(players);
-          expect($("#playerId")).toHaveClass("goal_keeper");
-        });
-
-        it("should add .team css class for anothers", function() {
-          var players = [new Player({id: "playerId", name: "Fahel", number: "7", position_mapper: {code: "MDC"}})];
-          var player = players[0];
-          var positionDivName = player.positionName();
-          playerBuilder.create(players);
-          expect($("#playerId")).toHaveClass("team");
-        });
+    describe("Appending to position div", function() {
+      it("should create div for player with player id inside in his position mapper", function() {
+        var player = players[1];
+        playerBuilder.create(players);
+        expect($("#right_back")).toContain($('#playerId2'));
       });
+      it("should add .goal_keeper css class for goalkeeper", function() {
+        var player = players[0];
+        playerBuilder.create(players);
+        expect($("#playerId1")).toHaveClass("goal_keeper");
+      });
+      it("should add .team css class for anothers", function() {
+        var player = players[2];
+        playerBuilder.create(players);
+        expect($("#playerId3")).toHaveClass("team");
+      });
+    });
+    describe("Adding popover", function() {
+      var player;
+      beforeEach(function() {
+        player = players[2];
+        playerBuilder.create(players);
+      });
+      it("should have popover with name", function() {
+        expect($('#playerId3')).toContain($('#popover_playerId3'));
+      });
+      it("should have .popover css class", function() {
+        expect($('#popover_playerId3')).toHaveClass("popover");
+      })
+      xit("should have contain img source inside popover", function() {
 
+      });
     });
 
   });

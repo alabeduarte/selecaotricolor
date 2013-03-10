@@ -47,33 +47,29 @@ describe("PlayerBuilder", function() {
     var players;
     beforeEach(function() {
       players = [
-      new Player({id: "playerId1", name: "Lomba", number: "1", position_mapper: {code: "G"}}),
-      new Player({id: "playerId2", name: "Neto", number: "2", position_mapper: {code: "DD"}}),
-      new Player({id: "playerId3", avatar: "avatar3", name: "Fahel", number: "7", position_mapper: {code: "MDC"}})
+      new Player({id: "playerId1", name: "Lomba", number: "1", position_mapper: {code: "G"}, enabled: true}),
+      new Player({id: "playerId2", name: "Neto", number: "2", position_mapper: {code: "DD"}, enabled: true}),
+      new Player({id: "playerId3", avatar: "avatar3", name: "Fahel", number: "7", position_mapper: {code: "MDC"}, enabled: true}),
+      new Player({id: "disabled", avatar: "none", name: "Disabled", number: "0", position_mapper: {code: "G"}, enabled: false})
       ];
     });
 
     describe("Appending to position div", function() {
-      it("should create div for player inside in his position mapper", function() {
-        var player = players[1];
+      beforeEach(function() {
         playerBuilder.create(players);
+      });
+      it("should create div for player inside in his position mapper", function() {
         expect($("#right_back")).toContain($('#playerId2'));
       });
       it("should add .goal_keeper css class for goalkeeper", function() {
-        var player = players[0];
-        playerBuilder.create(players);
         expect($("#playerId1")).toHaveClass("goal_keeper");
       });
       it("should add .team css class for anothers", function() {
-        var player = players[2];
-        playerBuilder.create(players);
         expect($("#playerId3")).toHaveClass("team");
       });
     });
     describe("Adding popover", function() {
-      var player;
       beforeEach(function() {
-        player = players[2];
         playerBuilder.create(players);
       });
       it("should have blank space before popover", function() {
@@ -96,6 +92,40 @@ describe("PlayerBuilder", function() {
       });
       it("should have player name", function() {
         expect($('#playerId3').html()).toContain('Fahel');
+      });
+    });
+
+    describe("Enabling/Disabling players", function() {
+      beforeEach(function() {
+        playerBuilder.create(players);
+      });
+
+      describe("when player is enabled", function() {
+        it("should have .enabled css class", function() {
+          expect($("#playerId1")).toHaveClass("enabled");
+        });
+        it("should have .player css class", function() {
+          expect($("#playerId1")).toHaveClass("player");
+        });
+        it("should show popover on mouse over", function() {
+          $("#playerId1").trigger("mouseover");
+          expect($("#popover_playerId1").css('display')).toEqual("block");
+        });
+        it("should show popover on mouse over", function() {
+          $("#playerId1").trigger("mouseout");
+          expect($("#popover_playerId1").css('display')).toEqual("none");
+        });
+      });
+      describe("when player is disabled", function() {
+        it("should have .disabled css class", function() {
+          expect($("#disabled")).toHaveClass("disabled");
+        });
+        it("should not have .player css class", function() {
+          expect($("#disabled")).not.toHaveClass("player");
+        });
+        it("should not have popover", function() {
+          expect($('#disabled')).not.toContain($('#popover_disabled'));
+        });
       });
     });
 

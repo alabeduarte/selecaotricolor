@@ -17,7 +17,8 @@ PlayerBuilder.prototype.create = function(players) {
   var builder = this;
   $.each(players, function(index, player) {
     builder.createDiv(player);
-    builder.addPopover(player);
+    builder.makeEnabled(player);
+    if (player.enabled) { builder.addPopover(player); }
   });
 }
 
@@ -41,4 +42,16 @@ PlayerBuilder.prototype.addPopover = function(player) {
 
   $('<span class="number">' + player.number + '</span>')
     .appendTo('#popover_' + player.id);
+
+  $('#' + player.id).mouseover(function () {
+	  $('#popover_' + player.id).css('display', 'block');
+	});
+  $('#' + player.id).mouseout(function () {
+	  $('#popover_' + player.id).css('display', 'none');
+	});
+}
+
+PlayerBuilder.prototype.makeEnabled = function(player) {
+  $("#" + player.id).addClass(player.enabled? "enabled": "disabled");
+  if (player.enabled) { $("#" + player.id).addClass("player"); }
 }

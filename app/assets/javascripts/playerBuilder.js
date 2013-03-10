@@ -18,7 +18,10 @@ PlayerBuilder.prototype.create = function(players) {
   $.each(players, function(index, player) {
     builder.createDiv(player);
     builder.makeEnabled(player);
-    if (player.enabled) { builder.addPopover(player); }
+    if (player.enabled) {
+      $("#" + player.id).addClass("player");
+      builder.addPopover(player);
+    }
   });
 }
 
@@ -53,5 +56,4 @@ PlayerBuilder.prototype.addPopover = function(player) {
 
 PlayerBuilder.prototype.makeEnabled = function(player) {
   $("#" + player.id).addClass(player.enabled? "enabled": "disabled");
-  if (player.enabled) { $("#" + player.id).addClass("player"); }
 }

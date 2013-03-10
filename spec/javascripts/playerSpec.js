@@ -24,7 +24,7 @@ describe("Player", function() {
       var player = new Player({name: "Rosales", position_mapper: {code: "ME"}});
       expect(player.positionName()).toEqual("midfield");
     });
-    it("should get #midfield", function() {
+    it("should get #forwards", function() {
       var player = new Player({name: "Souza", position_mapper: {code: "AC"}});
       expect(player.positionName()).toEqual("forwards");
     });

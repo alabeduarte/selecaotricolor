@@ -5,7 +5,10 @@ describe("PlayerBuilder", function() {
   beforeEach(function() {
     loadFixtures('newFormation.html');
     server = sinon.fakeServer.create();
-    server.respondWith("GET", "/bahia_squad.json", [200, { "Content-Type": "application/json" }, '[{ "player": { "id":"playerId","name":"Souza","number":9, "position_mapper":{"code":"AC"} } }]']);
+    server.respondWith("GET", "/bahia_squad.json",
+      [200, { "Content-Type": "application/json" },
+      '[{ "player": { "id":"playerId","name":"Souza","number":9, "position_mapper":{"code":"AC"} } }]'
+      ]);
 
     playerBuilder = new PlayerBuilder();
   });
@@ -43,11 +46,15 @@ describe("PlayerBuilder", function() {
   describe("Preparing Players", function() {
     var players;
     beforeEach(function() {
-      players = [new Player({id: "playerId1", name: "Lomba", number: "1", position_mapper: {code: "G"}}), new Player({id: "playerId2", name: "Neto", number: "2", position_mapper: {code: "DD"}}), new Player({id: "playerId3", avatar: "avatar3", name: "Fahel", number: "7", position_mapper: {code: "MDC"}})];
+      players = [
+      new Player({id: "playerId1", name: "Lomba", number: "1", position_mapper: {code: "G"}}),
+      new Player({id: "playerId2", name: "Neto", number: "2", position_mapper: {code: "DD"}}),
+      new Player({id: "playerId3", avatar: "avatar3", name: "Fahel", number: "7", position_mapper: {code: "MDC"}})
+      ];
     });
 
     describe("Appending to position div", function() {
-      it("should create div for player with player id inside in his position mapper", function() {
+      it("should create div for player inside in his position mapper", function() {
         var player = players[1];
         playerBuilder.create(players);
         expect($("#right_back")).toContain($('#playerId2'));
@@ -69,20 +76,25 @@ describe("PlayerBuilder", function() {
         player = players[2];
         playerBuilder.create(players);
       });
+      it("should have blank space before popover", function() {
+        expect($('#playerId3').html()).toContain('<p>&nbsp;</p>');
+      });
       it("should have popover with name", function() {
         expect($('#playerId3')).toContain($('#popover_playerId3'));
       });
       it("should have .popover css class", function() {
         expect($('#popover_playerId3')).toHaveClass("popover");
       })
-      it("should have contain img source inside popover", function() {
+      it("should have contain img source", function() {
         expect($('#popover_playerId3')).toContain($('#avatar_playerId3'));
         expect($('#avatar_playerId3').attr('src')).toEqual('/assets/bahia_squad/avatar3');
         expect($('#avatar_playerId3').attr('width')).toEqual('75px');
         expect($('#avatar_playerId3').attr('height')).toEqual('105px');
       });
-      it("should have player info inside popover", function() {
+      it("should have player number", function() {
         expect($('#popover_playerId3').html()).toContain('<span class="number">7</span>');
+      });
+      it("should have player name", function() {
         expect($('#playerId3').html()).toContain('Fahel');
       });
     });

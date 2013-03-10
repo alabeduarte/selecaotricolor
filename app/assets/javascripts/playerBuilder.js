@@ -16,12 +16,29 @@ PlayerBuilder.prototype.findAll = function() {
 PlayerBuilder.prototype.create = function(players) {
   var builder = this;
   $.each(players, function(index, player) {
-    $('<div id=' + player.id + ' name=' + player.positionName() + '>' + player.name + '</div>').appendTo("#" + player.positionName());
-    $("#" + player.id).addClass(player.bodyType());
-    $("<p>&nbsp</p>").appendTo("#" + player.id);
-    $('<div id="popover_' + player.id + '"></div>').appendTo('#' + player.id);
-    $('#popover_' + player.id).addClass("popover");
-    $('<img id="avatar_' + player.id + '" src="/assets/bahia_squad/' + player.avatar + '" width="75px" height="105px"></img>').appendTo('#popover_' + player.id);
-    $('<span class="number">' + player.number + '</span>').appendTo('#popover_' + player.id);
+    builder.createDiv(player);
+    builder.addPopover(player);
   });
+}
+
+PlayerBuilder.prototype.createDiv = function(player) {
+  $('<div id=' + player.id
+      + ' name=' + player.positionName() + '>'
+      + player.name + '</div>')
+    .appendTo("#" + player.positionName());
+
+  $("#" + player.id).addClass(player.bodyType());
+}
+
+PlayerBuilder.prototype.addPopover = function(player) {
+  $("<p>&nbsp</p>").appendTo("#" + player.id);
+  $('<div id="popover_' + player.id + '"></div>').appendTo('#' + player.id);
+  $('#popover_' + player.id).addClass("popover");
+  $('<img id="avatar_' + player.id
+      + '" src="/assets/bahia_squad/' + player.avatar
+      + '" width="75px" height="105px"></img>')
+    .appendTo('#popover_' + player.id);
+
+  $('<span class="number">' + player.number + '</span>')
+    .appendTo('#popover_' + player.id);
 }

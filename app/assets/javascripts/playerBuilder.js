@@ -1,4 +1,5 @@
-PlayerBuilder = function() {
+PlayerBuilder = function(draggingDropHandler) {
+  this.draggingDropHandler = draggingDropHandler;
 }
 
 PlayerBuilder.prototype.findAll = function() {
@@ -21,6 +22,7 @@ PlayerBuilder.prototype.create = function(players) {
     if (player.enabled) {
       $("#" + player.id).addClass("player");
       builder.addPopover(player);
+      builder.draggingDropHandler.handle(player);
     }
   });
 }

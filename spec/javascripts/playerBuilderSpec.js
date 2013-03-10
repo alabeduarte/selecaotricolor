@@ -1,5 +1,7 @@
 describe("PlayerBuilder", function() {
   var playerBuilder;
+  var draggingDropHandler;
+  var draggingDropSpy;
   var server;
 
   beforeEach(function() {
@@ -10,7 +12,8 @@ describe("PlayerBuilder", function() {
       '[{ "player": { "id":"playerId","name":"Souza","number":9, "position_mapper":{"code":"AC"} } }]'
       ]);
 
-    playerBuilder = new PlayerBuilder();
+    draggingDropHandler = new DraggingDropHandler({});
+    playerBuilder = new PlayerBuilder(draggingDropHandler);
   });
 
   afterEach(function() {
@@ -96,11 +99,16 @@ describe("PlayerBuilder", function() {
     });
 
     describe("Enabling/Disabling players", function() {
+      var draggingDropSpy;
       beforeEach(function() {
+        draggingDropSpy = sinon.spy(draggingDropHandler, "handle");
         playerBuilder.create(players);
       });
 
       describe("when player is enabled", function() {
+        it("should call draggingDropHandler", function() {
+          expect(draggingDropSpy).toHaveBeenCalledWith(players[0]);
+        });
         it("should have .enabled css class", function() {
           expect($("#playerId1")).toHaveClass("enabled");
         });
@@ -117,6 +125,9 @@ describe("PlayerBuilder", function() {
         });
       });
       describe("when player is disabled", function() {
+        it("should call draggingDropHandler", function() {
+          expect(draggingDropSpy).not.toHaveBeenCalledWith(players[3]);
+        });
         it("should have .disabled css class", function() {
           expect($("#disabled")).toHaveClass("disabled");
         });

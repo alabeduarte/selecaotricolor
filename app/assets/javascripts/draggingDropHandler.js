@@ -20,4 +20,8 @@ DraggingDropHandler.prototype.disable = function(button) {
 	button.addClass("disabled");
 }
 
+DraggingDropHandler.prototype.handle = function(player) {
+
+}
+
 

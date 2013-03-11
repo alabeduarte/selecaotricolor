@@ -9,7 +9,8 @@ DraggingDropHandler.prototype.init = function() {
 
 DraggingDropHandler.prototype.initSlots = function() {
   $('#slot').html('');
-  for(var i=0; i < this.soccerField.slotSize(); i++) {
+  var size = this.soccerField.slotSize();
+  for(var i=0; i < size; i++) {
     var item = '<div id=' + i + '></div>';
     $(item).data('number', i).appendTo('#slot').droppable({});
   }
@@ -21,7 +22,17 @@ DraggingDropHandler.prototype.disable = function(button) {
 }
 
 DraggingDropHandler.prototype.handle = function(player) {
-
+  if (player.enabled) {
+    $('#' + player.id).draggable({});
+    $('#' + player.id).mousedown(function() {
+      $('#slot').css('display', 'block');
+      $('#positionMap').css('display', 'block');
+    });
+    $('#' + player.id).mouseup(function() {
+      $('#slot').css('display', 'none');
+      $('#positionMap').css('display', 'none');
+    });
+  }
 }
 
 

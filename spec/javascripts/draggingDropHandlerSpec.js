@@ -11,11 +11,15 @@ describe("DraggingDropHandler", function() {
     beforeEach(function() {
       draggingDropHandler.init();
     });
-    it("should build each slot as droppable", function() {
+    it("should make each slot as droppable", function() {
       var soccerField = draggingDropHandler.soccerField;
       for(var i=0; i < soccerField.slotSize(); i++) {
         expect($("#" + i)).toHaveClass('ui-droppable');
       }
+    });
+    it("should make goal keeper as droppable", function() {
+      var soccerField = draggingDropHandler.soccerField;
+      expect($("#gk")).toHaveClass('ui-droppable');
     });
     it("should disable #send_button", function() {
       expect($('#send_button')).toHaveClass('disabled');

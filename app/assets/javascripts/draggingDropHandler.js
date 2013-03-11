@@ -14,6 +14,7 @@ DraggingDropHandler.prototype.initSlots = function() {
     var item = '<div id=' + i + '></div>';
     $(item).data('number', i).appendTo('#slot').droppable({});
   }
+  $('<div id="gk"><p></p></div>').appendTo("#soccerField").droppable({});
 }
 
 DraggingDropHandler.prototype.disable = function(button) {

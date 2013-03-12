@@ -1,5 +1,6 @@
 DraggingDropHandler = function(soccerField) {
   this.soccerField = soccerField;
+  this.correctPlayers = 0;
 }
 
 DraggingDropHandler.prototype.init = function() {
@@ -54,6 +55,17 @@ DraggingDropHandler.prototype.handle = function(player) {
 }
 
 DraggingDropHandler.prototype.onDrop = function(event, ui) {
+  this.correctPlayers++;
+  var target = '';//this.getCurrentTarget();
+	ui.draggable.appendTo('#soccerField');
+	ui.draggable.addClass('correct');
+	ui.draggable.css('position', 'absolute');
+  ui.draggable.position( { of: target, my: 'left top', at: 'left top' } );
+  ui.draggable.draggable('option', 'revert', false);
+}
+
+DraggingDropHandler.prototype.getCurrentTarget = function() {
+  return $(this);
 }
 
 DraggingDropHandler.prototype.onDrag = function(event, ui) {

@@ -76,5 +76,50 @@ describe("DraggingDropHandler", function() {
       });
     });
 
+    describe("On drop", function() {
+      var players;
+      var UI;
+      beforeEach(function() {
+        UI = function(id) {
+          this.draggable = $(id);
+        }
+        players = [
+          {id: "p1", enabled: true},
+          {id: "p2", enabled: true},
+          {id: "p3", enabled: true},
+          {id: "p4", enabled: true},
+          {id: "p5", enabled: true},
+          {id: "p6", enabled: true},
+          {id: "p7", enabled: true},
+          {id: "p8", enabled: true},
+          {id: "p9", enabled: true},
+          {id: "p10", enabled: true},
+          {id: "p11", enabled: true},
+        ];
+        draggingDropHandler.init();
+        for(var i=0; i < players.length; i++) {
+          $('<div id="' + players[i].id + '"></div>').appendTo('#forwards');
+          draggingDropHandler.handle(players[i]);
+        }
+      });
+      it("should increment correct player numbers", function() {
+        expect(draggingDropHandler.correctPlayers).toEqual(0);
+        draggingDropHandler.onDrop(event, new UI("#p1"));
+        expect(draggingDropHandler.correctPlayers).toEqual(1);
+      });
+      it("should append player inside #soccerField", function() {
+        draggingDropHandler.onDrop(event, new UI("#p2"));
+        expect($('#soccerField')).toContain($('#p2'));
+      });
+      it("should have .correct css class", function() {
+        draggingDropHandler.onDrop(event, new UI("#p2"));
+        expect($('#p2')).toHaveClass('correct');
+      });
+      it("should have absolute css position", function() {
+        draggingDropHandler.onDrop(event, new UI("#p2"));
+        expect($('#p2').css('position')).toEqual('absolute');
+      });
+    });
+
   });
 });

@@ -9,12 +9,21 @@ DraggingDropHandler.prototype.init = function() {
 
 DraggingDropHandler.prototype.initSlots = function() {
   $('#slot').html('');
+  var handler = this;
   var size = this.soccerField.slotSize();
   for(var i=0; i < size; i++) {
     var item = '<div id=' + i + '></div>';
-    $(item).data('number', i).appendTo('#slot').droppable({});
+    $(item).data('number', i).appendTo('#slot').droppable({
+      accept: '.team',
+      hoverClass: 'hovered',
+      drop: handler.onDrop
+    });
   }
-  $('<div id="gk"><p></p></div>').appendTo("#soccerField").droppable({});
+  $('<div id="gk"><p></p></div>').appendTo("#soccerField").droppable({
+    accept: '.goal_keeper',
+    hoverClass: 'hovered',
+    drop: handler.onDrop
+  });
 }
 
 DraggingDropHandler.prototype.disable = function(button) {
@@ -24,7 +33,15 @@ DraggingDropHandler.prototype.disable = function(button) {
 
 DraggingDropHandler.prototype.handle = function(player) {
   if (player.enabled) {
-    $('#' + player.id).draggable({});
+    var handler = this;
+    $('#' + player.id).draggable({
+      containment: '#soccerField',
+      stack: 'move',
+      appendTo: 'body',
+      helper: 'clone',
+      revert: true,
+      drag: handler.onDrag
+    });
     $('#' + player.id).mousedown(function() {
       $('#slot').css('display', 'block');
       $('#positionMap').css('display', 'block');
@@ -36,4 +53,8 @@ DraggingDropHandler.prototype.handle = function(player) {
   }
 }
 
+DraggingDropHandler.prototype.onDrop = function(event, ui) {
+}
 
+DraggingDropHandler.prototype.onDrag = function(event, ui) {
+}
